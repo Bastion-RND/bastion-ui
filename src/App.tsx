@@ -1,6 +1,8 @@
-import { FC } from 'react';
 import '../lib/theme/variables.css';
-import { TestButton } from '../lib/TestButton/TestButton.tsx';
+
+import { FC } from 'react';
+
+import { TestButton } from '../lib/TestButton/TestButton';
 
 const App: FC = () => (
   <TestButton />
