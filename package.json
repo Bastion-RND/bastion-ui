@@ -4,8 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "files": [
-    "dist",
-    "lib"
+    "dist"
   ],
   "main": "./dist/bastion-ui.umd.cjs",
   "module": "./dist/bastion-ui.js",
