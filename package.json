@@ -14,7 +14,7 @@
       "import": "./dist/bastion-ui.js",
       "require": "./dist/bastion-ui.umd.cjs"
     },
-    "./dist/style.css": "./dist/theme/veriables.css"
+    "./styles/variables.css": "./dist/styles/variables.css"
   },
   "sideEffects": [
     "**/*.css"
