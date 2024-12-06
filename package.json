@@ -22,7 +22,7 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "del-cli dist -f",
-    "build": "tsc -b && vite build && npm pack",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
