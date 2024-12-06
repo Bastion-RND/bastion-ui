@@ -1,5 +1,5 @@
 import { jsx as t } from "react/jsx-runtime";
-const e = () => /* @__PURE__ */ t("button", { type: "button", children: "test" });
+const r = () => /* @__PURE__ */ t("button", { style: { color: "var(--ion-color-primary)" }, type: "button", children: "test" });
 export {
-  e as TestButton
+  r as TestButton
 };
