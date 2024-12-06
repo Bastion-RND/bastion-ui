@@ -2,10 +2,14 @@ import '../lib/theme/variables.css';
 
 import { FC } from 'react';
 
-import { TestButton } from '../lib/TestButton/TestButton';
+import { BastButton } from '../lib/BastButton/BastButton';
 
 const App: FC = () => (
-  <TestButton />
+  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+    <BastButton>Confirm</BastButton>
+    <BastButton fill='outline'>Confirm</BastButton>
+    <BastButton fill='clear'>Confirm</BastButton>
+  </div>
 )
 
 export default App

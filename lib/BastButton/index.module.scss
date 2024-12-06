@@ -1,0 +1,56 @@
+@mixin bast-button {
+  border: none;
+  cursor: pointer;
+  padding: 10px 18px;
+  border-radius: (var(--button-radius));
+  outline: transparent;
+
+  font-size: large;
+  font-weight: normal;
+
+  transition: var(--button-transition);
+}
+
+@mixin button-states($color, $fill) {
+  @include bast-button;
+
+  border: 1px solid var(--color-#{$color}-#{$fill}-border);
+  background-color: var(--color-#{$color}-#{$fill}-background);
+  color: var(--color-#{$color}-#{$fill}-text);
+  outline: 3px solid var(--color-#{$color}-#{$fill}-outline);
+
+  &:hover {
+    border: 1px solid var(--color-#{$color}-#{$fill}-border-hover);
+    background-color: var(--color-#{$color}-#{$fill}-background-hover);
+    color: var(--color-#{$color}-#{$fill}-text-hover);
+    outline: 3px solid var(--color-#{$color}-#{$fill}-outline-hover);
+  }
+
+  &:active {
+    border: 1px solid var(--color-#{$color}-#{$fill}-border-active);
+    background-color: var(--color-#{$color}-#{$fill}-background-active);
+    color: var(--color-#{$color}-#{$fill}-text-active);
+    outline: 3px solid var(--color-#{$color}-#{$fill}-outline-active);
+  }
+
+  :focus {
+    border: 1px solid var(--color-#{$color}-#{$fill}-border-focus);
+    background-color: var(--color-#{$color}-#{$fill}-background-focus);
+    color: var(--color-#{$color}-#{$fill}-text-focus);
+    outline: 3px solid var(--color-#{$color}-#{$fill}-outline-focus);
+  }
+}
+
+.bastButton {
+  &Filled {
+    @include button-states(primary, filled);
+  }
+
+  &Outlined {
+    @include button-states(primary, outlined);
+  }
+
+  &Cleared {
+    @include button-states(primary, cleared);
+  }
+}
