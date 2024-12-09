@@ -14,7 +14,9 @@
       "import": "./dist/bastion-ui.js",
       "require": "./dist/bastion-ui.umd.cjs"
     },
-    "./styles/variables.css": "./dist/styles/variables.css"
+    "./styles/variables.scss": "./dist/styles/variables.scss",
+    "./styles/_color-pallete.scss": "./dist/styles/_color-pallete.scss",
+    "./styles/_buttons.scss": "./dist/styles/_buttons.scss"
   },
   "sideEffects": [
     "**/*.css"

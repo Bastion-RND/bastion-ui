@@ -14,7 +14,7 @@ export default defineConfig({
     }),
     viteStaticCopy({
       targets: [
-        { src: 'lib/theme/variables.css', dest: 'styles' }, // Копируем файл в папку "styles" в выходной сборке
+        { src: 'lib/theme', dest: 'styles' }, // Копируем файл в папку "styles" в выходной сборке
       ],
     }),
     // postcss()
