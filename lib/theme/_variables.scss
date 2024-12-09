@@ -1,6 +1,5 @@
-/** COLORS LIST **/
-$colors: (brand: 'Brand'); // Для расширение добавьте цвет из файла _color-palette.scss
-$fills: (filled: 'Filled', outlined: 'Outlined', cleared: 'Cleared');
+@use "sass:map";
+@use "globals" as globals;
 
 button, input[type="submit"] {
   /** TRANSITION ANIMATION **/
@@ -18,7 +17,7 @@ button, input[type="submit"] {
   --button-vertical-padding: 10px;
 
   /** COLORS **/
-  @each $color in map-keys($colors) {
+  @each $color in map.keys(globals.$colors) {
     /** FILLED **/
     --color-#{$color}-filled-background: var(--#{$color}-color-500);
     --color-#{$color}-filled-text: var(--white-color);

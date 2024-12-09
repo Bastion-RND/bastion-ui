@@ -1,3 +1,5 @@
+@use "globals" as globals;
+
 @mixin button-colors {
   background-color: var(--color-background);
   color: var(--color-text);
@@ -53,9 +55,9 @@
     flex: 1;
   }
 
-  @each $color, $colorClassName in $colors {
+  @each $color, $colorClassName in globals.$colors {
     &.bast-button--#{$colorClassName} {
-      @each $fill, $fillClassName in $fills {
+      @each $fill, $fillClassName in globals.$fills {
         &.bast-button--#{$fillClassName} {
           @include button-states($color, $fill);
         }
