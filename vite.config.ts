@@ -14,10 +14,9 @@ export default defineConfig({
     }),
     viteStaticCopy({
       targets: [
-        { src: 'lib/theme', dest: 'styles' }, // Копируем файл в папку "styles" в выходной сборке
+        { src: 'lib/theme/bastion-ui.scss', dest: 'styles' },
       ],
     }),
-    // postcss()
   ],
   build: {
     lib: {
