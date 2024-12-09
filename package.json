@@ -14,7 +14,7 @@
       "import": "./dist/bastion-ui.js",
       "require": "./dist/bastion-ui.umd.cjs"
     },
-    "./styles": {
+    "./dist/styles/theme/bastion-ui.scss": {
       "import": "./dist/styles/theme/bastion-ui.scss"
     }
   },
