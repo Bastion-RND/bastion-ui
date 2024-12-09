@@ -35,35 +35,31 @@
   }
 }
 
-.bastButton {
+.bast-button {
   border: none;
   cursor: pointer;
-  padding: 10px 18px;
+  padding: var(--button-vertical-padding) var(--button-horizontal-padding);
   border-radius: (var(--button-border));
-  outline: 1px solid transparent;
-
-  font-size: large;
+  outline: 3px solid transparent;
+  font-size: var(--button-default-font-size);
   font-weight: normal;
-
   transition: var(--button-transition);
 
-  &Filled {
-    @include button-states(brand, filled);
+  &--small {
+    font-size: var(--button-small-font-size);
   }
 
-  &Outlined {
-    @include button-states(brand, outlined);
-  }
-
-  &Cleared {
-    @include button-states(brand, cleared);
-  }
-
-  &Small {
-    font-size: small;
-  }
-
-  &Expanded {
+  &--expanded {
     flex: 1;
+  }
+
+  @each $color, $colorClassName in $colors {
+    &.bast-button--#{$colorClassName} {
+      @each $fill, $fillClassName in $fills {
+        &.bast-button--#{$fillClassName} {
+          @include button-states($color, $fill);
+        }
+      }
+    }
   }
 }

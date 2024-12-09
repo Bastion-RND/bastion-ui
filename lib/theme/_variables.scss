@@ -1,16 +1,24 @@
 /** COLORS LIST **/
-$colors: brand;
+$colors: (brand: 'Brand'); // Для расширение добавьте цвет из файла _color-palette.scss
+$fills: (filled: 'Filled', outlined: 'Outlined', cleared: 'Cleared');
 
-  button, input[type="submit"] {
-    /** TRANSITION ANIMATION **/
-    --button-transition: background-color 0.3s ease, outline-color 0.3s ease, color 0.3s ease;
+button, input[type="submit"] {
+  /** TRANSITION ANIMATION **/
+  --button-transition: background-color 0.3s ease, outline-color 0.3s ease, color 0.3s ease;
 
-    /** BORDERS **/
-    --button-border: var(--radius-small);
+  /** BORDERS **/
+  --button-border: var(--radius-small);
 
-    /** COLORS **/
+  /** FONTS **/
+  --button-default-font-size: large;
+  --button-small-font-size: small;
 
-    @each $color in $colors {
+  /** PADDINGS **/
+  --button-horizontal-padding: 18px;
+  --button-vertical-padding: 10px;
+
+  /** COLORS **/
+  @each $color in map-keys($colors) {
     /** FILLED **/
     --color-#{$color}-filled-background: var(--#{$color}-color-500);
     --color-#{$color}-filled-text: var(--white-color);
@@ -74,4 +82,11 @@ $colors: brand;
     --color-#{$color}-cleared-border-focus: transparent;
     --color-#{$color}-cleared-outline-focus: var(--#{$color}-color-200);
   }
+}
+
+:root {
+  /** RADIUS **/
+  --radius-small: 12px;
+  --radius-medium: 16px;
+  --radius-large: 36px;
 }

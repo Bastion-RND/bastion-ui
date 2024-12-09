@@ -2,10 +2,9 @@ import clsx from 'clsx';
 import { FC, PropsWithChildren } from 'react';
 
 import { capitalize } from '../utils/helpers';
-import classes from './index.module.scss';
 
 type TBastButtonProps = PropsWithChildren<{
-  fill?: 'filled' | 'outline' | 'clear';
+  fill?: 'filled' | 'outlined' | 'cleared';
   size?: 'regular' | 'small';
   color?: 'brand';
   expanded?: boolean;
@@ -20,14 +19,12 @@ export const BastButton: FC<TBastButtonProps> = ({
 }) => (
   <button
     type="button"
-    className={`${classes.bastButton} ${classes.bastButton + capitalize(color)} ${classes.bastButton + capitalize(fill)} ${clsx(
+    className={`bast-button ${clsx(
       {
-        [classes.bastButtonPrimary]: color === 'brand',
-        [classes.bastButtonFilled]: fill === 'filled',
-        [classes.bastButtonOutlined]: fill === 'outline',
-        [classes.bastButtonCleared]: fill === 'clear',
-        [classes.bastButtonSmall]: size === 'small',
-        [classes.bastButtonExpanded]: expanded,
+        [`bast-button--${capitalize(color)}`]: color,
+        [`bast-button--${capitalize(fill)}`]: fill,
+        'bast-button--small': size === 'small',
+        'bast-button--expanded': expanded,
       },
     )}`}
     {...props}
