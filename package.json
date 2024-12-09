@@ -9,7 +9,6 @@
   "main": "./dist/bastion-ui.umd.cjs",
   "module": "./dist/bastion-ui.js",
   "types": "./dist/main.d.ts",
-  "style": "dist/styles/theme/bastion-ui.scss",
   "exports": {
     ".": {
       "import": "./dist/bastion-ui.js",
