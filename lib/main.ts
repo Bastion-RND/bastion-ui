@@ -1,1 +1,1 @@
-export { BastButton } from './BastButton/BastButton';
+export { BastButton } from './components/BastButton/BastButton';

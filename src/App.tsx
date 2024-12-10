@@ -2,7 +2,7 @@ import '../lib/theme/bastion-ui.scss';
 
 import { FC } from 'react';
 
-import { BastButton } from '../lib/BastButton/BastButton';
+import { BastButton } from '../lib/components/BastButton/BastButton';
 
 const App: FC = () => (
   <>
