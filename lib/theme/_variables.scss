@@ -6,7 +6,7 @@ button, input[type="submit"] {
   --button-transition: background-color 0.3s ease, outline-color 0.3s ease, color 0.3s ease;
 
   /** BORDERS **/
-  --button-border: var(--radius-small);
+  --button-border-radius: var(--radius-small);
 
   /** FONTS **/
   --button-default-font-size: large;
@@ -81,6 +81,26 @@ button, input[type="submit"] {
     --color-#{$color}-cleared-border-focus: transparent;
     --color-#{$color}-cleared-outline-focus: var(--#{$color}-color-200);
   }
+}
+
+input:not([type="submit"]) {
+  /** TRANSITION ANIMATION **/
+  --input-transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  /** BORDER **/
+  --input-border-radius: var(--radius-small);
+  --input-border-color: var(--brand-color-200);
+  --input-border-width: 2px;
+
+  --input-border-color-focus: var(--brand-color-500);
+
+  /** PADDINGS **/
+  --input-horizontal-padding: 14px;
+  --input-vertical-padding: 10px;
+
+  /** TEXT **/
+  --input-default-font-size: large;
+  --input-text-color: var(--gray-color-400);
 }
 
 :root {

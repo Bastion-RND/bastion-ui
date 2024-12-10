@@ -3,6 +3,7 @@ import '../lib/theme/bastion-ui.scss';
 import { FC } from 'react';
 
 import { BastButton } from '../lib/components/BastButton/BastButton';
+import { BastInput } from '../lib/components/BastInput/BastInput';
 
 const App: FC = () => (
   <>
@@ -22,6 +23,10 @@ const App: FC = () => (
       <BastButton size='small'>Confirm</BastButton>
       <BastButton fill="outlined" size='small'>Confirm</BastButton>
       <BastButton fill="cleared" size='small'>Confirm</BastButton>
+    </div>
+
+    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px' }}>
+      <BastInput />
     </div>
   </>
 )

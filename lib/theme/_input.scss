@@ -1,0 +1,18 @@
+.bast-input {
+  border: {
+    radius: var(--input-border-radius);
+    color: var(--input-border-color);
+    width: var(--input-border-width);
+    style: solid;
+  }
+  padding: var(--input-vertical-padding) var(--input-horizontal-padding);
+  font-size: var(--input-default-font-size);
+  color: var(--input-text-color);
+  outline: none;
+  transition: var(--input-transition);
+
+  &:focus, &:focus-visible {
+    border-color: var(--input-border-color-focus);
+    box-shadow: 0 0 2px 2px var(--brand-color-25);
+  }
+}
