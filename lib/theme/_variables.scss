@@ -94,13 +94,15 @@ input:not([type="submit"]) {
 
   --input-border-color-focus: var(--brand-color-500);
 
+  --input-border-color-disabled: var(--gray-color-300);
+
   /** PADDINGS **/
   --input-horizontal-padding: 14px;
   --input-vertical-padding: 10px;
 
   /** TEXT **/
   --input-default-font-size: large;
-  --input-text-color: var(--gray-color-400);
+  --input-text-color: var(--gray-color-300);
 }
 
 :root {

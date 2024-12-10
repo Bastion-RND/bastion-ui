@@ -15,4 +15,8 @@
     border-color: var(--input-border-color-focus);
     box-shadow: 0 0 2px 2px var(--brand-color-25);
   }
+
+  &:disabled {
+    border-color: var(--input-border-color-disabled);
+  }
 }
