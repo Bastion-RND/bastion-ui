@@ -16,10 +16,22 @@
     },
     "./dist/styles/theme/bastion-ui.scss": {
       "import": "./dist/styles/theme/bastion-ui.scss"
+    },
+    "./dist/styles/theme/_variables.scss": {
+      "import": "./dist/styles/theme/_variables.scss"
+    },
+    "./dist/styles/theme/_button.scss": {
+      "import": "./dist/styles/theme/_button.scss"
+    },
+    "./dist/styles/theme/_color-palette.scss": {
+      "import": "./dist/styles/theme/_color-palette.scss"
+    },
+    "./dist/styles/theme/_globals.scss": {
+      "import": "./dist/styles/theme/_globals.scss"
     }
   },
   "sideEffects": [
-    "**/*.css"
+    "**/*.scss"
   ],
   "scripts": {
     "dev": "vite",

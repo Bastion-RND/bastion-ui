@@ -17,7 +17,7 @@ button, input[type="submit"] {
   --button-vertical-padding: 10px;
 
   /** COLORS **/
-  @each $color in map.keys(globals.$colors) {
+  @each $color in globals.$colors {
     /** FILLED **/
     --color-#{$color}-filled-background: var(--#{$color}-color-500);
     --color-#{$color}-filled-text: var(--white-color);

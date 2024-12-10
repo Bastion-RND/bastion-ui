@@ -55,10 +55,10 @@
     flex: 1;
   }
 
-  @each $color, $colorClassName in globals.$colors {
-    &.bast-button--#{$colorClassName} {
-      @each $fill, $fillClassName in globals.$fills {
-        &.bast-button--#{$fillClassName} {
+  @each $color in globals.$colors {
+    &.bast-button--#{$color} {
+      @each $fill in globals.$fills {
+        &.bast-button--#{$fill} {
           @include button-states($color, $fill);
         }
       }

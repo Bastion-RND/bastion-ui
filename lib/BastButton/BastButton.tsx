@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import { ComponentProps, FC, PropsWithChildren } from 'react';
 
-import { capitalize } from '../utils/helpers';
-
 interface IBastButtonProps extends Omit<ComponentProps<'button'>, 'type'>, PropsWithChildren {
   fill?: 'filled' | 'outlined' | 'cleared';
   size?: 'regular' | 'small';
@@ -23,8 +21,8 @@ export const BastButton: FC<IBastButtonProps> = ({
     type={type === 'button' ? 'button' : 'submit'}
     className={`bast-button ${clsx(
       {
-        [`bast-button--${capitalize(color)}`]: color,
-        [`bast-button--${capitalize(fill)}`]: fill,
+        [`bast-button--${color}`]: color,
+        [`bast-button--${fill}`]: fill,
         'bast-button--small': size === 'small',
         'bast-button--expanded': expanded,
       },
