@@ -3,7 +3,7 @@ import '../lib/theme/bastion-ui.scss';
 import { FC } from 'react';
 
 import { BastButton } from '../lib/components/BastButton/BastButton';
-import { BastInput } from '../lib/components/BastInput/BastInput';
+import { BastInput, BastInputGroup } from '../lib/components/BastInput/BastInput';
 
 const App: FC = () => (
   <>
@@ -28,6 +28,13 @@ const App: FC = () => (
     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px', padding: '10px' }}>
       <BastInput value='Злодей' />
       <BastInput disabled value='Злодей' />
+    </div>
+
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px', padding: '10px' }}>
+      <BastInputGroup>
+        <BastInputGroup.Label>Label</BastInputGroup.Label>
+        <BastInputGroup.Input />
+      </BastInputGroup>
     </div>
   </>
 )

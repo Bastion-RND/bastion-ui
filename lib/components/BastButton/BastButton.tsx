@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import { ComponentProps, FC, PropsWithChildren } from 'react';
+import { ComponentPropsWithRef, FC, PropsWithChildren } from 'react';
 
-interface IBastButtonProps extends Omit<ComponentProps<'button'>, 'type'>, PropsWithChildren {
+interface IBastButtonProps extends Omit<ComponentPropsWithRef<'button'>, 'type'>, PropsWithChildren {
   fill?: 'filled' | 'outlined' | 'cleared';
   size?: 'large' | 'small';
   color?: 'brand';

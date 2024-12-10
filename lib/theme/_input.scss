@@ -1,3 +1,9 @@
+.bast-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
 .bast-input {
   border: {
     radius: var(--input-border-radius);
