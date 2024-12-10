@@ -7,9 +7,9 @@ import { BastButton } from '../lib/components/BastButton/BastButton';
 const App: FC = () => (
   <>
     <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px' }}>
-      <BastButton expanded>Confirm</BastButton>
-      <BastButton fill="outlined" expanded>Confirm</BastButton>
-      <BastButton fill="cleared" expanded>Confirm</BastButton>
+      <BastButton expand='full'>Confirm</BastButton>
+      <BastButton fill="outlined" expand='full'>Confirm</BastButton>
+      <BastButton fill="cleared" expand='full'>Confirm</BastButton>
     </div>
 
     <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px' }}>

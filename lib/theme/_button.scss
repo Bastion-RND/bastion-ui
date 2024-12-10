@@ -51,8 +51,13 @@
     font-size: var(--button-small-font-size);
   }
 
-  &--expanded {
+  &--full {
     flex: 1;
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
   }
 
   @each $color in globals.$colors {

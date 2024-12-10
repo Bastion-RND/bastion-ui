@@ -5,7 +5,7 @@ interface IBastButtonProps extends Omit<ComponentProps<'button'>, 'type'>, Props
   fill?: 'filled' | 'outlined' | 'cleared';
   size?: 'regular' | 'small';
   color?: 'brand';
-  expanded?: boolean;
+  expand?: 'full' | 'block';
   type?: 'button' | 'submit';
 }
 
@@ -13,7 +13,7 @@ export const BastButton: FC<IBastButtonProps> = ({
   fill = 'filled',
   size = 'regular',
   color = 'brand',
-  expanded = false,
+  expand,
   type = 'button',
   ...props
 }) => (
@@ -24,7 +24,7 @@ export const BastButton: FC<IBastButtonProps> = ({
         [`bast-button--${color}`]: color,
         [`bast-button--${fill}`]: fill,
         'bast-button--small': size === 'small',
-        'bast-button--expanded': expanded,
+        [`bast-button--${expand}`]: expand !== undefined,
       },
     )}`}
     {...props}
