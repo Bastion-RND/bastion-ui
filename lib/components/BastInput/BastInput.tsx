@@ -1,35 +1,64 @@
 import clsx from 'clsx';
-import { ComponentProps, ComponentPropsWithRef, FC, PropsWithChildren, ReactNode } from 'react';
+import {
+  ComponentProps,
+  ComponentPropsWithRef,
+  FC,
+  PropsWithChildren,
+  useId,
+  useMemo,
+} from 'react';
 
-import { InputGroupContext } from './InputGroupProvider';
+import { InputGroupContext, useInputGroupContext } from './InputGroupProvider';
 
 interface IBastInput extends ComponentPropsWithRef<'input'> {}
 
-const BastInputGroupControl: FC<IBastInput> = ({ size, className, ...props }) => (
-  <input
-    className={`bast-input ${clsx({ [`${className}`]: className !== undefined })}`}
-    {...props}
-  />
-);
+const BastInputGroupControl: FC<IBastInput> = ({ size, id, className, ...props }) => {
+  const context = useInputGroupContext({ withException: false });
+  const resolvedId = id || context?.inputGroupId;
 
-const BastInputGroupLabel: FC<PropsWithChildren> = ({ children }) => <label>{children}</label>;
+  return (
+    <input
+      id={resolvedId}
+      className={`bast-input${clsx([ className && ` ${className}` ])}`}
+      {...props}
+    />
+  );
+};
 
-const BastInputGroup: FC<PropsWithChildren> & {
-  Control: typeof BastInputGroupControl;
-  Label: typeof BastInputGroupLabel;
-} = ({ children }: { children?: ReactNode }) => (
-  <InputGroupContext.Provider value={{ id: '1' }}>
-    <div className='bast-input-group'>{children}</div>
-  </InputGroupContext.Provider>
-)
+const BastInputGroupLabel: FC<PropsWithChildren & ComponentProps<'label'>> = ({
+  htmlFor,
+  children,
+  className,
+  ...props
+}) => {
+  const { inputGroupId } = useInputGroupContext({ withException: true });
+  const resolvedHtmlFor = htmlFor || inputGroupId;
+
+  return (
+    <label htmlFor={resolvedHtmlFor} {...props} className={`bast-input-group__label${clsx([className && ` ${className}`])}`}>
+      {children}
+    </label>
+  );
+};
+
+interface IBastInputGroupProps extends PropsWithChildren, ComponentProps<'div'> {}
+
+const BastInputGroup = ({ id, children, className, ...props }: IBastInputGroupProps) => {
+  const initialId = useId();
+  const contextValue = useMemo(() => ({ inputGroupId: id || initialId }), []);
+
+  return (
+    <InputGroupContext.Provider value={contextValue}>
+      <div className={`bast-input-group${clsx([ className && ` ${className}` ])}`} {...props}>{children}</div>
+    </InputGroupContext.Provider>
+  );
+};
 
 BastInputGroup.Control = BastInputGroupControl;
 BastInputGroup.Label = BastInputGroupLabel;
 
-const BastInput: FC<ComponentProps<typeof BastInputGroupControl>> = ({ id, ...props }) => (
-  <InputGroupContext.Provider value={{ id }}>
-    <BastInputGroupControl {...props} />
-  </InputGroupContext.Provider>
+const BastInput: FC<ComponentProps<typeof BastInputGroupControl>> = ({ ...props }) => (
+  <BastInputGroupControl {...props} />
 );
 
 export { BastInput, BastInputGroup };

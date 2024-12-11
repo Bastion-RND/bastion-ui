@@ -92,6 +92,9 @@ input:not([type="submit"]) {
   --input-border-color: var(--brand-color-200);
   --input-border-width: 2px;
 
+  /** SHADOW **/
+  --input-box-shadow: 0 0 2px 2px var(--brand-color-25);
+
   --input-border-color-focus: var(--brand-color-500);
 
   --input-border-color-disabled: var(--gray-color-300);
@@ -110,4 +113,10 @@ input:not([type="submit"]) {
   --radius-small: 12px;
   --radius-medium: 16px;
   --radius-large: 36px;
+
+  /** INPUT GROUP **/
+  --input-group-gap: 6px;
+  --input-group-text-color: var(--brand-color-200);
+  --input-group-text-color-focus: var(--brand-color-500);
+  --input-group-text-color-disabled: var(--gray-color-300);
 }

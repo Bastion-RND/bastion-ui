@@ -1,7 +1,19 @@
 .bast-input-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--input-group-gap);
+
+  &__label {
+    color: var(--input-group-text-color);
+  }
+
+  &__label:has(+ .bast-input:disabled) {
+    color: var(--input-group-text-color-disabled);
+  }
+
+  &__label:has(+ .bast-input:focus), &__label:has(+ .bast-input:focus-visible) {
+    color: var(--input-group-text-color-focus);
+  }
 }
 
 .bast-input {
@@ -17,12 +29,16 @@
   outline: none;
   transition: var(--input-transition);
 
-  &:focus, &:focus-visible {
+  &:focus + .bast-input-group__label, &:focus-visible {
     border-color: var(--input-border-color-focus);
-    box-shadow: 0 0 2px 2px var(--brand-color-25);
+    box-shadow: var(--input-box-shadow);
   }
 
   &:disabled {
     border-color: var(--input-border-color-disabled);
+  }
+
+  &::placeholder {
+    color: var(--input-text-color);
   }
 }

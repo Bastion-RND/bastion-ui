@@ -19,6 +19,7 @@ module.exports = {
     project: './tsconfig.eslint.json',
   },
   rules: {
+    'react/prop-types': 'off',
     '@typescript-eslint/no-shadow': 'off',
     'prettier/prettier': 'off',
     'react/no-unescaped-entities': 0,

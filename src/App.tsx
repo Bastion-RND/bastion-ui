@@ -26,15 +26,18 @@ const App: FC = () => (
     </div>
 
     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px', padding: '10px' }}>
-      <BastInput value='Злодей' />
-      <BastInput disabled value='Злодей' />
-    </div>
-
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px', padding: '10px' }}>
       <BastInputGroup>
         <BastInputGroup.Label>Label</BastInputGroup.Label>
-        <BastInputGroup.Input />
+        <BastInputGroup.Control placeholder='Злодей' />
       </BastInputGroup>
+      <BastInputGroup>
+        <BastInputGroup.Label htmlFor='3'>Label</BastInputGroup.Label>
+        <BastInputGroup.Control id='2' placeholder='Злодей' disabled />
+      </BastInputGroup>
+    </div>
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px', padding: '10px' }}>
+      <BastInput placeholder='Злодей' />
+      <BastInput placeholder='Злодей' disabled />
     </div>
   </>
 )

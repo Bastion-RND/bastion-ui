@@ -1,15 +1,15 @@
 import { createContext, useContext } from 'react';
 
 interface IInputGroupContextType {
-  id: string;
+  inputGroupId: string;
 }
 
-export const InputGroupContext = createContext<IInputGroupContextType | null>(null);
+export const InputGroupContext = createContext<IInputGroupContextType>(null!);
 
-export const useInputGroupContext = () => {
+export const useInputGroupContext = ({ withException }: { withException: boolean }) => {
   const context = useContext(InputGroupContext);
 
-  if (!context) {
+  if (!context && withException) {
     throw new Error('InputGroupComponents must be used inside InputGroup');
   }
 
