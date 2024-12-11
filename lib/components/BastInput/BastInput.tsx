@@ -3,7 +3,7 @@ import {
   ComponentProps,
   ComponentPropsWithRef,
   FC,
-  PropsWithChildren,
+  forwardRef,
   useId,
   useMemo,
 } from 'react';
@@ -15,28 +15,24 @@ interface IBastInput extends ComponentPropsWithRef<'input'> {
   debounce?: number;
 }
 
-const BastInputGroupControl: FC<IBastInput> = ({
-  size,
-  id,
-  debounce = 0,
-  onChange,
-  className,
-  ...props
-}) => {
-  const context = useInputGroupContext({ withException: false });
-  const resolvedId = id || context?.inputGroupId;
+const BastInputGroupControl = forwardRef<HTMLInputElement, IBastInput>(
+  ({ size, id, debounce = 0, onChange, className, ...props }, ref) => {
+    const context = useInputGroupContext({ withException: false });
+    const resolvedId = id || context?.inputGroupId;
 
-  return (
-    <input
-      id={resolvedId}
-      className={`bast-input${clsx([className && ` ${className}`])}`}
-      {...props}
-      onChange={onChange ? debounceFunction(onChange, debounce) : onChange}
-    />
-  );
-};
+    return (
+      <input
+        ref={ref}
+        id={resolvedId}
+        className={`bast-input${clsx([className && ` ${className}`])}`}
+        {...props}
+        onChange={onChange ? debounceFunction(onChange, debounce) : onChange}
+      />
+    );
+  },
+);
 
-const BastInputGroupLabel: FC<PropsWithChildren & ComponentProps<'label'>> = ({
+const BastInputGroupLabel: FC<ComponentProps<'label'>> = ({
   htmlFor,
   children,
   className,
@@ -56,9 +52,12 @@ const BastInputGroupLabel: FC<PropsWithChildren & ComponentProps<'label'>> = ({
   );
 };
 
-interface IBastInputGroupProps extends PropsWithChildren, ComponentProps<'div'> {}
+interface IBastInputGroupProps extends ComponentProps<'div'> {}
 
-const BastInputGroup = ({ id, children, className, ...props }: IBastInputGroupProps) => {
+const BastInputGroup: FC<IBastInputGroupProps> & {
+  Control: typeof BastInputGroupControl,
+  Label: typeof BastInputGroupLabel,
+} = ({ id, children, className, ...props }) => {
   const initialId = useId();
   const contextValue = useMemo(() => ({ inputGroupId: id || initialId }), []);
 
@@ -74,8 +73,9 @@ const BastInputGroup = ({ id, children, className, ...props }: IBastInputGroupPr
 BastInputGroup.Control = BastInputGroupControl;
 BastInputGroup.Label = BastInputGroupLabel;
 
-const BastInput: FC<ComponentProps<typeof BastInputGroupControl>> = ({ ...props }) => (
-  <BastInputGroupControl {...props} />
-);
+const BastInput: FC<ComponentProps<typeof BastInputGroupControl>> = forwardRef<
+  HTMLInputElement,
+  ComponentProps<typeof BastInputGroupControl>
+>(({ ...props }, ref) => <BastInputGroupControl ref={ref} {...props} />);
 
 export { BastInput, BastInputGroup };
