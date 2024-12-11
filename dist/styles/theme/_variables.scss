@@ -6,7 +6,7 @@ button, input[type="submit"] {
   --button-transition: background-color 0.3s ease, outline-color 0.3s ease, color 0.3s ease;
 
   /** BORDERS **/
-  --button-border: var(--radius-small);
+  --button-border-radius: var(--radius-small);
 
   /** FONTS **/
   --button-default-font-size: large;
@@ -17,7 +17,7 @@ button, input[type="submit"] {
   --button-vertical-padding: 10px;
 
   /** COLORS **/
-  @each $color in map.keys(globals.$colors) {
+  @each $color in globals.$colors {
     /** FILLED **/
     --color-#{$color}-filled-background: var(--#{$color}-color-500);
     --color-#{$color}-filled-text: var(--white-color);
@@ -83,9 +83,41 @@ button, input[type="submit"] {
   }
 }
 
+input:not([type="submit"]) {
+  /** TRANSITION ANIMATION **/
+  --input-transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  /** BORDER **/
+  --input-border-radius: var(--radius-small);
+  --input-border-color: var(--brand-color-200);
+  --input-border-width: 2px;
+
+  /** SHADOW **/
+  --input-box-shadow: 0 0 2px 2px var(--brand-color-25);
+
+  --input-border-color-focus: var(--brand-color-500);
+
+  --input-border-color-disabled: var(--gray-color-300);
+
+  /** PADDINGS **/
+  --input-horizontal-padding: 14px;
+  --input-vertical-padding: 10px;
+
+  /** TEXT **/
+  --input-default-font-size: large;
+  --input-text-color: var(--gray-color-300);
+}
+
 :root {
   /** RADIUS **/
   --radius-small: 12px;
   --radius-medium: 16px;
   --radius-large: 36px;
+
+  /** INPUT GROUP **/
+  --input-group-gap: 6px;
+  --input-group-text-color: var(--brand-color-200);
+  --input-group-text-color-focus: var(--brand-color-500);
+  --input-group-text-color-disabled: var(--gray-color-300);
+  --input-group-text-animation: color 0.3s ease;
 }

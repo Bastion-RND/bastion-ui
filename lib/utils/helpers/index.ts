@@ -1,1 +1,15 @@
-export const capitalize = (s: string) => String(s[0]).toUpperCase() + String(s).slice(1);
+/**
+ * Функция для отложенного вызова других функций
+ * @param func
+ * @param timeout
+ */
+export const debounceFunction = <T extends (...args: any[]) => any>(func: T, timeout = 0) => {
+  let timer: ReturnType<typeof setTimeout> | null = null;
+
+  return (...args: Parameters<T>) => {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      func(...args);
+    }, timeout);
+  };
+};

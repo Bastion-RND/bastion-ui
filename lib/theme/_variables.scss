@@ -119,4 +119,5 @@ input:not([type="submit"]) {
   --input-group-text-color: var(--brand-color-200);
   --input-group-text-color-focus: var(--brand-color-500);
   --input-group-text-color-disabled: var(--gray-color-300);
+  --input-group-text-animation: color 0.3s ease;
 }

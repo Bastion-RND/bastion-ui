@@ -8,19 +8,30 @@ import {
   useMemo,
 } from 'react';
 
+import { debounceFunction } from '../../utils/helpers';
 import { InputGroupContext, useInputGroupContext } from './InputGroupProvider';
 
-interface IBastInput extends ComponentPropsWithRef<'input'> {}
+interface IBastInput extends ComponentPropsWithRef<'input'> {
+  debounce?: number;
+}
 
-const BastInputGroupControl: FC<IBastInput> = ({ size, id, className, ...props }) => {
+const BastInputGroupControl: FC<IBastInput> = ({
+  size,
+  id,
+  debounce = 0,
+  onChange,
+  className,
+  ...props
+}) => {
   const context = useInputGroupContext({ withException: false });
   const resolvedId = id || context?.inputGroupId;
 
   return (
     <input
       id={resolvedId}
-      className={`bast-input${clsx([ className && ` ${className}` ])}`}
+      className={`bast-input${clsx([className && ` ${className}`])}`}
       {...props}
+      onChange={onChange ? debounceFunction(onChange, debounce) : onChange}
     />
   );
 };
@@ -35,7 +46,11 @@ const BastInputGroupLabel: FC<PropsWithChildren & ComponentProps<'label'>> = ({
   const resolvedHtmlFor = htmlFor || inputGroupId;
 
   return (
-    <label htmlFor={resolvedHtmlFor} {...props} className={`bast-input-group__label${clsx([className && ` ${className}`])}`}>
+    <label
+      htmlFor={resolvedHtmlFor}
+      {...props}
+      className={`bast-input-group__label${clsx([className && ` ${className}`])}`}
+    >
       {children}
     </label>
   );
@@ -49,7 +64,9 @@ const BastInputGroup = ({ id, children, className, ...props }: IBastInputGroupPr
 
   return (
     <InputGroupContext.Provider value={contextValue}>
-      <div className={`bast-input-group${clsx([ className && ` ${className}` ])}`} {...props}>{children}</div>
+      <div className={`bast-input-group${clsx([className && ` ${className}`])}`} {...props}>
+        {children}
+      </div>
     </InputGroupContext.Provider>
   );
 };
