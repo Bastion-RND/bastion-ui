@@ -1,2 +1,3 @@
-export { BastButton } from './components/BastButton/BastButton';
-export { BastInput, BastInputGroup } from './components/BastInput/BastInput';
+export { BastButton } from './components/BastButton/ui/BastButton';
+export { BastInputGroup } from './components/BastInputGroup/ui/BastInputGroup';
+export { BastControl } from './components/BastInputGroup/ui/BastInputGroupControl';

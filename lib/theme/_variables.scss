@@ -83,7 +83,7 @@ button, input[type="submit"] {
   }
 }
 
-input:not([type="submit"]) {
+input:not([type="submit"]):not([type="checkbox"]) {
   /** TRANSITION ANIMATION **/
   --input-transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
@@ -108,8 +108,14 @@ input:not([type="submit"]) {
   --input-text-color: var(--gray-color-300);
 }
 
+input[type="checkbox"] {
+  --check-border-radius: var(--radius-x-small);
+  --check-border-color: var(--gray-color-300);
+}
+
 :root {
   /** RADIUS **/
+  --radius-x-small: 6px;
   --radius-small: 12px;
   --radius-medium: 16px;
   --radius-large: 36px;

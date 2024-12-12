@@ -2,8 +2,8 @@ import '../lib/theme/bastion-ui.scss';
 
 import { FC } from 'react';
 
-import { BastButton } from '../lib/components/BastButton/BastButton';
-import { BastInput, BastInputGroup } from '../lib/components/BastInput/BastInput';
+import { BastCheck } from '../lib/components/BastCheck/ui/BastCheck';
+import { BastButton, BastControl, BastInputGroup } from '../lib/main';
 
 const App: FC = () => (
   <>
@@ -43,14 +43,17 @@ const App: FC = () => (
       <BastInputGroup>
         <BastInputGroup.Label htmlFor="3">Label</BastInputGroup.Label>
         <BastInputGroup.Control id="2" placeholder="Злодей" disabled />
-        <BastInputGroup.Feedback feedbackType='success'>Test</BastInputGroup.Feedback>
+        <BastInputGroup.Feedback feedbackType="success">Test</BastInputGroup.Feedback>
       </BastInputGroup>
     </div>
     <div
       style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px', padding: '10px' }}
     >
-      <BastInput placeholder="Злодей" debounce={0} />
-      <BastInput placeholder="Злодей" disabled />
+      <BastControl placeholder="Злодей" debounce={0} />
+      <BastControl placeholder="Злодей" disabled />
+    </div>
+    <div style={{ display: 'flex', gap: '10px', padding: '10px' }}>
+      <BastCheck />
     </div>
   </>
 );
