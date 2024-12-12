@@ -38,11 +38,12 @@ const App: FC = () => (
     >
       <BastInputGroup>
         <BastInputGroup.Label>Label</BastInputGroup.Label>
-        <BastInputGroup.Control placeholder="Злодей" />
+        <BastInputGroup.Control ref={(el) => el?.focus()} placeholder="Злодей" />
       </BastInputGroup>
       <BastInputGroup>
         <BastInputGroup.Label htmlFor="3">Label</BastInputGroup.Label>
         <BastInputGroup.Control id="2" placeholder="Злодей" disabled />
+        <BastInputGroup.Feedback feedbackType='success'>Test</BastInputGroup.Feedback>
       </BastInputGroup>
     </div>
     <div

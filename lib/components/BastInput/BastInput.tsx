@@ -53,17 +53,45 @@ const BastInputGroupLabel: FC<ComponentProps<'label'>> = ({
 };
 
 interface IBastInputGroupProps extends ComponentProps<'div'> {}
+interface IBastInputGroupFeedback extends ComponentProps<'p'> {
+  feedbackType?: 'error' | 'warning' | 'info' | 'success';
+}
+
+const BastInputGroupFeedback: FC<IBastInputGroupFeedback> = ({
+  children,
+  className,
+  feedbackType = 'info',
+  ...props
+}) => (
+  <p
+    className={`bast-input-group__feedback ${clsx({
+      [`${className}`]: className,
+      [`feedback--${feedbackType}`]: feedbackType,
+    })}`}
+    {...props}
+  >
+    {children}
+  </p>
+);
+
+interface IBastInputGroupProps extends ComponentProps<'div'> {}
 
 const BastInputGroup: FC<IBastInputGroupProps> & {
   Control: typeof BastInputGroupControl,
   Label: typeof BastInputGroupLabel,
+  Feedback: typeof BastInputGroupFeedback,
 } = ({ id, children, className, ...props }) => {
   const initialId = useId();
   const contextValue = useMemo(() => ({ inputGroupId: id || initialId }), []);
 
   return (
     <InputGroupContext.Provider value={contextValue}>
-      <div className={`bast-input-group${clsx([className && ` ${className}`])}`} {...props}>
+      <div
+        className={`bast-input-group ${clsx({
+          [`${className}`]: className,
+        })}`}
+        {...props}
+      >
         {children}
       </div>
     </InputGroupContext.Provider>
@@ -72,8 +100,9 @@ const BastInputGroup: FC<IBastInputGroupProps> & {
 
 BastInputGroup.Control = BastInputGroupControl;
 BastInputGroup.Label = BastInputGroupLabel;
+BastInputGroup.Feedback = BastInputGroupFeedback;
 
-const BastInput: FC<ComponentProps<typeof BastInputGroupControl>> = forwardRef<
+const BastInput = forwardRef<
   HTMLInputElement,
   ComponentProps<typeof BastInputGroupControl>
 >(({ ...props }, ref) => <BastInputGroupControl ref={ref} {...props} />);

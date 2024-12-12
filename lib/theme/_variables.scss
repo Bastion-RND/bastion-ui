@@ -121,3 +121,12 @@ input:not([type="submit"]) {
   --input-group-text-color-disabled: var(--gray-color-300);
   --input-group-text-animation: color 0.3s ease;
 }
+
+p {
+  --input-group-feedback-horizontal-padding: 14px;
+  --input-group-feedback-font-weight: 400;
+  --input-group-feedback-text-color-info: var(--gray-color-700);
+  --input-group-feedback-text-color-success: var(--success-color-700);
+  --input-group-feedback-text-color-warning: var(--warning-color-700);
+  --input-group-feedback-text-color-error: var(--danger-color-700);
+}
