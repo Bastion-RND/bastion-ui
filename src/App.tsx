@@ -53,6 +53,8 @@ const App: FC = () => (
       <BastControl placeholder="Злодей" disabled />
     </div>
     <div style={{ display: 'flex', gap: '10px', padding: '10px' }}>
+      <BastCheck disabled />
+      <BastCheck disabled checked />
       <BastCheck />
     </div>
   </>

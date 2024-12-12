@@ -109,8 +109,43 @@ input:not([type="submit"]):not([type="checkbox"]) {
 }
 
 input[type="checkbox"] {
+  /** BORDER **/
   --check-border-radius: var(--radius-x-small);
+  --check-border-width: 2px;
   --check-border-color: var(--gray-color-300);
+  --check-border-color-focus: var(--brand-color-300);
+  --check-border-color-checked: var(--brand-color-500);
+  --check-border-color-disabled: var(--gray-color-100);
+
+  /** BACKGROUND **/
+  --check-background-color: transparent;
+  --check-background-color-focus: var(--brand-color-25);
+  --check-background-color-checked: var(--brand-color-25);
+  --check-background-color-disabled: var(--gray-color-50);
+
+  /** OUTLINE **/
+  --check-outline-width: 4px;
+
+  --check-outline-color: transparent;
+  --check-outline-color-focus: var(--brand-color-100);
+  --check-outline-color-checked: var(--brand-color-100);
+  --check-outline-color-disabled: transparent;
+
+  /** DIMENSIONS **/
+  --check-width: 1.5rem;
+  --check-height: var(--check-width);
+  --check-padding: 0.1rem;
+
+  /** MARK **/
+  --check-mark-width: 1rem;
+  --check-mark-height: 1rem;
+
+  /** TRANSITIONS **/
+  --check-border-transition:
+          background-color 0.3s ease,
+          border-color 0.3s ease,
+          outline-color 0.3s ease;
+  --check-mark-transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 :root {
