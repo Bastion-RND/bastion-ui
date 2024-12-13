@@ -37,7 +37,9 @@ $checkmark-disabled: functions.str-replace($svg-data-image, 'currentColor', func
     width: var(--check-mark-width);
     height: var(--check-mark-height);
     opacity: 0;
-    transform: scale(0.8);
+    top: 50%; /* Смещение от верха на 50% */
+    left: 50%; /* Смещение от левого края на 50% */
+    transform: translate(-50%, -50%);
     position: absolute;
     transition: var(--check-mark-transition);
     background: {
@@ -79,7 +81,6 @@ $checkmark-disabled: functions.str-replace($svg-data-image, 'currentColor', func
 
   &:checked::before {
     opacity: 1;
-    transform: scale(1);
   }
 }
 
@@ -101,6 +102,10 @@ $checkmark-disabled: functions.str-replace($svg-data-image, 'currentColor', func
   .bast-check-sublabel {
     font-weight: normal;
     padding-top: 2px;
+
+    &--disabled {
+      cursor: default
+    }
   }
 }
 

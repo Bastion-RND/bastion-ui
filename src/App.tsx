@@ -38,7 +38,7 @@ const App: FC = () => (
     >
       <BastInputGroup>
         <BastInputGroup.Label>Label</BastInputGroup.Label>
-        <BastInputGroup.Control ref={(el) => el?.focus()} placeholder="Злодей" />
+        <BastInputGroup.Control placeholder="Злодей" />
       </BastInputGroup>
       <BastInputGroup>
         <BastInputGroup.Label htmlFor="3">Label</BastInputGroup.Label>
@@ -53,14 +53,14 @@ const App: FC = () => (
       <BastControl placeholder="Злодей" disabled />
     </div>
     <div style={{ display: 'flex', gap: '10px', padding: '10px' }}>
-      <BastCheck disabled />
+      <BastCheck label="Remember me" disabled />
       <BastCheck
         label="Remember me"
         subLabel="Save my login details for next time"
         disabled
         checked
       />
-      <BastCheck label="test" />
+      <BastCheck label="Remember me" subLabel="Save my login details for next time" />
     </div>
   </>
 );

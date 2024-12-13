@@ -1,40 +1,12 @@
 import clsx from 'clsx';
-import { ComponentProps, FC, forwardRef, useId } from 'react';
+import { ComponentProps, ComponentType, FC, forwardRef, PropsWithoutRef, useId } from 'react';
 
-interface IBastCheck extends Omit<ComponentProps<'input'>, 'type'> {}
+import { BastCheckLabel } from './BastCheckLabel';
+import { BustCheckSublabel } from './BustCheckSublabel';
 
-interface WithLabelProps {
-  label?: string;
-  subLabel?: string;
-}
+type TBastCheck = Omit<ComponentProps<'input'>, 'type'>;
 
-export function withLabels(WrappedComponent: FC<IBastCheck>) {
-  const LabeledInput: FC<IBastCheck & WithLabelProps> = ({ label, subLabel, id, ...props }) => {
-    const generatedId = useId();
-    const resolvedId = id || generatedId;
-
-    return (
-      <div className='bast-check-wrapper'>
-        <WrappedComponent id={resolvedId} {...props} />
-        {label && (
-          <label
-            className={`bast-check-label ${clsx({
-              'bast-check-label--disabled': props.disabled,
-            })}`}
-            htmlFor={resolvedId}
-          >
-            {label}
-            {subLabel && <p className='bast-check-sublabel'>{subLabel}</p>}
-          </label>
-        )}
-      </div>
-    );
-  };
-
-  return LabeledInput;
-}
-
-const BastCheckWithoutLabel: FC<IBastCheck> = forwardRef<HTMLInputElement, IBastCheck>(
+const BastCheckWithoutLabel: FC<TBastCheck> = forwardRef<HTMLInputElement, TBastCheck>(
   ({ className, ...props }, ref) => (
     <input
       ref={ref}
@@ -44,5 +16,36 @@ const BastCheckWithoutLabel: FC<IBastCheck> = forwardRef<HTMLInputElement, IBast
     />
   ),
 );
+
+interface TInjectingLabelsProps {
+  label?: string;
+  subLabel?: string;
+}
+
+type TWrappedComponent<InitialProps, InjectingProps> = ComponentType<
+  Omit<PropsWithoutRef<InitialProps & TInjectingLabelsProps>, keyof InjectingProps>
+>;
+
+export const withLabels = <T extends TBastCheck>(
+  WrappedComponent: TWrappedComponent<T, TInjectingLabelsProps>,
+) =>
+  forwardRef<HTMLInputElement, T & TInjectingLabelsProps>(({ label, subLabel, ...props }, ref) => {
+    const generatedId = useId();
+    const resolvedId = props.id || generatedId;
+
+    return (
+      <div className="bast-check-wrapper">
+        <WrappedComponent {...props} id={resolvedId} ref={ref} />
+        {label && (
+          <BastCheckLabel disabled={props.disabled} htmlFor={resolvedId}>
+            {label}
+            {subLabel && (
+              <BustCheckSublabel disabled={props.disabled}>{subLabel}</BustCheckSublabel>
+            )}
+          </BastCheckLabel>
+        )}
+      </div>
+    );
+  });
 
 export const BastCheck = withLabels(BastCheckWithoutLabel);

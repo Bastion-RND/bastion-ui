@@ -116,6 +116,7 @@ input[type="checkbox"] {
   --check-border-color-focus: var(--brand-color-300);
   --check-border-color-checked: var(--brand-color-500);
   --check-border-color-disabled: var(--gray-color-100);
+  --radius-x-small: 0.375rem;
 
   /** BACKGROUND **/
   --check-background-color: transparent;
@@ -131,13 +132,13 @@ input[type="checkbox"] {
   --check-outline-color-disabled: transparent;
 
   /** DIMENSIONS **/
-  --check-width: 1.5rem;
+  --check-width: 1.25rem;
   --check-height: var(--check-width);
-  --check-padding: 2px;
+  --check-padding: 0.125rem;
 
   /** MARK **/
-  --check-mark-width: 1rem;
-  --check-mark-height: 1rem;
+  --check-mark-width: 0.75rem;
+  --check-mark-height: 0.65rem;
 
   /** TRANSITIONS **/
   --check-border-transition:
@@ -149,7 +150,6 @@ input[type="checkbox"] {
 
 :root {
   /** RADIUS **/
-  --radius-x-small: 6px;
   --radius-small: 12px;
   --radius-medium: 16px;
   --radius-large: 36px;
