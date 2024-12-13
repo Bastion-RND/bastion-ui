@@ -93,7 +93,7 @@ input:not([type="submit"]):not([type="checkbox"]) {
   --input-border-width: 2px;
 
   /** SHADOW **/
-  --input-box-shadow: 0 0 4px 4px var(--brand-color-25);
+  --input-box-shadow: 0 0 2px 2px var(--brand-color-25);
 
   --input-border-color-focus: var(--brand-color-500);
 
@@ -125,7 +125,7 @@ input[type="checkbox"] {
   --check-background-color-disabled: var(--gray-color-50);
 
   /** OUTLINE **/
-  --check-outline-width: 4px;
+  --check-outline-width: 2px;
   --check-outline-color: transparent;
   --check-outline-color-focus: var(--brand-color-100);
   --check-outline-color-checked: var(--brand-color-100);

@@ -110,7 +110,6 @@ $checkmark-disabled: functions.str-replace($svg-data-image, 'currentColor', func
 }
 
 .bast-check-wrapper {
-  padding: 2px;
   display: flex;
 
   &--disabled {
