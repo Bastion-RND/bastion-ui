@@ -54,8 +54,13 @@ const App: FC = () => (
     </div>
     <div style={{ display: 'flex', gap: '10px', padding: '10px' }}>
       <BastCheck disabled />
-      <BastCheck disabled checked />
-      <BastCheck />
+      <BastCheck
+        label="Remember me"
+        subLabel="Save my login details for next time"
+        disabled
+        checked
+      />
+      <BastCheck label="test" />
     </div>
   </>
 );

@@ -93,7 +93,7 @@ input:not([type="submit"]):not([type="checkbox"]) {
   --input-border-width: 2px;
 
   /** SHADOW **/
-  --input-box-shadow: 0 0 2px 2px var(--brand-color-25);
+  --input-box-shadow: 0 0 4px 4px var(--brand-color-25);
 
   --input-border-color-focus: var(--brand-color-500);
 
@@ -125,7 +125,6 @@ input[type="checkbox"] {
 
   /** OUTLINE **/
   --check-outline-width: 4px;
-
   --check-outline-color: transparent;
   --check-outline-color-focus: var(--brand-color-100);
   --check-outline-color-checked: var(--brand-color-100);
@@ -134,7 +133,7 @@ input[type="checkbox"] {
   /** DIMENSIONS **/
   --check-width: 1.5rem;
   --check-height: var(--check-width);
-  --check-padding: 0.1rem;
+  --check-padding: 2px;
 
   /** MARK **/
   --check-mark-width: 1rem;

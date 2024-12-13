@@ -1,41 +1,5 @@
 @use "globals" as globals;
-
-@mixin button-colors {
-  background-color: var(--color-background);
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
-  outline: 3px solid var(--color-outline);
-}
-
-@mixin button-states($color, $fill) {
-  --color-background: var(--color-#{$color}-#{$fill}-background);
-  --color-text: var(--color-#{$color}-#{$fill}-text);
-  --color-border: var(--color-#{$color}-#{$fill}-border);
-  --color-outline: var(--color-#{$color}-#{$fill}-outline);
-
-  @include button-colors;
-
-  &:hover {
-    --color-background: var(--color-#{$color}-#{$fill}-background-hover);
-    --color-text: var(--color-#{$color}-#{$fill}-text-hover);
-    --color-border: var(--color-#{$color}-#{$fill}-border-hover);
-    --color-outline: var(--color-#{$color}-#{$fill}-outline-hover);
-  }
-
-  &:active {
-    --color-background: var(--color-#{$color}-#{$fill}-background-active);
-    --color-text: var(--color-#{$color}-#{$fill}-text-active);
-    --color-border: var(--color-#{$color}-#{$fill}-border-active);
-    --color-outline: var(--color-#{$color}-#{$fill}-outline-active);
-  }
-
-  &:focus-visible {
-    --color-background: var(--color-#{$color}-#{$fill}-background-focus);
-    --color-text: var(--color-#{$color}-#{$fill}-text-focus);
-    --color-border: var(--color-#{$color}-#{$fill}-border-focus);
-    --color-outline: var(--color-#{$color}-#{$fill}-outline-focus);
-  }
-}
+@use "mixins" as mixins;
 
 .bast-button {
   border: none;
@@ -64,7 +28,7 @@
     &.bast-button--#{$color} {
       @each $fill in globals.$fills {
         &.bast-button--#{$fill} {
-          @include button-states($color, $fill);
+          @include mixins.button-states($color, $fill);
         }
       }
     }
