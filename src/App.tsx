@@ -1,9 +1,8 @@
-import '../lib/theme/bastion-ui.scss';
+import '../lib/app/styles/bastion-ui.scss';
 
 import { FC } from 'react';
 
-import { BastCheck } from '../lib/components/BastCheck/ui/BastCheck';
-import { BastButton, BastControl, BastInputGroup } from '../lib/main';
+import { BastButton, BastCheck, BastControl, BastInputGroup, BastRadio } from '../lib/app/main';
 
 const App: FC = () => (
   <>
@@ -62,6 +61,17 @@ const App: FC = () => (
       />
       <BastCheck label="Remember me" subLabel="Save my login details for next time" />
     </div>
+    <form action="#" style={{ display: 'flex', gap: '10px', padding: '10px' }}>
+      <BastRadio label="Злодей" disabled />
+      <BastRadio
+        label="Remember me"
+        subLabel="Save my login details for next time"
+        disabled
+        checked
+      />
+      <BastRadio name='1' label="Remember me" subLabel="Save my login details for next time" />
+      <BastRadio name='1' label="Remember me" subLabel="Save my login details for next time" />
+    </form>
   </>
 );
 

@@ -1,0 +1,1 @@
+export { withLabel } from './withLabel';

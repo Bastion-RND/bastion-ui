@@ -1,0 +1,93 @@
+@use 'globals' as globals;
+@use "functions" as functions;
+@use "mixins" as mixins;
+
+$svg: '<svg viewBox="0 0 54 41" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M52.181 6.222 21.281 39.4c-1.62 1.874-4.541 1.874-6.161 0L1.528 23.861C.353 22.537.48 20.47 1.782 19.306c1.206-1.098 3.048-1.066 4.223 0l15.276 13.827H15.12L47.704 1.667c2.921-2.81 7.272 1.583 4.477 4.555Z"/></svg>';
+$svg-data-image: 'data:image/svg+xml,' + $svg;
+$checkmark: functions.str-replace($svg-data-image, 'currentColor', functions.encode-color('#0071CC'));
+$checkmark-disabled: functions.str-replace($svg-data-image, 'currentColor', functions.encode-color('#DCE3E9'));
+
+.bast-check {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  outline-offset: 0;
+  position: relative;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background-color: transparent;
+
+  width: var(--check-width);
+  height: var(--check-height);
+  min-width: var(--check-width);
+  min-height: var(--check-height);
+  outline: var(--check-outline-color);
+  padding: var(--check-padding);
+  transition: var(--check-border-transition);
+  border: {
+    radius: var(--check-border-radius);
+    color: var(--check-border-color);
+    width: var(--check-border-width);
+    style: solid;
+  }
+
+  &::before {
+    content: "";
+    width: var(--check-mark-width);
+    height: var(--check-mark-height);
+    opacity: 0;
+    top: 50%; /* Смещение от верха на 50% */
+    left: 50%; /* Смещение от левого края на 50% */
+    transform: translate(-50%, -50%);
+    position: absolute;
+    transition: var(--check-mark-transition);
+    background: {
+      image: url($checkmark);
+      size: contain;
+      repeat: no-repeat;
+      position: center;
+    };
+  }
+
+  &:disabled::before {
+    background-image: url($checkmark-disabled);
+  }
+
+  &:focus, &:focus-visible {
+    --outline-color: var(--check-outline-color-focus);
+    --border-color: var(--check-border-color-focus);
+    --background-color: var(--check-background-color-focus);
+    @include mixins.check-highlight;
+  }
+
+  &:checked {
+    --outline-color: var(--check-outline-color-checked);
+    --border-color: var(--check-border-color-checked);
+    --background-color: var(--check-background-color-checked);
+    @include mixins.check-highlight;
+  }
+
+  &:checked:not(:focus) {
+    outline: var(--check-outline-color);
+  }
+
+  &:disabled {
+    cursor: default;
+    background-color: var(--check-background-color-disabled);
+    border-color: var(--check-border-color-disabled);
+    outline: var(--check-outline-color-disabled);
+  }
+
+  &:checked::before {
+    opacity: 1;
+  }
+}
+
+.bast-check-wrapper {
+  display: flex;
+
+  &--disabled {
+    color: var(--gray-color-200);
+  }
+}

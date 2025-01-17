@@ -14,20 +14,20 @@
       "import": "./dist/bastion-ui.js",
       "require": "./dist/bastion-ui.umd.cjs"
     },
-    "./dist/styles/theme/bastion-ui.scss": {
-      "import": "./dist/styles/theme/bastion-ui.scss"
+    "./dist/styles/bastion-ui.scss": {
+      "import": "./dist/styles/bastion-ui.scss"
     },
-    "./dist/styles/theme/_variables.scss": {
-      "import": "./dist/styles/theme/_variables.scss"
+    "./dist/styles/_variables.scss": {
+      "import": "./dist/styles/_variables.scss"
     },
-    "./dist/styles/theme/_button.scss": {
-      "import": "./dist/styles/theme/_button.scss"
+    "./dist/styles/_button.scss": {
+      "import": "./dist/styles/_button.scss"
     },
-    "./dist/styles/theme/_color-palette.scss": {
-      "import": "./dist/styles/theme/_color-palette.scss"
+    "./dist/styles/_color-palette.scss": {
+      "import": "./dist/styles/_color-palette.scss"
     },
-    "./dist/styles/theme/_globals.scss": {
-      "import": "./dist/styles/theme/_globals.scss"
+    "./dist/styles/_globals.scss": {
+      "import": "./dist/styles/_globals.scss"
     }
   },
   "sideEffects": [

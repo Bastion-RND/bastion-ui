@@ -1,0 +1,32 @@
+.bast-label {
+  color: var(--label-text-color);
+  padding: var(--label-padding);
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  text-align: left;
+
+  &--disabled {
+    color: var(--lebel-text-color-disabled);
+    cursor: default;
+  }
+
+  .bast-sublabel {
+    font-weight: normal;
+    padding-top: var(--label-sublabel-padding);
+
+    &--disabled {
+      cursor: default
+    }
+  }
+}
+
+.bast-label-wrapper {
+  display: flex;
+
+  &--disabled {
+    color: var(--label-wrapper-text-color-disabled);
+  }
+}

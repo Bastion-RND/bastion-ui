@@ -14,13 +14,13 @@ export default defineConfig({
     }),
     viteStaticCopy({
       targets: [
-        { src: 'lib/theme', dest: 'styles' },
+        { src: 'lib/app/styles', dest: 'styles' },
       ],
     }),
   ],
   build: {
     lib: {
-      entry: 'lib/main.ts',
+      entry: 'lib/app/main.ts',
       name: 'bastion-ui',
       fileName: 'bastion-ui',
     },

@@ -1,0 +1,36 @@
+@use "globals" as globals;
+@use "mixins" as mixins;
+
+.bast-button {
+  border: none;
+  cursor: pointer;
+  padding: var(--button-vertical-padding) var(--button-horizontal-padding);
+  border-radius: (var(--button-border-radius));
+  outline: 3px solid transparent;
+  font-size: var(--button-default-font-size);
+  font-weight: normal;
+  transition: var(--button-transition);
+
+  &--small {
+    font-size: var(--button-small-font-size);
+  }
+
+  &--full {
+    flex: 1;
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
+
+  @each $color in globals.$colors {
+    &.bast-button--#{$color} {
+      @each $fill in globals.$fills {
+        &.bast-button--#{$fill} {
+          @include mixins.button-states($color, $fill);
+        }
+      }
+    }
+  }
+}
