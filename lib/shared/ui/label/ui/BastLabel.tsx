@@ -10,16 +10,9 @@ interface IBastLabelProps extends Omit<ComponentProps<'label'>, 'htmlFor'> {
 
 const BastLabel: FC<IBastLabelProps> & {
   SubLabel: typeof BastSublabel;
-} = ({
-  disabled,
-  htmlFor,
-  children,
-  ...props
-}) => (
+} = ({ disabled, htmlFor, children, ...props }) => (
   <label
-    className={`bast-check-label ${clsx({
-      'bast-check-label--disabled': disabled,
-    })}`}
+    className={`${clsx(['bast-label', disabled && 'bast-label--disabled'])}`}
     htmlFor={htmlFor}
     {...props}
   >

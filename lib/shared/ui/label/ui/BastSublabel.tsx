@@ -12,9 +12,9 @@ export const BastSublabel: FC<IBastSublabelProps> = ({
   ...props
 }) => (
   <p
-    className={`bast-check-sublabel ${clsx({
+    className={`bast-sublabel ${clsx({
       [`${className}`]: className,
-      'bast-check-sublabel--disabled': disabled,
+      'bast-sublabel--disabled': disabled,
     })}`}
     {...props}
   >
