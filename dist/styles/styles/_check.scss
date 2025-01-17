@@ -84,31 +84,6 @@ $checkmark-disabled: functions.str-replace($svg-data-image, 'currentColor', func
   }
 }
 
-.bast-check-label {
-  color: var(--gray-color-800);
-  padding: 2px 0 2px 12px;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  cursor: pointer;
-  text-align: left;
-
-  &--disabled {
-    color: var(--gray-color-300);
-    cursor: default;
-  }
-
-  .bast-check-sublabel {
-    font-weight: normal;
-    padding-top: 2px;
-
-    &--disabled {
-      cursor: default
-    }
-  }
-}
-
 .bast-check-wrapper {
   display: flex;
 
