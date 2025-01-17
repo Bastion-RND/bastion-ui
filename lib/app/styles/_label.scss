@@ -1,6 +1,6 @@
 .bast-label {
-  color: var(--gray-color-800);
-  padding: 2px 0 2px 12px;
+  color: var(--label-text-color);
+  padding: var(--label-padding);
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
@@ -9,16 +9,24 @@
   text-align: left;
 
   &--disabled {
-    color: var(--gray-color-300);
+    color: var(--lebel-text-color-disabled);
     cursor: default;
   }
 
   .bast-sublabel {
     font-weight: normal;
-    padding-top: 2px;
+    padding-top: var(--label-sublabel-padding);
 
     &--disabled {
       cursor: default
     }
+  }
+}
+
+.bast-label-wrapper {
+  display: flex;
+
+  &--disabled {
+    color: var(--label-wrapper-text-color-disabled);
   }
 }

@@ -83,11 +83,3 @@ $checkmark-disabled: functions.str-replace($svg-data-image, 'currentColor', func
     opacity: 1;
   }
 }
-
-.bast-check-wrapper {
-  display: flex;
-
-  &--disabled {
-    color: var(--gray-color-200);
-  }
-}

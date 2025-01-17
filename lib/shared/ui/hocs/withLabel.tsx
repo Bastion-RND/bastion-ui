@@ -11,7 +11,7 @@ type TWrappedComponent<InitialProps, InjectingProps> = ComponentType<
   Omit<PropsWithoutRef<InitialProps & TInjectingLabelsProps>, keyof InjectingProps>
 >;
 
-export const withLabels = <T extends ComponentProps<'input'>>(
+export const withLabel = <T extends ComponentProps<'input'>>(
   WrappedComponent: TWrappedComponent<T, TInjectingLabelsProps>,
 ) =>
   forwardRef<HTMLInputElement, T & TInjectingLabelsProps>(({ label, subLabel, ...props }, ref) => {
@@ -19,7 +19,7 @@ export const withLabels = <T extends ComponentProps<'input'>>(
     const resolvedId = props.id || generatedId;
 
     return (
-      <div className="bast-check-wrapper">
+      <div className="bast-label-wrapper">
         <WrappedComponent {...props} id={resolvedId} ref={ref} />
         {label && (
           <BastLabel disabled={props.disabled} htmlFor={resolvedId}>

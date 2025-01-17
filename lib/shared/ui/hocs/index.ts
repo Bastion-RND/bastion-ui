@@ -1,1 +1,1 @@
-export { withLabels } from './withLabels';
+export { withLabel } from './withLabel';

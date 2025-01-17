@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { ComponentProps, FC, forwardRef } from 'react';
 
-import { withLabels } from '../../../shared/ui/hocs';
+import { withLabel } from '../../../shared/ui/hocs';
 
 type TBastRadio = Omit<ComponentProps<'input'>, 'type'>;
 
@@ -16,6 +16,6 @@ const BastRadioWithoutLabel: FC<TBastRadio> = forwardRef<HTMLInputElement, TBast
   ),
 );
 
-const BastRadio = withLabels(BastRadioWithoutLabel);
+const BastRadio = withLabel(BastRadioWithoutLabel);
 
 export { BastRadio };

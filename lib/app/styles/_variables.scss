@@ -179,6 +179,17 @@ input[type="radio"] {
   --radio-mark-transition: 0.15s transform ease-in-out;
 }
 
+label {
+  /** TEXT COLORS **/
+  --label-text-color: var(--gray-color-800);
+  --lebel-text-color-disabled: var(--gray-color-300);
+  --lebel-wrapper-text-color-disabled: var(--gray-color-200);
+
+  /** DIMENSIONS **/
+  --label-padding: 0.125rem 0 0.125rem 0.75rem;
+  --label-sublabel-padding: 0.125rem 0 0 0;
+}
+
 :root {
   /** RADIUS **/
   --radius-small: 12px;

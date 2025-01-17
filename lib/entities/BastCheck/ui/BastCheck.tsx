@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { ComponentProps, FC, forwardRef } from 'react';
 
-import { withLabels } from '../../../shared/ui/hocs';
+import { withLabel } from '../../../shared/ui/hocs';
 
 type TBastCheck = Omit<ComponentProps<'input'>, 'type'>;
 
@@ -16,4 +16,4 @@ const BastCheckWithoutLabel: FC<TBastCheck> = forwardRef<HTMLInputElement, TBast
   ),
 );
 
-export const BastCheck = withLabels(BastCheckWithoutLabel);
+export const BastCheck = withLabel(BastCheckWithoutLabel);
