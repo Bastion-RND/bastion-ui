@@ -36,7 +36,7 @@
   ],
   "paths": {
     "bastion-ui": [
-      "./lib/main.ts"
+      "./lib/app/main.ts"
     ]
   }
 }
