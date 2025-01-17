@@ -12,7 +12,9 @@
     color: var(--radio-outline-color);
   };
   width: var(--radio-width);
+  min-width: var(--radio-width);
   height: var(--radio-height);
+  min-height: var(--radio-height);
   border: var(--radio-border-width) solid var(--radio-border-color);
   border-radius: var(--radio-border-radius);
   transition: var(--radio-outline-transition), var(--radio-border-transition);
