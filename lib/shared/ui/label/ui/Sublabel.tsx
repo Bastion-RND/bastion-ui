@@ -1,20 +1,20 @@
 import clsx from 'clsx';
 import { ComponentProps, FC } from 'react';
 
-interface IBastSublabelProps extends ComponentProps<'p'> {
+interface ISublabelProps extends ComponentProps<'p'> {
   disabled?: boolean;
 }
 
-export const BastSublabel: FC<IBastSublabelProps> = ({
+export const Sublabel: FC<ISublabelProps> = ({
   children,
   className,
   disabled,
   ...props
 }) => (
   <p
-    className={`bast-sublabel ${clsx({
+    className={`sublabel ${clsx({
       [`${className}`]: className,
-      'bast-sublabel--disabled': disabled,
+      'sublabel--disabled': disabled,
     })}`}
     {...props}
   >
