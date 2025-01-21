@@ -10,6 +10,9 @@
   font-size: var(--button-default-font-size);
   font-weight: normal;
   transition: var(--button-transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &--small {
     font-size: var(--button-small-font-size);
@@ -22,6 +25,14 @@
   &--block {
     display: block;
     width: 100%;
+  }
+
+  &--round {
+    border-radius: var(--radius-full);
+  }
+
+  &--icon-only {
+    padding: var(--button-vertical-padding);
   }
 
   @each $color in globals.$colors {

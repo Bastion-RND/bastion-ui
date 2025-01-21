@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { ComponentProps, FC } from 'react';
 
-import { useInputGroupContext } from '../model/InputGroupProvider';
+import { useInputGroupContext } from '../model/InputGroupContext';
 
 export const BastInputGroupLabel: FC<ComponentProps<'label'>> = ({
   htmlFor,

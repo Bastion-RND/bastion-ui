@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { ComponentPropsWithRef, forwardRef } from 'react';
 
 import { debounceFunction } from '../../../shared/lib/debounce';
-import { useInputGroupContext } from '../model/InputGroupProvider';
+import { useInputGroupContext } from '../model/InputGroupContext';
 
 interface IBastControl extends ComponentPropsWithRef<'input'> {
   debounce?: number;

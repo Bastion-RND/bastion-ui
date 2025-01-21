@@ -1,0 +1,33 @@
+.modal-card {
+  border-radius: 26px;
+  background-color: white;
+  padding: 1.5rem;
+  box-shadow:
+          0 20px 24px -4px rgba(127, 139, 151, 0.1),
+          0 8px 8px -4px rgba(127, 139, 151, 0.1);
+
+  &__title {
+    color: var(--gray-color-800);
+    line-height: 1.5rem;
+    font-size: 1.125rem;
+  }
+
+  &__header {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+  }
+
+  &__footer {
+
+  }
+
+  &__content {
+    color: var(--gray-color-600);
+    line-height: 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 400;
+  }
+}

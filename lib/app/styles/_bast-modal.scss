@@ -1,0 +1,20 @@
+.bast-modal {
+  position: relative;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__close-button {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+  }
+}

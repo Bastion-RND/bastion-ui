@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { ComponentProps, FC, useId, useMemo } from 'react';
 
-import { InputGroupContext } from '../model/InputGroupProvider';
+import { InputGroupContext } from '../model/InputGroupContext';
 import { BastInputGroupControl } from './BastInputGroupControl';
 import { BastInputGroupFeedback } from './BastInputGroupFeedback';
 import { BastInputGroupLabel } from './BastInputGroupLabel';

@@ -10,17 +10,17 @@ const App: FC = () => {
 
   return (
     <>
-    {isDialogOpen && <BastModal />}
+    {isDialogOpen && <BastModal onClose={() => setDialogOpen((prevState) => !prevState)} />}
       <div
         style={{ display: 'flex', justifyContent: 'space-between', padding: '10px', gap: '10px' }}
       >
-        <BastButton expand="full" onClick={() => setDialogOpen((prevState) => !prevState)}>
+        <BastButton color='gray' expand="full" onClick={() => setDialogOpen((prevState) => !prevState)}>
           Confirm
         </BastButton>
-        <BastButton fill="outlined" expand="full">
+        <BastButton color='gray' fill="outlined" expand="full">
           Confirm
         </BastButton>
-        <BastButton fill="cleared" expand="full">
+        <BastButton color='gray' fill="cleared" expand="full">
           Confirm
         </BastButton>
       </div>
