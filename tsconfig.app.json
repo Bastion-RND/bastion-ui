@@ -22,7 +22,8 @@
     "jsx": "react-jsx",
     "types": [
       "react",
-      "react-dom"
+      "react-dom",
+      "vite-plugin-svgr/client"
     ],
     /* Linting */
     "strict": true,
