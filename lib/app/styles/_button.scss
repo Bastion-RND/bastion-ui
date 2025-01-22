@@ -36,10 +36,10 @@
   }
 
   @each $color in globals.$colors {
-    &.bast-button--#{$color} {
+    &.bast-button--#{"" + $color} {
       @each $fill in globals.$fills {
         &.bast-button--#{$fill} {
-          @include mixins.button-states($color, $fill);
+          @include mixins.button-states("" + $color, $fill);
         }
       }
     }

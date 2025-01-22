@@ -1,33 +1,80 @@
+@use "globals" as globals;
+
 .modal-card {
-  border-radius: 26px;
+  border-radius: var(--modal-card-border-radius);
   background-color: white;
-  padding: 1.5rem;
-  box-shadow:
-          0 20px 24px -4px rgba(127, 139, 151, 0.1),
-          0 8px 8px -4px rgba(127, 139, 151, 0.1);
+  box-shadow: var(--modal-card-shadow);
+  min-width: min(calc(100vw - calc(var(--modal-card-padding) * 2)), 400px);
+  animation: var(--modal-card-animation);
 
   &__title {
-    color: var(--gray-color-800);
+    color: var(--modal-card-title-color);
     line-height: 1.5rem;
     font-size: 1.125rem;
   }
 
   &__header {
+    padding: var(--modal-card-padding);
     text-align: center;
     display: flex;
+    gap: 2rem;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-weight: 500;
   }
 
   &__footer {
-
+    padding: 1.5rem;
   }
 
   &__content {
-    color: var(--gray-color-600);
+    padding: var(--modal-card-content-padding) var(--modal-card-padding);
+    color: var(--modal-card-content-color);
     line-height: 1.5rem;
     font-size: 1.125rem;
     font-weight: 400;
+    text-align: center;
+  }
+
+  &__icon {
+    border-radius: 50%;
+    padding: var(--modal-card-padding);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &::before {
+      content: '';
+      border-radius: var(--radius-full);
+      position: absolute;
+      width: calc(100% - var(--modal-card-padding));
+      height: calc(100% - var(--modal-card-padding));
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    svg {
+      z-index: 2;
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+
+    @each $color in globals.$colors {
+      &--#{"" + $color} {
+        background-color: var(--#{"" + $color}-color-25);
+
+        &::before {
+          background-color: var(--#{"" + $color}-color-50);
+        }
+
+        svg {
+          color: var(--#{"" + $color}-color-500);
+        }
+      }
+    }
   }
 }
+

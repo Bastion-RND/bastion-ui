@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { withPortal } from '../../../shared/ui/hocs/withPortal';
+import { Icons } from '../../../shared/ui/icons';
 import { ModalCard } from '../../../shared/ui/modalCard';
 import { BastButton } from '../../BastButton';
 import { BastModalCloseButton } from './BastModalCloseButton';
@@ -15,6 +16,9 @@ const BastModal: FC<TBastModalProps> = ({ onClose }) => (
   >
     <ModalCard className="bast-modal">
       <ModalCard.Header>
+        <ModalCard.Icon color='warning'>
+          <Icons.Bast />
+        </ModalCard.Icon>
         <ModalCard.Title>Какой-то важный текст</ModalCard.Title>
         <BastModalCloseButton onClick={onClose} />
       </ModalCard.Header>

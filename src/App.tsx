@@ -10,7 +10,7 @@ const App: FC = () => {
 
   return (
     <>
-    {isDialogOpen && <BastModal onClose={() => setDialogOpen((prevState) => !prevState)} />}
+      {isDialogOpen && <BastModal onClose={() => setDialogOpen((prevState) => !prevState)} />}
       <div
         style={{ display: 'flex', justifyContent: 'space-between', padding: '10px', gap: '10px' }}
       >

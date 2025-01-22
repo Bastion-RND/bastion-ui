@@ -3,7 +3,6 @@
   background-color: white;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
 
   &__wrapper {
     position: absolute;
@@ -14,7 +13,12 @@
 
   &__close-button {
     position: absolute;
-    top: 24px;
-    right: 24px;
+    top: 1.5rem;
+    right: 1.5rem;
+
+    svg {
+      height: 0.75rem;
+      width: 0.75rem;
+    }
   }
 }
