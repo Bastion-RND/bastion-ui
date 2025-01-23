@@ -7,13 +7,15 @@ import { ModalCardHeader } from './ModalCardHeader';
 import { ModalCardIcon } from './ModalCardIcon';
 import { ModalCardTitle } from './ModalCardTitle';
 
-const ModalCard: FC<ComponentProps<'div'>> & {
+export type TModalCardStaticProps = {
   Title: typeof ModalCardTitle,
   Header: typeof ModalCardHeader,
   Content: typeof ModalCardContent,
   Footer: typeof ModalCardFooter,
   Icon: typeof ModalCardIcon,
-} = ({ className, ...props }) => (
+}
+
+const ModalCard: FC<ComponentProps<'div'>> & TModalCardStaticProps = ({ className, ...props }) => (
   <div className={`${clsx(['modal-card', className && className])}`} {...props} />
 );
 

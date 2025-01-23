@@ -222,6 +222,20 @@ label {
       transform: translateY(0);
     }
   }
+
+  /** DIALOG **/
+  --dialog-card-animation: dialog-animation 0.3s ease;
+  --dialog-card-width: 400px;
+  --dialog-header-gap: 1.25rem;
+
+  @keyframes dialog-animation {
+    0% {
+      transform: translateY(-20%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 }
 
 p {

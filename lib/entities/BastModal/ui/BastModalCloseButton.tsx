@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { ComponentProps, FC } from 'react';
 
-import { Icons } from '../../../shared/ui/icons';
 import { BastButton } from '../../BastButton';
+import { BastIcon } from '../../BastIcon';
 
 const BastModalCloseButton: FC<Omit<ComponentProps<typeof BastButton>, 'children'>> = ({
   className,
@@ -12,9 +12,9 @@ const BastModalCloseButton: FC<Omit<ComponentProps<typeof BastButton>, 'children
     fill="cleared"
     iconOnly
     {...props}
-    className={`${clsx(['bast-modal__close-button', className && className])}`}
+    className={`${clsx(['modal__close-button', className && className])}`}
   >
-    <Icons.Close />
+    <BastIcon name='Close'  />
   </BastButton>
 );
 

@@ -3,24 +3,71 @@ import '../lib/app/styles/bastion-ui.scss';
 import { FC, useState } from 'react';
 
 import { BastButton, BastCheck, BastControl, BastInputGroup, BastRadio } from '../lib/app/main';
+import { BastDialog } from '../lib/entities/BastDialog';
+import { BastIcon } from '../lib/entities/BastIcon';
 import { BastModal } from '../lib/entities/BastModal';
 
 const App: FC = () => {
+  const [isModalOpen, setModalOpen] = useState<boolean>(false);
   const [isDialogOpen, setDialogOpen] = useState<boolean>(false);
 
   return (
     <>
-      {isDialogOpen && <BastModal onClose={() => setDialogOpen((prevState) => !prevState)} />}
+      {isModalOpen && (
+        <BastModal onClose={() => setModalOpen((prevState) => !prevState)}>
+          <BastModal.Header>
+            <BastModal.Icon color="brand">
+              <BastIcon name='Bast'  />
+            </BastModal.Icon>
+            <BastModal.Title>Какой-то важный текст</BastModal.Title>
+          </BastModal.Header>
+          <BastModal.Content>
+            <div>
+              Мы что-то важное хотим вам сказать
+            </div>
+          </BastModal.Content>
+          <BastModal.Footer
+            style={{
+              display: 'grid',
+              gap: '10px',
+              gridTemplateColumns: '1fr 1fr',
+              gridAutoFlow: 'column',
+            }}
+          >
+            <BastButton fill="outlined" color="gray">
+              Не согласен
+            </BastButton>
+            <BastButton>Согласен</BastButton>
+          </BastModal.Footer>
+        </BastModal>
+      )}
       <div
         style={{ display: 'flex', justifyContent: 'space-between', padding: '10px', gap: '10px' }}
       >
-        <BastButton color='gray' expand="full" onClick={() => setDialogOpen((prevState) => !prevState)}>
-          Confirm
+        <BastButton
+          color="gray"
+          expand="full"
+          onClick={() => setModalOpen((prevState) => !prevState)}
+        >
+          Modal
         </BastButton>
-        <BastButton color='gray' fill="outlined" expand="full">
-          Confirm
+        {isDialogOpen && (
+          <BastDialog
+            color='gray'
+            title="Диалог обычный"
+            content="Важное сообщение и длинное сообщение..."
+            onClose={() => setDialogOpen((prevState) => !prevState)}
+          />
+        )}
+        <BastButton
+          color="gray"
+          fill="outlined"
+          expand="full"
+          onClick={() => setDialogOpen((prevState) => !prevState)}
+        >
+          Dialog
         </BastButton>
-        <BastButton color='gray' fill="cleared" expand="full">
+        <BastButton color="gray" fill="cleared" expand="full">
           Confirm
         </BastButton>
       </div>

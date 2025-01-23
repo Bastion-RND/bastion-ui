@@ -1,0 +1,31 @@
+@use "mixins" as mixins;
+
+.dialog {
+  width: min(calc(100% - calc(var(--modal-card-padding) * 2)), var(--dialog-card-width));
+  animation: var(--dialog-card-animation);
+
+  &__header {
+    text-align: start;
+    align-items: start;
+    gap: var(--dialog-header-gap);
+    padding-bottom: 0;
+  }
+
+  &__content {
+    text-align: start;
+    align-items: start;
+  }
+
+  &__wrapper {
+    @include mixins.backdrop;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 1.5rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+  }
+}

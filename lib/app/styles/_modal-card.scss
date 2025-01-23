@@ -1,4 +1,5 @@
 @use "globals" as globals;
+@use "mixins" as mixins;
 
 .modal-card {
   border-radius: var(--modal-card-border-radius);
@@ -46,14 +47,12 @@
     position: relative;
 
     &::before {
+      @include mixins.translate-center;
       content: '';
       border-radius: var(--radius-full);
       position: absolute;
       width: calc(100% - var(--modal-card-padding));
       height: calc(100% - var(--modal-card-padding));
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
     }
 
     svg {
