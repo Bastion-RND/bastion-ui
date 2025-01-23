@@ -1,19 +1,18 @@
 import clsx from 'clsx';
 import { ComponentPropsWithRef, FC, PropsWithChildren } from 'react';
 
-import type { TBastColor } from '../../BastColor/model/bastColor';
+import type { TWithBastColor } from '../../../shared/lib/utility-types/color';
 
 interface IBastButtonProps extends Omit<ComponentPropsWithRef<'button'>, 'type'>, PropsWithChildren {
   fill?: 'filled' | 'outlined' | 'cleared';
   size?: 'large' | 'small';
-  color?: TBastColor;
   expand?: 'full' | 'block';
   type?: 'button' | 'submit';
   shape?: 'round';
   iconOnly?: boolean;
 }
 
-export const BastButton: FC<IBastButtonProps> = ({
+export const BastButton: FC<TWithBastColor<IBastButtonProps>> = ({
   className,
   fill = 'filled',
   size = 'regular',

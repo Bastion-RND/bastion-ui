@@ -1,11 +1,9 @@
 import clsx from 'clsx';
 import { ComponentProps, FC } from 'react';
 
-import { TBastColor } from '../../../../entities/BastColor/model/bastColor';
+import { TWithBastColor } from '../../../lib/utility-types/color';
 
-type TModalCardIconProps = {
-  color?: TBastColor;
-} & ComponentProps<'div'>;
+type TModalCardIconProps = TWithBastColor<ComponentProps<'div'>>;
 
 const ModalCardIcon: FC<TModalCardIconProps> = ({ className, color = 'brand', ...props }) => (
   <div

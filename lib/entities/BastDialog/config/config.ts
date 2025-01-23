@@ -1,5 +1,5 @@
+import { TBastColor } from '../../../shared/lib/utility-types/color';
 import { TIcons } from '../../../shared/ui/icons';
-import { TBastColor } from '../../BastColor/model/bastColor';
 
 export const CLOSE_BUTTON_DEFAULT_TEXT = 'Закрыть';
 
