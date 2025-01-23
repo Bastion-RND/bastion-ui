@@ -236,6 +236,11 @@ label {
       transform: translateY(0);
     }
   }
+
+  /** ALERT **/
+  --alert-card-width: 496px;
+  --alert-card-radius: var(--radius-medium);
+  --alert-card-padding: 16px;
 }
 
 p {

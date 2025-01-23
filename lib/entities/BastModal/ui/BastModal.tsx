@@ -1,6 +1,6 @@
-import { ComponentProps, FC, forwardRef, MouseEvent, PropsWithChildren } from 'react';
+import { ComponentType, FC, forwardRef, MouseEvent, PropsWithChildren } from 'react';
 
-import { withPortal } from '../../../shared/ui/hocs/withPortal';
+import { TWithPortalArgs, withPortal } from '../../../shared/ui/hocs/withPortal';
 import { ModalCard } from '../../../shared/ui/modalCard';
 import type { TModalCardStaticProps } from '../../../shared/ui/modalCard/ui/ModalCard';
 import { BastModalCloseButton } from './BastModalCloseButton';
@@ -11,7 +11,7 @@ type TBastModalProps = {
   onClose?: () => void;
 } & PropsWithChildren;
 
-const BastModal: FC<TBastModalProps> = forwardRef<HTMLDivElement, TBastModalProps>(
+const BastModalWithoutPortal: FC<TBastModalProps> = forwardRef<HTMLDivElement, TBastModalProps>(
   ({ closeButton = true, backdropDismiss = true, onClose, children }, ref) => {
     const handleBackdropClick = (event: MouseEvent<HTMLDivElement>) => {
       if (event.target === event.currentTarget) {
@@ -21,7 +21,7 @@ const BastModal: FC<TBastModalProps> = forwardRef<HTMLDivElement, TBastModalProp
 
     return (
       <div
-        role='presentation'
+        role="presentation"
         ref={ref}
         className="modal__wrapper"
         onClick={backdropDismiss ? handleBackdropClick : undefined}
@@ -35,7 +35,9 @@ const BastModal: FC<TBastModalProps> = forwardRef<HTMLDivElement, TBastModalProp
   },
 );
 
-const BastModalWithPortal: FC<ComponentProps<typeof BastModal>> & TModalCardStaticProps =
-  Object.assign(withPortal(BastModal), ModalCard);
+const BastModal = Object.assign<
+  ComponentType<TWithPortalArgs<TBastModalProps>>,
+  TModalCardStaticProps
+>(withPortal(BastModalWithoutPortal), ModalCard);
 
-export { BastModalWithPortal as BastModal };
+export { BastModal };

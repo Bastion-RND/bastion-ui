@@ -2,14 +2,10 @@ import { FC } from 'react';
 
 import { TWithBastColor } from '../../../shared/lib/utility-types/color';
 import { withPortal } from '../../../shared/ui/hocs/withPortal';
-import { Icons } from '../../../shared/ui/icons';
+import { BAST_ICONS_BY_COLOR, Icons } from '../../../shared/ui/icons';
 import { ModalCard } from '../../../shared/ui/modalCard';
 import { BastButton } from '../../BastButton';
-import {
-  ACCEPT_BUTTON_DEFAULT_TEXT,
-  BAST_DIALOG_BUTTONS_BY_COLOR,
-  CLOSE_BUTTON_DEFAULT_TEXT,
-} from '../config/config';
+import { ACCEPT_BUTTON_DEFAULT_TEXT, CLOSE_BUTTON_DEFAULT_TEXT } from '../config/config';
 
 type TBastDialog = TWithBastColor<{
   title?: string;
@@ -29,7 +25,7 @@ const BastDialog: FC<TBastDialog> = ({
   onClose,
   color = 'gray',
 }) => {
-  const Icon = Icons[BAST_DIALOG_BUTTONS_BY_COLOR[color]];
+  const Icon = Icons[BAST_ICONS_BY_COLOR[color]];
 
   return (
     <div className="dialog__wrapper">

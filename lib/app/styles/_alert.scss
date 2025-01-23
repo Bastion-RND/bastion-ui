@@ -1,0 +1,29 @@
+@use "globals" as globals;
+
+.alert {
+  width: min(calc(100% - calc(var(--modal-card-padding) * 2)), var(--alert-card-width));
+  border-radius: var(--alert-card-radius);
+  padding: var(--alert-card-padding);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  svg {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  @each $color in globals.$colors {
+    &--#{"" + $color} {
+      background-color: var(--#{"" + $color}-color-25);
+      border: 1px solid var(--#{"" + $color}-color-400);
+      color: var(--#{"" + $color}-color-600);
+    }
+  }
+
+  &__wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
