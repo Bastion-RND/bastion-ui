@@ -23,9 +23,3 @@ export const useAlertContext = () => {
 
   return context;
 };
-
-export const useAlert = () => {
-  const { createAlert } = useContext(AlertContext);
-
-  return { createAlert };
-};

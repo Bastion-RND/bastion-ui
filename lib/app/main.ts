@@ -3,7 +3,7 @@ export { BastCheck } from '../entities/BastCheck';
 export { BastIcon } from '../entities/BastIcon';
 export { BastInput } from '../entities/BastInput';
 export { BastRadio } from '../entities/BastRadio';
-export { BastAlert } from '../widgets/BastAlert';
+export { BastAlert, useAlert } from '../widgets/BastAlert';
 export { BastDialog } from '../widgets/BastDialog';
 export { BastInputGroup } from '../widgets/BastInputGroup';
 export { BastModal } from '../widgets/BastModal';

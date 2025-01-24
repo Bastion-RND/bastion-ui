@@ -4,7 +4,7 @@ import { ChangeEvent, FC, useState } from 'react';
 
 import { BastButton, BastCheck, BastInput, BastInputGroup, BastRadio } from '../lib/app/main';
 import { BastIcon } from '../lib/entities/BastIcon';
-import { useAlert } from '../lib/widgets/BastAlert/model/AlertContext';
+import { useAlert } from '../lib/widgets/BastAlert';
 import { BastDialog } from '../lib/widgets/BastDialog';
 import { BastModal } from '../lib/widgets/BastModal';
 
