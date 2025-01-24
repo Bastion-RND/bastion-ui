@@ -25,15 +25,16 @@ export const BastButton: FC<TWithBastColor<IBastButtonProps>> = ({
 }) => (
   <button
     type={type === 'button' ? 'button' : 'submit'}
-    className={`bast-button ${clsx(
+    className={`${clsx(
       [
-        className && className,
+        'bast-button',
         size === 'small' && 'bast-button--small',
         `bast-button--${color}`,
         `bast-button--${fill}`,
         `bast-button--${expand}`,
          shape && `bast-button--${shape}`,
-        iconOnly && 'bast-button--icon-only'
+        iconOnly && 'bast-button--icon-only',
+        className && className,
       ]
     )}`}
     {...props}

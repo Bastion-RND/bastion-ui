@@ -3,10 +3,10 @@ import '../lib/app/styles/bastion-ui.scss';
 import { FC, useState } from 'react';
 
 import { BastButton, BastCheck, BastControl, BastInputGroup, BastRadio } from '../lib/app/main';
-import { BastAlert } from '../lib/entities/BastAlert';
-import { BastDialog } from '../lib/entities/BastDialog';
 import { BastIcon } from '../lib/entities/BastIcon';
-import { BastModal } from '../lib/entities/BastModal';
+import { BastAlert } from '../lib/widgets/BastAlert';
+import { BastDialog } from '../lib/widgets/BastDialog';
+import { BastModal } from '../lib/widgets/BastModal';
 
 const App: FC = () => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
@@ -49,12 +49,14 @@ const App: FC = () => {
         >
           Modal
         </BastButton>
-        {isDialogOpen && <BastDialog
-          color="gray"
-          title="Диалог обычный"
-          content="Важное сообщение и длинное сообщение..."
-          onClose={() => setDialogOpen((prevState) => !prevState)}
-        />}
+        {isDialogOpen && (
+          <BastDialog
+            color="gray"
+            title="Диалог обычный"
+            content="Важное сообщение и длинное сообщение..."
+            onClose={() => setDialogOpen((prevState) => !prevState)}
+          />
+        )}
         <BastButton
           color="gray"
           fill="outlined"
@@ -63,13 +65,12 @@ const App: FC = () => {
         >
           Dialog
         </BastButton>
-        {isAlertOpen && <BastAlert>Какое-то прикольное уведомление</BastAlert>}
-        <BastButton
-          color="gray"
-          fill="cleared"
-          expand="full"
-          onClick={() => setAlertOpen((prevState) => !prevState)}
-        >
+        {isAlertOpen && (
+          <BastAlert color="success" onClose={() => setAlertOpen(false)}>
+            Какое-то прикольное уведомление
+          </BastAlert>
+        )}
+        <BastButton color="gray" fill="cleared" expand="full" onClick={() => setAlertOpen(true)}>
           Alert
         </BastButton>
       </div>

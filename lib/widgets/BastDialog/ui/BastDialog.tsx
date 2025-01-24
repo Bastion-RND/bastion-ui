@@ -1,10 +1,10 @@
 import { FC } from 'react';
 
+import { BastButton } from '../../../entities/BastButton';
 import { TWithBastColor } from '../../../shared/lib/utility-types/color';
 import { withPortal } from '../../../shared/ui/hocs/withPortal';
 import { BAST_ICONS_BY_COLOR, Icons } from '../../../shared/ui/icons';
 import { ModalCard } from '../../../shared/ui/modalCard';
-import { BastButton } from '../../BastButton';
 import { ACCEPT_BUTTON_DEFAULT_TEXT, CLOSE_BUTTON_DEFAULT_TEXT } from '../config/config';
 
 type TBastDialog = TWithBastColor<{

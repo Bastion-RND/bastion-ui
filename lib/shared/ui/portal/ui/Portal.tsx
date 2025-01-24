@@ -20,11 +20,11 @@ export const Portal: FC<PortalProps> = ({ children, containerId = 'portal-root' 
 
     setContainer(portalContainer);
 
-    return () => {
-      if (portalContainer && portalContainer.parentElement === document.body) {
-        document.body.removeChild(portalContainer);
-      }
-    };
+    // return () => {
+    //   if (portalContainer && portalContainer.parentElement === document.body) {
+    //     document.body.removeChild(portalContainer);
+    //   }
+    // };
   }, [containerId]);
 
   if (!container) return null;
