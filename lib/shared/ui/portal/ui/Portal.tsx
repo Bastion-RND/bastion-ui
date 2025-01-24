@@ -15,7 +15,6 @@ export const Portal: FC<PortalProps> = ({ children, containerId = 'portal-root' 
     if (!portalContainer) {
       portalContainer = document.createElement('div');
       portalContainer.id = containerId;
-      portalContainer.className = 'portal';
       document.body.appendChild(portalContainer);
     }
 
