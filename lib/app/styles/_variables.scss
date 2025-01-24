@@ -177,6 +177,9 @@ input[type="radio"] {
   --radio-border-transition: border-color 0.3s ease;
   --radio-outline-transition: outline-color 0.3s ease;
   --radio-mark-transition: 0.15s transform ease-in-out;
+
+  /** BACKGROUND **/
+  --radio-background-color: var(--brand-color-25);
 }
 
 label {
@@ -214,28 +217,10 @@ label {
   --modal-card-padding: 1.5rem;
   --modal-card-content-padding: 0.5rem;
 
-  @keyframes modal-animation {
-    0% {
-      transform: translateY(20%);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-
   /** DIALOG **/
   --dialog-card-animation: dialog-animation 0.3s ease;
   --dialog-card-width: 400px;
   --dialog-header-gap: 1.25rem;
-
-  @keyframes dialog-animation {
-    0% {
-      transform: translateY(-20%);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
 
   /** ALERT **/
   --alert-card-width: 496px;
@@ -250,4 +235,22 @@ p {
   --input-group-feedback-text-color-success: var(--success-color-700);
   --input-group-feedback-text-color-warning: var(--warning-color-700);
   --input-group-feedback-text-color-error: var(--danger-color-700);
+}
+
+@keyframes modal-animation {
+  0% {
+    transform: translateY(20%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes dialog-animation {
+  0% {
+    transform: translateY(-20%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

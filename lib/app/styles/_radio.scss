@@ -19,6 +19,10 @@
   border-radius: var(--radio-border-radius);
   transition: var(--radio-outline-transition), var(--radio-border-transition);
 
+  &:checked {
+    background-color: var(--radio-background-color);
+  }
+
   &::before {
     content: "";
     width: var(--radio-mark-width);
@@ -38,6 +42,7 @@
   }
 
   &:focus, &:focus-visible {
+    background-color: var(--radio-background-color);
     border-color: var(--radio-border-color-focused);
     outline-color: var(--radio-outline-color-focus);
     outline-offset: 0;
