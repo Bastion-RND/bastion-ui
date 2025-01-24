@@ -1,1 +1,1 @@
-export { BastLabel } from './ui/BastLabel';
+export { Label } from './ui/Label';

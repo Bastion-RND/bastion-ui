@@ -1,6 +1,10 @@
 export { BastButton } from '../entities/BastButton';
 export { BastCheck } from '../entities/BastCheck';
-export { BastInputGroup } from '../entities/BastInputGroup';
-export { BastControl } from '../entities/BastInputGroup';
+export { BastIcon } from '../entities/BastIcon';
+export { BastInput } from '../entities/BastInput';
 export { BastRadio } from '../entities/BastRadio';
-export { BastLabel } from '../shared/ui/label';
+export { BastDialog } from '../widgets/BastDialog';
+export { BastInputGroup } from '../widgets/BastInputGroup';
+export { BastModal } from '../widgets/BastModal';
+export { BastToast, useToast } from '../widgets/BastToast';
+export { BastUiProvider } from './providers';

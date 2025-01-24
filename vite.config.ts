@@ -4,18 +4,22 @@ import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import dts from 'vite-plugin-dts';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
   plugins: [
     react(),
+    svgr({
+      svgrOptions: {
+        icon: true,
+      },
+    }),
     tsconfigPaths(),
     dts({
       insertTypesEntry: true,
     }),
     viteStaticCopy({
-      targets: [
-        { src: 'lib/app/styles', dest: 'styles' },
-      ],
+      targets: [{ src: 'lib/app/styles', dest: 'styles' }],
     }),
   ],
   build: {

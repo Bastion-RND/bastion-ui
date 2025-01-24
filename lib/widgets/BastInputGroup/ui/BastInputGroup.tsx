@@ -1,15 +1,15 @@
 import clsx from 'clsx';
 import { ComponentProps, FC, useId, useMemo } from 'react';
 
-import { InputGroupContext } from '../model/InputGroupProvider';
-import { BastInputGroupControl } from './BastInputGroupControl';
+import { InputGroupContext } from '../model/InputGroupContext';
 import { BastInputGroupFeedback } from './BastInputGroupFeedback';
+import { BastInputGroupInput } from './BastInputGroupInput';
 import { BastInputGroupLabel } from './BastInputGroupLabel';
 
 type TBastInputGroupProps = ComponentProps<'div'>;
 
 const BastInputGroup: FC<TBastInputGroupProps> & {
-  Control: typeof BastInputGroupControl;
+  Input: typeof BastInputGroupInput;
   Label: typeof BastInputGroupLabel;
   Feedback: typeof BastInputGroupFeedback;
 } = ({ id, children, className, ...props }) => {
@@ -30,7 +30,7 @@ const BastInputGroup: FC<TBastInputGroupProps> & {
   );
 };
 
-BastInputGroup.Control = BastInputGroupControl;
+BastInputGroup.Input = BastInputGroupInput;
 BastInputGroup.Label = BastInputGroupLabel;
 BastInputGroup.Feedback = BastInputGroupFeedback;
 

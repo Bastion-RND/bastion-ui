@@ -1,4 +1,4 @@
-.bast-label {
+.label {
   color: var(--label-text-color);
   padding: var(--label-padding);
   -moz-user-select: none;
@@ -13,7 +13,7 @@
     cursor: default;
   }
 
-  .bast-sublabel {
+  .sublabel {
     font-weight: normal;
     padding-top: var(--label-sublabel-padding);
 
@@ -23,7 +23,7 @@
   }
 }
 
-.bast-label-wrapper {
+.label-wrapper {
   display: flex;
 
   &--disabled {

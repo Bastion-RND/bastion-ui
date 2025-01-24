@@ -1,6 +1,6 @@
 import { ComponentProps, ComponentType, forwardRef, PropsWithoutRef, useId } from 'react';
 
-import { BastLabel } from '../label';
+import { Label } from '../label';
 
 interface TInjectingLabelsProps {
   label?: string;
@@ -18,16 +18,20 @@ export const withLabel = <T extends ComponentProps<'input'>>(
     const generatedId = useId();
     const resolvedId = props.id || generatedId;
 
+    const Wrapped = <WrappedComponent {...props} id={resolvedId} ref={ref} />;
+
+    if (!label) return Wrapped;
+
     return (
-      <div className="bast-label-wrapper">
-        <WrappedComponent {...props} id={resolvedId} ref={ref} />
+      <div className="label-wrapper">
+        {Wrapped}
         {label && (
-          <BastLabel disabled={props.disabled} htmlFor={resolvedId}>
+          <Label disabled={props.disabled} htmlFor={resolvedId}>
             {label}
             {subLabel && (
-              <BastLabel.SubLabel disabled={props.disabled}>{subLabel}</BastLabel.SubLabel>
+              <Label.SubLabel disabled={props.disabled}>{subLabel}</Label.SubLabel>
             )}
-          </BastLabel>
+          </Label>
         )}
       </div>
     );

@@ -1,5 +1,11 @@
 /** COLORS LIST **/
-$colors: brand; // Для расширение добавьте цвет из файла _color-palette.scss
+$colors: brand, gray, success, danger, warning; // Для расширение добавьте цвет из файла _color-palette.scss
 $fills: filled, outlined, cleared;
 
 $data-image-svg-prefix:  'data:image/svg+xml';
+
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1920px;

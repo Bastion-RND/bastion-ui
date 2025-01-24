@@ -19,67 +19,67 @@ button, input[type="submit"] {
   /** COLORS **/
   @each $color in globals.$colors {
     /** FILLED **/
-    --color-#{$color}-filled-background: var(--#{$color}-color-500);
-    --color-#{$color}-filled-text: var(--white-color);
-    --color-#{$color}-filled-border: transparent;
-    --color-#{$color}-filled-outline: transparent;
+    --color-#{"" + $color}-filled-background: var(--#{"" + $color}-color-500);
+    --color-#{"" + $color}-filled-text: var(--white-color);
+    --color-#{"" + $color}-filled-border: transparent;
+    --color-#{"" + $color}-filled-outline: transparent;
 
-    --color-#{$color}-filled-background-active: var(--#{$color}-color-500);
-    --color-#{$color}-filled-text-active: var(--white-color);
-    --color-#{$color}-filled-border-active: transparent;
-    --color-#{$color}-filled-outline-active: var(--#{$color}-color-50);
+    --color-#{"" + $color}-filled-background-active: var(--#{"" + $color}-color-500);
+    --color-#{"" + $color}-filled-text-active: var(--white-color);
+    --color-#{"" + $color}-filled-border-active: transparent;
+    --color-#{"" + $color}-filled-outline-active: var(--#{"" + $color}-color-50);
 
-    --color-#{$color}-filled-background-hover: var(--#{$color}-color-400);
-    --color-#{$color}-filled-text-hover: var(--white-color);
-    --color-#{$color}-filled-border-hover: transparent;
-    --color-#{$color}-filled-outline-hover: transparent;
+    --color-#{"" + $color}-filled-background-hover: var(--#{"" + $color}-color-400);
+    --color-#{"" + $color}-filled-text-hover: var(--white-color);
+    --color-#{"" + $color}-filled-border-hover: transparent;
+    --color-#{"" + $color}-filled-outline-hover: transparent;
 
-    --color-#{$color}-filled-background-focus: var(--#{$color}-color-500);
-    --color-#{$color}-filled-text-focus: var(--white-color);
-    --color-#{$color}-filled-border-focus: transparent;
-    --color-#{$color}-filled-outline-focus: var(--#{$color}-color-50);
+    --color-#{"" + $color}-filled-background-focus: var(--#{"" + $color}-color-500);
+    --color-#{"" + $color}-filled-text-focus: var(--white-color);
+    --color-#{"" + $color}-filled-border-focus: transparent;
+    --color-#{"" + $color}-filled-outline-focus: var(--#{"" + $color}-color-50);
 
     /** OUTLINED **/
-    --color-#{$color}-outlined-background: var(--#{$color}-color-25);
-    --color-#{$color}-outlined-text: var(--#{$color}-color-600);
-    --color-#{$color}-outlined-border: var(--#{$color}-color-400);
-    --color-#{$color}-outlined-outline: transparent;
+    --color-#{"" + $color}-outlined-background: var(--#{"" + $color}-color-25);
+    --color-#{"" + $color}-outlined-text: var(--#{"" + $color}-color-600);
+    --color-#{"" + $color}-outlined-border: var(--#{"" + $color}-color-400);
+    --color-#{"" + $color}-outlined-outline: transparent;
 
-    --color-#{$color}-outlined-background-active: var(--#{$color}-color-100);
-    --color-#{$color}-outlined-text-active: var(--gray-color-25);
-    --color-#{$color}-outlined-border-active: var(--#{$color}-color-600);
-    --color-#{$color}-outlined-outline-active: var(--#{$color}-color-25);
+    --color-#{"" + $color}-outlined-background-active: var(--#{"" + $color}-color-100);
+    --color-#{"" + $color}-outlined-text-active: var(--gray-color-25);
+    --color-#{"" + $color}-outlined-border-active: var(--#{"" + $color}-color-600);
+    --color-#{"" + $color}-outlined-outline-active: var(--#{"" + $color}-color-25);
 
-    --color-#{$color}-outlined-background-hover: var(--#{$color}-color-25);
-    --color-#{$color}-outlined-text-hover: var(--#{$color}-color-600);
-    --color-#{$color}-outlined-border-hover: var(--#{$color}-color-100);
-    --color-#{$color}-outlined-outline-hover: transparent;
+    --color-#{"" + $color}-outlined-background-hover: var(--#{"" + $color}-color-25);
+    --color-#{"" + $color}-outlined-text-hover: var(--#{"" + $color}-color-600);
+    --color-#{"" + $color}-outlined-border-hover: var(--#{"" + $color}-color-100);
+    --color-#{"" + $color}-outlined-outline-hover: transparent;
 
-    --color-#{$color}-outlined-background-focus: var(--#{$color}-color-100);
-    --color-#{$color}-outlined-text-focus: var(--#{$color}-color-25);
-    --color-#{$color}-outlined-border-focus: var(--#{$color}-color-400);
-    --color-#{$color}-outlined-outline-focus: transparent;
+    --color-#{"" + $color}-outlined-background-focus: var(--#{"" + $color}-color-100);
+    --color-#{"" + $color}-outlined-text-focus: var(--#{"" + $color}-color-25);
+    --color-#{"" + $color}-outlined-border-focus: var(--#{"" + $color}-color-400);
+    --color-#{"" + $color}-outlined-outline-focus: transparent;
 
     /** CLEARED **/
-    --color-#{$color}-cleared-background: transparent;
-    --color-#{$color}-cleared-text: var(--#{$color}-color-500);
-    --color-#{$color}-cleared-border: transparent;
-    --color-#{$color}-cleared-outline: transparent;
+    --color-#{"" + $color}-cleared-background: transparent;
+    --color-#{"" + $color}-cleared-text: var(--#{"" + $color}-color-500);
+    --color-#{"" + $color}-cleared-border: transparent;
+    --color-#{"" + $color}-cleared-outline: transparent;
 
-    --color-#{$color}-cleared-background-active: transparent;
-    --color-#{$color}-cleared-text-active: var(--#{$color}-color-400);
-    --color-#{$color}-cleared-border-active: transparent;
-    --color-#{$color}-cleared-outline-active: var(--#{$color}-color-500);
+    --color-#{"" + $color}-cleared-background-active: transparent;
+    --color-#{"" + $color}-cleared-text-active: var(--#{"" + $color}-color-400);
+    --color-#{"" + $color}-cleared-border-active: transparent;
+    --color-#{"" + $color}-cleared-outline-active: var(--#{"" + $color}-color-500);
 
-    --color-#{$color}-cleared-background-hover: transparent;
-    --color-#{$color}-cleared-text-hover: var(--#{$color}-color-200);
-    --color-#{$color}-cleared-border-hover: var(--#{$color}-color-25);
-    --color-#{$color}-cleared-outline-hover: transparent;
+    --color-#{"" + $color}-cleared-background-hover: transparent;
+    --color-#{"" + $color}-cleared-text-hover: var(--#{"" + $color}-color-200);
+    --color-#{"" + $color}-cleared-border-hover: var(--#{"" + $color}-color-25);
+    --color-#{"" + $color}-cleared-outline-hover: transparent;
 
-    --color-#{$color}-cleared-background-focus: transparent;
-    --color-#{$color}-cleared-text-focus: var(--#{$color}-color-400);
-    --color-#{$color}-cleared-border-focus: transparent;
-    --color-#{$color}-cleared-outline-focus: var(--#{$color}-color-200);
+    --color-#{"" + $color}-cleared-background-focus: transparent;
+    --color-#{"" + $color}-cleared-text-focus: var(--#{"" + $color}-color-400);
+    --color-#{"" + $color}-cleared-border-focus: transparent;
+    --color-#{"" + $color}-cleared-outline-focus: var(--#{"" + $color}-color-200);
   }
 }
 
@@ -177,6 +177,9 @@ input[type="radio"] {
   --radio-border-transition: border-color 0.3s ease;
   --radio-outline-transition: outline-color 0.3s ease;
   --radio-mark-transition: 0.15s transform ease-in-out;
+
+  /** BACKGROUND **/
+  --radio-background-color: var(--brand-color-25);
 }
 
 label {
@@ -195,6 +198,7 @@ label {
   --radius-small: 12px;
   --radius-medium: 16px;
   --radius-large: 36px;
+  --radius-full: 50%;
 
   /** INPUT GROUP **/
   --input-group-gap: 6px;
@@ -202,6 +206,31 @@ label {
   --input-group-text-color-focus: var(--brand-color-500);
   --input-group-text-color-disabled: var(--gray-color-300);
   --input-group-text-animation: color 0.3s ease;
+
+  /** MODAL CARD **/
+  --modal-card-border-radius: 1.625rem;
+  --modal-card-shadow: 0 20px 24px -4px rgba(127, 139, 151, 0.1),
+  0 8px 8px -4px rgba(127, 139, 151, 0.1);
+  --modal-card-animation: modal-animation 0.3s ease;
+  --modal-card-title-color: var(--gray-color-800);
+  --modal-card-content-color: var(--gray-color-600);
+  --modal-card-padding: 1.5rem;
+  --modal-card-content-padding: 0.5rem;
+
+  /** DIALOG **/
+  --dialog-card-animation: dialog-animation 0.3s ease;
+  --dialog-card-width: 400px;
+  --dialog-header-gap: 1.25rem;
+
+  /** TOAST **/
+  --toast-card-width: 496px;
+  --toast-card-radius: var(--radius-medium);
+  --toast-card-padding: 1rem 1.5rem 1rem 1rem;
+  --toast-card-animation: toast-animation 0.15s ease;
+  --toast-card-content-gap: .75rem;
+  --toast-card-wrapper-padding: 1rem 0 0 0;
+  --toast-card-wrapper-gap: 1rem;
+  --toast-card-icon-size: 1rem;
 }
 
 p {
@@ -211,4 +240,34 @@ p {
   --input-group-feedback-text-color-success: var(--success-color-700);
   --input-group-feedback-text-color-warning: var(--warning-color-700);
   --input-group-feedback-text-color-error: var(--danger-color-700);
+}
+
+@keyframes modal-animation {
+  0% {
+    transform: translateY(20%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes dialog-animation {
+  0% {
+    transform: translateY(-20%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes toast-animation {
+  0% {
+    transform: translateY(-50%);
+  }
+  75% {
+    transform: translateY(.25rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
