@@ -33,13 +33,11 @@ const BastAlertWithoutPortal: FC<TBastAlertProps> = ({
   }, []);
 
   return (
-    // <div className="alert__wrapper">
-      <div className={`${clsx(['alert', `alert--${color}`])}`}>
-        <IconByColor />
-        {text}
-        <BastAlertCloseButton onClick={onClose} />
-      </div>
-    // </div>
+    <div className={`${clsx(['alert', `alert--${color}`])}`}>
+      <IconByColor />
+      <h5>{text}</h5>
+      <BastAlertCloseButton onClick={onClose} />
+    </div>
   );
 };
 

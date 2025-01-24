@@ -6,11 +6,9 @@
   padding: var(--alert-card-padding);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--alert-card-content-gap);
   width: 100%;
   cursor: pointer;
-  font-size: 14px;
-  line-height: 16px;
   animation: var(--alert-card-animation);
 
   &__close-button {
@@ -22,9 +20,9 @@
   }
 
   svg {
-    height: 1rem;
-    width: 1rem;
-    min-width: 1rem;
+    height: var(--alert-card-icon-size);
+    width: var(--alert-card-icon-size);
+    min-width: var(--alert-card-icon-size);
   }
 
   @each $color in globals.$colors {
@@ -39,12 +37,12 @@
   &__wrapper {
     position: absolute;
     top: 0;
-    padding-top: 1rem;
+    padding: var(--alert-card-wrapper-padding);
     left: 50%;
     transform: translateX(-50%);
     width: min(calc(100% - calc(var(--modal-card-padding) * 2)), var(--alert-card-width));
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--alert-card-wrapper-gap)
   }
 }
