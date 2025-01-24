@@ -4,7 +4,7 @@ import { ComponentProps, FC } from 'react';
 import { BastButton } from '../../../entities/BastButton';
 import { BastIcon } from '../../../entities/BastIcon';
 
-const BastAlertCloseButton: FC<Omit<ComponentProps<typeof BastButton>, 'children'>> = ({
+const BastToastCloseButton: FC<Omit<ComponentProps<typeof BastButton>, 'children'>> = ({
   className,
   ...props
 }) => (
@@ -12,10 +12,10 @@ const BastAlertCloseButton: FC<Omit<ComponentProps<typeof BastButton>, 'children
     fill="cleared"
     iconOnly
     {...props}
-    className={`${clsx(['alert__close-button alert__close-button--borderless', className && className])}`}
+    className={`${clsx(['toast__close-button', className && className])}`}
   >
     <BastIcon name="Close" />
   </BastButton>
 );
 
-export { BastAlertCloseButton };
+export { BastToastCloseButton };

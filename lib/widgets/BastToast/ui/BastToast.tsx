@@ -3,22 +3,22 @@ import { FC, useEffect } from 'react';
 
 import { withPortal } from '../../../shared/ui/hocs/withPortal';
 import { BAST_ICONS_BY_COLOR, Icons } from '../../../shared/ui/icons';
-import { TAlertItem, useAlertContext } from '../model/AlertContext';
-import { BastAlertCloseButton } from './BastAlertCloseButton';
+import { TToastItem, useToastContext } from '../model/ToastContext';
+import { BastToastCloseButton } from './BastToastCloseButton';
 
 /**
- * Дефолтное значение, после которого Alert закроется автоматически
+ * Дефолтное значение, после которого Toast закроется автоматически
  */
 const AUTOCLOSE_DURATION_DEFAULT = 5_000;
 
-type TBastAlertProps = TAlertItem & { onClose: () => void };
+type TBastToastProps = TToastItem & { onClose: () => void };
 
-const BastAlertWithoutPortal: FC<TBastAlertProps> = ({
+const BastToastWithoutPortal: FC<TBastToastProps> = ({
   color = 'gray',
+  autoClose = true,
   onClose,
   text,
   duration = AUTOCLOSE_DURATION_DEFAULT,
-  autoClose,
 }) => {
   const IconByColor = Icons[BAST_ICONS_BY_COLOR[color]];
 
@@ -33,33 +33,33 @@ const BastAlertWithoutPortal: FC<TBastAlertProps> = ({
   }, []);
 
   return (
-    <div className={`${clsx(['alert', `alert--${color}`])}`}>
+    <div className={`${clsx(['toast', `toast--${color}`])}`}>
       <IconByColor />
       <h5>{text}</h5>
-      <BastAlertCloseButton onClick={onClose} />
+      <BastToastCloseButton onClick={onClose} />
     </div>
   );
 };
 
-const BastAlerts: FC = () => {
-  const { alerts, removeAlert } = useAlertContext();
+const BastToasts: FC = () => {
+  const { toasts, removeToast } = useToastContext();
 
   return (
-    <div className="alert__wrapper">
-      {Object.entries(alerts).map(([key, { color, text, duration, autoClose }]) => (
-        <BastAlertWithoutPortal
+    <div className="toast__wrapper">
+      {Object.entries(toasts).map(([key, { color, text, duration, autoClose }]) => (
+        <BastToastWithoutPortal
           duration={duration}
           autoClose={autoClose}
           text={text}
           color={color}
           key={key}
-          onClose={() => removeAlert(key)}
+          onClose={() => removeToast(key)}
         />
       ))}
     </div>
   );
 };
 
-const BastAlert = withPortal(BastAlerts);
+const BastToast = withPortal(BastToasts);
 
-export { BastAlert };
+export { BastToast };

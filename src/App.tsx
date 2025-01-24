@@ -4,14 +4,14 @@ import { ChangeEvent, FC, useState } from 'react';
 
 import { BastButton, BastCheck, BastInput, BastInputGroup, BastRadio } from '../lib/app/main';
 import { BastIcon } from '../lib/entities/BastIcon';
-import { useAlert } from '../lib/widgets/BastAlert';
 import { BastDialog } from '../lib/widgets/BastDialog';
 import { BastModal } from '../lib/widgets/BastModal';
+import { useToast } from '../lib/widgets/BastToast';
 
 const App: FC = () => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
   const [isDialogOpen, setDialogOpen] = useState<boolean>(false);
-  const { createAlert } = useAlert();
+  const { createToast } = useToast();
 
   const handleChangeInput = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
     console.log(value);
@@ -73,8 +73,8 @@ const App: FC = () => {
           fill="cleared"
           expand="full"
           onClick={() =>
-            createAlert({
-              color: 'success',
+            createToast({
+              color: 'danger',
               autoClose: true,
               duration: 5000,
               text: 'Какое-то прикольное уведомление',

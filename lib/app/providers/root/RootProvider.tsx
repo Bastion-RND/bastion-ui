@@ -1,9 +1,9 @@
 import { FC, PropsWithChildren } from 'react';
 
-import { AlertProvider } from '../alert/AlertProvider';
+import { ToastProvider } from '../toast/ToastProvider';
 
 const RootProvider: FC<PropsWithChildren> = ({ children }) => (
-  <AlertProvider>{children}</AlertProvider>
+  <ToastProvider>{children}</ToastProvider>
 );
 
 export { RootProvider };

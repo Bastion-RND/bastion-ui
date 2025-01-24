@@ -222,15 +222,15 @@ label {
   --dialog-card-width: 400px;
   --dialog-header-gap: 1.25rem;
 
-  /** ALERT **/
-  --alert-card-width: 496px;
-  --alert-card-radius: var(--radius-medium);
-  --alert-card-padding: 1rem 1.5rem 1rem 1rem;
-  --alert-card-animation: alert-animation 0.15s ease;
-  --alert-card-content-gap: .75rem;
-  --alert-card-wrapper-padding: 1rem 0 0 0;
-  --alert-card-wrapper-gap: 1rem;
-  --alert-card-icon-size: 1rem;
+  /** TOAST **/
+  --toast-card-width: 496px;
+  --toast-card-radius: var(--radius-medium);
+  --toast-card-padding: 1rem 1.5rem 1rem 1rem;
+  --toast-card-animation: toast-animation 0.15s ease;
+  --toast-card-content-gap: .75rem;
+  --toast-card-wrapper-padding: 1rem 0 0 0;
+  --toast-card-wrapper-gap: 1rem;
+  --toast-card-icon-size: 1rem;
 }
 
 p {
@@ -260,7 +260,7 @@ p {
   }
 }
 
-@keyframes alert-animation {
+@keyframes toast-animation {
   0% {
     transform: translateY(-50%);
   }
