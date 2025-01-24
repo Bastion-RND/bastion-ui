@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect, useState } from 'react';
+import { FC, memo, ReactNode, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 interface PortalProps {
@@ -6,7 +6,7 @@ interface PortalProps {
   containerId?: string;
 }
 
-export const Portal: FC<PortalProps> = ({ children, containerId = 'portal-root' }) => {
+export const Portal: FC<PortalProps> = memo(({ children, containerId = 'portal-root' }) => {
   const [container, setContainer] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -19,15 +19,9 @@ export const Portal: FC<PortalProps> = ({ children, containerId = 'portal-root' 
     }
 
     setContainer(portalContainer);
-
-    // return () => {
-    //   if (portalContainer && portalContainer.parentElement === document.body) {
-    //     document.body.removeChild(portalContainer);
-    //   }
-    // };
   }, [containerId]);
 
   if (!container) return null;
 
   return createPortal(children, container);
-};
+});

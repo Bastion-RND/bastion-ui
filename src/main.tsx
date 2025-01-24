@@ -1,10 +1,10 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot } from 'react-dom/client';
 
-import App from './App'
+import { BastUiProvider } from '../lib/app/providers';
+import App from './App';
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  <BastUiProvider>
     <App />
-  </StrictMode>,
-)
+  </BastUiProvider>,
+);

@@ -1,17 +1,20 @@
 import '../lib/app/styles/bastion-ui.scss';
 
-import { FC, useState } from 'react';
+import { ChangeEvent, FC, useState } from 'react';
 
-import { BastButton, BastCheck, BastControl, BastInputGroup, BastRadio } from '../lib/app/main';
+import { BastButton, BastCheck, BastInput, BastInputGroup, BastRadio } from '../lib/app/main';
 import { BastIcon } from '../lib/entities/BastIcon';
-import { BastAlert } from '../lib/widgets/BastAlert';
+import { useAlert } from '../lib/widgets/BastAlert/model/AlertContext';
 import { BastDialog } from '../lib/widgets/BastDialog';
 import { BastModal } from '../lib/widgets/BastModal';
 
 const App: FC = () => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
   const [isDialogOpen, setDialogOpen] = useState<boolean>(false);
-  const [isAlertOpen, setAlertOpen] = useState<boolean>(false);
+  const { createAlert } = useAlert();
+
+  const handleChangeInput = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
+    console.log(value);
 
   return (
     <>
@@ -65,12 +68,19 @@ const App: FC = () => {
         >
           Dialog
         </BastButton>
-        {isAlertOpen && (
-          <BastAlert color="success" onClose={() => setAlertOpen(false)}>
-            Какое-то прикольное уведомление
-          </BastAlert>
-        )}
-        <BastButton color="gray" fill="cleared" expand="full" onClick={() => setAlertOpen(true)}>
+        <BastButton
+          color="gray"
+          fill="cleared"
+          expand="full"
+          onClick={() =>
+            createAlert({
+              color: 'success',
+              autoClose: true,
+              duration: 5000,
+              text: 'Какое-то прикольное уведомление',
+            })
+          }
+        >
           Alert
         </BastButton>
       </div>
@@ -100,12 +110,16 @@ const App: FC = () => {
         }}
       >
         <BastInputGroup>
-          <BastInputGroup.Label>Label</BastInputGroup.Label>
-          <BastInputGroup.Control placeholder="Злодей" />
+          <BastInputGroup.Label>Debounced</BastInputGroup.Label>
+          <BastInputGroup.Input
+            placeholder="Злодей"
+            debounce={1000}
+            onChange={handleChangeInput}
+          />
         </BastInputGroup>
         <BastInputGroup>
           <BastInputGroup.Label htmlFor="3">Label</BastInputGroup.Label>
-          <BastInputGroup.Control id="2" placeholder="Злодей" disabled />
+          <BastInputGroup.Input id="2" placeholder="Злодей" disabled />
           <BastInputGroup.Feedback feedbackType="success">Test</BastInputGroup.Feedback>
         </BastInputGroup>
       </div>
@@ -117,8 +131,8 @@ const App: FC = () => {
           padding: '10px',
         }}
       >
-        <BastControl placeholder="Злодей" debounce={0} />
-        <BastControl placeholder="Злодей" disabled />
+        <BastInput placeholder="Злодей" debounce={0} />
+        <BastInput placeholder="Злодей" disabled />
       </div>
       <div style={{ display: 'flex', gap: '10px', padding: '10px' }}>
         <BastCheck disabled />
