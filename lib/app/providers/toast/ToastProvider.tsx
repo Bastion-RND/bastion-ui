@@ -2,10 +2,14 @@ import { FC, PropsWithChildren, useCallback, useMemo, useState } from 'react';
 
 import {
   BastToast,
-  ToastContext,
-  TToastContextProps,
+  ToastValueContext,
+  TToastActionsContextProps,
   TToastItem,
 } from '../../../widgets/BastToast';
+import {
+  ToastActionsContext,
+  TToastValueContextProps,
+} from '../../../widgets/BastToast/model/ToastValueContext';
 
 const ToastProvider: FC<PropsWithChildren> = ({ children }) => {
   const [toasts, setToasts] = useState<Record<string, TToastItem>>({});
@@ -13,32 +17,42 @@ const ToastProvider: FC<PropsWithChildren> = ({ children }) => {
   const createToast = useCallback((args: TToastItem) => {
     setToasts((prevState) => {
       const id = Date.now().toString();
-      prevState[id] = { ...args };
-      return { ...prevState };
+      const newState = { ...prevState };
+      newState[id] = { ...args };
+      return newState;
     });
   }, []);
 
   const removeToast = useCallback((id: string) => {
     setToasts((prevState) => {
-      delete prevState[id];
-      return { ...prevState };
+      const newState = { ...prevState };
+      delete newState[id];
+      return newState;
     });
   }, []);
 
-  const value = useMemo<TToastContextProps>(
+  const toastsValue = useMemo<TToastValueContextProps>(
     () => ({
       toasts,
-      createToast,
-      removeToast,
     }),
     [toasts],
   );
 
+  const toastActions = useMemo<TToastActionsContextProps>(
+    () => ({
+      createToast,
+      removeToast,
+    }),
+    [createToast, removeToast],
+  );
+
   return (
-    <ToastContext.Provider value={value}>
-      {children}
-      <BastToast />
-    </ToastContext.Provider>
+    <ToastActionsContext.Provider value={toastActions}>
+      <ToastValueContext.Provider value={toastsValue}>
+        {children}
+        <BastToast />
+      </ToastValueContext.Provider>
+    </ToastActionsContext.Provider>
   );
 };
 

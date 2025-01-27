@@ -1,4 +1,4 @@
 export { useToast } from './lib/useToast';
-export type { TToastContextProps,TToastItem } from './model/ToastContext';
-export { ToastContext, useToastContext } from './model/ToastContext';
+export type { TToastActionsContextProps,TToastItem } from './model/ToastValueContext';
+export { ToastValueContext, useToastValueContext } from './model/ToastValueContext';
 export { BastToast } from './ui/BastToast';

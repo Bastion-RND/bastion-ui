@@ -3,7 +3,7 @@ import { FC, useEffect } from 'react';
 
 import { withPortal } from '../../../shared/ui/hocs/withPortal';
 import { BAST_ICONS_BY_COLOR, Icons } from '../../../shared/ui/icons';
-import { TToastItem, useToastContext } from '../model/ToastContext';
+import { TToastItem, useToastActionsContext, useToastValueContext } from '../model/ToastValueContext';
 import { BastToastCloseButton } from './BastToastCloseButton';
 
 /**
@@ -42,7 +42,8 @@ const BastToastWithoutPortal: FC<TBastToastProps> = ({
 };
 
 const BastToasts: FC = () => {
-  const { toasts, removeToast } = useToastContext();
+  const { toasts } = useToastValueContext();
+  const { removeToast } = useToastActionsContext();
 
   return (
     <div className="toast__wrapper">
