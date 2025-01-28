@@ -36,4 +36,7 @@ input[type="checkbox"] {
           border-color 0.3s ease,
           outline-color 0.3s ease;
   --check-mark-transition: opacity 0.3s ease, transform 0.3s ease;
+
+  /** TEXT **/
+  --check-disabled-text-color: var(--gray-color-200);
 }

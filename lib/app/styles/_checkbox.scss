@@ -33,13 +33,12 @@ $checkmark-disabled: functions.str-replace($svg-data-image, 'currentColor', func
   }
 
   &::before {
+    @include mixins.translate-center;
+
     content: "";
     width: var(--check-mark-width);
     height: var(--check-mark-height);
     opacity: 0;
-    top: 50%; /* Смещение от верха на 50% */
-    left: 50%; /* Смещение от левого края на 50% */
-    transform: translate(-50%, -50%);
     position: absolute;
     transition: var(--check-mark-transition);
     background: {
@@ -88,6 +87,6 @@ $checkmark-disabled: functions.str-replace($svg-data-image, 'currentColor', func
   display: flex;
 
   &--disabled {
-    color: var(--gray-color-200);
+    color: var(--check-disabled-text-color);
   }
 }

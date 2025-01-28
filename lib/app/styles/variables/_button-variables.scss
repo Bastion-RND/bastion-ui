@@ -8,13 +8,9 @@ button, input[type="submit"] {
   /** BORDERS **/
   --button-border-radius: var(--radius-small);
 
-  /** FONTS **/
-  --button-default-font-size: large;
-  --button-small-font-size: small;
-
   /** PADDINGS **/
-  --button-horizontal-padding: 18px;
-  --button-vertical-padding: 10px;
+  --button-horizontal-padding: 1.125rem;
+  --button-vertical-padding: .625rem;
 
   /** COLORS **/
   @each $color in globals.$colors {
