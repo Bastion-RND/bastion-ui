@@ -1,1 +1,0 @@
-export { withLabels } from './withLabels';

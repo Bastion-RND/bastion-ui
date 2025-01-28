@@ -1,8 +1,12 @@
 @use "button-variables";
-@use "input-variables";
+@use "input-group-variables";
 @use "checkbox-variables";
 @use "radio-variables";
 @use "label-variables";
+@use "input-variables";
+@use "modal-card-variables";
+@use "dialog-card-variables";
+@use "toast-card-variables";
 
 :root {
   /** RADIUS **/
@@ -11,81 +15,10 @@
   --radius-large: 2.25rem;
   --radius-full: 50%;
 
-  /** INPUT GROUP **/
-  --input-group-gap: 6px;
-  --input-group-text-color: var(--brand-color-200);
-  --input-group-text-color-focus: var(--brand-color-500);
-  --input-group-text-color-disabled: var(--gray-color-300);
-  --input-group-text-animation: color 0.3s ease;
-
-  /** MODAL CARD **/
-  --modal-card-border-radius: 1.625rem;
-  --modal-card-shadow: 0 20px 24px -4px rgba(127, 139, 151, 0.1),
-  0 8px 8px -4px rgba(127, 139, 151, 0.1);
-  --modal-card-animation: modal-animation 0.3s ease;
-  --modal-card-title-color: var(--gray-color-800);
-  --modal-card-content-color: var(--gray-color-600);
-  --modal-card-padding: 1.5rem;
-  --modal-card-content-padding: 0.5rem;
-
-  /** DIALOG **/
-  --dialog-card-animation: dialog-animation 0.3s ease;
-  --dialog-card-width: 400px;
-  --dialog-header-gap: 1.25rem;
-
-  /** TOAST **/
-  --toast-card-width: 496px;
-  --toast-card-radius: var(--radius-medium);
-  --toast-card-padding: 1rem 1.5rem 1rem 1rem;
-  --toast-card-animation: toast-animation 0.15s ease;
-  --toast-card-content-gap: .75rem;
-  --toast-card-wrapper-padding: 1rem 0 0 0;
-  --toast-card-wrapper-gap: 1rem;
-  --toast-card-icon-size: 1rem;
-
   /** CONTAINER **/
   --container-width-sm: 540px;
   --container-width-md: 720px;
   --container-width-lg: 960px;
   --container-width-xl: 1140px;
   --container-width-xxl: 1320px;
-}
-
-p {
-  --input-group-feedback-horizontal-padding: .875rem;
-  --input-group-feedback-font-weight: 400;
-  --input-group-feedback-text-color-info: var(--gray-color-700);
-  --input-group-feedback-text-color-success: var(--success-color-700);
-  --input-group-feedback-text-color-warning: var(--warning-color-700);
-  --input-group-feedback-text-color-error: var(--danger-color-700);
-}
-
-@keyframes modal-animation {
-  0% {
-    transform: translateY(20%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes dialog-animation {
-  0% {
-    transform: translateY(-20%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes toast-animation {
-  0% {
-    transform: translateY(-50%);
-  }
-  75% {
-    transform: translateY(.25rem);
-  }
-  100% {
-    transform: translateY(0);
-  }
 }

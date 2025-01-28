@@ -1,0 +1,22 @@
+:root {
+  --toast-card-width: 496px;
+  --toast-card-radius: var(--radius-medium);
+  --toast-card-padding: 1rem 1.5rem 1rem 1rem;
+  --toast-card-animation: toast-card-animation 0.15s ease;
+  --toast-card-content-gap: .75rem;
+  --toast-card-wrapper-padding: 1rem 0 0 0;
+  --toast-card-wrapper-gap: 1rem;
+  --toast-card-icon-size: 1rem;
+}
+
+@keyframes toast-card-animation {
+  0% {
+    transform: translateY(-50%);
+  }
+  75% {
+    transform: translateY(.25rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

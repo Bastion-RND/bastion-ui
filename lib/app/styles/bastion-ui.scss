@@ -1,7 +1,7 @@
 @use "color-palette";
 @use "button";
 @use "variables/variables";
-@use 'input';
+@use 'input-group';
 @use "checkbox";
 @use "radio";
 @use "label";
@@ -11,6 +11,7 @@
 @use "toast";
 @use "typography";
 @use "container";
+@use "input";
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 

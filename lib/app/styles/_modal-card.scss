@@ -10,8 +10,6 @@
 
   &__title {
     color: var(--modal-card-title-color);
-    line-height: 1.5rem;
-    font-size: 1.125rem;
   }
 
   &__header {
@@ -32,8 +30,6 @@
   &__content {
     padding: var(--modal-card-content-padding) var(--modal-card-padding);
     color: var(--modal-card-content-color);
-    line-height: 1.5rem;
-    font-size: 1.125rem;
     font-weight: 400;
     text-align: center;
   }
