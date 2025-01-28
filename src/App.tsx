@@ -43,20 +43,16 @@ const App: FC = () => {
             gridAutoFlow: 'column',
           }}
         >
-          <BastButton fill="outlined" color="gray">
+          <BastButton expand fill="outlined" color="gray">
             Не согласен
           </BastButton>
-          <BastButton>Согласен</BastButton>
+          <BastButton expand>Согласен</BastButton>
         </BastModal.Footer>
       </BastModal>
       <div
         style={{ display: 'flex', justifyContent: 'space-between', padding: '10px', gap: '10px' }}
       >
-        <BastButton
-          color="gray"
-          expand
-          onClick={() => setModalOpen((prevState) => !prevState)}
-        >
+        <BastButton color="gray" expand onClick={() => setModalOpen((prevState) => !prevState)}>
           Modal
         </BastButton>
         {isDialogOpen && (
@@ -111,7 +107,7 @@ const App: FC = () => {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr 1fr',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))',
           gap: '10px',
           padding: '10px',
         }}
@@ -129,7 +125,7 @@ const App: FC = () => {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr 1fr',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))',
           gap: '10px',
           padding: '10px',
         }}
@@ -158,7 +154,15 @@ const App: FC = () => {
         <BastRadio name="1" label="Remember me" subLabel="Save my login details for next time" />
         <BastRadio name="1" label="Remember me" subLabel="Save my login details for next time" />
       </form>
-      <div style={{ display: 'flex', width: '100%', flexDirection: 'column', gap: '1em' }}>
+      <div
+        style={{
+          display: 'flex',
+          width: '100%',
+          flexDirection: 'column',
+          gap: '1em',
+          padding: '10px',
+        }}
+      >
         <h1>H1</h1>
         <h2>H2</h2>
         <h3>H3</h3>

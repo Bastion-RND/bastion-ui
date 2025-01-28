@@ -47,10 +47,10 @@ const BastDialog: FC<TBastDialog> = ({
             gridAutoFlow: 'column',
           }}
         >
-          <BastButton fill="outlined" color="gray" onClick={onClose}>
+          <BastButton expand fill="outlined" color="gray" onClick={onClose}>
             {closeButtonText}
           </BastButton>
-          <BastButton color={color} onClick={onAccept}>
+          <BastButton expand color={color} onClick={onAccept}>
             {acceptButtonText}
           </BastButton>
         </ModalCard.Footer>
