@@ -13,17 +13,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: fit-content;
 
   &--small {
     font-size: var(--button-small-font-size);
   }
 
-  &--full {
-    flex: 1;
-  }
-
-  &--block {
-    display: block;
+  &--expand {
     width: 100%;
   }
 

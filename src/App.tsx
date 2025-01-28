@@ -54,7 +54,7 @@ const App: FC = () => {
       >
         <BastButton
           color="gray"
-          expand="full"
+          expand
           onClick={() => setModalOpen((prevState) => !prevState)}
         >
           Modal
@@ -70,7 +70,7 @@ const App: FC = () => {
         <BastButton
           color="gray"
           fill="outlined"
-          expand="full"
+          expand
           onClick={() => setDialogOpen((prevState) => !prevState)}
         >
           Dialog
@@ -78,7 +78,7 @@ const App: FC = () => {
         <BastButton
           color="gray"
           fill="cleared"
-          expand="full"
+          expand
           onClick={() =>
             createToast({
               color: 'danger',
@@ -159,7 +159,13 @@ const App: FC = () => {
         <BastRadio name="1" label="Remember me" subLabel="Save my login details for next time" />
       </form>
       <div style={{ display: 'flex', width: '100%', flexDirection: 'column', gap: '1em' }}>
+        <h1>H1</h1>
+        <h2>H2</h2>
+        <h3>H3</h3>
+        <h4>H4</h4>
+        <h5>H5</h5>
         <p>Paragraph</p>
+        <q>Quote</q>
       </div>
     </Container>
   );
