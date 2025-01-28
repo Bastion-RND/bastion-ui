@@ -1,3 +1,5 @@
+@use "globals" as globals;
+
 @mixin check-highlight {
   border-color: var(--border-color);
   background-color: var(--background-color);

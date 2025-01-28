@@ -17,7 +17,7 @@ const App: FC = () => {
     console.log(value);
 
   return (
-    <>
+    <main>
       <BastModal isOpen={isModalOpen} onClose={() => setModalOpen((prevState) => !prevState)}>
         <BastModal.Header>
           <BastModal.Icon color="brand">
@@ -155,7 +155,10 @@ const App: FC = () => {
         <BastRadio name="1" label="Remember me" subLabel="Save my login details for next time" />
         <BastRadio name="1" label="Remember me" subLabel="Save my login details for next time" />
       </form>
-    </>
+      <div style={{ display: 'flex', width: '100%', flexDirection: 'column', gap: '1em' }}>
+        <p>Paragraph</p>
+      </div>
+    </main>
   );
 };
 

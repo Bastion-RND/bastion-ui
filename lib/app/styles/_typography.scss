@@ -1,0 +1,13 @@
+/**
+ Расчеты значения clam расчитывались с помощью ресурса https://min-max-calculator.9elements.com/
+ - min-viewport = 576px;
+ - max-viewport = 1920px;
+*/
+
+html {
+  font-size: 16px;
+}
+
+p {
+  font-size: clamp(0.75rem, 0.643rem + 0.3vw, 1rem);
+}
