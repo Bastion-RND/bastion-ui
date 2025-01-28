@@ -15,8 +15,8 @@ input:not([type="submit"]):not([type="checkbox"]) {
   --input-border-color-disabled: var(--gray-color-300);
 
   /** PADDINGS **/
-  --input-horizontal-padding: 14px;
-  --input-vertical-padding: 10px;
+  --input-horizontal-padding: .875rem;
+  --input-vertical-padding: .625rem;
 
   /** TEXT **/
   --input-default-font-size: large;
