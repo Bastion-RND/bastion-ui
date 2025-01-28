@@ -1,0 +1,30 @@
+@use "globals" as globals;
+
+.container {
+  max-width: 100%;
+  margin: auto;
+
+  @media (min-width: globals.$sm) {
+    max-width: var(--container-width-sm);
+  }
+
+  @media (min-width: globals.$md) {
+    max-width: var(--container-width-md);
+  }
+
+  @media (min-width: globals.$lg) {
+    max-width: var(--container-width-lg);
+  }
+
+  @media (min-width: globals.$xl) {
+    max-width: var(--container-width-xl);
+  }
+
+  @media (min-width: globals.$xxl) {
+    max-width: var(--container-width-xxl);
+  }
+
+  &--fluid {
+    max-width: 100%;
+  }
+}

@@ -2,7 +2,14 @@ import '../lib/app/styles/bastion-ui.scss';
 
 import { ChangeEvent, FC, useState } from 'react';
 
-import { BastButton, BastCheck, BastInput, BastInputGroup, BastRadio } from '../lib/app/main';
+import {
+  BastButton,
+  BastCheck,
+  BastInput,
+  BastInputGroup,
+  BastRadio,
+  Container,
+} from '../lib/app/main';
 import { BastIcon } from '../lib/entities/BastIcon';
 import { BastDialog } from '../lib/widgets/BastDialog';
 import { BastModal } from '../lib/widgets/BastModal';
@@ -17,7 +24,7 @@ const App: FC = () => {
     console.log(value);
 
   return (
-    <main>
+    <Container>
       <BastModal isOpen={isModalOpen} onClose={() => setModalOpen((prevState) => !prevState)}>
         <BastModal.Header>
           <BastModal.Icon color="brand">
@@ -111,11 +118,7 @@ const App: FC = () => {
       >
         <BastInputGroup>
           <BastInputGroup.Label>Debounced</BastInputGroup.Label>
-          <BastInputGroup.Input
-            placeholder="Злодей"
-            debounce={1000}
-            onChange={handleChangeInput}
-          />
+          <BastInputGroup.Input placeholder="Злодей" debounce={1000} onChange={handleChangeInput} />
         </BastInputGroup>
         <BastInputGroup>
           <BastInputGroup.Label htmlFor="3">Label</BastInputGroup.Label>
@@ -158,7 +161,7 @@ const App: FC = () => {
       <div style={{ display: 'flex', width: '100%', flexDirection: 'column', gap: '1em' }}>
         <p>Paragraph</p>
       </div>
-    </main>
+    </Container>
   );
 };
 
