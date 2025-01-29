@@ -15,6 +15,13 @@ import { BastDialog } from '../lib/widgets/BastDialog';
 import { BastModal } from '../lib/widgets/BastModal';
 import { useToast } from '../lib/widgets/BastToast';
 
+const gridStyles = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))',
+  gap: '10px',
+  padding: '10px',
+};
+
 const App: FC = () => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
   const [isDialogOpen, setDialogOpen] = useState<boolean>(false);
@@ -36,12 +43,7 @@ const App: FC = () => {
           <div>Мы что-то важное хотим вам сказать</div>
         </BastModal.Content>
         <BastModal.Footer
-          style={{
-            display: 'grid',
-            gap: '10px',
-            gridTemplateColumns: '1fr 1fr',
-            gridAutoFlow: 'column',
-          }}
+          style={gridStyles}
         >
           <BastButton expand fill="outlined" color="gray">
             Не согласен
@@ -50,7 +52,7 @@ const App: FC = () => {
         </BastModal.Footer>
       </BastModal>
       <div
-        style={{ display: 'flex', justifyContent: 'space-between', padding: '10px', gap: '10px' }}
+        style={gridStyles}
       >
         <BastButton color="gray" expand onClick={() => setModalOpen((prevState) => !prevState)}>
           Modal
@@ -88,13 +90,13 @@ const App: FC = () => {
         </BastButton>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px' }}>
+      <div style={gridStyles}>
         <BastButton>Confirm</BastButton>
         <BastButton fill="outlined">Confirm</BastButton>
         <BastButton fill="cleared">Confirm</BastButton>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px' }}>
+      <div style={gridStyles}>
         <BastButton size="small">Confirm</BastButton>
         <BastButton fill="outlined" size="small">
           Confirm
@@ -105,12 +107,7 @@ const App: FC = () => {
       </div>
 
       <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))',
-          gap: '10px',
-          padding: '10px',
-        }}
+        style={gridStyles}
       >
         <BastInputGroup>
           <BastInputGroup.Label>Debounced</BastInputGroup.Label>
@@ -123,17 +120,12 @@ const App: FC = () => {
         </BastInputGroup>
       </div>
       <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))',
-          gap: '10px',
-          padding: '10px',
-        }}
+        style={gridStyles}
       >
         <BastInput placeholder="Злодей" debounce={0} />
         <BastInput placeholder="Злодей" disabled />
       </div>
-      <div style={{ display: 'flex', gap: '10px', padding: '10px' }}>
+      <div style={gridStyles}>
         <BastCheck disabled />
         <BastCheck
           label="Remember me"
@@ -143,7 +135,7 @@ const App: FC = () => {
         />
         <BastCheck label="Remember me" subLabel="Save my login details for next time" />
       </div>
-      <form action="#" style={{ display: 'flex', gap: '10px', padding: '10px' }}>
+      <form action="#" style={{ display: 'flex', gap: '10px', padding: '10px', flexWrap: 'wrap' }}>
         <BastRadio label="Злодей" disabled />
         <BastRadio
           label="Remember me"

@@ -1,7 +1,7 @@
 @use "globals" as globals;
 
 .container {
-  max-width: 100%;
+  max-width: var(--container-width-xs);
   height: 100%;
   margin: auto;
 
