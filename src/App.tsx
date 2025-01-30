@@ -43,7 +43,7 @@ const App: FC = () => {
           <div>Мы что-то важное хотим вам сказать</div>
         </BastModal.Content>
         <BastModal.Footer
-          style={gridStyles}
+          style={{ display: 'flex', gap: '.5em' }}
         >
           <BastButton expand fill="outlined" color="gray">
             Не согласен
