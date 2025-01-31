@@ -148,13 +148,6 @@ const App: FC = () => {
         <BastRadio name="1" label="Remember me" subLabel="Save my login details for next time" />
         <BastRadio name="1" label="Remember me" subLabel="Save my login details for next time" />
       </form>
-      <BastDropdown placeholder='Найти человека'>
-        <BastDropdown.Option>1</BastDropdown.Option>
-        <BastDropdown.Option>1</BastDropdown.Option>
-        <BastDropdown.Option>1</BastDropdown.Option>
-        <BastDropdown.Option>1</BastDropdown.Option>
-        <BastDropdown.Option>1</BastDropdown.Option>
-      </BastDropdown>
       <div style={{ display: 'flex', gap: '10px', width: '100%' }}>
         <div
           style={{
@@ -181,6 +174,13 @@ const App: FC = () => {
           <BastList.Item>Item 1</BastList.Item>
           <BastList.Item>Item 1</BastList.Item>
         </BastList>
+        <BastDropdown placeholder='Найти человека'>
+          <BastDropdown.Option>1</BastDropdown.Option>
+          <BastDropdown.Option>1</BastDropdown.Option>
+          <BastDropdown.Option>1</BastDropdown.Option>
+          <BastDropdown.Option>1</BastDropdown.Option>
+          <BastDropdown.Option>1</BastDropdown.Option>
+        </BastDropdown>
       </div>
     </Container>
   );
