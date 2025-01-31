@@ -18,7 +18,6 @@ const BastDropdownOption: FC<TBastDropdownOption> = ({
   const { value: contextValue, setValue } = useDropdownContext();
   const id = useId();
   const isSelected = contextValue?.id === id;
-  console.log(id, contextValue?.id, id === contextValue?.id);
 
   const handleSelect = () => setValue({ id, value });
 

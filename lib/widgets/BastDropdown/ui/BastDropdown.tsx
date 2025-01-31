@@ -37,7 +37,6 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
   const resolvedId = id || generatedId;
   const inputRef = useRef<HTMLInputElement>(null);
   const [value, setValue] = useState<TDropdownContextValue | null>(null);
-  console.log(value);
 
   const selectOption: IDropdownContextType['setValue'] = useCallback((value) => {
     if (inputRef.current) inputRef.current.checked = false;
