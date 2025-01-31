@@ -50,6 +50,10 @@
       margin-left: auto;
       transition: var(--dropdown-item-icon-animation);
       color: var(--dropdown-border-color-focused);
+
+      &--visible {
+        opacity: 1;
+      }
     }
 
     &:hover {
