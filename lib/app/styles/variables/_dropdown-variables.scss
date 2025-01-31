@@ -1,0 +1,37 @@
+:root {
+  /** PADDING **/
+  --dropdown-padding-horizontal: .875rem;
+  --dropdown-padding-vertical: .625rem;
+  --dropdown-gap: .75rem;
+  --dropdown-svg-gap: .5rem;
+
+  /** BORDER **/
+  --dropdown-border-radius: var(--radius-small);
+  --dropdown-border-color: var(--gray-color-200);
+  --dropdown-border-width: 2px;
+
+  /** COLOR **/
+  --dropdown-text-color: var(--gray-color-700);
+  --dropdown-border-color-focused: var(--brand-color-600);
+
+  /** ANIMATION **/
+  --dropdown-options-animation: growDown .35s ease-in-out forwards;
+  --dropdown-label-animation: box-shadow 0.3s ease, border-color 0.3s ease;
+  --dropdown-label-icon-animation: transform 0.3s ease, background-color 0.3s ease;
+  --dropdown-item-icon-animation: opacity .3s ease;
+
+  /** SIZE **/
+  --dropdown-svg-size: 1.25rem;
+}
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}

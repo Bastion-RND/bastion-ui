@@ -11,7 +11,9 @@ import {
   Container,
 } from '../lib/app/main';
 import { BastIcon } from '../lib/entities/BastIcon';
+import { BastList } from '../lib/entities/BastList/ui/BastList';
 import { BastDialog } from '../lib/widgets/BastDialog';
+import { BastDropdown } from '../lib/widgets/BastDropdown';
 import { BastModal } from '../lib/widgets/BastModal';
 import { useToast } from '../lib/widgets/BastToast';
 
@@ -146,22 +148,39 @@ const App: FC = () => {
         <BastRadio name="1" label="Remember me" subLabel="Save my login details for next time" />
         <BastRadio name="1" label="Remember me" subLabel="Save my login details for next time" />
       </form>
-      <div
-        style={{
-          display: 'flex',
-          width: '100%',
-          flexDirection: 'column',
-          gap: '1em',
-          padding: '10px',
-        }}
-      >
-        <h1>H1</h1>
-        <h2>H2</h2>
-        <h3>H3</h3>
-        <h4>H4</h4>
-        <h5>H5</h5>
-        <p>Paragraph</p>
-        <q>Quote</q>
+      <BastDropdown placeholder='Найти человека'>
+        <BastDropdown.Option>1</BastDropdown.Option>
+        <BastDropdown.Option>1</BastDropdown.Option>
+        <BastDropdown.Option>1</BastDropdown.Option>
+        <BastDropdown.Option>1</BastDropdown.Option>
+        <BastDropdown.Option>1</BastDropdown.Option>
+      </BastDropdown>
+      <div style={{ display: 'flex', gap: '10px', width: '100%' }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1em',
+            padding: '10px',
+          }}
+        >
+          <h1>H1</h1>
+          <h2>H2</h2>
+          <h3>H3</h3>
+          <h4>H4</h4>
+          <h5>H5</h5>
+          <p>Paragraph</p>
+          <q>Quote</q>
+        </div>
+        <BastList>
+          <BastList.Item>Item 1</BastList.Item>
+          <BastList.Item>Item 1</BastList.Item>
+          <BastList.Item>Item 1</BastList.Item>
+          <BastList.Item>Item 1</BastList.Item>
+          <BastList.Item>Item 1</BastList.Item>
+          <BastList.Item>Item 1</BastList.Item>
+          <BastList.Item>Item 1</BastList.Item>
+        </BastList>
       </div>
     </Container>
   );
