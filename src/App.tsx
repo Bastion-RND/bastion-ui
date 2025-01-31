@@ -2,11 +2,25 @@ import '../lib/app/styles/bastion-ui.scss';
 
 import { ChangeEvent, FC, useState } from 'react';
 
-import { BastButton, BastCheck, BastInput, BastInputGroup, BastRadio } from '../lib/app/main';
+import {
+  BastButton,
+  BastCheck,
+  BastInput,
+  BastInputGroup,
+  BastRadio,
+  Container,
+} from '../lib/app/main';
 import { BastIcon } from '../lib/entities/BastIcon';
 import { BastDialog } from '../lib/widgets/BastDialog';
 import { BastModal } from '../lib/widgets/BastModal';
 import { useToast } from '../lib/widgets/BastToast';
+
+const gridStyles = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))',
+  gap: '10px',
+  padding: '10px',
+};
 
 const App: FC = () => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
@@ -17,7 +31,7 @@ const App: FC = () => {
     console.log(value);
 
   return (
-    <>
+    <Container>
       <BastModal isOpen={isModalOpen} onClose={() => setModalOpen((prevState) => !prevState)}>
         <BastModal.Header>
           <BastModal.Icon color="brand">
@@ -29,27 +43,18 @@ const App: FC = () => {
           <div>Мы что-то важное хотим вам сказать</div>
         </BastModal.Content>
         <BastModal.Footer
-          style={{
-            display: 'grid',
-            gap: '10px',
-            gridTemplateColumns: '1fr 1fr',
-            gridAutoFlow: 'column',
-          }}
+          style={{ display: 'flex', gap: '.5em' }}
         >
-          <BastButton fill="outlined" color="gray">
+          <BastButton expand fill="outlined" color="gray">
             Не согласен
           </BastButton>
-          <BastButton>Согласен</BastButton>
+          <BastButton expand>Согласен</BastButton>
         </BastModal.Footer>
       </BastModal>
       <div
-        style={{ display: 'flex', justifyContent: 'space-between', padding: '10px', gap: '10px' }}
+        style={gridStyles}
       >
-        <BastButton
-          color="gray"
-          expand="full"
-          onClick={() => setModalOpen((prevState) => !prevState)}
-        >
+        <BastButton color="gray" expand onClick={() => setModalOpen((prevState) => !prevState)}>
           Modal
         </BastButton>
         {isDialogOpen && (
@@ -63,7 +68,7 @@ const App: FC = () => {
         <BastButton
           color="gray"
           fill="outlined"
-          expand="full"
+          expand
           onClick={() => setDialogOpen((prevState) => !prevState)}
         >
           Dialog
@@ -71,7 +76,7 @@ const App: FC = () => {
         <BastButton
           color="gray"
           fill="cleared"
-          expand="full"
+          expand
           onClick={() =>
             createToast({
               color: 'danger',
@@ -85,13 +90,13 @@ const App: FC = () => {
         </BastButton>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px' }}>
+      <div style={gridStyles}>
         <BastButton>Confirm</BastButton>
         <BastButton fill="outlined">Confirm</BastButton>
         <BastButton fill="cleared">Confirm</BastButton>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px' }}>
+      <div style={gridStyles}>
         <BastButton size="small">Confirm</BastButton>
         <BastButton fill="outlined" size="small">
           Confirm
@@ -102,20 +107,11 @@ const App: FC = () => {
       </div>
 
       <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr 1fr',
-          gap: '10px',
-          padding: '10px',
-        }}
+        style={gridStyles}
       >
         <BastInputGroup>
           <BastInputGroup.Label>Debounced</BastInputGroup.Label>
-          <BastInputGroup.Input
-            placeholder="Злодей"
-            debounce={1000}
-            onChange={handleChangeInput}
-          />
+          <BastInputGroup.Input placeholder="Злодей" debounce={1000} onChange={handleChangeInput} />
         </BastInputGroup>
         <BastInputGroup>
           <BastInputGroup.Label htmlFor="3">Label</BastInputGroup.Label>
@@ -124,17 +120,12 @@ const App: FC = () => {
         </BastInputGroup>
       </div>
       <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr 1fr',
-          gap: '10px',
-          padding: '10px',
-        }}
+        style={gridStyles}
       >
         <BastInput placeholder="Злодей" debounce={0} />
         <BastInput placeholder="Злодей" disabled />
       </div>
-      <div style={{ display: 'flex', gap: '10px', padding: '10px' }}>
+      <div style={gridStyles}>
         <BastCheck disabled />
         <BastCheck
           label="Remember me"
@@ -144,7 +135,7 @@ const App: FC = () => {
         />
         <BastCheck label="Remember me" subLabel="Save my login details for next time" />
       </div>
-      <form action="#" style={{ display: 'flex', gap: '10px', padding: '10px' }}>
+      <form action="#" style={{ display: 'flex', gap: '10px', padding: '10px', flexWrap: 'wrap' }}>
         <BastRadio label="Злодей" disabled />
         <BastRadio
           label="Remember me"
@@ -155,7 +146,24 @@ const App: FC = () => {
         <BastRadio name="1" label="Remember me" subLabel="Save my login details for next time" />
         <BastRadio name="1" label="Remember me" subLabel="Save my login details for next time" />
       </form>
-    </>
+      <div
+        style={{
+          display: 'flex',
+          width: '100%',
+          flexDirection: 'column',
+          gap: '1em',
+          padding: '10px',
+        }}
+      >
+        <h1>H1</h1>
+        <h2>H2</h2>
+        <h3>H3</h3>
+        <h4>H4</h4>
+        <h5>H5</h5>
+        <p>Paragraph</p>
+        <q>Quote</q>
+      </div>
+    </Container>
   );
 };
 

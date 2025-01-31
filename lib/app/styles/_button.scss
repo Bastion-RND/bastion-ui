@@ -7,23 +7,20 @@
   padding: var(--button-vertical-padding) var(--button-horizontal-padding);
   border-radius: (var(--button-border-radius));
   outline: 3px solid transparent;
-  font-size: var(--button-default-font-size);
   font-weight: normal;
   transition: var(--button-transition);
   display: flex;
   align-items: center;
   justify-content: center;
+  width: fit-content;
 
   &--small {
-    font-size: var(--button-small-font-size);
+    --font-size-min: .5rem;
+    --font-size-max: .75rem;
+    --font-size-prefer: 0.393rem + 0.3vw;
   }
 
-  &--full {
-    flex: 1;
-  }
-
-  &--block {
-    display: block;
+  &--expand {
     width: 100%;
   }
 

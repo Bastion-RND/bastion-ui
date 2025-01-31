@@ -4,32 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "files": [
-    "dist"
+    "lib"
   ],
-  "main": "./dist/bastion-ui.umd.cjs",
-  "module": "./dist/bastion-ui.js",
-  "types": "./dist/main.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/bastion-ui.js",
-      "require": "./dist/bastion-ui.umd.cjs"
-    },
-    "./dist/styles/bastion-ui.scss": {
-      "import": "./dist/styles/bastion-ui.scss"
-    },
-    "./dist/styles/_variables.scss": {
-      "import": "./dist/styles/_variables.scss"
-    },
-    "./dist/styles/_button.scss": {
-      "import": "./dist/styles/_button.scss"
-    },
-    "./dist/styles/_color-palette.scss": {
-      "import": "./dist/styles/_color-palette.scss"
-    },
-    "./dist/styles/_globals.scss": {
-      "import": "./dist/styles/_globals.scss"
-    }
-  },
+  "main": "lib/app/main.ts",
   "sideEffects": [
     "**/*.scss"
   ],

@@ -1,3 +1,5 @@
+@use "globals" as globals;
+
 @mixin check-highlight {
   border-color: var(--border-color);
   background-color: var(--background-color);
@@ -53,4 +55,15 @@
 
 @mixin backdrop {
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+/**
+  Значения кастомных переменных справедливы для тега <p />.
+  Как расчитывать значения см. в файле "_typography.scss".
+*/
+@mixin fluid-text {
+  --font-size-min: .75rem;
+  --font-size-max: 1rem;
+  --font-size-prefer: 0.643rem + 0.3vw;
+  font-size: clamp(var(--font-size-min), var(--font-size-prefer), var(--font-size-max));
 }
