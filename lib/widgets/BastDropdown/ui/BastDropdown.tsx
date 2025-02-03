@@ -39,6 +39,7 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
   label,
   onChange,
   placeholder,
+  style,
   ...props
 }) => {
   const generatedId = useId();
@@ -75,7 +76,7 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
   });
 
   return (
-    <div className="dropdown">
+    <div className="dropdown" style={style}>
       <input
         className={`${clsx(['dropdown__checkbox', className && className])}`}
         ref={inputRef}

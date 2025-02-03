@@ -33,11 +33,14 @@
       style: solid;
     };
     transition: var(--dropdown-input-animation);
+    overflow: hidden;
 
     &__text {
+      flex-grow: 1;
+      min-width: 0;
+      overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      overflow: hidden;
     }
 
     &__icon {
