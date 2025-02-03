@@ -12,7 +12,6 @@ export const useClickOutside = <T extends HTMLElement>({
   useLayoutEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (targetRef.current && !targetRef.current.contains(e.target as HTMLElement)) {
-        console.log(targetRef.current, e.target);
         callback();
       }
     };
