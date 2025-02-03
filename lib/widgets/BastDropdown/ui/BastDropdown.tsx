@@ -5,14 +5,21 @@ import {
   PropsWithChildren,
   useCallback,
   useId,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
 } from 'react';
 
 import { BastList } from '../../../entities/BastList/ui/BastList';
+import { useClickOutside } from '../../../shared/lib/clickOutside';
 import { Icons } from '../../../shared/ui/icons';
-import { DropdownContext, IDropdownContextType, TDropdownContextValue, TDropdownValue } from '../model/DropdownContext';
+import {
+  DropdownContext,
+  IDropdownContextType,
+  TDropdownContextValue,
+  TDropdownValue,
+} from '../model/DropdownContext';
 import { BastDropdownOption } from './BastDropdownOption';
 
 type TBastDropdown = PropsWithChildren<{
@@ -36,6 +43,7 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
   const generatedId = useId();
   const resolvedId = id || generatedId;
   const inputRef = useRef<HTMLInputElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
   const [value, setValue] = useState<TDropdownContextValue | null>(null);
 
   const selectOption: IDropdownContextType['setValue'] = useCallback((value) => {
@@ -46,11 +54,38 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
 
   const contextValue = useMemo(
     () => ({
-      value,
+      value: value
+        ? {
+            value: value?.value ?? null,
+            text: value?.text ?? placeholder,
+            id: value?.id,
+          }
+        : null,
       setValue: selectOption,
     }),
     [value],
   );
+
+  useClickOutside({
+    targetRef: inputRef,
+    callback: () => {
+      if (inputRef.current) inputRef.current.checked = false;
+    },
+  });
+
+  useLayoutEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (inputRef.current && !inputRef.current.contains(e.target as HTMLElement)) {
+        if (inputRef.current) inputRef.current.checked = false;
+      }
+    }
+
+    document.addEventListener('click', handleClickOutside, true);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+    }
+  }, []);
 
   return (
     <div className="dropdown">
@@ -62,10 +97,10 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
         {...props}
       />
       <label className="dropdown__label" htmlFor={resolvedId}>
-        {value?.value || placeholder}
+        {value?.text || placeholder}
         <Icons.ChevronUp className="dropdown__label__icon" />
       </label>
-      <BastList>
+      <BastList ref={listRef}>
         <DropdownContext.Provider value={contextValue}>{children}</DropdownContext.Provider>
       </BastList>
     </div>

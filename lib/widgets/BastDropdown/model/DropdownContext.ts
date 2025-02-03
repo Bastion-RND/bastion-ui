@@ -2,10 +2,14 @@ import { createContext, useContext } from 'react';
 
 export type TDropdownValue = string | null;
 
-export type TDropdownContextValue = { value: TDropdownValue, id: string } | null;
+export type TDropdownContextValue = {
+  value: TDropdownValue;
+  text: string;
+  id: string;
+} | null;
 
 export interface IDropdownContextType {
-  value: TDropdownContextValue,
+  value: TDropdownContextValue;
   setValue: (args: TDropdownContextValue) => void;
 }
 

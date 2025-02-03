@@ -7,7 +7,8 @@ import { TDropdownValue, useDropdownContext } from '../model/DropdownContext';
 
 type TBastDropdownOption = {
   value?: TDropdownValue;
-} & ComponentProps<typeof BastListItem>;
+  children?: string | null;
+} & Omit<ComponentProps<typeof BastListItem>, 'children'>;
 
 const BastDropdownOption: FC<TBastDropdownOption> = ({
   value = null,
@@ -19,14 +20,21 @@ const BastDropdownOption: FC<TBastDropdownOption> = ({
   const id = useId();
   const isSelected = contextValue?.id === id;
 
-  const handleSelect = () => setValue({ id, value });
+  const handleSelect = () =>
+    setValue({ id, text: children ?? '', value });
 
   return (
-    <BastListItem onClick={handleSelect} className={`${clsx(['dropdown__item', className && className])}`} {...props}>
+    <BastListItem
+      onClick={handleSelect}
+      className={`${clsx(['dropdown__item', className && className])}`}
+      {...props}
+    >
       {children}
-      <Icons.Check className={`${clsx(['dropdown__item__icon', isSelected && 'dropdown__item__icon--visible'])}`} />
+      <Icons.Check
+        className={`${clsx(['dropdown__item__icon', isSelected && 'dropdown__item__icon--visible'])}`}
+      />
     </BastListItem>
-  )
+  );
 };
 
 export { BastDropdownOption };

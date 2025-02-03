@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { FC, PropsWithChildren } from 'react';
+import { forwardRef, ForwardRefExoticComponent, PropsWithChildren, ReactNode, RefAttributes } from 'react';
 
 import { BastListItem } from './BastListItem';
 
@@ -7,10 +7,16 @@ type TBastListStaticProps = {
   Item: typeof BastListItem;
 };
 
-const BastList: FC<PropsWithChildren<{ className?: string }>> & TBastListStaticProps = ({
-  className,
-  ...props
-}) => <ul className={`${clsx(['list', className && className])}`} {...props} />;
+const BastList = forwardRef<HTMLUListElement, PropsWithChildren<{ className?: string }>>(
+  ({ className, ...props }, ref) => (
+    <ul ref={ref} className={`${clsx(['list', className && className])}`} {...props} />
+  ),
+) as ForwardRefExoticComponent<
+  { className?: string | undefined } & {
+    children?: ReactNode;
+  } & RefAttributes<HTMLUListElement>
+> &
+  TBastListStaticProps;
 
 BastList.Item = BastListItem;
 
