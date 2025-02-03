@@ -26,7 +26,7 @@ type TBastDropdown = PropsWithChildren<{
   label?: string;
   onChange?: (value: TDropdownValue) => void;
 }> &
-  ComponentProps<'input'>;
+  Omit<ComponentProps<'input'>, 'onChange'>;
 
 type TBastDropdownWithStaticProps = {
   Option: typeof BastDropdownOption;
