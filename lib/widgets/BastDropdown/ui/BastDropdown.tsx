@@ -5,7 +5,6 @@ import {
   PropsWithChildren,
   useCallback,
   useId,
-  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -72,20 +71,6 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
       if (inputRef.current) inputRef.current.checked = false;
     },
   });
-
-  useLayoutEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (inputRef.current && !inputRef.current.contains(e.target as HTMLElement)) {
-        if (inputRef.current) inputRef.current.checked = false;
-      }
-    }
-
-    document.addEventListener('click', handleClickOutside, true);
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside, true);
-    }
-  }, []);
 
   return (
     <div className="dropdown">
