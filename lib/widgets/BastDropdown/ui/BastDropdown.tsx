@@ -23,6 +23,7 @@ import { BastDropdownOption } from './BastDropdownOption';
 
 type TBastDropdown = PropsWithChildren<{
   placeholder?: string;
+  label?: string;
   onChange?: (value: TDropdownValue) => void;
 }> &
   ComponentProps<'input'>;
@@ -35,6 +36,7 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
   children,
   id,
   className,
+  label,
   onChange,
   placeholder,
   ...props
@@ -75,15 +77,18 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
   return (
     <div className="dropdown">
       <input
-        className={`${clsx(['dropdown__input', className && className])}`}
+        className={`${clsx(['dropdown__checkbox', className && className])}`}
         ref={inputRef}
         id={resolvedId}
         type="checkbox"
         {...props}
       />
-      <label className="dropdown__label" htmlFor={resolvedId}>
-        {value?.text || placeholder}
-        <Icons.ChevronUp className="dropdown__label__icon" />
+      <label className='dropdown__label' htmlFor={resolvedId}>
+        {label && label}
+        <div className="dropdown__input">
+          {value?.text || placeholder}
+          <Icons.ChevronUp className="dropdown__input__icon" />
+        </div>
       </label>
       <BastList ref={listRef}>
         <DropdownContext.Provider value={contextValue}>{children}</DropdownContext.Provider>
