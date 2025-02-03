@@ -87,7 +87,6 @@
 
   ul.list {
     position: absolute;
-    min-width: max-content;
     width: 100%;
     top: calc(100% + var(--dropdown-gap));
     z-index: 2;
