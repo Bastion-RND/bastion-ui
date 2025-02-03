@@ -83,10 +83,10 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
         type="checkbox"
         {...props}
       />
-      <label className='dropdown__label' htmlFor={resolvedId}>
+      <label className="dropdown__label" htmlFor={resolvedId}>
         {label && label}
         <div className="dropdown__input">
-          {value?.text || placeholder}
+          <span className="dropdown__input__text">{value?.text || placeholder}</span>
           <Icons.ChevronUp className="dropdown__input__icon" />
         </div>
       </label>

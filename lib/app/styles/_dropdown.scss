@@ -34,6 +34,12 @@
     };
     transition: var(--dropdown-input-animation);
 
+    &__text {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
     &__icon {
       height: var(--dropdown-svg-size);
       width: var(--dropdown-svg-size);

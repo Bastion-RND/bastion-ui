@@ -174,14 +174,14 @@ const App: FC = () => {
           <BastList.Item>Item 1</BastList.Item>
           <BastList.Item>Item 1</BastList.Item>
         </BastList>
-        <BastDropdown label='test' placeholder='Найти человека'>
-          <BastDropdown.Option value='0'>Значение 1</BastDropdown.Option>
-          <BastDropdown.Option value='1'>Значение 2</BastDropdown.Option>
-          <BastDropdown.Option value='2'>Значение 3</BastDropdown.Option>
-          <BastDropdown.Option>1</BastDropdown.Option>
-          <BastDropdown.Option>1</BastDropdown.Option>
-        </BastDropdown>
       </div>
+      <BastDropdown label='test' placeholder='Найти человека'>
+        <BastDropdown.Option value='0'>Значение 1</BastDropdown.Option>
+        <BastDropdown.Option value='1'>Значение 2</BastDropdown.Option>
+        <BastDropdown.Option value='2'>Значение 3</BastDropdown.Option>
+        <BastDropdown.Option>1</BastDropdown.Option>
+        <BastDropdown.Option>1</BastDropdown.Option>
+      </BastDropdown>
     </Container>
   );
 };
