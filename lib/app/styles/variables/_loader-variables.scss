@@ -1,0 +1,30 @@
+:root {
+  /** SIZES **/
+  --loader-container-size: 4rem;
+  --loader-icon-height: 1.875rem;
+  --loader-icon-width: 2.375rem;
+
+  /** ANIMATION **/
+  --loader-animation-delay: .5s;
+  --loader-icon-animation: fade-in 0.5s ease-in forwards, orbit 1.5s linear infinite;
+}
+
+@keyframes orbit {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translate(1.5rem, 0) rotate(95deg) scale(0.5);
+  }
+  25%{
+    transform: translate(-50%, -50%) rotate(90deg) translate(1.5rem, 0) rotate(95deg) scale(0.75);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg) translate(1.5rem, 0) rotate(95deg) scale(1.5);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) translate(1.5rem, 0) rotate(95deg) scale(0.5);
+  }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

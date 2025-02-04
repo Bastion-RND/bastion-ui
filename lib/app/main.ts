@@ -2,6 +2,7 @@ export { BastButton } from '../entities/BastButton';
 export { BastCheck } from '../entities/BastCheck';
 export { BastIcon } from '../entities/BastIcon';
 export { BastInput } from '../entities/BastInput';
+export { BastLoader } from '../entities/BastLoader';
 export { BastRadio } from '../entities/BastRadio';
 export { useClickOutside } from '../shared/lib/clickOutside';
 export { Container } from '../shared/ui/container';

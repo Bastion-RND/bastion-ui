@@ -5,6 +5,7 @@ import CheckIcon from '../../assets/check.svg?react';
 import CheckCircleIcon from '../../assets/check-circle.svg?react';
 import ChevronUpIcon from '../../assets/chevron-up.svg?react';
 import CloseIcon from '../../assets/close.svg?react';
+import LoaderIcon from '../../assets/loader.svg?react';
 import { TBastColor } from '../../lib/utility-types/color';
 
 export const Icons = {
@@ -15,6 +16,7 @@ export const Icons = {
   AlertCircle: AlertCircleIcon,
   CheckCircle: CheckCircleIcon,
   ChevronUp: ChevronUpIcon,
+  Loader: LoaderIcon,
 }
 
 export type TIcons = keyof typeof Icons;
