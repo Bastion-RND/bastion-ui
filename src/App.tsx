@@ -12,7 +12,7 @@ import {
 } from '../lib/app/main';
 import { BastIcon } from '../lib/entities/BastIcon';
 import { BastList } from '../lib/entities/BastList/ui/BastList';
-import { BastLoader } from '../lib/entities/BastLoader';
+import { BastSpinner } from '../lib/entities/BastSpinner';
 import { BastDialog } from '../lib/widgets/BastDialog';
 import { BastDropdown } from '../lib/widgets/BastDropdown';
 import { BastModal } from '../lib/widgets/BastModal';
@@ -192,7 +192,7 @@ const App: FC = () => {
           <BastDropdown.Option>1</BastDropdown.Option>
         </BastDropdown>
       </div>
-      <BastLoader />
+      <BastSpinner />
     </Container>
   );
 };
