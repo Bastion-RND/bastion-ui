@@ -4,6 +4,7 @@ import { ChangeEvent, FC, useState } from 'react';
 
 import {
   BastButton,
+  BastCard,
   BastCheck,
   BastInput,
   BastInputGroup,
@@ -45,18 +46,14 @@ const App: FC = () => {
         <BastModal.Content>
           <div>Мы что-то важное хотим вам сказать</div>
         </BastModal.Content>
-        <BastModal.Footer
-          style={{ display: 'flex', gap: '.5em' }}
-        >
+        <BastModal.Footer style={{ display: 'flex', gap: '.5em' }}>
           <BastButton expand fill="outlined" color="gray">
             Не согласен
           </BastButton>
           <BastButton expand>Согласен</BastButton>
         </BastModal.Footer>
       </BastModal>
-      <div
-        style={gridStyles}
-      >
+      <div style={gridStyles}>
         <BastButton color="gray" expand onClick={() => setModalOpen((prevState) => !prevState)}>
           Modal
         </BastButton>
@@ -109,9 +106,7 @@ const App: FC = () => {
         </BastButton>
       </div>
 
-      <div
-        style={gridStyles}
-      >
+      <div style={gridStyles}>
         <BastInputGroup>
           <BastInputGroup.Label>Debounced</BastInputGroup.Label>
           <BastInputGroup.Input placeholder="Злодей" debounce={1000} onChange={handleChangeInput} />
@@ -122,9 +117,7 @@ const App: FC = () => {
           <BastInputGroup.Feedback feedbackType="success">Test</BastInputGroup.Feedback>
         </BastInputGroup>
       </div>
-      <div
-        style={gridStyles}
-      >
+      <div style={gridStyles}>
         <BastInput placeholder="Злодей" debounce={0} />
         <BastInput placeholder="Злодей" disabled />
       </div>
@@ -175,24 +168,68 @@ const App: FC = () => {
           <BastList.Item>Item 1</BastList.Item>
           <BastList.Item>Item 1</BastList.Item>
         </BastList>
+        <BastSpinner />
       </div>
       <div style={gridStyles}>
-        <BastDropdown label='test' placeholder='Найти человека 2222'>
-          <BastDropdown.Option value='0'>Значение 1</BastDropdown.Option>
-          <BastDropdown.Option value='1'>Значение 2</BastDropdown.Option>
-          <BastDropdown.Option value='2'>Значение 3</BastDropdown.Option>
+        <BastDropdown label="test" placeholder="Найти человека 2222">
+          <BastDropdown.Option value="0">Значение 1</BastDropdown.Option>
+          <BastDropdown.Option value="1">Значение 2</BastDropdown.Option>
+          <BastDropdown.Option value="2">Значение 3</BastDropdown.Option>
           <BastDropdown.Option>1</BastDropdown.Option>
           <BastDropdown.Option>1</BastDropdown.Option>
         </BastDropdown>
-        <BastDropdown placeholder='Найти человека' style={{ alignSelf: 'end' }}>
-          <BastDropdown.Option value='0'>Значение 1</BastDropdown.Option>
-          <BastDropdown.Option value='1'>Значение 2</BastDropdown.Option>
-          <BastDropdown.Option value='2'>Значение 3</BastDropdown.Option>
+        <BastDropdown placeholder="Найти человека" style={{ alignSelf: 'end' }}>
+          <BastDropdown.Option value="0">Значение 1</BastDropdown.Option>
+          <BastDropdown.Option value="1">Значение 2</BastDropdown.Option>
+          <BastDropdown.Option value="2">Значение 3</BastDropdown.Option>
           <BastDropdown.Option>1</BastDropdown.Option>
           <BastDropdown.Option>1</BastDropdown.Option>
         </BastDropdown>
       </div>
-      <BastSpinner />
+      <div style={{ ...gridStyles, gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+        <BastCard>
+          <BastCard.Image src="/cardImage.png" />
+          <BastCard.Title>
+            <h3>Монодатчики</h3>
+          </BastCard.Title>
+          <BastCard.Content>КРАСИВЫЕ</BastCard.Content>
+        </BastCard>
+        <BastCard>
+          <BastCard.Image src="/Group.png" />
+          <BastCard.Title>
+            <h3>Монодатчики</h3>
+          </BastCard.Title>
+          <BastCard.Content>КРАСИВЫЕ</BastCard.Content>
+        </BastCard>
+        <BastCard>
+          <BastCard.Image src="/cardimage2.png" alt="test" />
+          <BastCard.Title>
+            <h3>Монодатчики</h3>
+          </BastCard.Title>
+          <BastCard.Content>КРАСИВЫЕ</BastCard.Content>
+        </BastCard>
+        <BastCard>
+          <BastCard.Title>
+            <h3>Монодатчики</h3>
+          </BastCard.Title>
+          <BastCard.Content>КРАСИВЫЕ</BastCard.Content>
+        </BastCard>
+      </div>
+      {/*</div>*/}
+      {/*<BastCard>*/}
+      {/*  <BastCard.Image src={src} />*/}
+      {/*  <BastCard.Title>*/}
+      {/*    <h3>Монодатчики</h3>*/}
+      {/*  </BastCard.Title>*/}
+      {/*  <BastCard.Content>КРАСИВЫЕ</BastCard.Content>*/}
+      {/*</BastCard>*/}
+      {/*<BastCard>*/}
+      {/*  <BastCard.Image src={src} />*/}
+      {/*  <BastCard.Title>*/}
+      {/*    <h3>Монодатчики</h3>*/}
+      {/*  </BastCard.Title>*/}
+      {/*  <BastCard.Content>КРАСИВЫЕ</BastCard.Content>*/}
+      {/*</BastCard>*/}
     </Container>
   );
 };

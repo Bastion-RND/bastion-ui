@@ -1,0 +1,13 @@
+:root {
+  /** COLORS **/
+  --card-background-color: var(--gray-color-25);
+  --card-title-color: black;
+  --card-text-color: var(--brand-color-200);
+
+  /** RADIUS **/
+  --card-border-radius: 2.25rem;
+
+  /** SHADOW **/
+  --card-shadow: 0 20px 24px -4px rgba(127, 139, 151, 0.1),
+    0 8px 8px -4px rgba(127, 139, 151, 0.1);
+}
