@@ -11,16 +11,16 @@
 
 @keyframes orbit {
   0% {
-    transform: translate(-50%, -50%) rotate(0deg) translate(1.5rem, 0) rotate(95deg) scale(0.5);
+    transform: translate(-50%, -50%) rotate(0deg) translate(1.5rem, 0) rotate(95deg) scale(0.33);
   }
   25%{
-    transform: translate(-50%, -50%) rotate(90deg) translate(1.5rem, 0) rotate(95deg) scale(0.75);
+    transform: translate(-50%, -50%) rotate(90deg) translate(1.5rem, 0) rotate(95deg) scale(0.66);
   }
   50% {
     transform: translate(-50%, -50%) rotate(180deg) translate(1.5rem, 0) rotate(95deg) scale(1.5);
   }
   100% {
-    transform: translate(-50%, -50%) rotate(360deg) translate(1.5rem, 0) rotate(95deg) scale(0.5);
+    transform: translate(-50%, -50%) rotate(360deg) translate(1.5rem, 0) rotate(95deg) scale(0.33);
   }
 }
 
