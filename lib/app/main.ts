@@ -1,4 +1,5 @@
 export { BastButton } from '../entities/BastButton';
+export { BastCard } from '../entities/BastCard';
 export { BastCheck } from '../entities/BastCheck';
 export { BastIcon } from '../entities/BastIcon';
 export { BastInput } from '../entities/BastInput';
