@@ -3,14 +3,14 @@
   border-radius: var(--card-border-radius);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--card-gap);
   overflow: hidden;
   box-shadow: var(--card-shadow);
   max-width: max-content;
   max-height: min-content;
 
   &__title {
-    padding: 0 1.875rem;
+    padding: 0 var(--card-padding-horizontal);
     color: var(--card-title-color);
     text-transform: uppercase;
   }
@@ -22,24 +22,26 @@
   }
 
   &__image-wrapper {
-    aspect-ratio: 315 / 240;
+    aspect-ratio: var(--card-image-aspect-ratio);
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-height: 240px;
+    min-height: var(--card-min-height);
+    pointer-events: none;
+    user-select: none;
   }
 
   &:not(:has(img)) {
     .card {
       &__title {
-        padding-top: 2.125rem;
+        padding-top: var(--card-padding-vertical);
       }
     }
   }
 
   &__content {
-    padding: 0 1.875rem 2.125rem 1.875rem;
+    padding: 0 var(--card-padding-horizontal) var(--card-padding-vertical) var(--card-padding-horizontal);
     color: var(--card-text-color);
   }
 }

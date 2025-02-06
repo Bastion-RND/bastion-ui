@@ -215,21 +215,6 @@ const App: FC = () => {
           <BastCard.Content>КРАСИВЫЕ</BastCard.Content>
         </BastCard>
       </div>
-      {/*</div>*/}
-      {/*<BastCard>*/}
-      {/*  <BastCard.Image src={src} />*/}
-      {/*  <BastCard.Title>*/}
-      {/*    <h3>Монодатчики</h3>*/}
-      {/*  </BastCard.Title>*/}
-      {/*  <BastCard.Content>КРАСИВЫЕ</BastCard.Content>*/}
-      {/*</BastCard>*/}
-      {/*<BastCard>*/}
-      {/*  <BastCard.Image src={src} />*/}
-      {/*  <BastCard.Title>*/}
-      {/*    <h3>Монодатчики</h3>*/}
-      {/*  </BastCard.Title>*/}
-      {/*  <BastCard.Content>КРАСИВЫЕ</BastCard.Content>*/}
-      {/*</BastCard>*/}
     </Container>
   );
 };

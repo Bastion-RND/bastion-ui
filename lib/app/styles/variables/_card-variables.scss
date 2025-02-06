@@ -10,4 +10,17 @@
   /** SHADOW **/
   --card-shadow: 0 20px 24px -4px rgba(127, 139, 151, 0.1),
     0 8px 8px -4px rgba(127, 139, 151, 0.1);
+
+  /** PADDINGS **/
+  --card-padding-vertical: 2.125rem;
+  --card-padding-horizontal: 1.875rem;
+
+  /** GAP **/
+  --card-gap: 1rem;
+
+  /** HEIGHT **/
+  --card-min-height: 240px;
+
+  /** ASPECT RATIO **/
+  --card-image-aspect-ratio: 315 / 240;
 }
