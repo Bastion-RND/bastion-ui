@@ -171,7 +171,7 @@ const App: FC = () => {
         <BastSpinner />
       </div>
       <div style={gridStyles}>
-        <BastDropdown label="test" placeholder="Найти человека 2222">
+        <BastDropdown label="test" placeholder="Найти человека 2222" value='1'>
           <BastDropdown.Option value="0">Значение 1</BastDropdown.Option>
           <BastDropdown.Option value="1">Значение 2</BastDropdown.Option>
           <BastDropdown.Option value="2">Значение 3</BastDropdown.Option>
