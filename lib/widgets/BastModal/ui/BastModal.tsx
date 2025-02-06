@@ -1,5 +1,6 @@
 import { ComponentType, FC, forwardRef, MouseEvent, PropsWithChildren } from 'react';
 
+import { Container } from '../../../shared/ui/container';
 import { TWithPortalArgs, withPortal } from '../../../shared/ui/hocs/withPortal';
 import { ModalCard } from '../../../shared/ui/modalCard';
 import type { TModalCardStaticProps } from '../../../shared/ui/modalCard/ui/ModalCard';
@@ -28,7 +29,9 @@ const BastModalWithoutPortal: FC<TBastModalProps> = forwardRef<HTMLDivElement, T
       >
         <ModalCard className="modal">
           {closeButton && <BastModalCloseButton onClick={onClose} />}
-          {children}
+          <Container>
+            {children}
+          </Container>
         </ModalCard>
       </div>
     );
