@@ -17,6 +17,12 @@
     height: 100%;
   }
 
+  &__container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
   &__close-button {
     position: absolute;
     top: 1.5rem;

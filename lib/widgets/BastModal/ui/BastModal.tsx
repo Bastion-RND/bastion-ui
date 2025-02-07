@@ -27,12 +27,12 @@ const BastModalWithoutPortal: FC<TBastModalProps> = forwardRef<HTMLDivElement, T
         className="modal__wrapper"
         onClick={backdropDismiss ? handleBackdropClick : undefined}
       >
-        <ModalCard className="modal">
-          {closeButton && <BastModalCloseButton onClick={onClose} />}
-          <Container>
+        <Container className='modal__container'>
+          <ModalCard className="modal">
+            {closeButton && <BastModalCloseButton onClick={onClose} />}
             {children}
-          </Container>
-        </ModalCard>
+          </ModalCard>
+        </Container>
       </div>
     );
   },
