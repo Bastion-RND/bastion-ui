@@ -225,7 +225,7 @@ const App: FC = () => {
           <BastTabsItem>Default</BastTabsItem>
           <BastTabsItem>Default</BastTabsItem>
         </BastTabs>
-        <BastTabs>
+        <BastTabs iconOnly>
           <BastTabsItem>
             <Icons.Bast />
           </BastTabsItem>
@@ -238,6 +238,18 @@ const App: FC = () => {
           <BastTabsItem>
             <Icons.Bast />
           </BastTabsItem>
+        </BastTabs>
+        <BastTabs borders="round-bottom">
+          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem>Default</BastTabsItem>
+        </BastTabs>
+        <BastTabs borders="round-top">
+          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem>Default</BastTabsItem>
         </BastTabs>
       </div>
     </Container>

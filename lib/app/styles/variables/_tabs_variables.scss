@@ -1,10 +1,13 @@
+ul {
+  /** RADIUS **/
+  --tabs-border-radius: 1rem;
+  --tabs-icon-only-radius: 2.25rem;
+}
+
 li {
   /** PADDINGS **/
   --tabs-item-vertical-padding: 1.125rem;
   --tabs-item-horizontal-padding: 1rem;
-
-  /** RADIUS **/
-  --tabs-item-border-radius: 1rem;
 }
 
 button {

@@ -1,6 +1,23 @@
 .tabs {
   display: flex;
   width: fit-content;
+  overflow: hidden;
+
+  &--round-all {
+    border-radius: var(--tabs-border-radius);
+  }
+
+  &--round-top {
+    border-radius: var(--tabs-border-radius) var(--tabs-border-radius) 0 0;
+  }
+
+  &--round-bottom {
+    border-radius: 0 0 var(--tabs-border-radius) var(--tabs-border-radius);
+  }
+
+  &--icon-only {
+    border-radius: var(--tabs-icon-only-radius);
+  }
 
   &__item {
     list-style-type: none;
@@ -8,6 +25,7 @@
     .tabs__button {
       border-radius: 0;
       outline: none;
+      transition: var(--button-transition);
 
       &:hover {
         color: var(--tabs-button-text-color-hover);
@@ -17,18 +35,6 @@
       &:active, &:focus-visible {
         color: var(--tabs-button-text-color-active);
         background-color: var(--tabs-button-background-color-active);
-      }
-    }
-
-    &:first-child {
-      .tabs__button {
-        border-radius: var(--tabs-item-border-radius) 0 0 var(--tabs-item-border-radius);
-      }
-    }
-
-    &:last-child {
-      .tabs__button {
-        border-radius:  0 var(--tabs-item-border-radius) var(--tabs-item-border-radius) 0;
       }
     }
   }
