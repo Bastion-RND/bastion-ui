@@ -5,7 +5,6 @@
   background-color: white;
   display: flex;
   flex-direction: column;
-  justify-self: center;
 
   &__wrapper {
     @include mixins.translate-center;

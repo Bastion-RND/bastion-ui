@@ -9,14 +9,17 @@ import {
   BastInput,
   BastInputGroup,
   BastRadio,
+  BastTabs,
   Container,
 } from '../lib/app/main';
 import { BastIcon } from '../lib/entities/BastIcon';
 import { BastList } from '../lib/entities/BastList/ui/BastList';
 import { BastSpinner } from '../lib/entities/BastSpinner';
+import { Icons } from '../lib/shared/ui/icons';
 import { BastDialog } from '../lib/widgets/BastDialog';
 import { BastDropdown } from '../lib/widgets/BastDropdown';
 import { BastModal } from '../lib/widgets/BastModal';
+import { BastTabsItem } from '../lib/widgets/BastTabs/ui/BastTabsItem';
 import { useToast } from '../lib/widgets/BastToast';
 
 const gridStyles = {
@@ -171,7 +174,7 @@ const App: FC = () => {
         <BastSpinner />
       </div>
       <div style={gridStyles}>
-        <BastDropdown label="test" placeholder="Найти человека 2222" value='1'>
+        <BastDropdown label="test" placeholder="Найти человека 2222" value="1">
           <BastDropdown.Option value="0">Значение 1</BastDropdown.Option>
           <BastDropdown.Option value="1">Значение 2</BastDropdown.Option>
           <BastDropdown.Option value="2">Значение 3</BastDropdown.Option>
@@ -214,6 +217,28 @@ const App: FC = () => {
           </BastCard.Title>
           <BastCard.Content>КРАСИВЫЕ</BastCard.Content>
         </BastCard>
+      </div>
+      <div style={gridStyles}>
+        <BastTabs>
+          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem>Default</BastTabsItem>
+        </BastTabs>
+        <BastTabs>
+          <BastTabsItem>
+            <Icons.Bast />
+          </BastTabsItem>
+          <BastTabsItem>
+            <Icons.Bast />
+          </BastTabsItem>
+          <BastTabsItem>
+            <Icons.Bast />
+          </BastTabsItem>
+          <BastTabsItem>
+            <Icons.Bast />
+          </BastTabsItem>
+        </BastTabs>
       </div>
     </Container>
   );

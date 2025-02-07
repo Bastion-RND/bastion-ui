@@ -1,0 +1,19 @@
+li {
+  /** PADDINGS **/
+  --tabs-item-vertical-padding: 1.125rem;
+  --tabs-item-horizontal-padding: 1rem;
+
+  /** RADIUS **/
+  --tabs-item-border-radius: 1rem;
+}
+
+button {
+  /** COLORS **/
+  --tabs-button-background-color: var(--brand-color-25);
+  --tabs-button-background-color-hover: var(--brand-color-50);
+  --tabs-button-background-color-active: var(--brand-color-100);
+
+  --tabs-button-text-color: var(--brand-color-500);
+  --tabs-button-text-color-hover: var(--brand-color-500);
+  --tabs-button-text-color-active: var(--white-color);
+}

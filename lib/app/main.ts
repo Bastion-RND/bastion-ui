@@ -13,5 +13,6 @@ export { BastDialog } from '../widgets/BastDialog';
 export { BastDropdown } from '../widgets/BastDropdown';
 export { BastInputGroup } from '../widgets/BastInputGroup';
 export { BastModal } from '../widgets/BastModal';
+export { BastTabs } from '../widgets/BastTabs';
 export { BastToast, useToast } from '../widgets/BastToast';
 export { BastUiProvider } from './providers';
