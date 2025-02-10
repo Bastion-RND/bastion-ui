@@ -6,7 +6,6 @@
   gap: var(--card-gap);
   overflow: hidden;
   box-shadow: var(--card-shadow);
-  max-width: max-content;
   max-height: min-content;
 
   &__title {
@@ -27,7 +26,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-height: var(--card-min-height);
+    min-height: 0;
     pointer-events: none;
     user-select: none;
   }
