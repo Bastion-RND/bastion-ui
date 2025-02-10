@@ -1,5 +1,13 @@
 import clsx from 'clsx';
-import { ChangeEvent, ComponentPropsWithRef, forwardRef, useCallback, useState } from 'react';
+import {
+  ChangeEvent,
+  ComponentPropsWithRef,
+  forwardRef,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 import { debounceFunction } from '../../../shared/lib/debounce';
 
@@ -8,22 +16,25 @@ interface IBastControl extends ComponentPropsWithRef<'input'> {
 }
 
 const BastInput = forwardRef<HTMLInputElement, IBastControl>(
-  ({ className, onChange, debounce = 0, ...props }, ref) => {
-    const [value, setValue] = useState<string>('');
+  ({ className, value, onChange, debounce = 0, ...props }, ref) => {
+    const [internalValue, setInternalValue] = useState<string>(value?.toString() ?? '');
+    const debounceFnRef = useRef<typeof debounceFunction>(debounceFunction).current;
 
     const debouncedChangeHandler = useCallback(
-      debounceFunction((e: ChangeEvent<HTMLInputElement>) => onChange?.(e), debounce),
-      [],
+      debounceFnRef((e: ChangeEvent<HTMLInputElement>) => onChange?.(e), debounce),
+      [debounce],
     );
 
+    useEffect(() => () => debouncedChangeHandler.clear(), [debouncedChangeHandler]);
+
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-      setValue(e.target.value);
+      setInternalValue(e.target.value);
       debouncedChangeHandler(e);
     };
 
     return (
       <input
-        value={value}
+        value={internalValue}
         ref={ref}
         className={`bast-input${clsx([className && ` ${className}`])}`}
         {...props}

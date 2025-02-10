@@ -35,6 +35,7 @@ const App: FC = () => {
   const [isDialogOpen, setDialogOpen] = useState<boolean>(false);
   const { createToast } = useToast();
   const [progress, setProgress] = useState<number>(0);
+  const [value, setValue] = useState('1');
 
   useEffect(() => {
     const intervalId = setInterval(
@@ -45,8 +46,10 @@ const App: FC = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-  const handleChangeInput = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
+  const handleChangeInput = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
     console.log(value);
+    setValue(value);
+  }
 
   return (
     <Container>
@@ -123,7 +126,7 @@ const App: FC = () => {
       <div style={gridStyles}>
         <BastInputGroup>
           <BastInputGroup.Label>Debounced</BastInputGroup.Label>
-          <BastInputGroup.Input placeholder="Злодей" debounce={1000} onChange={handleChangeInput} />
+          <BastInputGroup.Input placeholder="Злодей" debounce={1000} value={value} onChange={handleChangeInput} />
         </BastInputGroup>
         <BastInputGroup>
           <BastInputGroup.Label htmlFor="3">Label</BastInputGroup.Label>
