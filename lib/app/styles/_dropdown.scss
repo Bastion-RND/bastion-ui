@@ -19,6 +19,9 @@
   }
 
   &__input {
+    --font-size-min: 1rem;
+    --font-size-max: 1rem;
+    --font-size-prefer: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;

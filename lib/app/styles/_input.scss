@@ -1,4 +1,7 @@
 .bast-input {
+  --font-size-min: 1rem;
+  --font-size-max: 1rem;
+  --font-size-prefer: 1rem;
   border: {
     radius: var(--input-border-radius);
     color: var(--input-border-color);
