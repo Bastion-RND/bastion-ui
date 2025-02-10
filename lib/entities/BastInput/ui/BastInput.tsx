@@ -5,7 +5,6 @@ import {
   forwardRef,
   useCallback,
   useEffect,
-  useRef,
   useState,
 } from 'react';
 
@@ -18,10 +17,9 @@ interface IBastControl extends ComponentPropsWithRef<'input'> {
 const BastInput = forwardRef<HTMLInputElement, IBastControl>(
   ({ className, value, onChange, debounce = 0, ...props }, ref) => {
     const [internalValue, setInternalValue] = useState<string>(value?.toString() ?? '');
-    const debounceFnRef = useRef<typeof debounceFunction>(debounceFunction).current;
 
     const debouncedChangeHandler = useCallback(
-      debounceFnRef((e: ChangeEvent<HTMLInputElement>) => onChange?.(e), debounce),
+      debounceFunction((e: ChangeEvent<HTMLInputElement>) => onChange?.(e), debounce),
       [debounce],
     );
 
