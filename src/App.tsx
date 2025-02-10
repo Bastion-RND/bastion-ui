@@ -1,6 +1,6 @@
 import '../lib/app/styles/bastion-ui.scss';
 
-import { ChangeEvent, FC, useState } from 'react';
+import { ChangeEvent, FC, useEffect, useState } from 'react';
 
 import {
   BastButton,
@@ -14,6 +14,7 @@ import {
 } from '../lib/app/main';
 import { BastIcon } from '../lib/entities/BastIcon';
 import { BastList } from '../lib/entities/BastList/ui/BastList';
+import { BastProgress } from '../lib/entities/BastProgress';
 import { BastSpinner } from '../lib/entities/BastSpinner';
 import { Icons } from '../lib/shared/ui/icons';
 import { BastDialog } from '../lib/widgets/BastDialog';
@@ -33,6 +34,16 @@ const App: FC = () => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
   const [isDialogOpen, setDialogOpen] = useState<boolean>(false);
   const { createToast } = useToast();
+  const [progress, setProgress] = useState<number>(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(
+      () => setProgress((prevState) => (prevState === 100 ? 0 : prevState + 1)),
+      100,
+    );
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   const handleChangeInput = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
     console.log(value);
@@ -172,6 +183,7 @@ const App: FC = () => {
           <BastList.Item>Item 1</BastList.Item>
         </BastList>
         <BastSpinner />
+        <BastProgress percent={progress} />
       </div>
       <div style={gridStyles}>
         <BastDropdown label="test" placeholder="Найти человека 2222" value="1">
