@@ -4,7 +4,37 @@
   flex-direction: column;
 
   .accordion {
+    &:first-child {
+      .accordion__title {
+        border-radius: var(--accordion-border-radius) var(--accordion-border-radius) 0 0;
+      }
+    }
+
+    &:last-child {
+      .accordion__title {
+        border-radius: 0 0 var(--accordion-border-radius) var(--accordion-border-radius);
+      }
+
+      &:has(input:checked) {
+        .accordion {
+          &__title {
+            border-radius: 0;
+          }
+
+          &__content {
+            border-radius: 0 0 var(--accordion-border-radius) var(--accordion-border-radius);
+          }
+        }
+      }
+    }
+
+    &__title {
+      border-radius: 0;
+    }
+
     &__content {
+      border-radius: 0;
+
       &--opened {
         margin-bottom: var(--accordion-group-margin);
       }
