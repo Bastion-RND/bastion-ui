@@ -1,3 +1,4 @@
+export { BastAccordion } from '../entities/BastAccordion';
 export { BastButton } from '../entities/BastButton';
 export { BastCard } from '../entities/BastCard';
 export { BastCheck } from '../entities/BastCheck';
@@ -10,6 +11,7 @@ export { useClickOutside } from '../shared/lib/clickOutside';
 export { Container } from '../shared/ui/container';
 export { Label } from '../shared/ui/label';
 export { ModalCard } from '../shared/ui/modalCard';
+export { BastAccordionGroup } from '../widgets/BastAccordionGroup';
 export { BastDialog } from '../widgets/BastDialog';
 export { BastDropdown } from '../widgets/BastDropdown';
 export { BastInputGroup } from '../widgets/BastInputGroup';

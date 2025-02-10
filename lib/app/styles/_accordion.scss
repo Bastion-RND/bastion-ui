@@ -1,0 +1,13 @@
+.accordion {
+  &__title {
+    cursor: pointer;
+
+    &:has(input:disabled) {
+      cursor: default;
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+}

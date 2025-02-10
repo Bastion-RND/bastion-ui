@@ -3,6 +3,7 @@ import '../lib/app/styles/bastion-ui.scss';
 import { ChangeEvent, FC, useEffect, useState } from 'react';
 
 import {
+  BastAccordion, BastAccordionGroup,
   BastButton,
   BastCard,
   BastCheck,
@@ -37,14 +38,14 @@ const App: FC = () => {
   const [progress, setProgress] = useState<number>(0);
   const [value, setValue] = useState('1');
 
-  useEffect(() => {
-    const intervalId = setInterval(
-      () => setProgress((prevState) => (prevState === 100 ? 0 : prevState + 1)),
-      100,
-    );
-
-    return () => clearInterval(intervalId);
-  }, []);
+  // useEffect(() => {
+  //   const intervalId = setInterval(
+  //     () => setProgress((prevState) => (prevState === 100 ? 0 : prevState + 1)),
+  //     100,
+  //   );
+  //
+  //   return () => clearInterval(intervalId);
+  // }, []);
 
   const handleChangeInput = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
     console.log(value);
@@ -266,6 +267,22 @@ const App: FC = () => {
           <BastTabsItem>Default</BastTabsItem>
           <BastTabsItem>Default</BastTabsItem>
         </BastTabs>
+      </div>
+      <div style={gridStyles}>
+        <BastAccordion title='Accordion' disabled expanded>
+          <div>Disabled && Expanded</div>
+        </BastAccordion>
+        <BastAccordionGroup>
+          <BastAccordion title='AccordionGroup'>
+            <div>Accordion content 1</div>
+          </BastAccordion>
+          <BastAccordion title='Accordion 2'>
+            <div>Accordion content 2</div>
+          </BastAccordion>
+          <BastAccordion title='Accordion 3'>
+            <div>Accordion content 3</div>
+          </BastAccordion>
+        </BastAccordionGroup>
       </div>
     </Container>
   );
