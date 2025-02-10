@@ -32,7 +32,7 @@
         background-color: var(--tabs-button-background-color-hover);
       }
 
-      &:active, &:focus-visible {
+      &:active, &:focus-visible, &--selected {
         color: var(--tabs-button-text-color-active);
         background-color: var(--tabs-button-background-color-active);
       }
