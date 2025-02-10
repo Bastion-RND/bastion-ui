@@ -54,7 +54,7 @@ const BastAccordion: FC<TBastAccordionProps> = ({
           onChange={toggleAccordion}
         />
       </label>
-      <div className={`${clsx(['accordion__content', isExpanded && 'accordion__context--opened'])}`}>
+      <div className={`${clsx(['accordion__content', isExpanded && 'accordion__content--opened'])}`}>
         {isExpanded && children}
       </div>
     </div>

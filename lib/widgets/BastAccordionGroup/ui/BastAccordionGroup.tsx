@@ -10,7 +10,6 @@ const BastAccordionGroup: FC<TBastAccordionGroupProps> & {
   Item: typeof BastAccordion;
 } = ({ children, multiple = false }) => {
   const [openedAccordions, setOpenedAccordions] = useState<Set<string>>(new Set());
-  console.log(openedAccordions);
 
   const accordionContextValue = useMemo(
     () => ({
@@ -22,7 +21,7 @@ const BastAccordionGroup: FC<TBastAccordionGroupProps> & {
   );
 
   return (
-    <div>
+    <div className='accordion-group'>
       <AccordionContext.Provider value={accordionContextValue}>
         {children}
       </AccordionContext.Provider>

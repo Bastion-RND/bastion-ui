@@ -1,0 +1,13 @@
+.accordion-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .accordion {
+    &__content {
+      &--opened {
+        margin-bottom: var(--accordion-group-margin);
+      }
+    }
+  }
+}

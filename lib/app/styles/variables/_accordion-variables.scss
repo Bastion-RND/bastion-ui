@@ -1,0 +1,12 @@
+:root {
+  /** COLORS **/
+  --accordion-text-color: var(--gray-color-800);
+
+  /** PADDINGS **/
+  --accordion-padding-horizontal: .875rem;
+  --accordion-padding-vertical: .75rem;
+
+  /** BORDERS **/
+  --accordion-border-width: 1px;
+  --accordion-border: var(--accordion-border-width) solid var(--brand-color-500);
+}

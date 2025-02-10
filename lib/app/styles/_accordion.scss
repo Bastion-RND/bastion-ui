@@ -1,9 +1,27 @@
 .accordion {
+  display: flex;
+  flex-direction: column;
+
   &__title {
     cursor: pointer;
+    color: var(--accordion-text-color);
+    padding: var(--accordion-padding-vertical) var(--accordion-padding-horizontal);
+    border: var(--accordion-border);
 
     &:has(input:disabled) {
       cursor: default;
+    }
+  }
+
+  &__content {
+    margin-top: calc(-1 * var(--accordion-border-width));
+    max-height: 0;
+    overflow: hidden;
+
+    &--opened {
+      border: var(--accordion-border);
+      padding: var(--accordion-padding-vertical) var(--accordion-padding-horizontal);
+      max-height: fit-content;
     }
   }
 
