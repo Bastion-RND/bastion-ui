@@ -256,12 +256,12 @@ const App: FC = () => {
           </BastTabsItem>
         </BastTabs>
         <BastTabs borders="round-bottom">
-          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem disabled>Default</BastTabsItem>
           <BastTabsItem>Default</BastTabsItem>
           <BastTabsItem>Default</BastTabsItem>
           <BastTabsItem>Default</BastTabsItem>
         </BastTabs>
-        <BastTabs borders="round-top">
+        <BastTabs borders="round-top" disabled>
           <BastTabsItem>Default</BastTabsItem>
           <BastTabsItem>Default</BastTabsItem>
           <BastTabsItem>Default</BastTabsItem>

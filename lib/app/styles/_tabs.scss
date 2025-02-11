@@ -48,5 +48,14 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+
+  }
+
+  button:disabled.tabs__button {
+    &, &:hover {
+      cursor: default;
+      background-color: var(--tabs-button-background-color-disabled);
+      color: var(--tabs-button-text-color-disabled);
+    }
   }
 }

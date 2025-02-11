@@ -15,8 +15,10 @@ button {
   --tabs-button-background-color: var(--brand-color-25);
   --tabs-button-background-color-hover: var(--brand-color-50);
   --tabs-button-background-color-active: var(--brand-color-100);
+  --tabs-button-background-color-disabled: var(--gray-color-100);
 
   --tabs-button-text-color: var(--brand-color-500);
   --tabs-button-text-color-hover: var(--brand-color-500);
   --tabs-button-text-color-active: var(--white-color);
+  --tabs-button-text-color-disabled: var(--gray-color-700);
 }

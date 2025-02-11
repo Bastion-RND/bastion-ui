@@ -7,6 +7,7 @@ import { BastTabsItem } from './BastTabsItem';
 type TBastTabs = FC<
   Pick<ComponentProps<'ul'>, 'className' | 'style' | 'children'> & {
     iconOnly?: boolean;
+    disabled?: boolean;
     borders?: 'round-top' | 'round-bottom' | 'round-all';
   }
 > & {
@@ -16,6 +17,7 @@ type TBastTabs = FC<
 const BastTabs: TBastTabs = ({
   className,
   children,
+  disabled,
   borders = 'round-all',
   iconOnly,
   ...props
@@ -24,10 +26,11 @@ const BastTabs: TBastTabs = ({
 
   const tabsContextValue = useMemo(
     () => ({
+      disabled,
       currentTab,
       setCurrentTab,
     }),
-    [currentTab],
+    [disabled, currentTab],
   );
 
   return (

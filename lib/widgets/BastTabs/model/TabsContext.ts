@@ -3,6 +3,7 @@ import { createContext, useContext } from 'react';
 type TCurrentTab = string | null;
 
 type TBastTabsContext = {
+  disabled?: boolean;
   currentTab: TCurrentTab;
   setCurrentTab: (tab: TCurrentTab) => void;
 }
