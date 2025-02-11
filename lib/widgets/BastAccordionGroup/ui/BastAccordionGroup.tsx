@@ -19,7 +19,7 @@ const BastAccordionGroup: FC<TBastAccordionGroupProps> & {
       setOpenedAccordions,
       multiple,
     }),
-    [multiple, openedAccordions],
+    [multiple, openedAccordions, disabled],
   );
 
   return (
