@@ -1,0 +1,23 @@
+:root {
+  /** ANIMATIONS **/
+  --backdrop-show-animation: backdrop-show-animation .3s ease-in-out forwards;
+  --backdrop-hide-animation: backdrop-hide-animation .3s ease-in-out forwards;
+}
+
+@keyframes backdrop-show-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes backdrop-hide-animation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
