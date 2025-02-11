@@ -4,7 +4,7 @@
   width: min(calc(100% - calc(var(--modal-card-padding) * 2)), var(--dialog-card-width));
   animation: var(--dialog-card-animation);
   align-self: start;
-  margin-top: 2rem;
+  margin-top: var(--dialog-card-margin-top);
 
   &__header {
     text-align: start;

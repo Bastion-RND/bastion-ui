@@ -9,7 +9,13 @@
   gap: var(--toast-card-content-gap);
   width: 100%;
   cursor: pointer;
-  animation: var(--toast-card-animation);
+  animation: var(--toast-card-hide-animation);
+  opacity: 0;
+
+  &--visible {
+    opacity: 1;
+    animation: var(--toast-card-animation);
+  }
 
   &__close-button {
     margin-left: auto;

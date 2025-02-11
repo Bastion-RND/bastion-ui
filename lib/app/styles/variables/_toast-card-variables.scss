@@ -2,7 +2,8 @@
   --toast-card-width: 496px;
   --toast-card-radius: var(--radius-medium);
   --toast-card-padding: 1rem 1.5rem 1rem 1rem;
-  --toast-card-animation: toast-card-animation 0.15s ease;
+  --toast-card-animation: toast-card-animation .2s ease;
+  --toast-card-hide-animation: toast-card-hide-animation .5s ease-in-out;
   --toast-card-content-gap: .75rem;
   --toast-card-wrapper-padding: 1rem 0 0 0;
   --toast-card-wrapper-gap: 1rem;
@@ -12,11 +13,25 @@
 @keyframes toast-card-animation {
   0% {
     transform: translateY(-50%);
+    opacity: 0;
   }
   75% {
     transform: translateY(.25rem);
+    opacity: .75;
   }
   100% {
     transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toast-card-hide-animation {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(50%);
   }
 }
