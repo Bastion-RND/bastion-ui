@@ -27,6 +27,7 @@ const BastAccordion: FC<TBastAccordionProps> = ({
   const resolvedId = id ?? fallbackId;
   const isChecked = context ? context.openedAccordions.has(resolvedId) : isOpen;
   const isExpanded = expanded !== undefined ? expanded : isChecked;
+  const isDisabled = context ? context.disabled : disabled;
 
   const toggleAccordion = ({ target: { checked } }: ChangeEvent<HTMLInputElement>) => {
     setOpen(checked);
@@ -50,7 +51,7 @@ const BastAccordion: FC<TBastAccordionProps> = ({
         <input
           className="accordion__input"
           id={id}
-          disabled={disabled}
+          disabled={isDisabled}
           type="checkbox"
           checked={isExpanded}
           onChange={toggleAccordion}
