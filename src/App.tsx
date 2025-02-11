@@ -3,7 +3,8 @@ import '../lib/app/styles/bastion-ui.scss';
 import { ChangeEvent, FC, useEffect, useState } from 'react';
 
 import {
-  BastAccordion, BastAccordionGroup,
+  BastAccordion,
+  BastAccordionGroup,
   BastButton,
   BastCard,
   BastCheck,
@@ -50,7 +51,7 @@ const App: FC = () => {
   const handleChangeInput = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
     console.log(value);
     setValue(value);
-  }
+  };
 
   return (
     <Container>
@@ -75,14 +76,13 @@ const App: FC = () => {
         <BastButton color="gray" expand onClick={() => setModalOpen((prevState) => !prevState)}>
           Modal
         </BastButton>
-        {isDialogOpen && (
-          <BastDialog
-            color="gray"
-            title="Диалог обычный"
-            content="Важное сообщение и длинное сообщение..."
-            onClose={() => setDialogOpen((prevState) => !prevState)}
-          />
-        )}
+        <BastDialog
+          isOpen={isDialogOpen}
+          color="gray"
+          title="Диалог обычный"
+          content="Важное сообщение и длинное сообщение..."
+          onClose={() => setDialogOpen((prevState) => !prevState)}
+        />
         <BastButton
           color="gray"
           fill="outlined"
@@ -127,7 +127,12 @@ const App: FC = () => {
       <div style={gridStyles}>
         <BastInputGroup>
           <BastInputGroup.Label>Debounced</BastInputGroup.Label>
-          <BastInputGroup.Input placeholder="Злодей" debounce={1000} value={value} onChange={handleChangeInput} />
+          <BastInputGroup.Input
+            placeholder="Злодей"
+            debounce={1000}
+            value={value}
+            onChange={handleChangeInput}
+          />
         </BastInputGroup>
         <BastInputGroup>
           <BastInputGroup.Label htmlFor="3">Label</BastInputGroup.Label>
@@ -269,17 +274,17 @@ const App: FC = () => {
         </BastTabs>
       </div>
       <div style={gridStyles}>
-        <BastAccordion title='Accordion' disabled expanded>
+        <BastAccordion title="Accordion" disabled expanded>
           <div>Disabled && Expanded</div>
         </BastAccordion>
         <BastAccordionGroup>
-          <BastAccordion title='AccordionGroup'>
+          <BastAccordion title="AccordionGroup">
             <div>Accordion content 1</div>
           </BastAccordion>
-          <BastAccordion title='Accordion 2'>
+          <BastAccordion title="Accordion 2">
             <div>Accordion content 2</div>
           </BastAccordion>
-          <BastAccordion title='Accordion 3'>
+          <BastAccordion title="Accordion 3">
             <div>Accordion content 3</div>
           </BastAccordion>
         </BastAccordionGroup>

@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { ComponentType, FC, MouseEvent, PropsWithChildren } from 'react';
 
 import { Backdrop } from '../../../shared/ui/backdrop';
-import { Container } from '../../../shared/ui/container';
 import { TWithPortalArgs, withPortal } from '../../../shared/ui/hocs/withPortal';
 import { ModalCard } from '../../../shared/ui/modalCard';
 import type { TModalCardStaticProps } from '../../../shared/ui/modalCard/ui/ModalCard';
@@ -29,15 +28,13 @@ const BastModalWithoutPortal: FC<TBastModalProps> = ({
 
   return (
     <Backdrop show={isOpen} onClick={backdropDismiss ? onClose : undefined}>
-      <Container className="modal__container">
-        <ModalCard
-          onClick={(e) => e.stopPropagation()}
-          className={clsx(['modal', isOpen && 'modal--active'])}
-        >
-          {closeButton && <BastModalCloseButton onClick={handleCloseModal} />}
-          {children}
-        </ModalCard>
-      </Container>
+      <ModalCard
+        onClick={(e) => e.stopPropagation()}
+        className={clsx(['modal', isOpen && 'modal--active'])}
+      >
+        {closeButton && <BastModalCloseButton onClick={handleCloseModal} />}
+        {children}
+      </ModalCard>
     </Backdrop>
   );
 };

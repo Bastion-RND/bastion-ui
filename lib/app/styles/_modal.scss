@@ -3,15 +3,12 @@
   background-color: white;
   display: flex;
   flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+  align-self: center;
 
   &--active {
     animation: var(--modal-card-animation);
-  }
-
-  &__container {
-    display: flex;
-    align-items: center;
-    height: 100%;
   }
 
   &__close-button {
