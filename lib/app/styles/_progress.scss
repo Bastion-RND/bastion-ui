@@ -1,0 +1,29 @@
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: 32px;
+  border: 2px solid #007bff;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background-color: #007bff;
+  height: 100%;
+  transition: width 0.3s ease-in-out;
+}
+
+.progress-icon {
+  position: absolute;
+  transform: translateX(-50%);
+  transition: left 0.3s ease-in-out;
+}
+
+.progress-value {
+  position: absolute;
+  right: 8px;
+  color: #007bff;
+  font-weight: bold;
+}

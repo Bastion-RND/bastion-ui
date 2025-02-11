@@ -6,7 +6,6 @@
   background-color: white;
   box-shadow: var(--modal-card-shadow);
   min-width: min(calc(100vw - calc(var(--modal-card-padding) * 2)), 400px);
-  animation: var(--modal-card-animation);
 
   &__title {
     color: var(--modal-card-title-color);

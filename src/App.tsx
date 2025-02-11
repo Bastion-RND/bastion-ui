@@ -38,14 +38,14 @@ const App: FC = () => {
   const [progress, setProgress] = useState<number>(0);
   const [value, setValue] = useState('1');
 
-  // useEffect(() => {
-  //   const intervalId = setInterval(
-  //     () => setProgress((prevState) => (prevState === 100 ? 0 : prevState + 1)),
-  //     100,
-  //   );
-  //
-  //   return () => clearInterval(intervalId);
-  // }, []);
+  useEffect(() => {
+    const intervalId = setInterval(
+      () => setProgress((prevState) => (prevState === 101 ? 0 : prevState + 1)),
+      500,
+    );
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   const handleChangeInput = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
     console.log(value);

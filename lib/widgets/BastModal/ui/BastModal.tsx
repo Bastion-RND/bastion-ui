@@ -1,42 +1,46 @@
-import { ComponentType, FC, forwardRef, MouseEvent, PropsWithChildren } from 'react';
+import clsx from 'clsx';
+import { ComponentType, FC, MouseEvent, PropsWithChildren } from 'react';
 
+import { Backdrop } from '../../../shared/ui/backdrop';
 import { Container } from '../../../shared/ui/container';
 import { TWithPortalArgs, withPortal } from '../../../shared/ui/hocs/withPortal';
 import { ModalCard } from '../../../shared/ui/modalCard';
 import type { TModalCardStaticProps } from '../../../shared/ui/modalCard/ui/ModalCard';
 import { BastModalCloseButton } from './BastModalCloseButton';
 
-type TBastModalProps = {
+type TBastModalProps = PropsWithChildren<{
+  isOpen: boolean;
   closeButton?: boolean;
   backdropDismiss?: boolean;
   onClose?: () => void;
-} & PropsWithChildren;
+}>;
 
-const BastModalWithoutPortal: FC<TBastModalProps> = forwardRef<HTMLDivElement, TBastModalProps>(
-  ({ closeButton = true, backdropDismiss = true, onClose, children }, ref) => {
-    const handleBackdropClick = (event: MouseEvent<HTMLDivElement>) => {
-      if (event.target === event.currentTarget) {
-        onClose?.();
-      }
-    };
+const BastModalWithoutPortal: FC<TBastModalProps> = ({
+  closeButton = true,
+  backdropDismiss = true,
+  isOpen,
+  onClose,
+  children,
+}) => {
+  const handleCloseModal = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    onClose?.();
+  };
 
-    return (
-      <div
-        role="presentation"
-        ref={ref}
-        className="modal__wrapper"
-        onClick={backdropDismiss ? handleBackdropClick : undefined}
-      >
-        <Container className='modal__container'>
-          <ModalCard className="modal">
-            {closeButton && <BastModalCloseButton onClick={onClose} />}
-            {children}
-          </ModalCard>
-        </Container>
-      </div>
-    );
-  },
-);
+  return (
+    <Backdrop show={isOpen} onClick={backdropDismiss ? onClose : undefined}>
+      <Container className="modal__container">
+        <ModalCard
+          onClick={(e) => e.stopPropagation()}
+          className={clsx(['modal', isOpen && 'modal--active'])}
+        >
+          {closeButton && <BastModalCloseButton onClick={handleCloseModal} />}
+          {children}
+        </ModalCard>
+      </Container>
+    </Backdrop>
+  );
+};
 
 const BastModal = Object.assign<
   ComponentType<TWithPortalArgs<TBastModalProps>>,
