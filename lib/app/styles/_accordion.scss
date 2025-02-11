@@ -2,28 +2,85 @@
   display: flex;
   flex-direction: column;
 
+  &:has(input:disabled) {
+    .accordion {
+      &__title, &__content {
+        cursor: default;
+        border-color: var(--accordion-color-disabled);
+        color: var(--accordion-color-disabled);
+      }
+
+      &__title {
+        &:hover {
+          color: var(--accordion-color-disabled);
+        }
+      }
+
+      &__icon {
+        color: var(--accordion-color-disabled);
+      }
+    }
+  }
+
+  &:has(input:checked) {
+    .accordion {
+      &__icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &:not(:has(input:checked)) {
+    .accordion {
+      &__title {
+        border-radius: var(--accordion-border-radius);
+      }
+    }
+  }
+
+  &__icon {
+    height: var(--dropdown-svg-size);
+    width: var(--dropdown-svg-size);
+    min-width: var(--dropdown-svg-size);
+    margin-left: var(--dropdown-svg-gap);
+    transition: var(--dropdown-input-icon-animation);
+    color: var(--accordion-icon-color);
+  }
+
   &__title {
     cursor: pointer;
     color: var(--accordion-text-color);
     padding: var(--accordion-padding-vertical) var(--accordion-padding-horizontal);
     border: var(--accordion-border);
     border-radius: var(--accordion-border-radius) var(--accordion-border-radius) 0 0;
+    transition: opacity .3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    &:has(input:disabled) {
-      cursor: default;
+    &:hover {
+      opacity: .7;
     }
+  }
+
+  &__icon {
+
   }
 
   &__content {
     margin-top: calc(-1 * var(--accordion-border-width));
-    max-height: 0;
-    overflow: hidden;
     border-radius: 0 0 var(--accordion-border-radius) var(--accordion-border-radius);
+    transform: scaleY(0);
+    opacity: 0;
+    transform-origin: top;
+    transition: transform 0.3s ease;
+    overflow: hidden;
 
     &--opened {
+      opacity: 1;
       border: var(--accordion-border);
       padding: var(--accordion-padding-vertical) var(--accordion-padding-horizontal);
-      max-height: fit-content;
+      transform: scaleY(1);
     }
   }
 

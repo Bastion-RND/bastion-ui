@@ -8,6 +8,14 @@
       .accordion__title {
         border-radius: var(--accordion-border-radius) var(--accordion-border-radius) 0 0;
       }
+
+      .accordion__content {
+        border-radius: 0;
+
+        &--opened {
+          margin-bottom: var(--accordion-group-margin);
+        }
+      }
     }
 
     &:last-child {
@@ -28,15 +36,19 @@
       }
     }
 
-    &__title {
-      border-radius: 0;
-    }
+    &:not(:last-child):not(:first-child) {
+      .accordion {
+        &__title {
+          border-radius: 0;
+        }
 
-    &__content {
-      border-radius: 0;
+        &__content {
+          border-radius: 0;
 
-      &--opened {
-        margin-bottom: var(--accordion-group-margin);
+          &--opened {
+            margin-bottom: var(--accordion-group-margin);
+          }
+        }
       }
     }
   }

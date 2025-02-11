@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { ChangeEvent, FC, PropsWithChildren, useId, useState } from 'react';
 
+import { Icons } from '../../../shared/ui/icons';
 import { useAccordionContext } from '../model/AccordionContext';
 
 type TBastAccordionProps = PropsWithChildren<{
@@ -45,6 +46,7 @@ const BastAccordion: FC<TBastAccordionProps> = ({
     <div className="accordion">
       <label htmlFor={id} className="accordion__title">
         {title}
+        <Icons.ChevronUp className="accordion__icon" />
         <input
           className="accordion__input"
           id={id}
