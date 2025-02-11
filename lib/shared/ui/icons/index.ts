@@ -6,7 +6,7 @@ import CheckCircleIcon from '../../assets/check-circle.svg?react';
 import ChevronUpIcon from '../../assets/chevron-up.svg?react';
 import CloseIcon from '../../assets/close.svg?react';
 import SpinnerIcon from '../../assets/spinner.svg?react';
-import { TBastColor } from '../../lib/utility-types/color';
+import { TBastColor } from '../../lib';
 
 export const Icons = {
   Check: CheckIcon,

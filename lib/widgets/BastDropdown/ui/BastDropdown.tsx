@@ -11,7 +11,6 @@ import {
 } from 'react';
 
 import { BastList } from '../../../entities/BastList/ui/BastList';
-import { useClickOutside } from '../../../shared/lib/clickOutside';
 import { Icons } from '../../../shared/ui/icons';
 import {
   DropdownContext,
@@ -49,13 +48,6 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
   const [contextValue, setContextValue] = useState<TDropdownContextValue | null>(null);
-
-  useClickOutside({
-    targetRef: inputRef,
-    callback: () => {
-      if (inputRef.current) inputRef.current.checked = false;
-    },
-  });
 
   const selectOption: IDropdownContextType['setValue'] = useCallback((value) => {
     if (inputRef.current) inputRef.current.checked = false;

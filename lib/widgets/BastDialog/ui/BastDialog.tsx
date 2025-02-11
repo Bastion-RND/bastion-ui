@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { BastButton } from '../../../entities/BastButton';
-import { TWithBastColor } from '../../../shared/lib/utility-types/color';
+import { TWithBastColor } from '../../../shared/lib';
 import { Backdrop } from '../../../shared/ui/backdrop';
 import { withPortal } from '../../../shared/ui/hocs/withPortal';
 import { BAST_ICONS_BY_COLOR, Icons } from '../../../shared/ui/icons';

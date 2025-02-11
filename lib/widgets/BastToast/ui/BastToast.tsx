@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { FC, useEffect, useState } from 'react';
 
-import { useDebounce } from '../../../shared/lib/debounce';
+import { useDebounce } from '../../../shared/lib';
 import { withPortal } from '../../../shared/ui/hocs/withPortal';
 import { BAST_ICONS_BY_COLOR, Icons } from '../../../shared/ui/icons';
 import { TToastItem, useToastActionsContext, useToastValueContext } from '../model/ToastValueContext';

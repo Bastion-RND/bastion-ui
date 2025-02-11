@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-import { TWithBastColor } from '../../../shared/lib/utility-types/color';
+import { TWithBastColor } from '../../../shared/lib';
 
 export type TToastItem = TWithBastColor<{
   text: string;

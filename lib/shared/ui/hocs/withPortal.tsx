@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { useDebounce } from '../../lib/debounce';
+import { useDebounce } from '../../lib';
 import { Portal } from '../portal';
 
 export type TWithPortalArgs<Type> = Type & { isOpen?: boolean };

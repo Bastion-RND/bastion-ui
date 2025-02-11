@@ -7,7 +7,6 @@ export { BastInput } from '../entities/BastInput';
 export { BastProgress } from '../entities/BastProgress';
 export { BastRadio } from '../entities/BastRadio';
 export { BastSpinner } from '../entities/BastSpinner';
-export { useClickOutside } from '../shared/lib/clickOutside';
 export { Container } from '../shared/ui/container';
 export { Label } from '../shared/ui/label';
 export { ModalCard } from '../shared/ui/modalCard';
