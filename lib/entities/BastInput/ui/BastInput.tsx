@@ -8,7 +8,8 @@ import {
   useState,
 } from 'react';
 
-import { debounceFunction } from '../../../shared/lib/debounce';
+import { debounceFunction } from '../../../shared/lib';
+
 
 interface IBastControl extends ComponentPropsWithRef<'input'> {
   debounce?: number;
