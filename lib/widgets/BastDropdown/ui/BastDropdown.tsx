@@ -46,19 +46,16 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
 }) => {
   const generatedId = useId();
   const resolvedId = id || generatedId;
-  const inputRef = useRef<HTMLInputElement>(null);
-  const listRef = useRef<HTMLUListElement>(null);
+  const inputRef = useRef<HTMLDivElement>(null);
   const [contextValue, setContextValue] = useState<TDropdownContextValue | null>(null);
   const [isOpen, setOpen] = useState<boolean>(false);
 
-  useOutsideClick(
-    useCallback(() => setOpen(false), []),
-    [inputRef],
-  );
+  useOutsideClick(() => setOpen(false), inputRef);
 
-  const toggleDropdown = () => setOpen(state => !state);
+  const toggleDropdown = () => setOpen((state) => !state);
 
   const selectOption: IDropdownContextType['setValue'] = useCallback((value) => {
+    setOpen(false);
     onChange?.(value?.value || null);
     setContextValue(value);
   }, []);
@@ -76,24 +73,23 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
   );
 
   return (
-    <div className="dropdown" style={style}>
-      <input
-        className={`${clsx(['dropdown__checkbox', className && className])}`}
-        ref={inputRef}
-        id={resolvedId}
-        type="checkbox"
-        checked={isOpen}
-        onChange={toggleDropdown}
-        {...props}
-      />
+    <div ref={inputRef} className="dropdown" style={style}>
       <label className="dropdown__label" htmlFor={resolvedId}>
         {label && label}
+        <input
+          className={`${clsx(['dropdown__checkbox', className && className])}`}
+          id={resolvedId}
+          type="checkbox"
+          checked={isOpen}
+          onChange={toggleDropdown}
+          {...props}
+        />
         <div className="dropdown__input">
           <span className="dropdown__input__text">{contextValue?.text || placeholder}</span>
           <Icons.ChevronUp className="dropdown__input__icon" />
         </div>
       </label>
-      <BastList ref={listRef}>
+      <BastList>
         <DropdownContext.Provider value={contextProviderValue}>{children}</DropdownContext.Provider>
       </BastList>
     </div>
