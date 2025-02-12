@@ -11,6 +11,7 @@ import {
 } from 'react';
 
 import { BastList } from '../../../entities/BastList/ui/BastList';
+import { useOutsideClick } from '../../../shared/lib/outsideClick/useOutsideClick';
 import { Icons } from '../../../shared/ui/icons';
 import {
   DropdownContext,
@@ -48,9 +49,16 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
   const [contextValue, setContextValue] = useState<TDropdownContextValue | null>(null);
+  const [isOpen, setOpen] = useState<boolean>(false);
+
+  useOutsideClick(
+    useCallback(() => setOpen(false), []),
+    [inputRef],
+  );
+
+  const toggleDropdown = () => setOpen(state => !state);
 
   const selectOption: IDropdownContextType['setValue'] = useCallback((value) => {
-    if (inputRef.current) inputRef.current.checked = false;
     onChange?.(value?.value || null);
     setContextValue(value);
   }, []);
@@ -74,6 +82,8 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
         ref={inputRef}
         id={resolvedId}
         type="checkbox"
+        checked={isOpen}
+        onChange={toggleDropdown}
         {...props}
       />
       <label className="dropdown__label" htmlFor={resolvedId}>
