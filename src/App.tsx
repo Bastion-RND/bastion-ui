@@ -192,7 +192,7 @@ const App: FC = () => {
           <BastList.Item>Item 1</BastList.Item>
         </BastList>
         <BastSpinner />
-        <BastProgress percent={progress} />
+        <BastProgress progress={progress} />
       </div>
       <div style={gridStyles}>
         <BastDropdown label="test" placeholder="Найти человека 2222" value="1">

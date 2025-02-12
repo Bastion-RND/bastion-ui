@@ -1,0 +1,23 @@
+:root {
+  /** COLORS **/
+  --progress-bar-background-color: var(--gray-color-25);
+  --progress-bar-text-color: var(--brand-color-100);
+  --progress-bar-filler-color: var(--brand-color-500);
+
+  /** RADIUS **/
+  --progress-radius: .5rem;
+  --progress-filler-radius: var(--progress-radius);
+
+  /** SIZES **/
+  --progress-bar-height: .5rem;
+  --progress-bar-filler-height: 100%;
+
+  /** ANIMATION **/
+  --progress-bar-fill-animation: width 1s ease-in-out;
+
+  /** GAP **/
+  --progress-bar-gap: .75rem;
+
+  /** FONT **/
+  --progress-bar-font-weight: 600;
+}
