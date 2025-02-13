@@ -104,7 +104,7 @@
     width: 100%;
     top: calc(100% + var(--dropdown-gap));
     z-index: 2;
-    background-color: white;
+    background-color: var(--dropdown-background-color);
     display: none;
     transform-origin: top center;
     animation: var(--dropdown-options-animation);

@@ -3,7 +3,7 @@
 
 .modal-card {
   border-radius: var(--modal-card-border-radius);
-  background-color: white;
+  background-color: var(--modal-card-background);
   box-shadow: var(--modal-card-shadow);
   min-width: min(calc(100vw - calc(var(--modal-card-padding) * 2)), 400px);
 
