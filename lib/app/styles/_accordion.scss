@@ -68,8 +68,26 @@
 
     &-wrapper {
       transform-origin: top;
-      transition: all 0.3s ease;
+      transition: var(--accordion-wrapper-animation);
       overflow: hidden;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        height: var(--accordion-border-width);
+        background-color: var(--accordion-border-color);
+        top: 0;
+        width: 100%;
+        opacity: 0;
+        transition: var(--accordion-content-border-animation);
+      }
+
+      &--expanded {
+        &::after {
+          opacity: 1;
+        }
+      }
     }
   }
 

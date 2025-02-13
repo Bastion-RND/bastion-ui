@@ -62,9 +62,8 @@ const BastAccordion: FC<TBastAccordionProps> = ({
         ref={contentRef}
         style={{
           height: isExpanded ? contentRef?.current?.scrollHeight || 0 : 0,
-          borderTopWidth: isExpanded ? 'var(--accordion-border-width)' : '0',
         }}
-        className="accordion__content-wrapper"
+        className={clsx(["accordion__content-wrapper", isExpanded && "accordion__content-wrapper--expanded"])}
       >
         <div className={`${clsx(['accordion__content'])}`}>{children}</div>
       </div>

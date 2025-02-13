@@ -9,10 +9,13 @@
   --accordion-padding-vertical: .75rem;
 
   /** BORDERS **/
+  --accordion-border-color: var(--brand-color-200);
   --accordion-border-width: 2px;
-  --accordion-border: var(--accordion-border-width) solid var(--brand-color-200);
+  --accordion-border: var(--accordion-border-width) solid var(--accordion-border-color);
   --accordion-border-radius: .75rem;
 
   /** ANIMATIONS **/
   --accordion-icon-animation: transform 0.3s ease, background-color 0.3s ease;
+  --accordion-content-border-animation: opacity 0.3s ease-in-out;
+  --accordion-wrapper-animation: all .3s ease;
 }
