@@ -11,7 +11,7 @@ import {
   BastInput,
   BastInputGroup,
   BastRadio,
-  BastTabs,
+  BastTabs, BastThemeToggle,
   Container,
 } from '../lib/app/main';
 import { BastIcon } from '../lib/entities/BastIcon';
@@ -282,6 +282,7 @@ const App: FC = () => {
           </BastAccordion>
         </BastAccordionGroup>
       </div>
+      <BastThemeToggle />
     </Container>
   );
 };

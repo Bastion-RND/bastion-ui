@@ -1,9 +1,12 @@
 import { FC, PropsWithChildren } from 'react';
 
+import { ThemeProvider } from '../theme/ThemeProvider';
 import { ToastProvider } from '../toast/ToastProvider';
 
 const RootProvider: FC<PropsWithChildren> = ({ children }) => (
-  <ToastProvider>{children}</ToastProvider>
+  <ThemeProvider>
+    <ToastProvider>{children}</ToastProvider>
+  </ThemeProvider>
 );
 
 export { RootProvider };
