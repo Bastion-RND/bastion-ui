@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ChangeEvent, FC, PropsWithChildren, useId, useState } from 'react';
+import { ChangeEvent, FC, PropsWithChildren, useId, useRef, useState } from 'react';
 
 import { Icons } from '../../../shared/ui/icons';
 import { useAccordionContext } from '../model/AccordionContext';
@@ -23,6 +23,7 @@ const BastAccordion: FC<TBastAccordionProps> = ({
   const [isOpen, setOpen] = useState<boolean>(initialExpanded);
   const context = useAccordionContext();
   const fallbackId = useId();
+  const contentRef = useRef<HTMLDivElement>(null);
 
   const resolvedId = id ?? fallbackId;
   const isChecked = context ? context.openedAccordions.has(resolvedId) : isOpen;
@@ -57,8 +58,15 @@ const BastAccordion: FC<TBastAccordionProps> = ({
           onChange={toggleAccordion}
         />
       </label>
-      <div className={`${clsx(['accordion__content', isExpanded && 'accordion__content--opened'])}`}>
-        {isExpanded && children}
+      <div
+        ref={contentRef}
+        style={{
+          height: isExpanded ? contentRef?.current?.scrollHeight || 0 : 0,
+          borderTopWidth: isExpanded ? 'var(--accordion-border-width)' : '0',
+        }}
+        className="accordion__content-wrapper"
+      >
+        <div className={`${clsx(['accordion__content'])}`}>{children}</div>
       </div>
     </div>
   );

@@ -4,52 +4,20 @@
   flex-direction: column;
 
   .accordion {
+    border-radius: 0;
+
+    &:not(:first-child) {
+      border-top: 0;
+    }
+
     &:first-child {
-      .accordion__title {
-        border-radius: var(--accordion-border-radius) var(--accordion-border-radius) 0 0;
-      }
-
-      .accordion__content {
-        border-radius: 0;
-
-        &--opened {
-          margin-bottom: var(--accordion-group-margin);
-        }
-      }
+      border-top-left-radius: var(--accordion-border-radius);
+      border-top-right-radius: var(--accordion-border-radius);
     }
 
     &:last-child {
-      .accordion__title {
-        border-radius: 0 0 var(--accordion-border-radius) var(--accordion-border-radius);
-      }
-
-      &:has(input:checked) {
-        .accordion {
-          &__title {
-            border-radius: 0;
-          }
-
-          &__content {
-            border-radius: 0 0 var(--accordion-border-radius) var(--accordion-border-radius);
-          }
-        }
-      }
-    }
-
-    &:not(:last-child):not(:first-child) {
-      .accordion {
-        &__title {
-          border-radius: 0;
-        }
-
-        &__content {
-          border-radius: 0;
-
-          &--opened {
-            margin-bottom: var(--accordion-group-margin);
-          }
-        }
-      }
+      border-bottom-left-radius: var(--accordion-border-radius);
+      border-bottom-right-radius: var(--accordion-border-radius);
     }
   }
 }

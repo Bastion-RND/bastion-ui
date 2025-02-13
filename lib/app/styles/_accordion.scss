@@ -1,16 +1,22 @@
 .accordion {
   display: flex;
   flex-direction: column;
+  border-radius: var(--accordion-border-radius);
+  border: var(--accordion-border);
+  height: fit-content;
 
   &:has(input:disabled) {
+    border-color: var(--accordion-color-disabled);
+
     .accordion {
       &__title, &__content {
         cursor: default;
-        border-color: var(--accordion-color-disabled);
         color: var(--accordion-color-disabled);
       }
 
       &__title {
+        border-color: var(--accordion-color-disabled);
+
         &:hover {
           color: var(--accordion-color-disabled);
         }
@@ -27,13 +33,9 @@
       &__icon {
         transform: rotate(180deg);
       }
-    }
-  }
 
-  &:not(:has(input:checked)) {
-    .accordion {
-      &__title {
-        border-radius: var(--accordion-border-radius);
+      &__content {
+        border-color: var(--brand-color-200);
       }
     }
   }
@@ -51,8 +53,6 @@
     cursor: pointer;
     color: var(--accordion-text-color);
     padding: var(--accordion-padding-vertical) var(--accordion-padding-horizontal);
-    border: var(--accordion-border);
-    border-radius: var(--accordion-border-radius) var(--accordion-border-radius) 0 0;
     transition: opacity .3s ease;
     display: flex;
     justify-content: space-between;
@@ -64,19 +64,12 @@
   }
 
   &__content {
-    margin-top: calc(-1 * var(--accordion-border-width));
-    border-radius: 0 0 var(--accordion-border-radius) var(--accordion-border-radius);
-    transform: scaleY(0);
-    opacity: 0;
-    transform-origin: top;
-    transition: transform 0.3s ease;
-    overflow: hidden;
+    padding: var(--accordion-padding-vertical) var(--accordion-padding-horizontal);
 
-    &--opened {
-      opacity: 1;
-      border: var(--accordion-border);
-      padding: var(--accordion-padding-vertical) var(--accordion-padding-horizontal);
-      transform: scaleY(1);
+    &-wrapper {
+      transform-origin: top;
+      transition: all 0.3s ease;
+      overflow: hidden;
     }
   }
 

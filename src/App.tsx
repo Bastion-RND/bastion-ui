@@ -1,6 +1,6 @@
 import '../lib/app/styles/bastion-ui.scss';
 
-import { ChangeEvent, FC, useEffect, useState } from 'react';
+import { ChangeEvent, FC, useState } from 'react';
 
 import {
   BastAccordion,
@@ -36,17 +36,7 @@ const App: FC = () => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
   const [isDialogOpen, setDialogOpen] = useState<boolean>(false);
   const { createToast } = useToast();
-  const [progress, setProgress] = useState<number>(0);
   const [value, setValue] = useState('1');
-
-  useEffect(() => {
-    const intervalId = setInterval(
-      () => setProgress((prevState) => (prevState === 101 ? 0 : prevState + 1)),
-      500,
-    );
-
-    return () => clearInterval(intervalId);
-  }, []);
 
   const handleChangeInput = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
     console.log(value);
@@ -192,7 +182,7 @@ const App: FC = () => {
           <BastList.Item>Item 1</BastList.Item>
         </BastList>
         <BastSpinner />
-        <BastProgress progress={progress} />
+        <BastProgress progress={50} />
       </div>
       <div style={gridStyles}>
         <BastDropdown label="test" placeholder="Найти человека 2222" value="1">
@@ -274,7 +264,7 @@ const App: FC = () => {
         </BastTabs>
       </div>
       <div style={gridStyles}>
-        <BastAccordion title="Accordion" disabled expanded>
+        <BastAccordion title="Accordion">
           <div>Disabled && Expanded</div>
         </BastAccordion>
         <BastAccordionGroup>
