@@ -12,6 +12,7 @@
   color: var(--input-text-color);
   outline: none;
   transition: var(--input-transition);
+  background-color: var(--input-background-color);
 
   &:focus + .bast-input-group__label, &:focus-visible {
     border-color: var(--input-border-color-focus);

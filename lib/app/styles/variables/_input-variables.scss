@@ -21,4 +21,14 @@ input:not([type="submit"]):not([type="checkbox"]) {
   /** TEXT **/
   --input-default-font-size: large;
   --input-text-color: var(--gray-color-300);
+
+  --input-background-color: white;
+}
+
+:root[data-theme="dark"] input:not([type="submit"]):not([type="checkbox"]) {
+  --input-border-color: var(--brand-color-300);
+  --input-border-color-focus: var(--brand-color-600);
+  --input-border-color-disabled: var(--gray-color-400);
+  --input-text-color: var(--gray-color-400);
+  --input-background-color: var(--gray-color-700);
 }

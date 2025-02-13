@@ -104,23 +104,23 @@ button, input[type="submit"] {
     --color-#{"" + $color}-filled-outline-focus: var(--#{"" + $color}-color-150);
 
     /** OUTLINED **/
-    --color-#{"" + $color}-outlined-background: var(--#{"" + $color}-color-100);
+    --color-#{"" + $color}-outlined-background: var(--#{"" + $color}-color-50);
     --color-#{"" + $color}-outlined-text: var(--#{"" + $color}-color-700);
     --color-#{"" + $color}-outlined-border: var(--#{"" + $color}-color-500);
     --color-#{"" + $color}-outlined-outline: transparent;
 
     --color-#{"" + $color}-outlined-background-active: var(--#{"" + $color}-color-200);
-    --color-#{"" + $color}-outlined-text-active: var(--gray-color-100);
+    --color-#{"" + $color}-outlined-text-active: var(--gray-color-50);
     --color-#{"" + $color}-outlined-border-active: var(--#{"" + $color}-color-700);
-    --color-#{"" + $color}-outlined-outline-active: var(--#{"" + $color}-color-100);
+    --color-#{"" + $color}-outlined-outline-active: var(--#{"" + $color}-color-50);
 
-    --color-#{"" + $color}-outlined-background-hover: var(--#{"" + $color}-color-100);
+    --color-#{"" + $color}-outlined-background-hover: var(--#{"" + $color}-color-50);
     --color-#{"" + $color}-outlined-text-hover: var(--#{"" + $color}-color-700);
     --color-#{"" + $color}-outlined-border-hover: var(--#{"" + $color}-color-200);
     --color-#{"" + $color}-outlined-outline-hover: transparent;
 
     --color-#{"" + $color}-outlined-background-focus: var(--#{"" + $color}-color-200);
-    --color-#{"" + $color}-outlined-text-focus: var(--#{"" + $color}-color-100);
+    --color-#{"" + $color}-outlined-text-focus: var(--#{"" + $color}-color-50);
     --color-#{"" + $color}-outlined-border-focus: var(--#{"" + $color}-color-500);
     --color-#{"" + $color}-outlined-outline-focus: transparent;
 
@@ -137,7 +137,7 @@ button, input[type="submit"] {
 
     --color-#{"" + $color}-cleared-background-hover: transparent;
     --color-#{"" + $color}-cleared-text-hover: var(--#{"" + $color}-color-300);
-    --color-#{"" + $color}-cleared-border-hover: var(--#{"" + $color}-color-100);
+    --color-#{"" + $color}-cleared-border-hover: var(--#{"" + $color}-color-50);
     --color-#{"" + $color}-cleared-outline-hover: transparent;
 
     --color-#{"" + $color}-cleared-background-focus: transparent;

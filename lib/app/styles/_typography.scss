@@ -49,3 +49,15 @@ q {
   --font-size-max: 1.25rem;
   --font-size-prefer: 0.893rem + 0.3vw;
 }
+
+h1, h2, h3, h4, h5, q, p, label {
+  color: var(--text-color);
+}
+
+:root {
+  --text-color: black;
+}
+
+:root[data-theme="dark"] {
+  --text-color: var(--brand-color-25);
+}

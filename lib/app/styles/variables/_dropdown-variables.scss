@@ -28,10 +28,10 @@
 
 :root[data-theme="dark"] {
   --dropdown-text-color: var(--gray-color-25);
-  --dropdown-border-color-focused: var(--brand-color-400);
+  --dropdown-border-color-focused: var(--brand-color-700);
   --dropdown-background-color: var(--gray-color-1000);
   --dropdown-border-color: var(--brand-color-300);
-  --dropdown-box-shadow-color: var(--brand-color-200);
+  --dropdown-box-shadow-color: var(--brand-color-50);
 }
 
 @keyframes growDown {

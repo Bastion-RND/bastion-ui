@@ -1,5 +1,5 @@
 .label {
-  color: var(--label-text-color);
+  --text-color: var(--label-text-color);
   padding: var(--label-padding);
   -moz-user-select: none;
   -khtml-user-select: none;
@@ -9,7 +9,7 @@
   text-align: left;
 
   &--disabled {
-    color: var(--lebel-text-color-disabled);
+    --text-color: var(--lebel-text-color-disabled);
     cursor: default;
   }
 
@@ -27,6 +27,6 @@
   display: flex;
 
   &--disabled {
-    color: var(--label-wrapper-text-color-disabled);
+    --text-color: var(--label-wrapper-text-color-disabled);
   }
 }
