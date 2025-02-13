@@ -71,4 +71,9 @@
 
     /** WHITE **/
     --white-color: #FFFF;
+    --background-color: var(--white-color);
+}
+
+:root[data-theme="dark"] {
+    --background-color: #0F1F2C;
 }

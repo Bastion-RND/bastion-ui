@@ -73,6 +73,7 @@
 
   &__content {
     padding: var(--accordion-padding-vertical) var(--accordion-padding-horizontal);
+    color: var(--accordion-text-color);
 
     &-wrapper {
       transform-origin: top;

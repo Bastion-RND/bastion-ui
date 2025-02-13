@@ -11,6 +11,7 @@
   flex-direction: column;
   height: min-content;
   box-shadow: var(--list-shadow);
+  background-color: var(--list-background-color);
 
   &__item {
     text-decoration: none;

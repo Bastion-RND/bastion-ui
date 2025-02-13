@@ -24,3 +24,9 @@
   /** ASPECT RATIO **/
   --card-image-aspect-ratio: 315 / 240;
 }
+
+:root[data-theme="dark"] {
+  --card-background-color: var(--gray-color-1000);
+  --card-title-color: var(--gray-color-25);
+  --card-text-color: var(--brand-color-200);
+}

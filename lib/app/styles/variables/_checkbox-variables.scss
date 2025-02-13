@@ -40,3 +40,17 @@ input[type="checkbox"] {
   /** TEXT **/
   --check-disabled-text-color: var(--gray-color-200);
 }
+
+:root[data-theme="dark"] input[type='checkbox'] {
+  --check-background-color: var(--white-color);
+  --check-background-color-focus: var(--brand-color-50);
+  --check-background-color-checked: var(--brand-color-50);
+  --check-background-color-disabled: var(--gray-color-50);
+
+  --check-border-color: var(--gray-color-400);
+  --check-border-color-focus: var(--brand-color-400);
+  --check-border-color-checked: var(--brand-color-600);
+  --check-border-color-disabled: var(--gray-color-200);
+
+  --check-disabled-text-color: var(--gray-color-700);
+}

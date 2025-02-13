@@ -19,3 +19,9 @@
   --accordion-content-border-animation: opacity 0.3s ease-in-out;
   --accordion-wrapper-animation: all .3s ease;
 }
+
+:root[data-theme="dark"] {
+  --accordion-text-color: var(--gray-color-900);
+  --accordion-color-disabled: var(--gray-color-400);
+  --accordion-icon-color: var(--brand-color-700);
+}

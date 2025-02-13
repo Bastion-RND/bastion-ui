@@ -37,6 +37,7 @@
     };
     transition: var(--dropdown-input-animation);
     overflow: hidden;
+    background-color: var(--dropdown-background-color);
 
     &__text {
       flex-grow: 1;
@@ -58,7 +59,7 @@
   &:has(input:focus), &:has(input:checked) {
     .dropdown__input {
       border-color: var(--dropdown-border-color-focused);
-      box-shadow: 0 0 2px 2px var(--brand-color-25);
+      box-shadow: 0 0 2px 2px var(--dropdown-box-shadow-color);
     }
   }
 
