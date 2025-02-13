@@ -28,7 +28,7 @@ const BastAccordion: FC<TBastAccordionProps> = ({
   const resolvedId = id ?? fallbackId;
   const isChecked = context ? context.openedAccordions.has(resolvedId) : isOpen;
   const isExpanded = expanded !== undefined ? expanded : isChecked;
-  const isDisabled = context ? context.disabled : disabled;
+  const isDisabled = typeof disabled === 'boolean' ? disabled : context?.disabled || false;
 
   const toggleAccordion = ({ target: { checked } }: ChangeEvent<HTMLInputElement>) => {
     setOpen(checked);
@@ -63,7 +63,10 @@ const BastAccordion: FC<TBastAccordionProps> = ({
         style={{
           height: isExpanded ? contentRef?.current?.scrollHeight || 0 : 0,
         }}
-        className={clsx(["accordion__content-wrapper", isExpanded && "accordion__content-wrapper--expanded"])}
+        className={clsx([
+          'accordion__content-wrapper',
+          isExpanded && 'accordion__content-wrapper--expanded',
+        ])}
       >
         <div className={`${clsx(['accordion__content'])}`}>{children}</div>
       </div>

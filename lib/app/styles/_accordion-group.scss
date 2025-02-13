@@ -3,8 +3,22 @@
   display: flex;
   flex-direction: column;
 
+  &--disabled {
+    &.accordion-group {
+      .accordion {
+        &:has(input:disabled) {
+          border-color: var(--accordion-color-disabled);
+        }
+      }
+    }
+  }
+
   .accordion {
     border-radius: 0;
+
+    &:has(input:disabled) {
+      border-color: var(--accordion-border-color);
+    }
 
     &:not(:first-child) {
       border-top: 0;

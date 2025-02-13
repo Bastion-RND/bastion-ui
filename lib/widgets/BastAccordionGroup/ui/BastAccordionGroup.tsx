@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { FC, PropsWithChildren, useMemo, useState } from 'react';
 
 import { AccordionContext, BastAccordion } from '../../../entities/BastAccordion';
@@ -23,7 +24,7 @@ const BastAccordionGroup: FC<TBastAccordionGroupProps> & {
   );
 
   return (
-    <div className='accordion-group'>
+    <div className={clsx(['accordion-group', disabled && 'accordion-group--disabled'])}>
       <AccordionContext.Provider value={accordionContextValue}>
         {children}
       </AccordionContext.Provider>

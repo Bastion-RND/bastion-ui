@@ -25,6 +25,14 @@
       &__icon {
         color: var(--accordion-color-disabled);
       }
+
+      &__content {
+        &-wrapper {
+          &::after {
+            background-color: var(--accordion-color-disabled);
+          }
+        }
+      }
     }
   }
 

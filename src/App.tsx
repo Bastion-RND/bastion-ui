@@ -264,11 +264,14 @@ const App: FC = () => {
         </BastTabs>
       </div>
       <div style={gridStyles}>
+        <BastAccordion title="Accordion" disabled expanded>
+          <div>Disabled && Expanded</div>
+        </BastAccordion>
         <BastAccordion title="Accordion">
           <div>Disabled && Expanded</div>
         </BastAccordion>
         <BastAccordionGroup>
-          <BastAccordion title="AccordionGroup">
+          <BastAccordion title="AccordionGroup" disabled>
             <div>Accordion content 1</div>
           </BastAccordion>
           <BastAccordion title="Accordion 2">
