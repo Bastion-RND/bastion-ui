@@ -58,14 +58,14 @@
 
     @each $color in globals.$colors {
       &--#{"" + $color} {
-        background-color: var(--#{"" + $color}-color-25);
+        background-color: var(--modal-card-background-color-first-circle-#{"" + $color});
 
         &::before {
-          background-color: var(--#{"" + $color}-color-50);
+          background-color: var(--modal-card-background-color-second-circle-#{"" + $color});
         }
 
         svg {
-          color: var(--#{"" + $color}-color-500);
+          color: var(--modal-card-icon-color-#{"" + $color});
         }
       }
     }

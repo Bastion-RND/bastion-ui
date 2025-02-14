@@ -1,7 +1,7 @@
 @use "globals" as globals;
 
 .toast {
-  --toast-text-color: var(--gray-color-400);
+  color: var(--gray-color-400);
   border-radius: var(--toast-card-radius);
   padding: var(--toast-card-padding);
   display: flex;
@@ -17,14 +17,6 @@
     animation: var(--toast-card-animation);
   }
 
-  &__close-button {
-    margin-left: auto;
-    padding: 0;
-    border: none !important;
-    outline: none !important;
-    color: var(--toast-text-color) !important;
-  }
-
   svg {
     height: var(--toast-card-icon-size);
     width: var(--toast-card-icon-size);
@@ -33,10 +25,21 @@
 
   @each $color in globals.$colors {
     &--#{"" + $color} {
-      --toast-text-color: var(--#{"" + $color}-color-600);
-      background-color: var(--#{"" + $color}-color-25);
-      border: 1px solid var(--#{"" + $color}-color-400);
+      --toast-text-color: var(--toast-text-color-#{"" + $color});
+      background-color: var(--toast-card-background-color-#{"" + $color});
+      border: 1px solid var(--toast-card-border-color-#{"" + $color});
       color: var(--toast-text-color);
+
+      .bast-button.toast__close-button {
+        margin-left: auto;
+        padding: 0;
+        border: none;
+        outline: none;
+
+        svg {
+          color: var(--toast-text-color);
+        }
+      }
     }
   }
 

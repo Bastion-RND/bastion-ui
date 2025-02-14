@@ -21,3 +21,9 @@
   /** FONT **/
   --progress-bar-font-weight: 600;
 }
+
+:root[data-theme="dark"] {
+  --progress-bar-background-color: var(--brand-color-1000);
+  --progress-bar-text-color: var(--brand-color-300);
+  --progress-bar-filler-color: var(--brand-color-300);
+}

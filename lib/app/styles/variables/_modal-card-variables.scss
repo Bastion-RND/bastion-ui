@@ -1,3 +1,5 @@
+@use "../globals" as globals;
+
 :root {
   --modal-card-border-radius: 1.625rem;
   --modal-card-shadow: 0 20px 24px -4px rgba(127, 139, 151, 0.1),
@@ -8,6 +10,24 @@
   --modal-card-padding: 1.5rem;
   --modal-card-content-padding: 0.5rem;
   --modal-card-background: white;
+
+  @each $color in globals.$colors {
+    --modal-card-background-color-first-circle-#{"" + $color}: var(--#{"" + $color}-color-25);
+    --modal-card-background-color-second-circle-#{"" + $color}: var(--#{"" + $color}-color-50);
+    --modal-card-icon-color-#{"" + $color}: var(--#{"" + $color}-color-500);
+  }
+}
+
+:root[data-theme="dark"] {
+  --modal-card-background: var(--brand-color-1000);
+  --modal-card-title-color: var(--brand-color-200);
+  --modal-card-content-color: var(--gray-color-300);
+
+  @each $color in globals.$colors {
+    --modal-card-background-color-first-circle-#{"" + $color}: var(--#{"" + $color}-color-200);
+    --modal-card-background-color-second-circle-#{"" + $color}: var(--#{"" + $color}-color-300);
+    --modal-card-icon-color-#{"" + $color}: var(--#{"" + $color}-color-25);
+  }
 }
 
 @keyframes modal-card-animation {

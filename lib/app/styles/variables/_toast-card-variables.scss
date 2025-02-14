@@ -1,3 +1,5 @@
+@use "../globals" as globals;
+
 :root {
   --toast-card-width: 496px;
   --toast-card-radius: var(--radius-medium);
@@ -8,6 +10,20 @@
   --toast-card-wrapper-padding: 1rem 0 0 0;
   --toast-card-wrapper-gap: 1rem;
   --toast-card-icon-size: 1rem;
+
+  @each $color in globals.$colors {
+    --toast-text-color-#{"" + $color}: var(--#{"" + $color}-color-600);
+    --toast-card-background-color-#{"" + $color}: var(--#{"" + $color}-color-25);
+    --toast-card-border-color-#{"" + $color}: var(--#{"" + $color}-color-400);
+  }
+}
+
+:root[data-theme="dark"] {
+  @each $color in globals.$colors {
+    --toast-text-color-#{"" + $color}: var(--#{"" + $color}-color-25);
+    --toast-card-background-color-#{"" + $color}: var(--#{"" + $color}-color-400);
+    --toast-card-border-color-#{"" + $color}: var(--#{"" + $color}-color-600);
+  }
 }
 
 @keyframes toast-card-animation {

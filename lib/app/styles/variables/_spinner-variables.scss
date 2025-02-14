@@ -7,6 +7,13 @@
   /** ANIMATION **/
   --spinner-animation-delay: .5s;
   --spinner-icon-animation: fade-in 0.5s ease-in forwards, orbit 1.5s linear infinite;
+
+  /** COLORS **/
+  --spinner-color: var(--brand-color-500);
+}
+
+:root[data-theme="dark"] {
+  --spinner-color: var(--brand-color-300);
 }
 
 @keyframes orbit {
