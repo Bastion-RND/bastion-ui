@@ -5,6 +5,7 @@
   animation: var(--dialog-card-animation);
   align-self: start;
   margin-top: var(--dialog-card-margin-top);
+  background-color: var(--dialog-card-background-color);
 
   &__header {
     text-align: start;

@@ -3,6 +3,11 @@
   --dialog-card-width: 400px;
   --dialog-header-gap: 1.25rem;
   --dialog-card-margin-top: 2rem;
+  --dialog-card-background-color: var(--white-color);
+}
+
+:root[data-theme="dark"] {
+  --dialog-card-background-color: var(--gray-color-1200);
 }
 
 @keyframes dialog-card-animation {
