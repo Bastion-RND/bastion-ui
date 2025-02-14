@@ -10,6 +10,7 @@
   --toast-card-wrapper-padding: 1rem 0 0 0;
   --toast-card-wrapper-gap: 1rem;
   --toast-card-icon-size: 1rem;
+  --toast-card-text-color-default: var(--gray-color-600);
 
   @each $color in globals.$colors {
     --toast-text-color-#{"" + $color}: var(--#{"" + $color}-color-600);
@@ -19,6 +20,8 @@
 }
 
 :root[data-theme="dark"] {
+  --toast-card-text-color-default: var(--gray-color-25);
+
   @each $color in globals.$colors {
     --toast-text-color-#{"" + $color}: var(--#{"" + $color}-color-25);
     --toast-card-background-color-#{"" + $color}: var(--#{"" + $color}-color-400);

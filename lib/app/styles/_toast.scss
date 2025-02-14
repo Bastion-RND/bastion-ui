@@ -1,7 +1,7 @@
 @use "globals" as globals;
 
 .toast {
-  color: var(--gray-color-400);
+  color: var(--toast-card-text-color-default);
   border-radius: var(--toast-card-radius);
   padding: var(--toast-card-padding);
   display: flex;
@@ -29,6 +29,10 @@
       background-color: var(--toast-card-background-color-#{"" + $color});
       border: 1px solid var(--toast-card-border-color-#{"" + $color});
       color: var(--toast-text-color);
+
+      h5 {
+        color: var(--toast-text-color);
+      }
 
       .bast-button.toast__close-button {
         margin-left: auto;

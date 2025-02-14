@@ -88,7 +88,7 @@ const App: FC = () => {
           onClick={() =>
             createToast({
               color: 'success',
-              autoClose: true,
+              autoClose: false,
               text: 'Какое-то прикольное уведомление',
             })
           }
