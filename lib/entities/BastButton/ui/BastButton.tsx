@@ -13,6 +13,7 @@ interface IBastButtonProps
   shape?: 'round' | 'default';
   iconOnly?: boolean;
   color?: TBastColor;
+  disabled?: boolean;
 }
 
 export const BastButton: FC<IBastButtonProps> = ({

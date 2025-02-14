@@ -14,6 +14,10 @@
   justify-content: center;
   width: fit-content;
 
+  &:disabled {
+    cursor: default;
+  }
+
   &--small {
     --font-size-min: .5rem;
     --font-size-max: .75rem;
@@ -25,7 +29,7 @@
   }
 
   &--round {
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-large);
   }
 
   &--icon-only {
