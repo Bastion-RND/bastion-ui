@@ -3,7 +3,7 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ['airbnb', 'airbnb-typescript', 'prettier'],
+  extends: ['airbnb', 'airbnb-typescript', 'prettier', 'plugin:storybook/recommended'],
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'simple-import-sort'],
   ignorePatterns: [
