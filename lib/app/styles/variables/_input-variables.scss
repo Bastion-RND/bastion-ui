@@ -8,7 +8,7 @@ input:not([type="submit"]):not([type="checkbox"]) {
   --input-border-width: 2px;
 
   /** SHADOW **/
-  --input-box-shadow: 0 0 2px 2px var(--brand-color-25);
+  --input-box-shadow: 0 0 5px 1px var(--brand-color-25);
 
   --input-border-color-focus: var(--brand-color-500);
 

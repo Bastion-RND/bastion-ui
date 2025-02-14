@@ -59,7 +59,7 @@
   &:has(input:focus), &:has(input:checked) {
     .dropdown__input {
       border-color: var(--dropdown-border-color-focused);
-      box-shadow: 0 0 2px 2px var(--dropdown-box-shadow-color);
+      box-shadow: 0 0 5px 1px var(--dropdown-box-shadow-color);
     }
   }
 
