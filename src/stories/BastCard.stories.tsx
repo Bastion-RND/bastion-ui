@@ -3,24 +3,24 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BastCard as BastCardComponent } from '../../lib/entities/BastCard';
 import src from './assets/cardImage.png';
 
-const ExampleCard = () => (
-  <BastCardComponent>
-    <BastCardComponent.Image src={src} />
-    <BastCardComponent.Title>
-      <h3>Монодатчики</h3>
-    </BastCardComponent.Title>
-    <BastCardComponent.Content>КРАСИВЫЕ</BastCardComponent.Content>
-  </BastCardComponent>
-)
-
 const meta = {
   title: 'Example/BastCard',
-  component: ExampleCard,
+  component: BastCardComponent,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  args: {},
+  args: {
+    children: (
+      <>
+        <BastCardComponent.Image src={src} />
+        <BastCardComponent.Title>
+          <h3>Монодатчики</h3>
+        </BastCardComponent.Title>
+        <BastCardComponent.Content>КРАСИВЫЕ</BastCardComponent.Content>
+      </>
+    ),
+  },
 } satisfies Meta<typeof BastCardComponent>;
 
 export default meta;
