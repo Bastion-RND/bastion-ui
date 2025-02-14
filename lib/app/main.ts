@@ -4,6 +4,7 @@ export { BastCard } from '../entities/BastCard';
 export { BastCheck } from '../entities/BastCheck';
 export { BastIcon } from '../entities/BastIcon';
 export { BastInput } from '../entities/BastInput';
+export { BastList } from '../entities/BastList';
 export { BastProgress } from '../entities/BastProgress';
 export { BastRadio } from '../entities/BastRadio';
 export { BastSpinner } from '../entities/BastSpinner';

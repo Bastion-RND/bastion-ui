@@ -6,16 +6,12 @@ import {
   BastAccordion,
   BastAccordionGroup,
   BastButton,
-  BastCard,
-  BastCheck,
-  BastInput,
   BastInputGroup,
-  BastRadio,
   BastTabs, BastThemeToggle,
   Container,
 } from '../lib/app/main';
 import { BastIcon } from '../lib/entities/BastIcon';
-import { BastList } from '../lib/entities/BastList/ui/BastList';
+import { BastList } from '../lib/entities/BastList';
 import { BastProgress } from '../lib/entities/BastProgress';
 import { BastSpinner } from '../lib/entities/BastSpinner';
 import { Icons } from '../lib/shared/ui/icons';
@@ -129,31 +125,6 @@ const App: FC = () => {
           <BastInputGroup.Feedback feedbackType="success">Test</BastInputGroup.Feedback>
         </BastInputGroup>
       </div>
-      <div style={gridStyles}>
-        <BastInput placeholder="Злодей" debounce={0} />
-        <BastInput placeholder="Злодей" disabled />
-      </div>
-      <div style={gridStyles}>
-        <BastCheck disabled />
-        <BastCheck
-          label="Remember me"
-          subLabel="Save my login details for next time"
-          disabled
-          checked
-        />
-        <BastCheck label="Remember me" subLabel="Save my login details for next time" />
-      </div>
-      <form action="#" style={{ display: 'flex', gap: '10px', padding: '10px', flexWrap: 'wrap' }}>
-        <BastRadio label="Злодей" disabled />
-        <BastRadio
-          label="Remember me"
-          subLabel="Save my login details for next time"
-          disabled
-          checked
-        />
-        <BastRadio name="1" label="Remember me" subLabel="Save my login details for next time" />
-        <BastRadio name="1" label="Remember me" subLabel="Save my login details for next time" />
-      </form>
       <div style={{ display: 'flex', gap: '10px', width: '100%' }}>
         <div
           style={{
@@ -198,35 +169,6 @@ const App: FC = () => {
           <BastDropdown.Option>1</BastDropdown.Option>
           <BastDropdown.Option>1</BastDropdown.Option>
         </BastDropdown>
-      </div>
-      <div style={{ ...gridStyles, gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
-        <BastCard>
-          <BastCard.Image src="/cardImage.png" />
-          <BastCard.Title>
-            <h3>Монодатчики</h3>
-          </BastCard.Title>
-          <BastCard.Content>КРАСИВЫЕ</BastCard.Content>
-        </BastCard>
-        <BastCard>
-          <BastCard.Image src="/Group.png" />
-          <BastCard.Title>
-            <h3>Монодатчики</h3>
-          </BastCard.Title>
-          <BastCard.Content>КРАСИВЫЕ</BastCard.Content>
-        </BastCard>
-        <BastCard>
-          <BastCard.Image src="/cardimage2.png" alt="test" />
-          <BastCard.Title>
-            <h3>Монодатчики</h3>
-          </BastCard.Title>
-          <BastCard.Content>КРАСИВЫЕ</BastCard.Content>
-        </BastCard>
-        <BastCard>
-          <BastCard.Title>
-            <h3>Монодатчики</h3>
-          </BastCard.Title>
-          <BastCard.Content>КРАСИВЫЕ</BastCard.Content>
-        </BastCard>
       </div>
       <div style={gridStyles}>
         <BastTabs>
