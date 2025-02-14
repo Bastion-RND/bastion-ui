@@ -18,9 +18,14 @@
   border: var(--radio-border-width) solid var(--radio-border-color);
   border-radius: var(--radio-border-radius);
   transition: var(--radio-outline-transition), var(--radio-border-transition);
+  background-color: var(--radio-background-color);
 
   &:checked {
-    background-color: var(--radio-background-color);
+    background-color: var(--radio-background-color-checked);
+  }
+
+  &:disabled {
+    background-color: var(--radio-background-color-disabled);
   }
 
   &::before {
@@ -42,9 +47,9 @@
   }
 
   &:focus, &:focus-visible {
-    background-color: var(--radio-background-color);
+    background-color: var(--radio-background-color-focused);
     border-color: var(--radio-border-color-focused);
-    outline-color: var(--radio-outline-color-focus);
+    outline-color: var(--radio-outline-color-focused);
     outline-offset: 0;
   }
 }
