@@ -3,10 +3,9 @@
 
 .modal-card {
   border-radius: var(--modal-card-border-radius);
-  background-color: white;
+  background-color: var(--modal-card-background);
   box-shadow: var(--modal-card-shadow);
   min-width: min(calc(100vw - calc(var(--modal-card-padding) * 2)), 400px);
-  animation: var(--modal-card-animation);
 
   &__title {
     color: var(--modal-card-title-color);
@@ -59,14 +58,14 @@
 
     @each $color in globals.$colors {
       &--#{"" + $color} {
-        background-color: var(--#{"" + $color}-color-25);
+        background-color: var(--modal-card-background-color-first-circle-#{"" + $color});
 
         &::before {
-          background-color: var(--#{"" + $color}-color-50);
+          background-color: var(--modal-card-background-color-second-circle-#{"" + $color});
         }
 
         svg {
-          color: var(--#{"" + $color}-color-500);
+          color: var(--modal-card-icon-color-#{"" + $color});
         }
       }
     }

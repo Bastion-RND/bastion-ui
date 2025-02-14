@@ -9,8 +9,9 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: auto;
+  height: min-content;
   box-shadow: var(--list-shadow);
+  background-color: var(--list-background-color);
 
   &__item {
     text-decoration: none;

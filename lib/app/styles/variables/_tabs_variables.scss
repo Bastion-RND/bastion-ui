@@ -1,0 +1,36 @@
+ul {
+  /** RADIUS **/
+  --tabs-border-radius: 1rem;
+  --tabs-icon-only-radius: 2.25rem;
+}
+
+li {
+  /** PADDINGS **/
+  --tabs-item-vertical-padding: 1.125rem;
+  --tabs-item-horizontal-padding: 1rem;
+}
+
+button {
+  /** COLORS **/
+  --tabs-button-background-color: var(--brand-color-25);
+  --tabs-button-background-color-hover: var(--brand-color-50);
+  --tabs-button-background-color-active: var(--brand-color-100);
+  --tabs-button-background-color-disabled: var(--gray-color-100);
+
+  --tabs-button-text-color: var(--brand-color-500);
+  --tabs-button-text-color-hover: var(--brand-color-500);
+  --tabs-button-text-color-active: var(--white-color);
+  --tabs-button-text-color-disabled: var(--gray-color-700);
+}
+
+:root[data-theme="dark"] button {
+  --tabs-button-background-color: var(--brand-color-500);
+  --tabs-button-background-color-hover: var(--brand-color-600);
+  --tabs-button-background-color-active: var(--brand-color-700);
+  --tabs-button-background-color-disabled: var(--gray-color-800);
+
+  --tabs-button-text-color: var(--brand-color-25);
+  --tabs-button-text-color-hover: var(--brand-color-50);
+  --tabs-button-text-color-active: var(--brand-color-100);
+  --tabs-button-text-color-disabled: var(--gray-color-900);
+}

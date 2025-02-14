@@ -3,18 +3,26 @@ import '../lib/app/styles/bastion-ui.scss';
 import { ChangeEvent, FC, useState } from 'react';
 
 import {
+  BastAccordion,
+  BastAccordionGroup,
   BastButton,
+  BastCard,
   BastCheck,
   BastInput,
   BastInputGroup,
   BastRadio,
+  BastTabs, BastThemeToggle,
   Container,
 } from '../lib/app/main';
 import { BastIcon } from '../lib/entities/BastIcon';
 import { BastList } from '../lib/entities/BastList/ui/BastList';
+import { BastProgress } from '../lib/entities/BastProgress';
+import { BastSpinner } from '../lib/entities/BastSpinner';
+import { Icons } from '../lib/shared/ui/icons';
 import { BastDialog } from '../lib/widgets/BastDialog';
 import { BastDropdown } from '../lib/widgets/BastDropdown';
 import { BastModal } from '../lib/widgets/BastModal';
+import { BastTabsItem } from '../lib/widgets/BastTabs/ui/BastTabsItem';
 import { useToast } from '../lib/widgets/BastToast';
 
 const gridStyles = {
@@ -28,9 +36,12 @@ const App: FC = () => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
   const [isDialogOpen, setDialogOpen] = useState<boolean>(false);
   const { createToast } = useToast();
+  const [value, setValue] = useState('1');
 
-  const handleChangeInput = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
+  const handleChangeInput = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
     console.log(value);
+    setValue(value);
+  };
 
   return (
     <Container>
@@ -44,29 +55,24 @@ const App: FC = () => {
         <BastModal.Content>
           <div>Мы что-то важное хотим вам сказать</div>
         </BastModal.Content>
-        <BastModal.Footer
-          style={{ display: 'flex', gap: '.5em' }}
-        >
+        <BastModal.Footer style={{ display: 'flex', gap: '.5em' }}>
           <BastButton expand fill="outlined" color="gray">
             Не согласен
           </BastButton>
           <BastButton expand>Согласен</BastButton>
         </BastModal.Footer>
       </BastModal>
-      <div
-        style={gridStyles}
-      >
+      <div style={gridStyles}>
         <BastButton color="gray" expand onClick={() => setModalOpen((prevState) => !prevState)}>
           Modal
         </BastButton>
-        {isDialogOpen && (
-          <BastDialog
-            color="gray"
-            title="Диалог обычный"
-            content="Важное сообщение и длинное сообщение..."
-            onClose={() => setDialogOpen((prevState) => !prevState)}
-          />
-        )}
+        <BastDialog
+          isOpen={isDialogOpen}
+          color="gray"
+          title="Диалог обычный"
+          content="Важное сообщение и длинное сообщение..."
+          onClose={() => setDialogOpen((prevState) => !prevState)}
+        />
         <BastButton
           color="gray"
           fill="outlined"
@@ -81,9 +87,8 @@ const App: FC = () => {
           expand
           onClick={() =>
             createToast({
-              color: 'danger',
-              autoClose: true,
-              duration: 5000,
+              color: 'success',
+              autoClose: false,
               text: 'Какое-то прикольное уведомление',
             })
           }
@@ -108,12 +113,15 @@ const App: FC = () => {
         </BastButton>
       </div>
 
-      <div
-        style={gridStyles}
-      >
+      <div style={gridStyles}>
         <BastInputGroup>
           <BastInputGroup.Label>Debounced</BastInputGroup.Label>
-          <BastInputGroup.Input placeholder="Злодей" debounce={1000} onChange={handleChangeInput} />
+          <BastInputGroup.Input
+            placeholder="Злодей"
+            debounce={1000}
+            value={value}
+            onChange={handleChangeInput}
+          />
         </BastInputGroup>
         <BastInputGroup>
           <BastInputGroup.Label htmlFor="3">Label</BastInputGroup.Label>
@@ -121,9 +129,7 @@ const App: FC = () => {
           <BastInputGroup.Feedback feedbackType="success">Test</BastInputGroup.Feedback>
         </BastInputGroup>
       </div>
-      <div
-        style={gridStyles}
-      >
+      <div style={gridStyles}>
         <BastInput placeholder="Злодей" debounce={0} />
         <BastInput placeholder="Злодей" disabled />
       </div>
@@ -174,23 +180,108 @@ const App: FC = () => {
           <BastList.Item>Item 1</BastList.Item>
           <BastList.Item>Item 1</BastList.Item>
         </BastList>
+        <BastSpinner />
+        <BastProgress progress={50} />
       </div>
       <div style={gridStyles}>
-        <BastDropdown label='test' placeholder='Найти человека 2222'>
-          <BastDropdown.Option value='0'>Значение 1</BastDropdown.Option>
-          <BastDropdown.Option value='1'>Значение 2</BastDropdown.Option>
-          <BastDropdown.Option value='2'>Значение 3</BastDropdown.Option>
+        <BastDropdown label="test" placeholder="Найти человека 2222" value="1">
+          <BastDropdown.Option value="0">Значение 1</BastDropdown.Option>
+          <BastDropdown.Option value="1">Значение 2</BastDropdown.Option>
+          <BastDropdown.Option value="2">Значение 3</BastDropdown.Option>
           <BastDropdown.Option>1</BastDropdown.Option>
           <BastDropdown.Option>1</BastDropdown.Option>
         </BastDropdown>
-        <BastDropdown placeholder='Найти человека' style={{ alignSelf: 'end' }}>
-          <BastDropdown.Option value='0'>Значение 1</BastDropdown.Option>
-          <BastDropdown.Option value='1'>Значение 2</BastDropdown.Option>
-          <BastDropdown.Option value='2'>Значение 3</BastDropdown.Option>
+        <BastDropdown placeholder="Найти человека" style={{ alignSelf: 'end' }}>
+          <BastDropdown.Option value="0">Значение 1</BastDropdown.Option>
+          <BastDropdown.Option value="1">Значение 2</BastDropdown.Option>
+          <BastDropdown.Option value="2">Значение 3</BastDropdown.Option>
           <BastDropdown.Option>1</BastDropdown.Option>
           <BastDropdown.Option>1</BastDropdown.Option>
         </BastDropdown>
       </div>
+      <div style={{ ...gridStyles, gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+        <BastCard>
+          <BastCard.Image src="/cardImage.png" />
+          <BastCard.Title>
+            <h3>Монодатчики</h3>
+          </BastCard.Title>
+          <BastCard.Content>КРАСИВЫЕ</BastCard.Content>
+        </BastCard>
+        <BastCard>
+          <BastCard.Image src="/Group.png" />
+          <BastCard.Title>
+            <h3>Монодатчики</h3>
+          </BastCard.Title>
+          <BastCard.Content>КРАСИВЫЕ</BastCard.Content>
+        </BastCard>
+        <BastCard>
+          <BastCard.Image src="/cardimage2.png" alt="test" />
+          <BastCard.Title>
+            <h3>Монодатчики</h3>
+          </BastCard.Title>
+          <BastCard.Content>КРАСИВЫЕ</BastCard.Content>
+        </BastCard>
+        <BastCard>
+          <BastCard.Title>
+            <h3>Монодатчики</h3>
+          </BastCard.Title>
+          <BastCard.Content>КРАСИВЫЕ</BastCard.Content>
+        </BastCard>
+      </div>
+      <div style={gridStyles}>
+        <BastTabs>
+          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem>Default</BastTabsItem>
+        </BastTabs>
+        <BastTabs iconOnly>
+          <BastTabsItem>
+            <Icons.Bast />
+          </BastTabsItem>
+          <BastTabsItem>
+            <Icons.Bast />
+          </BastTabsItem>
+          <BastTabsItem>
+            <Icons.Bast />
+          </BastTabsItem>
+          <BastTabsItem>
+            <Icons.Bast />
+          </BastTabsItem>
+        </BastTabs>
+        <BastTabs borders="round-bottom">
+          <BastTabsItem disabled>Default</BastTabsItem>
+          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem>Default</BastTabsItem>
+        </BastTabs>
+        <BastTabs borders="round-top" disabled>
+          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem>Default</BastTabsItem>
+        </BastTabs>
+      </div>
+      <div style={gridStyles}>
+        <BastAccordion title="Accordion" disabled expanded>
+          <div>Disabled && Expanded</div>
+        </BastAccordion>
+        <BastAccordion title="Accordion">
+          <div>Disabled && Expanded</div>
+        </BastAccordion>
+        <BastAccordionGroup>
+          <BastAccordion title="AccordionGroup" disabled>
+            <div>Accordion content 1</div>
+          </BastAccordion>
+          <BastAccordion title="Accordion 2">
+            <div>Accordion content 2</div>
+          </BastAccordion>
+          <BastAccordion title="Accordion 3">
+            <div>Accordion content 3</div>
+          </BastAccordion>
+        </BastAccordionGroup>
+      </div>
+      <BastThemeToggle />
     </Container>
   );
 };

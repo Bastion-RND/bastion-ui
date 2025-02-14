@@ -1,0 +1,32 @@
+:root {
+  /** COLORS **/
+  --card-background-color: var(--gray-color-25);
+  --card-title-color: black;
+  --card-text-color: var(--brand-color-200);
+
+  /** RADIUS **/
+  --card-border-radius: 2.25rem;
+
+  /** SHADOW **/
+  --card-shadow: 0 20px 24px -4px rgba(127, 139, 151, 0.1),
+    0 8px 8px -4px rgba(127, 139, 151, 0.1);
+
+  /** PADDINGS **/
+  --card-padding-vertical: 2.125rem;
+  --card-padding-horizontal: 1.875rem;
+
+  /** GAP **/
+  --card-gap: 1rem;
+
+  /** HEIGHT **/
+  --card-min-height: 240px;
+
+  /** ASPECT RATIO **/
+  --card-image-aspect-ratio: 315 / 240;
+}
+
+:root[data-theme="dark"] {
+  --card-background-color: var(--gray-color-1000);
+  --card-title-color: var(--gray-color-25);
+  --card-text-color: var(--brand-color-300);
+}

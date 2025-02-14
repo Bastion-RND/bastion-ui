@@ -4,8 +4,8 @@ export type TDropdownValue = string | null;
 
 export type TDropdownContextValue = {
   value: TDropdownValue;
+  controlledValue?: TDropdownValue;
   text: string;
-  id: string;
 } | null;
 
 export interface IDropdownContextType {

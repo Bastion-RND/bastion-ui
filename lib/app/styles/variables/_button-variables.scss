@@ -9,7 +9,7 @@ button, input[type="submit"] {
   --button-border-radius: var(--radius-small);
 
   /** PADDINGS **/
-  --button-horizontal-padding: 1.125rem;
+  --button-horizontal-padding: 1.100rem;
   --button-vertical-padding: .625rem;
 
   /** COLORS **/
@@ -76,5 +76,73 @@ button, input[type="submit"] {
     --color-#{"" + $color}-cleared-text-focus: var(--#{"" + $color}-color-400);
     --color-#{"" + $color}-cleared-border-focus: transparent;
     --color-#{"" + $color}-cleared-outline-focus: var(--#{"" + $color}-color-200);
+  }
+}
+
+:root[data-theme="dark"] button,
+:root[data-theme="dark"] input[type="submit"] {
+  @each $color in globals.$colors {
+    /** FILLED **/
+    --color-#{"" + $color}-filled-background: var(--#{"" + $color}-color-600);
+    --color-#{"" + $color}-filled-text: var(--white-color);
+    --color-#{"" + $color}-filled-border: transparent;
+    --color-#{"" + $color}-filled-outline: transparent;
+
+    --color-#{"" + $color}-filled-background-active: var(--#{"" + $color}-color-600);
+    --color-#{"" + $color}-filled-text-active: var(--white-color);
+    --color-#{"" + $color}-filled-border-active: transparent;
+    --color-#{"" + $color}-filled-outline-active: var(--#{"" + $color}-color-150);
+
+    --color-#{"" + $color}-filled-background-hover: var(--#{"" + $color}-color-500);
+    --color-#{"" + $color}-filled-text-hover: var(--white-color);
+    --color-#{"" + $color}-filled-border-hover: transparent;
+    --color-#{"" + $color}-filled-outline-hover: transparent;
+
+    --color-#{"" + $color}-filled-background-focus: var(--#{"" + $color}-color-600);
+    --color-#{"" + $color}-filled-text-focus: var(--white-color);
+    --color-#{"" + $color}-filled-border-focus: transparent;
+    --color-#{"" + $color}-filled-outline-focus: var(--#{"" + $color}-color-150);
+
+    /** OUTLINED **/
+    --color-#{"" + $color}-outlined-background: var(--#{"" + $color}-color-50);
+    --color-#{"" + $color}-outlined-text: var(--#{"" + $color}-color-700);
+    --color-#{"" + $color}-outlined-border: var(--#{"" + $color}-color-500);
+    --color-#{"" + $color}-outlined-outline: transparent;
+
+    --color-#{"" + $color}-outlined-background-active: var(--#{"" + $color}-color-200);
+    --color-#{"" + $color}-outlined-text-active: var(--gray-color-50);
+    --color-#{"" + $color}-outlined-border-active: var(--#{"" + $color}-color-700);
+    --color-#{"" + $color}-outlined-outline-active: var(--#{"" + $color}-color-50);
+
+    --color-#{"" + $color}-outlined-background-hover: var(--#{"" + $color}-color-50);
+    --color-#{"" + $color}-outlined-text-hover: var(--#{"" + $color}-color-700);
+    --color-#{"" + $color}-outlined-border-hover: var(--#{"" + $color}-color-200);
+    --color-#{"" + $color}-outlined-outline-hover: transparent;
+
+    --color-#{"" + $color}-outlined-background-focus: var(--#{"" + $color}-color-200);
+    --color-#{"" + $color}-outlined-text-focus: var(--#{"" + $color}-color-50);
+    --color-#{"" + $color}-outlined-border-focus: var(--#{"" + $color}-color-500);
+    --color-#{"" + $color}-outlined-outline-focus: transparent;
+
+    /** CLEARED **/
+    --color-#{"" + $color}-cleared-background: transparent;
+    --color-#{"" + $color}-cleared-text: var(--#{"" + $color}-color-600);
+    --color-#{"" + $color}-cleared-border: transparent;
+    --color-#{"" + $color}-cleared-outline: transparent;
+
+    --color-#{"" + $color}-cleared-background-active: transparent;
+    --color-#{"" + $color}-cleared-text-active: var(--#{"" + $color}-color-500);
+    --color-#{"" + $color}-cleared-border-active: transparent;
+    --color-#{"" + $color}-cleared-outline-active: var(--#{"" + $color}-color-600);
+
+    --color-#{"" + $color}-cleared-background-hover: transparent;
+    --color-#{"" + $color}-cleared-text-hover: var(--#{"" + $color}-color-300);
+    --color-#{"" + $color}-cleared-border-hover: var(--#{"" + $color}-color-50);
+    --color-#{"" + $color}-cleared-outline-hover: transparent;
+
+    --color-#{"" + $color}-cleared-background-focus: transparent;
+    --color-#{"" + $color}-cleared-text-focus: var(--#{"" + $color}-color-500);
+    --color-#{"" + $color}-cleared-border-focus: transparent;
+    --color-#{"" + $color}-cleared-outline-focus: var(--#{"" + $color}-color-300);
   }
 }

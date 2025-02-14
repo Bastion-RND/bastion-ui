@@ -1,11 +1,13 @@
-import AlertIcon from '../../assets/alert.svg?react';
-import AlertCircleIcon from '../../assets/alert-circle.svg?react';
-import BastIcon from '../../assets/bast.svg?react';
-import CheckIcon from '../../assets/check.svg?react';
-import CheckCircleIcon from '../../assets/check-circle.svg?react';
-import ChevronUpIcon from '../../assets/chevron-up.svg?react';
-import CloseIcon from '../../assets/close.svg?react';
-import { TBastColor } from '../../lib/utility-types/color';
+import {
+  AlertCircleIcon,
+  AlertIcon,
+  BastIcon,
+  CheckCircleIcon,
+  CheckIcon,
+  ChevronUpIcon,
+  CloseIcon, SpinnerIcon,
+} from '../../assets';
+import { TBastColor } from '../../lib';
 
 export const Icons = {
   Check: CheckIcon,
@@ -15,6 +17,7 @@ export const Icons = {
   AlertCircle: AlertCircleIcon,
   CheckCircle: CheckCircleIcon,
   ChevronUp: ChevronUpIcon,
+  Spinner: SpinnerIcon,
 }
 
 export type TIcons = keyof typeof Icons;

@@ -1,0 +1,21 @@
+@use "mixins" as mixins;
+
+.backdrop {
+  @include mixins.backdrop;
+  opacity: 0;
+  animation: var(--backdrop-hide-animation);
+  pointer-events: none;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: grid;
+  justify-items: center;
+
+  &--active {
+    opacity: 1;
+    pointer-events: visible;
+    animation: var(--backdrop-show-animation);
+  }
+}

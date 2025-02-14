@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { ComponentPropsWithRef, FC, PropsWithChildren } from 'react';
 
-import type { TWithBastColor } from '../../../shared/lib/utility-types/color';
+import type { TWithBastColor } from '../../../shared/lib';
 
 interface IBastButtonProps
   extends Omit<ComponentPropsWithRef<'button'>, 'type'>,

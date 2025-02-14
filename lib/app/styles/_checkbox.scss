@@ -16,7 +16,7 @@ $checkmark-disabled: functions.str-replace($svg-data-image, 'currentColor', func
   display: flex;
   align-content: center;
   justify-content: center;
-  background-color: transparent;
+  background-color: var(--check-background-color);
 
   width: var(--check-width);
   height: var(--check-height);

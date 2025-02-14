@@ -9,10 +9,17 @@ export const debounceFunction = <T extends (...args: Parameters<T>) => ReturnTyp
 ) => {
   let timer: ReturnType<typeof setTimeout> | null = null;
 
-  return (...args: Parameters<T>) => {
+  const debouncedFn = (...args: Parameters<T>) => {
     if (timer) clearTimeout(timer);
     timer = setTimeout(() => {
       func(...args);
     }, timeout);
   };
+
+  debouncedFn.clear = () => {
+    if (timer) clearTimeout(timer);
+    console.log('cleared')
+  };
+
+  return debouncedFn;
 };

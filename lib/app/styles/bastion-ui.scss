@@ -14,6 +14,13 @@
 @use "input";
 @use "list";
 @use "dropdown";
+@use "spinner";
+@use "card";
+@use "tabs";
+@use "accordion";
+@use "accordion-group";
+@use "progress";
+@use "backdrop";
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
@@ -26,6 +33,7 @@ html, body, div[id='root'] {
   overflow: auto;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
+  background-color: var(--background-color);
 }
 
 * {

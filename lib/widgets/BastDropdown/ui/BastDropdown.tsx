@@ -11,7 +11,7 @@ import {
 } from 'react';
 
 import { BastList } from '../../../entities/BastList/ui/BastList';
-import { useClickOutside } from '../../../shared/lib/clickOutside';
+import { useOutsideClick } from '../../../shared/lib/outsideClick/useOutsideClick';
 import { Icons } from '../../../shared/ui/icons';
 import {
   DropdownContext,
@@ -24,9 +24,10 @@ import { BastDropdownOption } from './BastDropdownOption';
 type TBastDropdown = PropsWithChildren<{
   placeholder?: string;
   label?: string;
+  value?: TDropdownValue;
   onChange?: (value: TDropdownValue) => void;
 }> &
-  Omit<ComponentProps<'input'>, 'onChange'>;
+  Omit<ComponentProps<'input'>, 'onChange' | 'value'>;
 
 type TBastDropdownWithStaticProps = {
   Option: typeof BastDropdownOption;
@@ -37,62 +38,59 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
   id,
   className,
   label,
+  value,
   onChange,
-  placeholder,
+  placeholder = '',
   style,
   ...props
 }) => {
   const generatedId = useId();
   const resolvedId = id || generatedId;
-  const inputRef = useRef<HTMLInputElement>(null);
-  const listRef = useRef<HTMLUListElement>(null);
-  const [value, setValue] = useState<TDropdownContextValue | null>(null);
+  const inputRef = useRef<HTMLDivElement>(null);
+  const [contextValue, setContextValue] = useState<TDropdownContextValue | null>(null);
+  const [isOpen, setOpen] = useState<boolean>(false);
+
+  useOutsideClick(() => setOpen(false), inputRef);
+
+  const toggleDropdown = () => setOpen((state) => !state);
 
   const selectOption: IDropdownContextType['setValue'] = useCallback((value) => {
-    if (inputRef.current) inputRef.current.checked = false;
+    setOpen(false);
     onChange?.(value?.value || null);
-    setValue(value);
+    setContextValue(value);
   }, []);
 
-  const contextValue = useMemo(
+  const contextProviderValue = useMemo(
     () => ({
-      value: value
-        ? {
-            value: value?.value ?? null,
-            text: value?.text ?? placeholder,
-            id: value?.id,
-          }
-        : null,
+      value: {
+        value: contextValue?.value ?? null,
+        text: contextValue?.text ?? placeholder,
+        controlledValue: value,
+      },
       setValue: selectOption,
     }),
-    [value],
+    [contextValue, value],
   );
 
-  useClickOutside({
-    targetRef: inputRef,
-    callback: () => {
-      if (inputRef.current) inputRef.current.checked = false;
-    },
-  });
-
   return (
-    <div className="dropdown" style={style}>
-      <input
-        className={`${clsx(['dropdown__checkbox', className && className])}`}
-        ref={inputRef}
-        id={resolvedId}
-        type="checkbox"
-        {...props}
-      />
+    <div ref={inputRef} className="dropdown" style={style}>
       <label className="dropdown__label" htmlFor={resolvedId}>
         {label && label}
+        <input
+          className={`${clsx(['dropdown__checkbox', className && className])}`}
+          id={resolvedId}
+          type="checkbox"
+          checked={isOpen}
+          onChange={toggleDropdown}
+          {...props}
+        />
         <div className="dropdown__input">
-          <span className="dropdown__input__text">{value?.text || placeholder}</span>
+          <span className="dropdown__input__text">{contextValue?.text || placeholder}</span>
           <Icons.ChevronUp className="dropdown__input__icon" />
         </div>
       </label>
-      <BastList ref={listRef}>
-        <DropdownContext.Provider value={contextValue}>{children}</DropdownContext.Provider>
+      <BastList>
+        <DropdownContext.Provider value={contextProviderValue}>{children}</DropdownContext.Provider>
       </BastList>
     </div>
   );

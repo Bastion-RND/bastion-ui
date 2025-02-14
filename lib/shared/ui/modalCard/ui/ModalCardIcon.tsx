@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { ComponentProps, FC } from 'react';
 
-import { TWithBastColor } from '../../../lib/utility-types/color';
+import { TWithBastColor } from '../../../lib';
 
 type TModalCardIconProps = TWithBastColor<ComponentProps<'div'>>;
 

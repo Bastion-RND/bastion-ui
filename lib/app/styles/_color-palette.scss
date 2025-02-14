@@ -28,6 +28,7 @@
     --warning-color-25: #FFF5E4;
 
     /** GRAY COLOR **/
+    --gray-color-1200: #414751;
     --gray-color-1000: #606974;
     --gray-color-900: #6F7A86;
     --gray-color-800: #7F8B97;
@@ -71,4 +72,9 @@
 
     /** WHITE **/
     --white-color: #FFFF;
+    --background-color: var(--white-color);
+}
+
+:root[data-theme="dark"] {
+    --background-color: #0F1F2C;
 }

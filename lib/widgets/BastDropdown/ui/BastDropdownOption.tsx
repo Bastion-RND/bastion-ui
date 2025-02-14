@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ComponentProps, FC, useId } from 'react';
+import { ComponentProps, FC, useEffect } from 'react';
 
 import { BastListItem } from '../../../entities/BastList/ui/BastListItem';
 import { Icons } from '../../../shared/ui/icons';
@@ -17,11 +17,17 @@ const BastDropdownOption: FC<TBastDropdownOption> = ({
   ...props
 }) => {
   const { value: contextValue, setValue } = useDropdownContext();
-  const id = useId();
-  const isSelected = contextValue?.id === id;
+  const isSelected = contextValue?.value && contextValue.value === value;
 
+  useEffect(() => {
+    if (contextValue?.controlledValue && contextValue.controlledValue === value) setValue({
+      text: children ?? '',
+      value,
+    })
+  }, [contextValue?.controlledValue]);
+  
   const handleSelect = () =>
-    setValue({ id, text: children ?? '', value });
+    setValue({ text: children ?? '', value });
 
   return (
     <BastListItem

@@ -3,7 +3,9 @@
 .dialog {
   width: min(calc(100% - calc(var(--modal-card-padding) * 2)), var(--dialog-card-width));
   animation: var(--dialog-card-animation);
-  justify-self: center;
+  align-self: start;
+  margin-top: var(--dialog-card-margin-top);
+  background-color: var(--dialog-card-background-color);
 
   &__header {
     text-align: start;
@@ -15,17 +17,5 @@
   &__content {
     text-align: start;
     align-items: start;
-  }
-
-  &__wrapper {
-    @include mixins.backdrop;
-    position: absolute;
-    padding-top: 1.5rem;
-    top: 0;
-    display: grid;
-    justify-content: center;
-    align-items: start;
-    width: 100%;
-    height: 100%;
   }
 }
