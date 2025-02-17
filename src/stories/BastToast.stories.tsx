@@ -51,7 +51,7 @@ export const BastToast: Story = {
       control: 'select',
       options: [ 'brand', 'gray', 'success', 'warning', 'danger'],
       table: {
-        type: { summary: 'top | right' },
+        type: { summary: 'brand | gray | success | warning | danger' },
       },
     }
   },
