@@ -1,11 +1,35 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import { ComponentProps, useEffect, useState } from 'react';
 
-import { BastDialog, BastDialog as BastDialogComponent } from '../../lib/widgets/BastDialog';
+import { BastDialog as BastDialogComponent } from '../../lib/widgets/BastDialog';
+
+const ExampleComponent = ({
+  isOpen: isOpenFromProps,
+  onClose,
+  ...props
+}: ComponentProps<typeof BastDialogComponent>) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (isOpenFromProps !== undefined) setIsOpen(isOpenFromProps);
+  }, [isOpenFromProps]);
+
+  return (
+    <BastDialogComponent
+      isOpen={isOpen && isOpenFromProps}
+      {...props}
+      onClose={() => {
+        onClose?.();
+        setIsOpen(false);
+      }}
+    />
+  );
+};
 
 const meta = {
   title: 'Business/BastDialog',
-  component: BastDialog,
+  component: ExampleComponent,
   parameters: {
     layout: 'centered',
     docs: {
@@ -34,7 +58,7 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-export const BastToast: Story = {
+export const BastDialog: Story = {
   args: {},
   argTypes: {
     color: {
