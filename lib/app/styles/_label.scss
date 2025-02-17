@@ -29,4 +29,13 @@
   &--disabled {
     --text-color: var(--label-wrapper-text-color-disabled);
   }
+
+  &--top {
+    flex-direction: column-reverse;
+    gap: var(--label-wrapper-gap);
+
+    .label {
+      padding-left: 0;
+    }
+  }
 }

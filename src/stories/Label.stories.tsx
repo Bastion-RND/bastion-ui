@@ -2,25 +2,45 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { BastInput } from '../../lib/entities/BastInput';
 import { withLabel } from '../../lib/shared/ui/hocs';
-import { Label as LabelComponent } from '../../lib/shared/ui/label';
 
-const LabelExample = () => {
-  const Component = withLabel(BastInput);
-  return <Component label='Label' subLabel='Sublabel' />;
-};
+const ComponentWithLabel = withLabel(BastInput);
 
 const meta = {
   title: 'Utility/Label',
-  component: LabelExample,
+  component: ComponentWithLabel,
   parameters: {
     layout: 'centered',
+    docs: {
+      source: {
+        code: `
+const ComponentWithLabel = withLabel(ComponentWithLabel);
+        
+...
+        
+<ComponentWithLabel disabled={false} labelPosition='top' label='Label' subLabel='Sublabel'  />`
+      }
+    }
   },
   tags: ['autodocs', 'utility'],
   args: {
     disabled: false,
+    labelPosition: 'top',
+    label: 'Label',
+    subLabel: 'Sublabel',
   },
-} satisfies Meta<typeof LabelComponent>;
+} satisfies Meta<typeof ComponentWithLabel>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-export const Label: Story = { args: {  } };
+export const LabelVertical: Story = {
+  args: {},
+  argTypes: {
+    labelPosition: {
+      control: 'select',
+      options: ['top', 'right'],
+      table: {
+        type: { summary: 'top | right' },
+      },
+    },
+  },
+};
