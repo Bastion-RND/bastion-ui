@@ -10,10 +10,17 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  args: { onChange: fn(), disabled: false, checked: false },
+  args: { onChange: fn(), disabled: false, checked: false, label: 'Label' },
 } satisfies Meta<typeof BastRadioComponent>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const BastRadio: Story = { args: {} };
+BastRadio.parameters = {
+  docs: {
+    source: {
+      code: `<BastRadio checked disabled={false} label='Label' onChange={() => {}} />`,
+    },
+  },
+};

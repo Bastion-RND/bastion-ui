@@ -26,3 +26,14 @@ type Story = StoryObj<typeof meta>;
 export const BastList: Story = {
   args: {},
 };
+BastList.parameters = {
+  docs: {
+    source: {
+      code: `<BastList>
+  <BastList.Item>Элемент списка 1</BastList.Item>
+  <BastList.Item>Элемент списка 2</BastList.Item>
+  <BastList.Item>Элемент списка 3</BastList.Item>
+</BastList>`,
+    },
+  },
+};

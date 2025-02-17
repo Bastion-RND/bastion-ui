@@ -27,3 +27,16 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const BastCard: Story = { args: {} };
+BastCard.parameters = {
+  docs: {
+    source: {
+      code: `<BastCard>
+  <BastCard.Image src={src} />
+  <BastCard.Title>
+    <h3>Монодатчики</h3>
+  </BastCard.Title>
+  <BastCard.Content>КРАСИВЫЕ</BastCard.Content>
+</BastCard>`,
+    },
+  },
+};
