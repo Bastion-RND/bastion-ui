@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BastAccordion as BastAccordionComponent } from '../../lib/entities/BastAccordion';
 
 const meta = {
-  title: 'Example/BastAccordion',
+  title: 'Business/BastAccordion',
   component: BastAccordionComponent,
   parameters: {
     layout: 'centered',

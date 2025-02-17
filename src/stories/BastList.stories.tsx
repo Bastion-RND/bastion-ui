@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BastList as BastListComponent } from '../../lib/entities/BastList';
 
 const meta = {
-  title: 'Example/BastList',
+  title: 'Business/BastList',
   component: BastListComponent,
   parameters: {
     layout: 'centered',

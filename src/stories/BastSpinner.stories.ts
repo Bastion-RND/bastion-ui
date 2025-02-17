@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BastSpinner as BastSpinnerComponent } from '../../lib/entities/BastSpinner';
 
 const meta = {
-  title: 'Example/BastSpinner',
+  title: 'Business/BastSpinner',
   component: BastSpinnerComponent,
   parameters: {
     layout: 'centered',

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BastIcon as BastIconComponent } from '../../lib/entities/BastIcon';
 
 const meta = {
-  title: 'Example/BastIcon',
+  title: 'Business/BastIcon',
   component: BastIconComponent,
   parameters: {
     layout: 'centered',

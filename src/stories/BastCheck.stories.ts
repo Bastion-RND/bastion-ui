@@ -4,7 +4,7 @@ import { fn } from '@storybook/test';
 import { BastCheck as BastCheckComponent } from '../../lib/entities/BastCheck';
 
 const meta = {
-  title: 'Example/BastCheck',
+  title: 'Business/BastCheck',
   component: BastCheckComponent,
   parameters: {
     layout: 'centered',

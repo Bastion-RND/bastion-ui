@@ -4,7 +4,7 @@ import { BastCard as BastCardComponent } from '../../lib/entities/BastCard';
 import src from './assets/cardImage.png';
 
 const meta = {
-  title: 'Example/BastCard',
+  title: 'Business/BastCard',
   component: BastCardComponent,
   parameters: {
     layout: 'centered',

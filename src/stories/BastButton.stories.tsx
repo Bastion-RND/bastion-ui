@@ -5,7 +5,7 @@ import { BastButton as BastButtonComponent } from '../../lib/entities/BastButton
 import { Icons } from '../../lib/shared/ui/icons';
 
 const meta = {
-  title: 'Example/BastButton',
+  title: 'Business/BastButton',
   component: BastButtonComponent,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout

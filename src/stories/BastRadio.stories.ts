@@ -4,7 +4,7 @@ import { fn } from '@storybook/test';
 import { BastRadio as BastRadioComponent } from '../../lib/entities/BastRadio';
 
 const meta = {
-  title: 'Example/BastRadio',
+  title: 'Business/BastRadio',
   component: BastRadioComponent,
   parameters: {
     layout: 'centered',

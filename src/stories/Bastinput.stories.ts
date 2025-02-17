@@ -4,7 +4,7 @@ import { fn } from '@storybook/test';
 import { BastInput as BastInputComponent } from '../../lib/entities/BastInput';
 
 const meta = {
-  title: 'Example/BastInput',
+  title: 'Business/BastInput',
   component: BastInputComponent,
   parameters: {
     layout: 'centered',
