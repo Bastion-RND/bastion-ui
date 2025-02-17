@@ -9,7 +9,7 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'business'],
   args: { onChange: fn(), disabled: false, checked: false, label: 'Label' },
 } satisfies Meta<typeof BastRadioComponent>;
 
