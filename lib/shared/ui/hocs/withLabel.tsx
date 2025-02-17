@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { ComponentProps, ComponentType, forwardRef, PropsWithoutRef, useId } from 'react';
 
 import { Label } from '../label';
@@ -5,6 +6,7 @@ import { Label } from '../label';
 interface TInjectingLabelsProps {
   label?: string;
   subLabel?: string;
+  labelPosition?: 'top' | 'right';
 }
 
 type TWrappedComponent<InitialProps, InjectingProps> = ComponentType<
@@ -14,25 +16,27 @@ type TWrappedComponent<InitialProps, InjectingProps> = ComponentType<
 export const withLabel = <T extends ComponentProps<'input'>>(
   WrappedComponent: TWrappedComponent<T, TInjectingLabelsProps>,
 ) =>
-  forwardRef<HTMLInputElement, T & TInjectingLabelsProps>(({ label, subLabel, ...props }, ref) => {
-    const generatedId = useId();
-    const resolvedId = props.id || generatedId;
+  forwardRef<HTMLInputElement, T & TInjectingLabelsProps>(
+    ({ label, labelPosition = 'right', subLabel, ...props }, ref) => {
+      const generatedId = useId();
+      const resolvedId = props.id || generatedId;
 
-    const Wrapped = <WrappedComponent {...props} id={resolvedId} ref={ref} />;
+      const Wrapped = <WrappedComponent {...props} id={resolvedId} ref={ref} />;
 
-    if (!label) return Wrapped;
+      if (!label) return Wrapped;
 
-    return (
-      <div className="label-wrapper">
-        {Wrapped}
-        {label && (
-          <Label disabled={props.disabled} htmlFor={resolvedId}>
-            {label}
-            {subLabel && (
-              <Label.SubLabel disabled={props.disabled}>{subLabel}</Label.SubLabel>
-            )}
-          </Label>
-        )}
-      </div>
-    );
-  });
+      return (
+        <div
+          className={clsx(['label-wrapper', labelPosition === 'top' && 'label-wrapper--top'])}
+        >
+          {Wrapped}
+          {label && (
+            <Label disabled={props.disabled} htmlFor={resolvedId}>
+              {label}
+              {subLabel && <Label.SubLabel disabled={props.disabled}>{subLabel}</Label.SubLabel>}
+            </Label>
+          )}
+        </div>
+      );
+    },
+  );

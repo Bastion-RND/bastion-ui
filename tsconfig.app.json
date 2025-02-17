@@ -33,7 +33,8 @@
     "noUncheckedSideEffectImports": true
   },
   "include": [
-    "src"
+    "src",
+    ".storybook"
   ],
   "paths": {
     "bastion-ui": [

@@ -1,17 +1,19 @@
 import clsx from 'clsx';
 import { FC, PropsWithChildren } from 'react';
 
-const Backdrop: FC<PropsWithChildren<{ show?: boolean; onClick?: () => void }>> = ({
+const Backdrop: FC<PropsWithChildren<{ show?: boolean; onDismiss?: () => void }>> = ({
   children,
   show,
-  onClick,
+  onDismiss,
 }) => (
   <div
     tabIndex={0}
-    role='button'
-    onClick={onClick}
+    role="button"
+    onClick={onDismiss}
     className={`${clsx(['backdrop', show && 'backdrop--active'])}`}
-    onKeyDown={(e) => { if (e.key === 'Esc') onClick?.(); }}
+    onKeyDown={(e) => {
+      if (e.key === 'Esc') onDismiss?.();
+    }}
   >
     {children}
   </div>

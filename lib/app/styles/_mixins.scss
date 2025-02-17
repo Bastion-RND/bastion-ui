@@ -25,25 +25,27 @@
 
   @include button-colors;
 
-  &:hover {
-    --color-background: var(--color-#{$color}-#{$fill}-background-hover);
-    --color-text: var(--color-#{$color}-#{$fill}-text-hover);
-    --color-border: var(--color-#{$color}-#{$fill}-border-hover);
-    --color-outline: var(--color-#{$color}-#{$fill}-outline-hover);
-  }
+  &:not(:disabled) {
+    &:hover {
+      --color-background: var(--color-#{$color}-#{$fill}-background-hover);
+      --color-text: var(--color-#{$color}-#{$fill}-text-hover);
+      --color-border: var(--color-#{$color}-#{$fill}-border-hover);
+      --color-outline: var(--color-#{$color}-#{$fill}-outline-hover);
+    }
 
-  &:active {
-    --color-background: var(--color-#{$color}-#{$fill}-background-active);
-    --color-text: var(--color-#{$color}-#{$fill}-text-active);
-    --color-border: var(--color-#{$color}-#{$fill}-border-active);
-    --color-outline: var(--color-#{$color}-#{$fill}-outline-active);
-  }
+    &:active {
+      --color-background: var(--color-#{$color}-#{$fill}-background-active);
+      --color-text: var(--color-#{$color}-#{$fill}-text-active);
+      --color-border: var(--color-#{$color}-#{$fill}-border-active);
+      --color-outline: var(--color-#{$color}-#{$fill}-outline-active);
+    }
 
-  &:focus-visible {
-    --color-background: var(--color-#{$color}-#{$fill}-background-focus);
-    --color-text: var(--color-#{$color}-#{$fill}-text-focus);
-    --color-border: var(--color-#{$color}-#{$fill}-border-focus);
-    --color-outline: var(--color-#{$color}-#{$fill}-outline-focus);
+    &:focus-visible {
+      --color-background: var(--color-#{$color}-#{$fill}-background-focus);
+      --color-text: var(--color-#{$color}-#{$fill}-text-focus);
+      --color-border: var(--color-#{$color}-#{$fill}-border-focus);
+      --color-outline: var(--color-#{$color}-#{$fill}-outline-focus);
+    }
   }
 }
 

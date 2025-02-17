@@ -27,7 +27,7 @@ const BastModalWithoutPortal: FC<TBastModalProps> = ({
   };
 
   return (
-    <Backdrop show={isOpen} onClick={backdropDismiss ? onClose : undefined}>
+    <Backdrop show={isOpen} onDismiss={backdropDismiss ? onClose : undefined}>
       <ModalCard
         onClick={(e) => e.stopPropagation()}
         className={clsx(['modal', isOpen && 'modal--active'])}

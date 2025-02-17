@@ -10,8 +10,8 @@ import {
 
 import { debounceFunction } from '../../../shared/lib';
 
-
 interface IBastControl extends ComponentPropsWithRef<'input'> {
+  disabled?: boolean;
   debounce?: number;
 }
 
