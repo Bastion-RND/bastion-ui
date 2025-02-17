@@ -21,4 +21,17 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const BastAccordion: Story = { args: {} };
+export const BastAccordion: Story = {
+  args: {},
+  argTypes: {
+    children: {
+      control: 'object',
+      table: {
+        type: { summary: 'ReactNode' },
+      },
+    },
+    initialExpanded: { control: 'boolean', table: {
+      type: { summary: 'boolean | undefined' }
+      } },
+  },
+};
