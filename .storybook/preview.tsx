@@ -3,6 +3,7 @@ import '../lib/app/styles/bastion-ui.scss';
 import { useLayoutEffect } from 'react';
 import { THEME, ThemeContext } from '../lib/entities/theme';
 import { addons } from "@storybook/preview-api";
+import { ToastProvider } from '../lib/app/providers/toast/ToastProvider';
 
 const BG = {
   DARK: '#0F1F2C',
@@ -56,7 +57,9 @@ const preview: Preview = {
 
       return (
         <ThemeContext.Provider value={{ theme }}>
-          <Story />
+          <ToastProvider>
+            <Story />
+          </ToastProvider>
         </ThemeContext.Provider>
       );
     },
