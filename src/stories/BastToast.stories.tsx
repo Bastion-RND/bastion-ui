@@ -8,7 +8,7 @@ const ExampleComponent = (props: TToastItem) => {
 
   return (
     <BastButton color="gray" fill="filled" expand onClick={() => createToast(props)}>
-      Make alert
+      Make toast
     </BastButton>
   );
 };
@@ -33,7 +33,7 @@ return (
       text: 'Какое-то прикольное уведомление',
     })}
   >
-    Make alert
+    Make toast
   </BastButton>`,
       },
     },
