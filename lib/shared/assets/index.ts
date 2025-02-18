@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 export { default as AlertIcon } from './alert.svg?react';
 export { default as AlertCircleIcon } from './alert-circle.svg?react';
 export { default as BastIcon } from './bast.svg?react';
