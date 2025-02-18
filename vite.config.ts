@@ -29,7 +29,7 @@ export default defineConfig({
       fileName: 'bastion-ui',
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'react/jsx-runtime', '@ionic/react'],
+      external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
         globals: {
           react: 'React',
