@@ -3,7 +3,7 @@ import { ComponentProps, ComponentType, forwardRef, PropsWithoutRef, useId } fro
 
 import { Label } from '../label';
 
-interface TInjectingLabelsProps {
+export interface TInjectingLabelsProps {
   label?: string;
   subLabel?: string;
   labelPosition?: 'top' | 'right';
