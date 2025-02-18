@@ -1,0 +1,74 @@
+@use "globals" as globals;
+@use "mixins" as mixins;
+
+.modal-card {
+  border-radius: var(--modal-card-border-radius);
+  background-color: var(--modal-card-background);
+  box-shadow: var(--modal-card-shadow);
+  min-width: min(calc(100vw - calc(var(--modal-card-padding) * 2)), 400px);
+
+  &__title {
+    color: var(--modal-card-title-color);
+  }
+
+  &__header {
+    padding: var(--modal-card-padding);
+    text-align: center;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+  }
+
+  &__footer {
+    padding: 1.5rem;
+  }
+
+  &__content {
+    padding: var(--modal-card-content-padding) var(--modal-card-padding);
+    color: var(--modal-card-content-color);
+    font-weight: 400;
+    text-align: center;
+  }
+
+  &__icon {
+    border-radius: 50%;
+    padding: var(--modal-card-padding);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &::before {
+      @include mixins.translate-center;
+      content: '';
+      border-radius: var(--radius-full);
+      position: absolute;
+      width: calc(100% - var(--modal-card-padding));
+      height: calc(100% - var(--modal-card-padding));
+    }
+
+    svg {
+      z-index: 2;
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+
+    @each $color in globals.$colors {
+      &--#{"" + $color} {
+        background-color: var(--modal-card-background-color-first-circle-#{"" + $color});
+
+        &::before {
+          background-color: var(--modal-card-background-color-second-circle-#{"" + $color});
+        }
+
+        svg {
+          color: var(--modal-card-icon-color-#{"" + $color});
+        }
+      }
+    }
+  }
+}
+

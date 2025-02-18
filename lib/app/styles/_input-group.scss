@@ -1,0 +1,36 @@
+.bast-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--input-group-gap);
+
+  &__feedback {
+    padding-left: var(--input-group-feedback-horizontal-padding);
+    color: var(--input-group-feedback-text-color-info);
+    font-weight: var(--input-group-feedback-font-weight);
+  }
+
+  .feedback--error {
+    color: var(--input-group-feedback-text-color-error);
+  }
+
+  .feedback--success {
+    color: var(--input-group-feedback-text-color-success);
+  }
+
+  .feedback--warning {
+    color: var(--input-group-feedback-text-color-warning);
+  }
+
+  &__label {
+    color: var(--input-group-text-color);
+    transition: var(--input-group-text-animation);
+  }
+
+  &__label:has(+ .bast-input:disabled) {
+    color: var(--input-group-text-color-disabled);
+  }
+
+  &__label:has(+ .bast-input:focus), &__label:has(+ .bast-input:focus-visible) {
+    color: var(--input-group-text-color-focus);
+  }
+}

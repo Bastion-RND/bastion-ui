@@ -1,0 +1,21 @@
+@use "mixins" as mixins;
+
+.dialog {
+  width: min(calc(100% - calc(var(--modal-card-padding) * 2)), var(--dialog-card-width));
+  animation: var(--dialog-card-animation);
+  align-self: start;
+  margin-top: var(--dialog-card-margin-top);
+  background-color: var(--dialog-card-background-color);
+
+  &__header {
+    text-align: start;
+    align-items: start;
+    gap: var(--dialog-header-gap);
+    padding-bottom: 0;
+  }
+
+  &__content {
+    text-align: start;
+    align-items: start;
+  }
+}

@@ -1,0 +1,50 @@
+input[type="radio"] {
+  /** BORDER **/
+  --radio-border-radius: 50%;
+  --radio-border-width: 2px;
+  --radio-border-color: var(--gray-color-300);
+  --radio-border-color-focused: var(--brand-color-300);
+
+  /** DIMENSIONS **/
+  --radio-width: 1.25rem;
+  --radio-height: var(--radio-width);
+  --radio-padding: 0.375rem;
+
+  /** OUTLINE **/
+  --radio-outline-width: 3px;
+  --radio-outline-color: transparent;
+  --radio-outline-color-focused: var(--brand-color-100);
+
+  /** MARK **/
+  --radio-mark-width: 0.5rem;
+  --radio-mark-height: var(--radio-mark-width);
+  --radio-mark-color: var(--brand-color-600);
+  --radio-mark-color-disabled: var(--gray-color-600);
+
+  /** TRANSITIONS **/
+  --radio-border-transition: border-color 0.3s ease;
+  --radio-outline-transition: outline-color 0.3s ease;
+  --radio-mark-transition: 0.15s transform ease-in-out;
+
+  /** BACKGROUND **/
+  --radio-background-color: var(--white-color);
+  --radio-background-color-checked: var(--brand-color-25);
+  --radio-background-color-focused: var(--brand-color-25);
+  --radio-background-color-disabled: var(--gray-color-50);
+}
+
+:root[data-theme="dark"] input[type="radio"] {
+  --radio-border-color: var(--gray-color-700);
+  --radio-outline-color: transparent;
+  --radio-mark-color: var(--brand-color-500);
+  --radio-background-color: var(--white-color);
+
+  --radio-background-color-checked: var(--brand-color-50);
+
+  --radio-border-color-focused: var(--brand-color-400);
+  --radio-outline-color-focused: var(--brand-color-50);
+  --radio-background-color-focused: var(--radio-background-color-checked);
+
+  --radio-mark-color-disabled: var(--gray-color-100);
+  --radio-background-color-disabled: var(--white-color);
+}

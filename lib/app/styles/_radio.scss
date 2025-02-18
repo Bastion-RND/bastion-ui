@@ -1,0 +1,55 @@
+@use "mixins" as mixins;
+
+.bast-radio {
+  -webkit-appearance: none;
+  appearance: none;
+  font: inherit;
+  display: grid;
+  place-content: center;
+  outline: {
+    style: solid;
+    width: var(--radio-outline-width);
+    color: var(--radio-outline-color);
+  };
+  width: var(--radio-width);
+  min-width: var(--radio-width);
+  height: var(--radio-height);
+  min-height: var(--radio-height);
+  border: var(--radio-border-width) solid var(--radio-border-color);
+  border-radius: var(--radio-border-radius);
+  transition: var(--radio-outline-transition), var(--radio-border-transition);
+  background-color: var(--radio-background-color);
+
+  &:checked {
+    background-color: var(--radio-background-color-checked);
+  }
+
+  &:disabled {
+    background-color: var(--radio-background-color-disabled);
+  }
+
+  &::before {
+    content: "";
+    width: var(--radio-mark-width);
+    height: var(--radio-mark-height);
+    border-radius: var(--radio-border-radius);
+    transform: scale(0);
+    transition: var(--radio-mark-transition);
+    background-color: var(--radio-mark-color);
+  }
+
+  &:disabled::before {
+    background-color: var(--radio-mark-color-disabled);
+  }
+
+  &:checked::before {
+    transform: scale(1);
+  }
+
+  &:focus, &:focus-visible {
+    background-color: var(--radio-background-color-focused);
+    border-color: var(--radio-border-color-focused);
+    outline-color: var(--radio-outline-color-focused);
+    outline-offset: 0;
+  }
+}

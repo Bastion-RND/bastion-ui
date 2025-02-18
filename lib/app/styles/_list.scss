@@ -1,0 +1,28 @@
+.list {
+  list-style: none;
+  border: {
+    radius: var(--list-border-radius);
+    color: var(--list-border-color);
+    width: var(--list-border-width);
+    style: solid;
+  };
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: min-content;
+  box-shadow: var(--list-shadow);
+  background-color: var(--list-background-color);
+
+  &__item {
+    text-decoration: none;
+    display: flex;
+    gap: var(--list-item-gap);
+    padding: var(--list-item-padding-vertical) var(--list-item-padding-horizontal);
+    transition: var(--list-item-hover-animation);
+    color: var(--dropdown-text-color);
+
+    &:hover {
+      background-color: var(--list-background-color-hover);
+    }
+  }
+}

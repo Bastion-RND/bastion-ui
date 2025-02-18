@@ -1,0 +1,72 @@
+@use "globals" as globals;
+
+@mixin check-highlight {
+  border-color: var(--border-color);
+  background-color: var(--background-color);
+  outline: {
+    width: var(--check-outline-width);
+    color: var(--outline-color);
+    style: solid;
+  };
+}
+
+@mixin button-colors {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  outline: 3px solid var(--color-outline);
+}
+
+@mixin button-states($color, $fill) {
+  --color-background: var(--color-#{$color}-#{$fill}-background);
+  --color-text: var(--color-#{$color}-#{$fill}-text);
+  --color-border: var(--color-#{$color}-#{$fill}-border);
+  --color-outline: var(--color-#{$color}-#{$fill}-outline);
+
+  @include button-colors;
+
+  &:not(:disabled) {
+    &:hover {
+      --color-background: var(--color-#{$color}-#{$fill}-background-hover);
+      --color-text: var(--color-#{$color}-#{$fill}-text-hover);
+      --color-border: var(--color-#{$color}-#{$fill}-border-hover);
+      --color-outline: var(--color-#{$color}-#{$fill}-outline-hover);
+    }
+
+    &:active {
+      --color-background: var(--color-#{$color}-#{$fill}-background-active);
+      --color-text: var(--color-#{$color}-#{$fill}-text-active);
+      --color-border: var(--color-#{$color}-#{$fill}-border-active);
+      --color-outline: var(--color-#{$color}-#{$fill}-outline-active);
+    }
+
+    &:focus-visible {
+      --color-background: var(--color-#{$color}-#{$fill}-background-focus);
+      --color-text: var(--color-#{$color}-#{$fill}-text-focus);
+      --color-border: var(--color-#{$color}-#{$fill}-border-focus);
+      --color-outline: var(--color-#{$color}-#{$fill}-outline-focus);
+    }
+  }
+}
+
+@mixin translate-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/**
+  Значения кастомных переменных справедливы для тега <p />.
+  Как расчитывать значения см. в файле "_typography.scss".
+*/
+@mixin fluid-text {
+  --font-size-min: .75rem;
+  --font-size-max: 1rem;
+  --font-size-prefer: 0.643rem + 0.3vw;
+  font-size: clamp(var(--font-size-min), var(--font-size-prefer), var(--font-size-max));
+}

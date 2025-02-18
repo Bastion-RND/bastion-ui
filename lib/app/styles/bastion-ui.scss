@@ -1,0 +1,43 @@
+@use "color-palette";
+@use "button";
+@use "variables/variables";
+@use 'input-group';
+@use "checkbox";
+@use "radio";
+@use "label";
+@use "modal-card";
+@use "modal";
+@use "dialog";
+@use "toast";
+@use "typography";
+@use "container";
+@use "input";
+@use "list";
+@use "dropdown";
+@use "spinner";
+@use "card";
+@use "tabs";
+@use "accordion";
+@use "accordion-group";
+@use "progress";
+@use "backdrop";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+html, body, div[id='root'] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  background-color: var(--background-color);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}

@@ -1,0 +1,26 @@
+.progress {
+  height: var(--progress-bar-height);
+  width: 100%;
+  background-color: var(--progress-bar-background-color);
+  border-radius: var(--progress-radius);
+
+  &__wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: var(--progress-bar-gap);
+  }
+
+  &__label {
+    color: var(--progress-bar-text-color);
+    font-weight: var(--progress-bar-font-weight);
+  }
+
+  &__filler {
+    background-color: var(--progress-bar-filler-color);
+    height: var(--progress-bar-filler-height);
+    width: 0;
+    border-radius: var(--progress-filler-radius);
+    transition: var(--progress-bar-fill-animation);
+  }
+}

@@ -1,0 +1,37 @@
+:root {
+  /** SIZES **/
+  --spinner-container-size: 4rem;
+  --spinner-icon-height: 1.875rem;
+  --spinner-icon-width: 2.375rem;
+
+  /** ANIMATION **/
+  --spinner-animation-delay: .5s;
+  --spinner-icon-animation: fade-in 0.5s ease-in forwards, orbit 1.5s linear infinite;
+
+  /** COLORS **/
+  --spinner-color: var(--brand-color-500);
+}
+
+:root[data-theme="dark"] {
+  --spinner-color: var(--brand-color-300);
+}
+
+@keyframes orbit {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translate(1.5rem, 0) rotate(95deg) scale(0.33);
+  }
+  25%{
+    transform: translate(-50%, -50%) rotate(90deg) translate(1.5rem, 0) rotate(95deg) scale(0.66);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg) translate(1.5rem, 0) rotate(95deg) scale(1.5);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) translate(1.5rem, 0) rotate(95deg) scale(0.33);
+  }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

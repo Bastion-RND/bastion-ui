@@ -1,0 +1,22 @@
+:root {
+  --input-group-gap: 0.375rem;
+  --input-group-text-color: var(--brand-color-200);
+  --input-group-text-color-focus: var(--brand-color-500);
+  --input-group-text-color-disabled: var(--gray-color-300);
+  --input-group-text-animation: color 0.3s ease;
+}
+
+p {
+  --input-group-feedback-horizontal-padding: .875rem;
+  --input-group-feedback-font-weight: 400;
+  --input-group-feedback-text-color-info: var(--gray-color-600);
+  --input-group-feedback-text-color-success: var(--success-color-600);
+  --input-group-feedback-text-color-warning: var(--warning-color-600);
+  --input-group-feedback-text-color-error: var(--danger-color-600);
+}
+
+:root[data-theme="dark"] {
+  --input-group-text-color: var(--brand-color-50);
+  --input-group-text-color-focus: var(--brand-color-100);
+  --input-group-text-color-disabled: var(--gray-color-800);
+}

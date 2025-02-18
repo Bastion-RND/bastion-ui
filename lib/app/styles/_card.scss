@@ -1,0 +1,46 @@
+.card {
+  background-color: var(--card-background-color);
+  border-radius: var(--card-border-radius);
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-gap);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  max-height: min-content;
+
+  &__title {
+    padding: 0 var(--card-padding-horizontal);
+    color: var(--card-title-color);
+    text-transform: uppercase;
+  }
+
+  &__image {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  &__image-wrapper {
+    aspect-ratio: var(--card-image-aspect-ratio);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &:not(:has(img)) {
+    .card {
+      &__title {
+        padding-top: var(--card-padding-vertical);
+      }
+    }
+  }
+
+  &__content {
+    padding: 0 var(--card-padding-horizontal) var(--card-padding-vertical) var(--card-padding-horizontal);
+    color: var(--card-text-color);
+  }
+}

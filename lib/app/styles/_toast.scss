@@ -1,0 +1,61 @@
+@use "globals" as globals;
+
+.toast {
+  color: var(--toast-card-text-color-default);
+  border-radius: var(--toast-card-radius);
+  padding: var(--toast-card-padding);
+  display: flex;
+  align-items: center;
+  gap: var(--toast-card-content-gap);
+  width: 100%;
+  cursor: pointer;
+  animation: var(--toast-card-hide-animation);
+  opacity: 0;
+
+  &--visible {
+    opacity: 1;
+    animation: var(--toast-card-animation);
+  }
+
+  svg {
+    height: var(--toast-card-icon-size);
+    width: var(--toast-card-icon-size);
+    min-width: var(--toast-card-icon-size);
+  }
+
+  @each $color in globals.$colors {
+    &--#{"" + $color} {
+      --toast-text-color: var(--toast-text-color-#{"" + $color});
+      background-color: var(--toast-card-background-color-#{"" + $color});
+      border: 1px solid var(--toast-card-border-color-#{"" + $color});
+      color: var(--toast-text-color);
+
+      h5 {
+        color: var(--toast-text-color);
+      }
+
+      .bast-button.toast__close-button {
+        margin-left: auto;
+        padding: 0;
+        border: none;
+        outline: none;
+
+        svg {
+          color: var(--toast-text-color);
+        }
+      }
+    }
+  }
+
+  &__wrapper {
+    position: absolute;
+    top: 0;
+    padding: var(--toast-card-wrapper-padding);
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(calc(100% - calc(var(--modal-card-padding) * 2)), var(--toast-card-width));
+    display: flex;
+    flex-direction: column;
+    gap: var(--toast-card-wrapper-gap)
+  }
+}

@@ -1,0 +1,48 @@
+@use "globals" as globals;
+@use "mixins" as mixins;
+
+.bast-button {
+  border: none;
+  cursor: pointer;
+  padding: var(--button-vertical-padding) var(--button-horizontal-padding);
+  border-radius: (var(--button-border-radius));
+  outline: 3px solid transparent;
+  font-weight: normal;
+  transition: var(--button-transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &--small {
+    --font-size-min: .5rem;
+    --font-size-max: .75rem;
+    --font-size-prefer: 0.393rem + 0.3vw;
+  }
+
+  &--expand {
+    width: 100%;
+  }
+
+  &--round {
+    border-radius: var(--radius-large);
+  }
+
+  &--icon-only {
+    padding: var(--button-vertical-padding);
+  }
+
+  @each $color in globals.$colors {
+    &.bast-button--#{"" + $color} {
+      @each $fill in globals.$fills {
+        &.bast-button--#{$fill} {
+          @include mixins.button-states("" + $color, $fill);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+.tabs {
+  display: flex;
+  width: fit-content;
+  overflow: hidden;
+
+  &--round-all {
+    border-radius: var(--tabs-border-radius);
+  }
+
+  &--round-top {
+    border-radius: var(--tabs-border-radius) var(--tabs-border-radius) 0 0;
+  }
+
+  &--round-bottom {
+    border-radius: 0 0 var(--tabs-border-radius) var(--tabs-border-radius);
+  }
+
+  &--icon-only {
+    border-radius: var(--tabs-icon-only-radius);
+  }
+
+  &__item {
+    list-style-type: none;
+
+    .tabs__button {
+      border-radius: 0;
+      outline: none;
+      transition: var(--button-transition);
+
+      &:hover {
+        color: var(--tabs-button-text-color-hover);
+        background-color: var(--tabs-button-background-color-hover);
+      }
+
+      &:active, &:focus-visible, &--selected {
+        color: var(--tabs-button-text-color-active);
+        background-color: var(--tabs-button-background-color-active);
+      }
+    }
+  }
+
+  &__button {
+    color: var(--tabs-button-text-color);
+    background-color: var(--tabs-button-background-color);
+    border: none;
+    padding: var(--tabs-item-vertical-padding) var(--tabs-item-horizontal-padding);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+  }
+
+  button:disabled.tabs__button {
+    &, &:hover {
+      cursor: default;
+      background-color: var(--tabs-button-background-color-disabled);
+      color: var(--tabs-button-text-color-disabled);
+    }
+  }
+}

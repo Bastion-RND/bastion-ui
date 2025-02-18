@@ -1,0 +1,34 @@
+@use "button-variables";
+@use "input-group-variables";
+@use "checkbox-variables";
+@use "radio-variables";
+@use "label-variables";
+@use "input-variables";
+@use "modal-card-variables";
+@use "dialog-card-variables";
+@use "toast-card-variables";
+@use "list-variables";
+@use "dropdown-variables";
+@use "spinner-variables";
+@use "card-variables";
+@use "tabs_variables";
+@use "accordion-variables";
+@use "accordion-group-variables";
+@use "backdrop-variables";
+@use "progress_variables";
+
+:root {
+  /** RADIUS **/
+  --radius-small: .75rem;
+  --radius-medium: 1rem;
+  --radius-large: 2.25rem;
+  --radius-full: 50%;
+
+  /** CONTAINER **/
+  --container-width-xs: calc(100% - calc(30px * 2));
+  --container-width-sm: 540px;
+  --container-width-md: 720px;
+  --container-width-lg: 960px;
+  --container-width-xl: 1140px;
+  --container-width-xxl: 1320px;
+}

@@ -1,0 +1,56 @@
+input[type="checkbox"] {
+  /** BORDER **/
+  --check-border-radius: var(--radius-x-small);
+  --check-border-width: 2px;
+  --check-border-color: var(--gray-color-300);
+  --check-border-color-focus: var(--brand-color-300);
+  --check-border-color-checked: var(--brand-color-500);
+  --check-border-color-disabled: var(--gray-color-100);
+  --radius-x-small: 0.375rem;
+
+  /** BACKGROUND **/
+  --check-background-color: transparent;
+  --check-background-color-focus: var(--brand-color-25);
+  --check-background-color-checked: var(--brand-color-25);
+  --check-background-color-disabled: var(--gray-color-50);
+
+  /** OUTLINE **/
+  --check-outline-width: 3px;
+  --check-outline-color: transparent;
+  --check-outline-color-focus: var(--brand-color-100);
+  --check-outline-color-checked: var(--brand-color-100);
+  --check-outline-color-disabled: transparent;
+
+  /** DIMENSIONS **/
+  --check-width: 1.25rem;
+  --check-height: var(--check-width);
+  --check-padding: 0.125rem;
+
+  /** MARK **/
+  --check-mark-width: 0.75rem;
+  --check-mark-height: 0.65rem;
+
+  /** TRANSITIONS **/
+  --check-border-transition:
+          background-color 0.3s ease,
+          border-color 0.3s ease,
+          outline-color 0.3s ease;
+  --check-mark-transition: opacity 0.3s ease, transform 0.3s ease;
+
+  /** TEXT **/
+  --check-disabled-text-color: var(--gray-color-200);
+}
+
+:root[data-theme="dark"] input[type='checkbox'] {
+  --check-background-color: var(--white-color);
+  --check-background-color-focus: var(--brand-color-50);
+  --check-background-color-checked: var(--brand-color-50);
+  --check-background-color-disabled: var(--gray-color-50);
+
+  --check-border-color: var(--gray-color-400);
+  --check-border-color-focus: var(--brand-color-400);
+  --check-border-color-checked: var(--brand-color-600);
+  --check-border-color-disabled: var(--gray-color-200);
+
+  --check-disabled-text-color: var(--gray-color-300);
+}
