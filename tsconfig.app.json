@@ -24,8 +24,7 @@
       "react",
       "react-dom",
       "vite-plugin-svgr/client",
-      "vite/client",
-      "node"
+      "vite/client"
     ],
     /* Linting */
     "strict": true,
