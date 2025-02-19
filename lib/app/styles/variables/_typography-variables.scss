@@ -1,0 +1,15 @@
+:root {
+  --text-color: black;
+}
+
+:root[data-theme="dark"] {
+  --text-color: var(--brand-color-25);
+}
+
+html {
+  --font-size: 16px;
+}
+
+html[data-accessible="true"] {
+  --font-size: 20px;
+}

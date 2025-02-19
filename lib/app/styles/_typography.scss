@@ -6,12 +6,12 @@
  - max-viewport = 1920px;
 */
 
-html {
-  font-size: 16px;
+*:not(html) {
+  @include mixins.fluid-text;
 }
 
-* {
-  @include mixins.fluid-text;
+html {
+  font-size: var(--font-size);
 }
 
 h1 {
@@ -52,12 +52,4 @@ q {
 
 h1, h2, h3, h4, h5, q, p, label {
   color: var(--text-color);
-}
-
-:root {
-  --text-color: black;
-}
-
-:root[data-theme="dark"] {
-  --text-color: var(--brand-color-25);
 }
