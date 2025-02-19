@@ -5,8 +5,8 @@ import { ChangeEvent, FC, useState } from 'react';
 import {
   BastAccordion,
   BastAccordionGroup,
-  BastButton,
-  BastInputGroup,
+  BastButton, BastDropdown,
+  BastInputGroup, BastModal,
   BastTabs, BastThemeToggle,
   Container,
 } from '../lib/app/main';
@@ -16,8 +16,6 @@ import { BastProgress } from '../lib/entities/BastProgress';
 import { BastSpinner } from '../lib/entities/BastSpinner';
 import { Icons } from '../lib/shared/ui/icons';
 import { BastDialog } from '../lib/widgets/BastDialog';
-import { BastDropdown } from '../lib/widgets/BastDropdown';
-import { BastModal } from '../lib/widgets/BastModal';
 import { BastTabsItem } from '../lib/widgets/BastTabs/ui/BastTabsItem';
 import { useToast } from '../lib/widgets/BastToast';
 
