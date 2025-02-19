@@ -77,4 +77,4 @@ const BastToasts: FC = () => {
 
 const BastToast = withPortal(BastToasts);
 
-export { BastToast };
+export { BastToast, BastToastWithoutPortal };
