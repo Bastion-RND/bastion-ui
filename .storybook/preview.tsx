@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
 import '../lib/app/styles/bastion-ui.scss';
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { THEME, ThemeContext } from '../lib/entities/theme';
 import { addons } from '@storybook/preview-api';
 import { ToastProvider } from '../lib/app/providers/toast/ToastProvider';
@@ -57,8 +57,12 @@ const preview: Preview = {
 
       useLayoutEffect(() => {
         document.documentElement.dataset.theme = localTheme;
-        context.globals.theme = localTheme;
       }, [localTheme]);
+
+      useEffect(() => {
+        if (theme === localTheme) return;
+        setLocalTheme(theme);
+      }, [theme]);
 
       const toggleTheme = () =>
         setLocalTheme((prev) => (prev === THEME.DARK ? THEME.LIGHT : THEME.DARK));

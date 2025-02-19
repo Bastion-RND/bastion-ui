@@ -21,7 +21,7 @@ const meta = {
     docs: {
       source: {
         code: `
-const toggleVisualImpairedMode = useVisualImpairedModeHook();
+const toggleVisualImpairedMode = useVisualImpairedMode();
 
 return (
   <BastButton color="gray" fill="filled" expand onClick={toggleVisualImpairedMode}>
