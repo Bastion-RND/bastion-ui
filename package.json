@@ -1,12 +1,21 @@
 {
   "name": "bastion-ui",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.1",
   "type": "module",
   "files": [
-    "lib"
+    "dist"
   ],
-  "main": "lib/app/main.ts",
+  "style": "dist/styles/bastion-ui.scss",
+  "exports": {
+    ".": {
+      "import": "./dist/app/main.js"
+    },
+    "./bastion-ui.scss": "./dist/styles/bastion-ui.scss",
+    "./dist/styles/_globals.scss": "./dist/styles/_globals.scss"
+  },
+  "module": "./dist/app/main.js",
+  "types": "./dist/app/main.d.ts",
   "sideEffects": [
     "**/*.scss"
   ],
@@ -30,6 +39,7 @@
     "@storybook/react": "^8.5.5",
     "@storybook/react-vite": "^8.5.5",
     "@storybook/test": "^8.5.5",
+    "@types/node": "^22.13.4",
     "@types/react": "^18.3.13",
     "@types/react-dom": "^18.3.1",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
@@ -46,6 +56,7 @@
     "eslint-plugin-react-refresh": "^0.4.14",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-storybook": "^0.11.2",
+    "glob": "^11.0.1",
     "globals": "^15.12.0",
     "prettier": "^3.4.2",
     "sass": "^1.82.0",

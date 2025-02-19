@@ -5,10 +5,10 @@ import { ChangeEvent, FC, useState } from 'react';
 import {
   BastAccordion,
   BastAccordionGroup,
-  BastButton,
-  BastInputGroup,
-  BastTabs, BastThemeToggle,
-  Container,
+  BastButton, BastDropdown,
+  BastInputGroup, BastModal,
+  BastTabs,
+  Container, useTheme, useVisualImpairedMode,
 } from '../lib/app/main';
 import { BastIcon } from '../lib/entities/BastIcon';
 import { BastList } from '../lib/entities/BastList';
@@ -16,8 +16,6 @@ import { BastProgress } from '../lib/entities/BastProgress';
 import { BastSpinner } from '../lib/entities/BastSpinner';
 import { Icons } from '../lib/shared/ui/icons';
 import { BastDialog } from '../lib/widgets/BastDialog';
-import { BastDropdown } from '../lib/widgets/BastDropdown';
-import { BastModal } from '../lib/widgets/BastModal';
 import { BastTabsItem } from '../lib/widgets/BastTabs/ui/BastTabsItem';
 import { useToast } from '../lib/widgets/BastToast';
 
@@ -33,6 +31,8 @@ const App: FC = () => {
   const [isDialogOpen, setDialogOpen] = useState<boolean>(false);
   const { createToast } = useToast();
   const [value, setValue] = useState('1');
+  const toggleTheme  = useTheme();
+  const toggleVisuallyImpairedMode = useVisualImpairedMode();
 
   const handleChangeInput = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
     console.log(value);
@@ -223,7 +223,12 @@ const App: FC = () => {
           </BastAccordion>
         </BastAccordionGroup>
       </div>
-      <BastThemeToggle />
+      <BastButton fill='outlined' onClick={toggleTheme}>
+        Тема
+      </BastButton>
+      <BastButton fill='outlined' onClick={toggleVisuallyImpairedMode}>
+        Версия для слабовидящих
+      </BastButton>
     </Container>
   );
 };
