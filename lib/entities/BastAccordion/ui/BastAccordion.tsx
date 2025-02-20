@@ -9,6 +9,7 @@ type TBastAccordionProps = PropsWithChildren<{
   title: string;
   disabled?: boolean;
   expanded?: boolean;
+  className?: string;
   onChange?: (value: boolean) => void;
 }>;
 
@@ -18,6 +19,7 @@ const BastAccordion: FC<TBastAccordionProps> = ({
   title,
   children,
   expanded,
+  className,
   onChange,
 }) => {
   const [isOpen, setOpen] = useState<boolean>(true);
@@ -46,7 +48,7 @@ const BastAccordion: FC<TBastAccordionProps> = ({
   };
 
   return (
-    <div className="accordion">
+    <div className={clsx(['accordion', className && className])}>
       <label htmlFor={id} className="accordion__title">
         {title}
         <Icons.ChevronUp className="accordion__icon" />
@@ -62,7 +64,7 @@ const BastAccordion: FC<TBastAccordionProps> = ({
       <div
         ref={(ref) => {
           if (ref === null) return;
-          setHeight(`${ref.scrollHeight.toString()  }px`);
+          setHeight(`${ref.scrollHeight.toString()}px`);
         }}
         style={{
           height: isExpanded ? height : 0,
@@ -72,7 +74,7 @@ const BastAccordion: FC<TBastAccordionProps> = ({
           isExpanded && 'accordion__content-wrapper--expanded',
         ])}
       >
-        <div className={`${clsx(['accordion__content'])}`}>{children}</div>
+        <div className="accordion__content">{children}</div>
       </div>
     </div>
   );
