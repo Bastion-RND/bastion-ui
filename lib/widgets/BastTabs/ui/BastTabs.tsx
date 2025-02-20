@@ -9,6 +9,7 @@ type TBastTabs = FC<
     iconOnly?: boolean;
     disabled?: boolean;
     borders?: 'round-top' | 'round-bottom' | 'round-all';
+    active?: string;
   }
 > & {
   Item: typeof BastTabsItem;
@@ -20,14 +21,16 @@ const BastTabs: TBastTabs = ({
   disabled,
   borders = 'round-all',
   iconOnly,
+  active,
   ...props
 }) => {
   const [currentTab, setCurrentTab] = useState<string | null>(null);
+  const activeTab = active ?? currentTab;
 
   const tabsContextValue = useMemo(
     () => ({
       disabled,
-      currentTab,
+      currentTab: activeTab,
       setCurrentTab,
     }),
     [disabled, currentTab],

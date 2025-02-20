@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ChangeEvent, FC, PropsWithChildren, useId, useRef, useState } from 'react';
+import { ChangeEvent, FC, PropsWithChildren, useId, useState } from 'react';
 
 import { Icons } from '../../../shared/ui/icons';
 import { useAccordionContext } from '../model/AccordionContext';
@@ -8,7 +8,6 @@ type TBastAccordionProps = PropsWithChildren<{
   id?: string;
   title: string;
   disabled?: boolean;
-  initialExpanded?: boolean;
   expanded?: boolean;
 }>;
 
@@ -18,12 +17,11 @@ const BastAccordion: FC<TBastAccordionProps> = ({
   title,
   children,
   expanded,
-  initialExpanded = false,
 }) => {
-  const [isOpen, setOpen] = useState<boolean>(initialExpanded);
+  const [isOpen, setOpen] = useState<boolean>(true);
+  const [height, setHeight] = useState<string>('fit-content');
   const context = useAccordionContext();
   const fallbackId = useId();
-  const contentRef = useRef<HTMLDivElement>(null);
 
   const resolvedId = id ?? fallbackId;
   const isChecked = context ? context.openedAccordions.has(resolvedId) : isOpen;
@@ -59,9 +57,12 @@ const BastAccordion: FC<TBastAccordionProps> = ({
         />
       </label>
       <div
-        ref={contentRef}
+        ref={(ref) => {
+          if (ref === null) return;
+          setHeight(`${ref.scrollHeight.toString()  }px`);
+        }}
         style={{
-          height: isExpanded ? contentRef?.current?.scrollHeight || 0 : 0,
+          height: isExpanded ? height : 0,
         }}
         className={clsx([
           'accordion__content-wrapper',

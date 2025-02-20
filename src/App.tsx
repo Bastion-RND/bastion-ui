@@ -5,10 +5,14 @@ import { ChangeEvent, FC, useState } from 'react';
 import {
   BastAccordion,
   BastAccordionGroup,
-  BastButton, BastDropdown,
-  BastInputGroup, BastModal,
+  BastButton,
+  BastDropdown,
+  BastInputGroup,
+  BastModal,
   BastTabs,
-  Container, useTheme, useVisualImpairedMode,
+  Container,
+  useTheme,
+  useVisualImpairedMode,
 } from '../lib/app/main';
 import { BastIcon } from '../lib/entities/BastIcon';
 import { BastList } from '../lib/entities/BastList';
@@ -31,7 +35,7 @@ const App: FC = () => {
   const [isDialogOpen, setDialogOpen] = useState<boolean>(false);
   const { createToast } = useToast();
   const [value, setValue] = useState('1');
-  const toggleTheme  = useTheme();
+  const toggleTheme = useTheme();
   const toggleVisuallyImpairedMode = useVisualImpairedMode();
 
   const handleChangeInput = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
@@ -191,9 +195,9 @@ const App: FC = () => {
             <Icons.Bast />
           </BastTabsItem>
         </BastTabs>
-        <BastTabs borders="round-bottom">
+        <BastTabs borders="round-bottom" active='1'>
           <BastTabsItem disabled>Default</BastTabsItem>
-          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem id='1'>Default</BastTabsItem>
           <BastTabsItem>Default</BastTabsItem>
           <BastTabsItem>Default</BastTabsItem>
         </BastTabs>
@@ -223,10 +227,10 @@ const App: FC = () => {
           </BastAccordion>
         </BastAccordionGroup>
       </div>
-      <BastButton fill='outlined' onClick={toggleTheme}>
+      <BastButton fill="outlined" onClick={toggleTheme}>
         Тема
       </BastButton>
-      <BastButton fill='outlined' onClick={toggleVisuallyImpairedMode}>
+      <BastButton fill="outlined" onClick={toggleVisuallyImpairedMode}>
         Версия для слабовидящих
       </BastButton>
     </Container>
