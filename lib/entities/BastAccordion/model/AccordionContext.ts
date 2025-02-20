@@ -4,7 +4,7 @@ type TAccordionContext = {
   multiple?: boolean;
   disabled?: boolean;
   openedAccordions: Set<string>;
-  setOpenedAccordions(openAccordions: Set<string>): void;
+  setOpenedAccordions(id: string): void;
 }
 
 export const AccordionContext = createContext<TAccordionContext>(null!);

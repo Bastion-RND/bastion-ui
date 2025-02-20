@@ -5,10 +5,14 @@ import { ChangeEvent, FC, useState } from 'react';
 import {
   BastAccordion,
   BastAccordionGroup,
-  BastButton, BastDropdown,
-  BastInputGroup, BastModal,
+  BastButton,
+  BastDropdown,
+  BastInputGroup,
+  BastModal,
   BastTabs,
-  Container, useTheme, useVisualImpairedMode,
+  Container,
+  useTheme,
+  useVisualImpairedMode,
 } from '../lib/app/main';
 import { BastIcon } from '../lib/entities/BastIcon';
 import { BastList } from '../lib/entities/BastList';
@@ -31,8 +35,9 @@ const App: FC = () => {
   const [isDialogOpen, setDialogOpen] = useState<boolean>(false);
   const { createToast } = useToast();
   const [value, setValue] = useState('1');
-  const toggleTheme  = useTheme();
+  const toggleTheme = useTheme();
   const toggleVisuallyImpairedMode = useVisualImpairedMode();
+  const [isOpenAccordion, setopenAccordion] = useState(false);
 
   const handleChangeInput = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
     console.log(value);
@@ -191,9 +196,9 @@ const App: FC = () => {
             <Icons.Bast />
           </BastTabsItem>
         </BastTabs>
-        <BastTabs borders="round-bottom">
+        <BastTabs borders="round-bottom" active='1'>
           <BastTabsItem disabled>Default</BastTabsItem>
-          <BastTabsItem>Default</BastTabsItem>
+          <BastTabsItem id='1'>Default</BastTabsItem>
           <BastTabsItem>Default</BastTabsItem>
           <BastTabsItem>Default</BastTabsItem>
         </BastTabs>
@@ -205,28 +210,28 @@ const App: FC = () => {
         </BastTabs>
       </div>
       <div style={gridStyles}>
-        <BastAccordion title="Accordion" disabled expanded>
+        <BastAccordion title="Accordion" disabled>
           <div>Disabled && Expanded</div>
         </BastAccordion>
         <BastAccordion title="Accordion">
           <div>Disabled && Expanded</div>
         </BastAccordion>
-        <BastAccordionGroup>
-          <BastAccordion title="AccordionGroup" disabled>
+        <BastAccordionGroup multiple>
+          <BastAccordion title="AccordionGroup" disabled initialExpanded={false}>
             <div>Accordion content 1</div>
           </BastAccordion>
-          <BastAccordion title="Accordion 2">
+          <BastAccordion title="Accordion 2" expanded={isOpenAccordion} onChange={setopenAccordion}>
             <div>Accordion content 2</div>
           </BastAccordion>
-          <BastAccordion title="Accordion 3">
+          <BastAccordion title="Accordion 3" initialExpanded>
             <div>Accordion content 3</div>
           </BastAccordion>
         </BastAccordionGroup>
       </div>
-      <BastButton fill='outlined' onClick={toggleTheme}>
+      <BastButton fill="outlined" onClick={toggleTheme}>
         Тема
       </BastButton>
-      <BastButton fill='outlined' onClick={toggleVisuallyImpairedMode}>
+      <BastButton fill="outlined" onClick={toggleVisuallyImpairedMode}>
         Версия для слабовидящих
       </BastButton>
     </Container>
