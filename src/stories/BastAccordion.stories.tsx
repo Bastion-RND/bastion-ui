@@ -14,7 +14,6 @@ const meta = {
     expanded: true,
     children: <div>Any content</div>,
     title: 'Accordion',
-    initialExpanded: false,
   },
 } satisfies Meta<typeof BastAccordionComponent>;
 
@@ -30,8 +29,5 @@ export const BastAccordion: Story = {
         type: { summary: 'ReactNode' },
       },
     },
-    initialExpanded: { control: 'boolean', table: {
-      type: { summary: 'boolean | undefined' }
-      } },
   },
 };
