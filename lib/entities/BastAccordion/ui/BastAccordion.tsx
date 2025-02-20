@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ChangeEvent, FC, PropsWithChildren, useId, useState } from 'react';
+import { ChangeEvent, FC, PropsWithChildren, useId, useLayoutEffect, useState } from 'react';
 
 import { Icons } from '../../../shared/ui/icons';
 import { useAccordionContext } from '../model/AccordionContext';
@@ -9,6 +9,7 @@ type TBastAccordionProps = PropsWithChildren<{
   title: string;
   disabled?: boolean;
   expanded?: boolean;
+  initialExpanded?: boolean;
   className?: string;
   onChange?: (value: boolean) => void;
 }>;
@@ -18,19 +19,25 @@ const BastAccordion: FC<TBastAccordionProps> = ({
   id,
   title,
   children,
+  initialExpanded = true,
   expanded,
   className,
   onChange,
 }) => {
-  const [isOpen, setOpen] = useState<boolean>(true);
+  const [isOpen, setOpen] = useState<boolean>(initialExpanded);
   const [height, setHeight] = useState<string>('fit-content');
   const context = useAccordionContext();
   const fallbackId = useId();
-
   const resolvedId = id ?? fallbackId;
   const isChecked = context ? context.openedAccordions.has(resolvedId) : isOpen;
   const isExpanded = expanded !== undefined ? expanded : isChecked;
   const isDisabled = typeof disabled === 'boolean' ? disabled : context?.disabled || false;
+
+  useLayoutEffect(() => {
+    if (!context || !initialExpanded) return;
+    const { setOpenedAccordions } = context;
+    setOpenedAccordions(resolvedId);
+  }, []);
 
   const toggleAccordion = ({ target: { checked } }: ChangeEvent<HTMLInputElement>) => {
     setOpen(checked);
@@ -38,13 +45,8 @@ const BastAccordion: FC<TBastAccordionProps> = ({
 
     if (!context) return;
 
-    const { openedAccordions, multiple, setOpenedAccordions } = context;
-    const newOpenedAccordions = new Set(multiple ? openedAccordions : []);
-
-    if (checked) newOpenedAccordions.add(resolvedId);
-    else newOpenedAccordions.delete(resolvedId);
-
-    setOpenedAccordions(newOpenedAccordions);
+    const { setOpenedAccordions } = context;
+    setOpenedAccordions(resolvedId);
   };
 
   return (

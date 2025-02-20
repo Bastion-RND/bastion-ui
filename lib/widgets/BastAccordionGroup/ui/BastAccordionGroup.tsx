@@ -14,11 +14,21 @@ const BastAccordionGroup: FC<TBastAccordionGroupProps> & {
 } = ({ children, className, multiple = false, disabled = false }) => {
   const [openedAccordions, setOpenedAccordions] = useState<Set<string>>(new Set());
 
+  const toggleAccordion = (id: string) => {
+    setOpenedAccordions(prev => {
+      const newOpenedAccordions = new Set(multiple ? prev : []);
+      if (!newOpenedAccordions.has(id)) newOpenedAccordions.add(id);
+      else newOpenedAccordions.delete(id);
+
+      return newOpenedAccordions;
+    });
+  }
+
   const accordionContextValue = useMemo(
     () => ({
       disabled,
       openedAccordions,
-      setOpenedAccordions,
+      setOpenedAccordions: toggleAccordion,
       multiple,
     }),
     [multiple, openedAccordions, disabled],

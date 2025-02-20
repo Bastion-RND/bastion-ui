@@ -210,20 +210,20 @@ const App: FC = () => {
         </BastTabs>
       </div>
       <div style={gridStyles}>
-        <BastAccordion title="Accordion" disabled expanded>
+        <BastAccordion title="Accordion" disabled>
           <div>Disabled && Expanded</div>
         </BastAccordion>
         <BastAccordion title="Accordion">
           <div>Disabled && Expanded</div>
         </BastAccordion>
-        <BastAccordionGroup>
-          <BastAccordion title="AccordionGroup" disabled>
+        <BastAccordionGroup multiple>
+          <BastAccordion title="AccordionGroup" disabled initialExpanded={false}>
             <div>Accordion content 1</div>
           </BastAccordion>
           <BastAccordion title="Accordion 2" expanded={isOpenAccordion} onChange={setopenAccordion}>
             <div>Accordion content 2</div>
           </BastAccordion>
-          <BastAccordion title="Accordion 3">
+          <BastAccordion title="Accordion 3" initialExpanded>
             <div>Accordion content 3</div>
           </BastAccordion>
         </BastAccordionGroup>
