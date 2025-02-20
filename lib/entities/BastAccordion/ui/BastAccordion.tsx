@@ -9,6 +9,7 @@ type TBastAccordionProps = PropsWithChildren<{
   title: string;
   disabled?: boolean;
   expanded?: boolean;
+  onChange?: (value: boolean) => void;
 }>;
 
 const BastAccordion: FC<TBastAccordionProps> = ({
@@ -17,6 +18,7 @@ const BastAccordion: FC<TBastAccordionProps> = ({
   title,
   children,
   expanded,
+  onChange,
 }) => {
   const [isOpen, setOpen] = useState<boolean>(true);
   const [height, setHeight] = useState<string>('fit-content');
@@ -30,6 +32,7 @@ const BastAccordion: FC<TBastAccordionProps> = ({
 
   const toggleAccordion = ({ target: { checked } }: ChangeEvent<HTMLInputElement>) => {
     setOpen(checked);
+    onChange?.(checked);
 
     if (!context) return;
 

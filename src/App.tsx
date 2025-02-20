@@ -37,6 +37,7 @@ const App: FC = () => {
   const [value, setValue] = useState('1');
   const toggleTheme = useTheme();
   const toggleVisuallyImpairedMode = useVisualImpairedMode();
+  const [isOpenAccordion, setopenAccordion] = useState(false);
 
   const handleChangeInput = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
     console.log(value);
@@ -219,7 +220,7 @@ const App: FC = () => {
           <BastAccordion title="AccordionGroup" disabled>
             <div>Accordion content 1</div>
           </BastAccordion>
-          <BastAccordion title="Accordion 2">
+          <BastAccordion title="Accordion 2" expanded={isOpenAccordion} onChange={setopenAccordion}>
             <div>Accordion content 2</div>
           </BastAccordion>
           <BastAccordion title="Accordion 3">
