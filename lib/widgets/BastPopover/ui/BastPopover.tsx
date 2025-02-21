@@ -13,6 +13,7 @@ type TBastPopoverProps = PropsWithChildren<{
 const ANIMATION_DELAY = 300;
 
 // TODO: Доделать поведение по триггеру ховер
+// FIXME: Добавляет лишнее пространство даже при закрытых popover
 const BastPopover: FC<TBastPopoverProps> = ({
   children,
   position = 'bottom',
