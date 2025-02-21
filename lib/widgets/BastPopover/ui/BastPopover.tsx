@@ -1,7 +1,8 @@
-import { FC, PropsWithChildren, ReactNode, useRef, useState } from 'react';
-import { useOutsideClick } from '../../../shared/lib/outsideClick/useOutsideClick';
-import { useDebounce } from '../../../shared/lib';
 import clsx from 'clsx';
+import { FC, PropsWithChildren, ReactNode, useRef, useState } from 'react';
+
+import { useDebounce } from '../../../shared/lib';
+import { useOutsideClick } from '../../../shared/lib/outsideClick/useOutsideClick';
 
 type TBastPopoverProps = PropsWithChildren<{
   trigger?: 'click' | 'hover';
@@ -11,6 +12,7 @@ type TBastPopoverProps = PropsWithChildren<{
 
 const ANIMATION_DELAY = 300;
 
+// TODO: Доделать поведение по триггеру ховер
 const BastPopover: FC<TBastPopoverProps> = ({
   children,
   position = 'bottom',
@@ -21,7 +23,9 @@ const BastPopover: FC<TBastPopoverProps> = ({
   const wrapperRef = useRef<HTMLDivElement>(null);
   const isOpenDebounced = useDebounce(isOpen, ANIMATION_DELAY);
 
-  useOutsideClick(() => setOpen(false), wrapperRef);
+  useOutsideClick(() => {
+    if (trigger === 'click') setOpen(false);
+  }, wrapperRef);
 
   const handleMouseOver = () => {
     if (trigger === 'hover') setOpen(true);

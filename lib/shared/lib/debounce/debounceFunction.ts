@@ -18,7 +18,6 @@ export const debounceFunction = <T extends (...args: Parameters<T>) => ReturnTyp
 
   debouncedFn.clear = () => {
     if (timer) clearTimeout(timer);
-    console.log('cleared')
   };
 
   return debouncedFn;
