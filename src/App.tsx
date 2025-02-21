@@ -22,6 +22,7 @@ import { Icons } from '../lib/shared/ui/icons';
 import { BastDialog } from '../lib/widgets/BastDialog';
 import { BastTabsItem } from '../lib/widgets/BastTabs/ui/BastTabsItem';
 import { useToast } from '../lib/widgets/BastToast';
+import { BastPopover } from '../lib/widgets/BastPopover';
 
 const gridStyles = {
   display: 'grid',
@@ -196,9 +197,9 @@ const App: FC = () => {
             <Icons.Bast />
           </BastTabsItem>
         </BastTabs>
-        <BastTabs borders="round-bottom" active='1'>
+        <BastTabs borders="round-bottom" active="1">
           <BastTabsItem disabled>Default</BastTabsItem>
-          <BastTabsItem id='1'>Default</BastTabsItem>
+          <BastTabsItem id="1">Default</BastTabsItem>
           <BastTabsItem>Default</BastTabsItem>
           <BastTabsItem>Default</BastTabsItem>
         </BastTabs>
@@ -234,6 +235,69 @@ const App: FC = () => {
       <BastButton fill="outlined" onClick={toggleVisuallyImpairedMode}>
         Версия для слабовидящих
       </BastButton>
+      <div style={gridStyles}>
+        <BastPopover
+          content={
+            <BastList>
+              <BastList.Item>test</BastList.Item>
+              <BastList.Item>test</BastList.Item>
+              <BastList.Item>test</BastList.Item>
+              <BastList.Item>test</BastList.Item>
+            </BastList>
+          }
+        >
+          <BastButton fill="filled" color="success">
+            Click me
+          </BastButton>
+        </BastPopover>
+        <BastPopover
+          position="top"
+          content={
+            <BastList>
+              <BastList.Item>Longolonglong</BastList.Item>
+              <BastList.Item>Longolonglong</BastList.Item>
+              <BastList.Item>LongolonglongLongolonglong</BastList.Item>
+              <BastList.Item>Longolonglong</BastList.Item>
+            </BastList>
+          }
+        >
+          <BastButton fill="filled" color="success">
+            Click me
+          </BastButton>
+        </BastPopover>
+        <BastPopover
+          trigger="hover"
+          position="left"
+          content={
+            <BastList>
+              <BastList.Item>Longolonglong</BastList.Item>
+              <BastList.Item>Longolonglong</BastList.Item>
+              <BastList.Item>LongolonglongLongolonglong</BastList.Item>
+              <BastList.Item>Longolonglong</BastList.Item>
+            </BastList>
+          }
+        >
+          <BastButton fill="filled" color="success">
+            Hover me
+          </BastButton>
+        </BastPopover>
+        <BastPopover
+          trigger="hover"
+          position="right"
+          content={
+            <BastList>
+              <BastList.Item>Longolonglong</BastList.Item>
+              <BastList.Item>Longolonglong</BastList.Item>
+              <BastList.Item>LongolonglongLongolonglong</BastList.Item>
+              <BastList.Item>Longolonglong</BastList.Item>
+            </BastList>
+          }
+        >
+          <BastButton fill="filled" color="success">
+            Hover me
+          </BastButton>
+        </BastPopover>
+      </div>
     </Container>
   );
 };
