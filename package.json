@@ -1,11 +1,25 @@
 {
-  "name": "bastion-ui",
+  "name": "@bs-solutions/bastion-ui",
+  "description": "React components library",
+  "keywords": [
+    "ui-kit",
+    "bastion",
+    "skat",
+    "components",
+    "react"
+  ],
+  "author": "VladSolyony <solyonyvlad@gmail.com>",
   "private": true,
   "version": "1.0.2",
   "type": "module",
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bastion-RND/bastion-ui.git"
+  },
+  "license": "MIT",
   "style": "dist/styles/bastion-ui.scss",
   "exports": {
     ".": {
@@ -74,6 +88,12 @@
     "react-dom": ">=18.0.0",
     "clsx": ">=2.1.1"
   },
-  "dependencies": {
-  }
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "bugs": {
+    "url": "https://github.com/Bastion-RND/bastion-ui/issues"
+  },
+  "homepage": "https://github.com/Bastion-RND/bastion-ui#readme"
 }
