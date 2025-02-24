@@ -10,7 +10,6 @@
     border-radius: var(--popover-content-border-radius);
     opacity: 0;
     pointer-events: none;
-    min-height: 100%;
     display: flex;
     align-items: center;
 
@@ -23,28 +22,6 @@
       transform: translateY(0);
       pointer-events: auto;
       animation: var(--popover-animation);
-    }
-
-    &--bottom {
-      top: calc(100% + var(--popover-gap));
-      left: 0;
-      min-width: 100%;
-    }
-
-    &--top {
-      left: 0;
-      bottom: calc(100% + var(--popover-gap));
-      min-width: 100%;
-    }
-
-    &--left {
-      top: 0;
-      right: calc(100% + var(--popover-gap));
-    }
-
-    &--right {
-      top: 0;
-      left: calc(100% + var(--popover-gap));
     }
   }
 }

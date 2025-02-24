@@ -31,10 +31,13 @@ html, body, div[id='root'] {
   left: 0;
   right: 0;
   bottom: 0;
-  overflow: auto;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   background-color: var(--background-color);
+}
+
+body {
+  overflow: auto;
 }
 
 * {

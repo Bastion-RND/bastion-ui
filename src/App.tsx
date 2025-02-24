@@ -242,6 +242,7 @@ const App: FC = () => {
       </BastButton>
       <div style={{...gridStyles, gridTemplateColumns: '1fr 1fr'}}>
         <BastPopover
+          placement='top-start'
           content={
             <BastList inset>
               <BastList.Item onClick={() => console.log('click')}>test</BastList.Item>
@@ -256,7 +257,7 @@ const App: FC = () => {
           </BastButton>
         </BastPopover>
         <BastPopover
-          position="top"
+          placement='left'
           content={
             <BastList>
               <BastList.Item>Longolonglong</BastList.Item>
@@ -272,7 +273,7 @@ const App: FC = () => {
         </BastPopover>
         <BastPopover
           trigger="hover"
-          position="left"
+          placement='right-end'
           content={
             <BastList>
               <BastList.Item>Longolonglong</BastList.Item>
@@ -287,8 +288,8 @@ const App: FC = () => {
           </BastButton>
         </BastPopover>
         <BastPopover
+          placement='right-start'
           trigger="hover"
-          position="right"
           content={
             <BastList>
               <BastList.Item>Longolonglong</BastList.Item>

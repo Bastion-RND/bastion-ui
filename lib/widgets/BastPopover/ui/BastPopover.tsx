@@ -1,28 +1,75 @@
 import clsx from 'clsx';
 import { FC, PropsWithChildren, ReactNode, useRef, useState } from 'react';
+import { usePopper } from 'react-popper';
 
 import { useDebounce } from '../../../shared/lib';
 import { useOutsideClick } from '../../../shared/lib/outsideClick/useOutsideClick';
+import { Portal } from '../../../shared/ui/portal';
 
 type TBastPopoverProps = PropsWithChildren<{
   trigger?: 'click' | 'hover';
   content: ReactNode;
-  position?: 'top' | 'bottom' | 'left' | 'right';
+  placement?:
+    | 'auto'
+    | 'auto-start'
+    | 'auto-end'
+    | 'top'
+    | 'bottom'
+    | 'right'
+    | 'left'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right-start'
+    | 'right-end'
+    | 'left-start'
+    | 'left-end';
 }>;
 
 const ANIMATION_DELAY = 300;
 
-// FIXME: Добавляет лишнее пространство даже при закрытых popover
 const BastPopover: FC<TBastPopoverProps> = ({
   children,
-  position = 'bottom',
   trigger = 'click',
+  placement,
   content,
 }) => {
   const [isOpen, setOpen] = useState<boolean>(false);
-  const wrapperRef = useRef<HTMLDivElement>(null);
   const isOpenDebounced = useDebounce(isOpen, ANIMATION_DELAY);
+
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const triggerWrapperRef = useRef<HTMLDivElement>(null);
+  const contentWrapperRef = useRef<HTMLDivElement>(null);
   let timeoutId = useRef<ReturnType<typeof setTimeout> | null>(null).current;
+
+  const { styles, attributes } = usePopper(
+    triggerWrapperRef.current,
+    contentWrapperRef.current,
+    {
+      placement,
+      modifiers: [
+        {
+          name: 'offset',
+          options: {
+            offset: [0, 8],
+          },
+        },
+        {
+          name: 'flip',
+          options: {
+            flipVariations: true,
+          }
+        },
+        {
+          name: 'preventOverflow',
+          options: {
+            rootBoundary: 'viewport',
+          },
+        },
+      ],
+    },
+  );
 
   useOutsideClick(() => {
     if (trigger === 'click') setOpen(false);
@@ -45,22 +92,27 @@ const BastPopover: FC<TBastPopoverProps> = ({
       onMouseLeave={handleMouseLeft}
     >
       <div
+        ref={triggerWrapperRef}
         onClick={() => {
           if (trigger === 'click') setOpen((prev) => !prev);
         }}
       >
         {children}
       </div>
-      <div
-        className={clsx([
-          'popover__content',
-          isOpen && 'popover__content--open',
-          `popover__content--${position}`,
-        ])}
-        hidden={!isOpenDebounced}
-      >
-        {content}
-      </div>
+      <Portal>
+        <div
+          ref={contentWrapperRef}
+          className={clsx([
+            'popover__content',
+            isOpen && 'popover__content--open',
+          ])}
+          style={styles.popper}
+          hidden={!isOpenDebounced}
+          {...attributes.popper}
+        >
+          {content}
+        </div>
+      </Portal>
     </div>
   );
 };
