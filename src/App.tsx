@@ -225,7 +225,7 @@ const App: FC = () => {
             <div>Accordion content 2</div>
           </BastAccordion>
           <BastAccordion title="Accordion 3" initialExpanded>
-            <BastList>
+            <BastList inset>
               <BastList.Item>Longolonglong</BastList.Item>
               <BastList.Item>Longolonglong</BastList.Item>
               <BastList.Item>LongolonglongLongolonglong</BastList.Item>
@@ -240,11 +240,11 @@ const App: FC = () => {
       <BastButton fill="outlined" onClick={toggleVisuallyImpairedMode}>
         Версия для слабовидящих
       </BastButton>
-      <div style={gridStyles}>
+      <div style={{...gridStyles, gridTemplateColumns: '1fr 1fr'}}>
         <BastPopover
           content={
-            <BastList>
-              <BastList.Item>test</BastList.Item>
+            <BastList inset>
+              <BastList.Item onClick={() => console.log('click')}>test</BastList.Item>
               <BastList.Item>test</BastList.Item>
               <BastList.Item>test</BastList.Item>
               <BastList.Item>test</BastList.Item>
