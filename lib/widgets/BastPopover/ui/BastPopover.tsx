@@ -12,7 +12,6 @@ type TBastPopoverProps = PropsWithChildren<{
 
 const ANIMATION_DELAY = 300;
 
-// TODO: Доделать поведение по триггеру ховер
 // FIXME: Добавляет лишнее пространство даже при закрытых popover
 const BastPopover: FC<TBastPopoverProps> = ({
   children,
@@ -23,17 +22,19 @@ const BastPopover: FC<TBastPopoverProps> = ({
   const [isOpen, setOpen] = useState<boolean>(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const isOpenDebounced = useDebounce(isOpen, ANIMATION_DELAY);
+  let timeoutId = useRef<ReturnType<typeof setTimeout> | null>(null).current;
 
   useOutsideClick(() => {
     if (trigger === 'click') setOpen(false);
   }, wrapperRef);
 
   const handleMouseOver = () => {
+    if (timeoutId) clearTimeout(timeoutId);
     if (trigger === 'hover') setOpen(true);
   };
 
   const handleMouseLeft = () => {
-    if (trigger === 'hover') setOpen(false);
+    if (trigger === 'hover') timeoutId = setTimeout(() => setOpen(false), ANIMATION_DELAY);
   };
 
   return (
