@@ -7,7 +7,7 @@ import {
   BastAccordionGroup,
   BastButton,
   BastDropdown,
-  BastFooter,
+  BastFooter, BastHeader,
   BastInputGroup,
   BastModal,
   BastTabs,
@@ -48,6 +48,7 @@ const App: FC = () => {
 
   return (
     <>
+      <BastHeader>header</BastHeader>
       <Container>
         <BastModal isOpen={isModalOpen} onClose={() => setModalOpen((prevState) => !prevState)}>
           <BastModal.Header>

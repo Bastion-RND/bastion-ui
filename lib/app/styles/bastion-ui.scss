@@ -38,7 +38,7 @@ html, body, div[id='root'] {
   background-color: var(--background-color);
 }
 
-body {
+div[id='root'] {
   overflow: auto;
 }
 

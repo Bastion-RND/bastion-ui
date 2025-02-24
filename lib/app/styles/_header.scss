@@ -1,0 +1,9 @@
+.header {
+  position: sticky;
+  top: 0;
+  border-bottom-left-radius: var(--header-border-radius);
+  border-bottom-right-radius: var(--header-border-radius);
+  background-color: var(--header-background-color);
+  color: var(--header-text-color);
+  padding: var(--header-padding-vertical) var(--popover-content-padding-horizontal);
+}
