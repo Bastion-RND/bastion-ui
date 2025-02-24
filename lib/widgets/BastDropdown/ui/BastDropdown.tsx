@@ -10,7 +10,7 @@ import {
   useState,
 } from 'react';
 
-import { BastList } from '../../../entities/BastList/ui/BastList';
+import { BastList } from '../../../entities/BastList';
 import { useOutsideClick } from '../../../shared/lib/outsideClick/useOutsideClick';
 import { Icons } from '../../../shared/ui/icons';
 import {

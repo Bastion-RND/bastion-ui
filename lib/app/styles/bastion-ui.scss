@@ -21,6 +21,7 @@
 @use "accordion-group";
 @use "progress";
 @use "backdrop";
+@use "popover";
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
@@ -30,10 +31,13 @@ html, body, div[id='root'] {
   left: 0;
   right: 0;
   bottom: 0;
-  overflow: auto;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   background-color: var(--background-color);
+}
+
+body {
+  overflow: auto;
 }
 
 * {
