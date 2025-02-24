@@ -91,7 +91,10 @@ const BastPopover: FC<TBastPopoverProps> = ({
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseLeft}
     >
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
       <div
+        role='button'
+        tabIndex={0}
         ref={triggerWrapperRef}
         onClick={() => {
           if (trigger === 'click') setOpen((prev) => !prev);
