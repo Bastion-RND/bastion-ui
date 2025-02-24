@@ -16,6 +16,8 @@ export { ModalCard } from '../shared/ui/modalCard';
 export { BastAccordionGroup } from '../widgets/BastAccordionGroup';
 export { BastDialog } from '../widgets/BastDialog';
 export { BastDropdown } from '../widgets/BastDropdown';
+export { BastFooter } from '../widgets/BastFooter';
+export { BastHeader } from '../widgets/BastHeader';
 export { BastInputGroup } from '../widgets/BastInputGroup';
 export { BastModal } from '../widgets/BastModal';
 export { BastPopover } from '../widgets/BastPopover';
