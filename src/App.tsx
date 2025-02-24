@@ -20,9 +20,9 @@ import { BastProgress } from '../lib/entities/BastProgress';
 import { BastSpinner } from '../lib/entities/BastSpinner';
 import { Icons } from '../lib/shared/ui/icons';
 import { BastDialog } from '../lib/widgets/BastDialog';
+import { BastPopover } from '../lib/widgets/BastPopover';
 import { BastTabsItem } from '../lib/widgets/BastTabs/ui/BastTabsItem';
 import { useToast } from '../lib/widgets/BastToast';
-import { BastPopover } from '../lib/widgets/BastPopover';
 
 const gridStyles = {
   display: 'grid',
@@ -225,7 +225,12 @@ const App: FC = () => {
             <div>Accordion content 2</div>
           </BastAccordion>
           <BastAccordion title="Accordion 3" initialExpanded>
-            <div>Accordion content 3</div>
+            <BastList>
+              <BastList.Item>Longolonglong</BastList.Item>
+              <BastList.Item>Longolonglong</BastList.Item>
+              <BastList.Item>LongolonglongLongolonglong</BastList.Item>
+              <BastList.Item>Longolonglong</BastList.Item>
+            </BastList>
           </BastAccordion>
         </BastAccordionGroup>
       </div>
