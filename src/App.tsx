@@ -242,7 +242,7 @@ const App: FC = () => {
       </BastButton>
       <div style={{...gridStyles, gridTemplateColumns: '1fr 1fr'}}>
         <BastPopover
-          placement='top-start'
+          placement='bottom-start'
           content={
             <BastList inset>
               <BastList.Item onClick={() => console.log('click')}>test</BastList.Item>

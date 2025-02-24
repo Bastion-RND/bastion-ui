@@ -21,3 +21,4 @@ export { BastModal } from '../widgets/BastModal';
 export { BastTabs } from '../widgets/BastTabs';
 export { BastToast, useToast } from '../widgets/BastToast';
 export { BastUiProvider } from './providers';
+export { BastPopover } from '../widgets/BastPopover';
