@@ -7,9 +7,21 @@ import {
   CheckIcon,
   ChevronUpIcon,
   CloseIcon,
+  GlassesIcon,
+  LogInIcon,
+  LogOutIcon,
+  MoonIcon,
   MoreVerticalIcon,
+  OptionsIcon,
+  PersonIcon,
+  RainIcon,
+  SettingsIcon,
   SkatLogoFullIcon,
-  SpinnerIcon} from '../../assets';
+  SnowIcon,
+  SpinnerIcon,
+  SunIcon,
+  WaterIcon,
+} from '../../assets';
 import { TBastColor } from '../../lib';
 
 export const Icons = {
@@ -23,7 +35,18 @@ export const Icons = {
   Spinner: SpinnerIcon,
   BastLogoFull: BastLogoFullIcon,
   SkatLogoFull: SkatLogoFullIcon,
-  MoreVertical: MoreVerticalIcon
+  MoreVertical: MoreVerticalIcon,
+  Person: PersonIcon,
+  Sun: SunIcon,
+  Glasses: GlassesIcon,
+  Moon: MoonIcon,
+  LogIn: LogInIcon,
+  LogOut: LogOutIcon,
+  Options: OptionsIcon,
+  Settings: SettingsIcon,
+  Rain: RainIcon,
+  Snow: SnowIcon,
+  Water: WaterIcon,
 };
 
 export type TIcons = keyof typeof Icons;
