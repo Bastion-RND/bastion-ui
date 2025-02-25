@@ -4,9 +4,12 @@ import {
   BastIcon,
   BastLogoFullIcon,
   BoxIcon,
+  CellularIcon,
   CheckCircleIcon,
   CheckIcon,
   ChevronUpIcon,
+  CircleFilledIcon,
+  CircleIcon,
   CloseIcon,
   CloudIcon,
   ConnectIcon,
@@ -71,6 +74,9 @@ export const Icons = {
   Scan: ScanIcon,
   Shield: ShieldIcon,
   Email: EmailIcon,
+  Cellular: CellularIcon,
+  Circle: CircleIcon,
+  CircleFilled: CircleFilledIcon,
 };
 
 export type TIcons = keyof typeof Icons;
