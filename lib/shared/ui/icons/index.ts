@@ -3,6 +3,11 @@ import {
   AlertIcon,
   BastIcon,
   BastLogoFullIcon,
+  BatteryEmptyIcon,
+  BatteryFullIcon,
+  BatteryHalfIcon,
+  BatteryQuarterIcon,
+  BatteryThreeQuartersIcon,
   BoxIcon,
   CellularIcon,
   CheckCircleIcon,
@@ -77,6 +82,11 @@ export const Icons = {
   Cellular: CellularIcon,
   Circle: CircleIcon,
   CircleFilled: CircleFilledIcon,
+  BatteryThreeQuarters: BatteryThreeQuartersIcon,
+  BatteryEmpty: BatteryEmptyIcon,
+  BatteryQuarter: BatteryQuarterIcon,
+  BatteryFull: BatteryFullIcon,
+  BatteryHalf: BatteryHalfIcon,
 };
 
 export type TIcons = keyof typeof Icons;
