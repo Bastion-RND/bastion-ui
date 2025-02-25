@@ -1,0 +1,8 @@
+.footer {
+  border-top-left-radius: var(--footer-border-radius);
+  border-top-right-radius: var(--footer-border-radius);
+  background-color: var(--footer-background-color);
+  color: var(--footer-text-color);
+  padding: var(--footer-padding-vertical) var(--footer-padding-horizontal);
+  margin-top: auto;
+}

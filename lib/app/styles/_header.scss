@@ -1,0 +1,37 @@
+.header {
+  position: sticky;
+  top: 0;
+  border-bottom-left-radius: var(--header-border-radius);
+  border-bottom-right-radius: var(--header-border-radius);
+  background-color: var(--header-background-color);
+  color: var(--header-text-color);
+  padding: var(--header-padding-vertical) var(--header-padding-horizontal);
+  display: flex;
+  align-items: center;
+  gap: 1em;
+
+  &__content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    --height: 2em;
+    --width: 8.375em;
+    height: var(--height);
+    min-width: var(--height);
+    display: inline-block;
+
+    &--bast {
+      min-width: var(--width);
+      width: var(--width);
+    }
+
+    &--skat {
+      --width: 4.68em;
+      min-width: var(--width);
+      width: var(--width);
+    }
+  }
+}

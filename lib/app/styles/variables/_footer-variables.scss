@@ -1,0 +1,16 @@
+footer {
+  /** COLORS **/
+  --footer-background-color: var(--brand-color-500);
+  --footer-text-color: var(--white-color);
+
+  /** BORDERS **/
+  --footer-border-radius: var(--radius-medium);
+
+  /** PADDINGS **/
+  --footer-padding-vertical: 1.185em;
+  --footer-padding-horizontal: 4em;
+}
+
+footer[data-theme="dark"] {
+  --footer-background-color: var(--brand-color-600);
+}

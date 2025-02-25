@@ -2,10 +2,13 @@ import {
   AlertCircleIcon,
   AlertIcon,
   BastIcon,
+  BastLogoFullIcon,
   CheckCircleIcon,
   CheckIcon,
   ChevronUpIcon,
-  CloseIcon, SpinnerIcon,
+  CloseIcon,
+  SkatLogoFullIcon,
+  SpinnerIcon,
 } from '../../assets';
 import { TBastColor } from '../../lib';
 
@@ -18,7 +21,9 @@ export const Icons = {
   CheckCircle: CheckCircleIcon,
   ChevronUp: ChevronUpIcon,
   Spinner: SpinnerIcon,
-}
+  BastLogoFull: BastLogoFullIcon,
+  SkatLogoFull: SkatLogoFullIcon,
+};
 
 export type TIcons = keyof typeof Icons;
 
@@ -28,4 +33,4 @@ export const BAST_ICONS_BY_COLOR: Record<TBastColor, TIcons> = {
   warning: 'Alert',
   danger: 'AlertCircle',
   success: 'CheckCircle',
-}
+};
