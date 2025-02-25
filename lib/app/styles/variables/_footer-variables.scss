@@ -4,7 +4,7 @@ footer {
   --footer-text-color: var(--white-color);
 
   /** BORDERS **/
-  --footer-border-radius: 1rem;
+  --footer-border-radius: var(--radius-medium);
 
   /** PADDINGS **/
   --footer-padding-vertical: 1.185em;
