@@ -5,10 +5,17 @@
   border-bottom-right-radius: var(--header-border-radius);
   background-color: var(--header-background-color);
   color: var(--header-text-color);
-  padding: var(--header-padding-vertical) var(--header-padding-horizontal);
+  padding: var(--header-padding-vertical) 0;
   display: flex;
   align-items: center;
   gap: 1em;
+  z-index: 1;
+
+  .container {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+  }
 
   &__content {
     width: 100%;
