@@ -1,31 +1,33 @@
 import clsx from 'clsx';
-import { FC, PropsWithChildren, ReactNode, useRef, useState } from 'react';
+import { ComponentProps, FC, PropsWithChildren, ReactNode, useRef, useState } from 'react';
 import { usePopper } from 'react-popper';
 
 import { useDebounce } from '../../../shared/lib';
 import { useOutsideClick } from '../../../shared/lib/outsideClick/useOutsideClick';
 import { Portal } from '../../../shared/ui/portal';
 
-type TBastPopoverProps = PropsWithChildren<{
-  trigger?: 'click' | 'hover';
-  content: ReactNode;
-  placement?:
-    | 'auto'
-    | 'auto-start'
-    | 'auto-end'
-    | 'top'
-    | 'bottom'
-    | 'right'
-    | 'left'
-    | 'top-start'
-    | 'top-end'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'right-start'
-    | 'right-end'
-    | 'left-start'
-    | 'left-end';
-}>;
+type TBastPopoverProps = PropsWithChildren<
+  {
+    trigger?: 'click' | 'hover';
+    content: ReactNode;
+    placement?:
+      | 'auto'
+      | 'auto-start'
+      | 'auto-end'
+      | 'top'
+      | 'bottom'
+      | 'right'
+      | 'left'
+      | 'top-start'
+      | 'top-end'
+      | 'bottom-start'
+      | 'bottom-end'
+      | 'right-start'
+      | 'right-end'
+      | 'left-start'
+      | 'left-end';
+  } & Pick<ComponentProps<'div'>, 'className' | 'style' | 'id'>
+>;
 
 const ANIMATION_DELAY = 300;
 
@@ -34,6 +36,9 @@ const BastPopover: FC<TBastPopoverProps> = ({
   trigger = 'click',
   placement,
   content,
+  className,
+  style,
+  id,
 }) => {
   const [isOpen, setOpen] = useState<boolean>(false);
   const isOpenDebounced = useDebounce(isOpen, ANIMATION_DELAY);
@@ -43,33 +48,29 @@ const BastPopover: FC<TBastPopoverProps> = ({
   const contentWrapperRef = useRef<HTMLDivElement>(null);
   let timeoutId = useRef<ReturnType<typeof setTimeout> | null>(null).current;
 
-  const { styles, attributes } = usePopper(
-    triggerWrapperRef.current,
-    contentWrapperRef.current,
-    {
-      placement,
-      modifiers: [
-        {
-          name: 'offset',
-          options: {
-            offset: [0, 8],
-          },
+  const { styles, attributes } = usePopper(triggerWrapperRef.current, contentWrapperRef.current, {
+    placement,
+    modifiers: [
+      {
+        name: 'offset',
+        options: {
+          offset: [0, 8],
         },
-        {
-          name: 'flip',
-          options: {
-            flipVariations: true,
-          }
+      },
+      {
+        name: 'flip',
+        options: {
+          flipVariations: true,
         },
-        {
-          name: 'preventOverflow',
-          options: {
-            rootBoundary: 'viewport',
-          },
+      },
+      {
+        name: 'preventOverflow',
+        options: {
+          rootBoundary: 'viewport',
         },
-      ],
-    },
-  );
+      },
+    ],
+  });
 
   useOutsideClick(() => {
     if (trigger === 'click') setOpen(false);
@@ -86,14 +87,16 @@ const BastPopover: FC<TBastPopoverProps> = ({
 
   return (
     <div
-      className="popover"
+      id={id}
+      style={style}
+      className={`${clsx(['popover', className && className])}`}
       ref={wrapperRef}
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseLeft}
     >
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
       <div
-        role='button'
+        role="button"
         tabIndex={0}
         ref={triggerWrapperRef}
         onClick={() => {
@@ -105,10 +108,7 @@ const BastPopover: FC<TBastPopoverProps> = ({
       <Portal>
         <div
           ref={contentWrapperRef}
-          className={clsx([
-            'popover__content',
-            isOpen && 'popover__content--open',
-          ])}
+          className={clsx(['popover__content', isOpen && 'popover__content--open'])}
           style={styles.popper}
           hidden={!isOpenDebounced}
           {...attributes.popper}

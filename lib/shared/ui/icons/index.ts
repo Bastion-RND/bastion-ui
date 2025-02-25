@@ -7,9 +7,9 @@ import {
   CheckIcon,
   ChevronUpIcon,
   CloseIcon,
+  MoreVerticalIcon,
   SkatLogoFullIcon,
-  SpinnerIcon,
-} from '../../assets';
+  SpinnerIcon} from '../../assets';
 import { TBastColor } from '../../lib';
 
 export const Icons = {
@@ -23,6 +23,7 @@ export const Icons = {
   Spinner: SpinnerIcon,
   BastLogoFull: BastLogoFullIcon,
   SkatLogoFull: SkatLogoFullIcon,
+  MoreVertical: MoreVerticalIcon
 };
 
 export type TIcons = keyof typeof Icons;
