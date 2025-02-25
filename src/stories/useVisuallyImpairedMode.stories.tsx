@@ -4,7 +4,7 @@ import { BastButton } from '../../lib/entities/BastButton';
 import { useVisualImpairedMode as useVisualImpairedModeHook } from '../../lib/features/toggleVisuallyImpairedMode';
 
 const ExampleComponent = () => {
-  const toggleVisualImpairedMode = useVisualImpairedModeHook();
+  const { toggleVisualImpairedMode } = useVisualImpairedModeHook();
 
   return (
     <BastButton color="gray" fill="filled" expand onClick={toggleVisualImpairedMode}>
@@ -21,7 +21,7 @@ const meta = {
     docs: {
       source: {
         code: `
-const toggleVisualImpairedMode = useVisualImpairedMode();
+const { toggleVisualImpairedMode, isVisuallyImpairedMode } = useVisualImpairedMode();
 
 return (
   <BastButton color="gray" fill="filled" expand onClick={toggleVisualImpairedMode}>
