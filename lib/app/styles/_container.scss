@@ -3,7 +3,7 @@
 .container {
   max-width: var(--container-width-xs);
   margin: 0 auto;
-  height: 100%;
+  width: 100%;
 
   @media (min-width: globals.$sm) {
     max-width: var(--container-width-sm);
