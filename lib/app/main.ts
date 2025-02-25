@@ -14,6 +14,7 @@ export { Container } from '../shared/ui/container';
 export { Label } from '../shared/ui/label';
 export { ModalCard } from '../shared/ui/modalCard';
 export { BastAccordionGroup } from '../widgets/BastAccordionGroup';
+export { BastBatteryIndicator } from '../widgets/BastBatteryIndicator';
 export { BastDialog } from '../widgets/BastDialog';
 export { BastDropdown } from '../widgets/BastDropdown';
 export { BastFooter } from '../widgets/BastFooter';

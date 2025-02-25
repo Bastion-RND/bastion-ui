@@ -4,7 +4,7 @@ import { ChangeEvent, FC, useState } from 'react';
 
 import {
   BastAccordion,
-  BastAccordionGroup,
+  BastAccordionGroup, BastBatteryIndicator,
   BastButton,
   BastDropdown,
   BastFooter,
@@ -52,6 +52,7 @@ const App: FC = () => {
       <BastHeader>header</BastHeader>
       <main>
         <Container>
+          <BastBatteryIndicator isCharging percent={50} />
           <BastModal isOpen={isModalOpen} onClose={() => setModalOpen((prevState) => !prevState)}>
             <BastModal.Header>
               <BastModal.Icon color="brand">
