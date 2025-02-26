@@ -33,6 +33,11 @@
     padding: var(--list-item-padding-vertical) var(--list-item-padding-horizontal);
     transition: var(--list-item-hover-animation);
     color: var(--dropdown-text-color);
+    align-items: center;
+
+    svg {
+      color: var(--dropdown-text-color);
+    }
 
     &:hover {
       background-color: var(--list-background-color-hover);
