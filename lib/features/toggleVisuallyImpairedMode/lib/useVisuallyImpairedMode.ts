@@ -5,5 +5,5 @@ export const useVisualImpairedMode = () => {
 
   if (!context) throw new Error('Application must be wrapped in BastUiProvider');
 
-  return context.toggleVisualImpairedMode;
+  return context;
 }

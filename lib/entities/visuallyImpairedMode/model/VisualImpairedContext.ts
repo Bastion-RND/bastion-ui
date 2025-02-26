@@ -1,6 +1,7 @@
 import { createContext, useContext } from 'react';
 
 type TVisualImpairedModeContext = {
+  isVisuallyImpairedMode: boolean;
   toggleVisualImpairedMode: () => void;
 };
 

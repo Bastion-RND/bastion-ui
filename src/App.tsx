@@ -4,7 +4,7 @@ import { ChangeEvent, FC, useState } from 'react';
 
 import {
   BastAccordion,
-  BastAccordionGroup,
+  BastAccordionGroup, BastBatteryIndicator,
   BastButton,
   BastDropdown,
   BastFooter,
@@ -38,8 +38,8 @@ const App: FC = () => {
   const [isDialogOpen, setDialogOpen] = useState<boolean>(false);
   const { createToast } = useToast();
   const [value, setValue] = useState('1');
-  const toggleTheme = useTheme();
-  const toggleVisuallyImpairedMode = useVisualImpairedMode();
+  const { toggleTheme } = useTheme();
+  const { toggleVisualImpairedMode } = useVisualImpairedMode();
   const [isOpenAccordion, setopenAccordion] = useState(false);
 
   const handleChangeInput = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
@@ -52,6 +52,7 @@ const App: FC = () => {
       <BastHeader>header</BastHeader>
       <main>
         <Container>
+          <BastBatteryIndicator isCharging percent={50} />
           <BastModal isOpen={isModalOpen} onClose={() => setModalOpen((prevState) => !prevState)}>
             <BastModal.Header>
               <BastModal.Icon color="brand">
@@ -246,7 +247,7 @@ const App: FC = () => {
           <BastButton fill="outlined" onClick={toggleTheme}>
             Тема
           </BastButton>
-          <BastButton fill="outlined" onClick={toggleVisuallyImpairedMode}>
+          <BastButton fill="outlined" onClick={toggleVisualImpairedMode}>
             Версия для слабовидящих
           </BastButton>
           <div style={{ ...gridStyles, gridTemplateColumns: '1fr 1fr' }}>

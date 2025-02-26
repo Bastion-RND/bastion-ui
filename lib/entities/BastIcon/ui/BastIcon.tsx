@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { FC } from 'react';
 
 import { Icons, TIcons } from '../../../shared/ui/icons';
@@ -12,7 +13,7 @@ const BastIcon: FC<IBastIconProps> = ({ name, className }) => {
 
   if (!IconComponent) return null;
 
-  return <IconComponent className={className} />;
+  return <IconComponent className={`${clsx(['icon', className && className])}`} />;
 };
 
 export { BastIcon };
