@@ -23,12 +23,13 @@
     align-items: center;
   }
 
-  &__logo {
+  svg.icon.header__logo {
     --height: 2em;
     --width: 8.375em;
     height: var(--height);
     min-width: var(--height);
     display: inline-block;
+    color: var(--white-color);
 
     &--bast {
       min-width: var(--width);

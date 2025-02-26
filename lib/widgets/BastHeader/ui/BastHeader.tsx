@@ -8,7 +8,7 @@ const BastHeader: FC<
   Pick<ComponentProps<'header'>, 'style' | 'className' | 'children' | 'id'> & {
     logo?: 'bast' | 'skat';
   }
-> = ({ logo = 'skat', className, children, ...props }) => (
+> = ({ logo = 'bast', className, children, ...props }) => (
   <header className={`${clsx(['header', className && className])}`} {...props}>
     <Container>
       <BastIcon
