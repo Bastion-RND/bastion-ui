@@ -1,0 +1,25 @@
+:root {
+  --popover-gap: .325rem;
+  --popover-content-background-color: var(--gray-color-25);
+
+  /** PADDING **/
+  --popover-content-padding-horizontal: .875rem;
+  --popover-content-padding-vertical: .625rem;
+
+  /** BORDER **/
+  --popover-content-border-radius: var(--radius-small);
+  --popover-animation: popover-animation .3s ease;
+}
+
+:root[data-theme="dark"] {
+  --popover-content-background-color: var(--gray-color-900);
+}
+
+@keyframes popover-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

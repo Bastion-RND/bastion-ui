@@ -1,0 +1,27 @@
+.popover {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+
+  &__content {
+    position: absolute;
+    z-index: 1;
+    background-color: var(--popover-content-background-color);
+    border-radius: var(--popover-content-border-radius);
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+
+    & * {
+      min-width: 100%;
+    }
+
+    &--open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      animation: var(--popover-animation);
+    }
+  }
+}

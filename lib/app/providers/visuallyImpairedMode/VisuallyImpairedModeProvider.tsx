@@ -7,7 +7,7 @@ import {
 } from '../../../entities/visuallyImpairedMode';
 
 const VisuallyImpairedModeProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [, setVisuallyImpairedMode] = useState<boolean>(() =>
+  const [isVisuallyImpairedMode, setVisuallyImpairedMode] = useState<boolean>(() =>
     getInitialVisualImpairedMode(),
   );
 
@@ -26,7 +26,13 @@ const VisuallyImpairedModeProvider: FC<PropsWithChildren> = ({ children }) => {
     });
   };
 
-  const visuallyImpairedModeContextValue = useMemo(() => ({ toggleVisualImpairedMode }), []);
+  const visuallyImpairedModeContextValue = useMemo(
+    () => ({
+      isVisuallyImpairedMode,
+      toggleVisualImpairedMode,
+    }),
+    [isVisuallyImpairedMode],
+  );
 
   return (
     <VisualImpairedModeContext.Provider value={visuallyImpairedModeContextValue}>

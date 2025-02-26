@@ -17,6 +17,7 @@ const meta = {
         <BastListComponent.Item>Элемент списка 3</BastListComponent.Item>
       </>
     ),
+    inset: false,
   },
 } satisfies Meta<typeof BastListComponent>;
 
@@ -25,6 +26,9 @@ type Story = StoryObj<typeof meta>;
 
 export const BastList: Story = {
   args: {},
+  argTypes: {
+
+  }
 };
 BastList.parameters = {
   docs: {

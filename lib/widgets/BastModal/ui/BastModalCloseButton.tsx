@@ -10,6 +10,7 @@ const BastModalCloseButton: FC<Omit<ComponentProps<typeof BastButton>, 'children
 }) => (
   <BastButton
     fill="cleared"
+    shape='round'
     iconOnly
     {...props}
     className={`${clsx(['modal__close-button', className && className])}`}

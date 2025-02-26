@@ -13,6 +13,19 @@
   box-shadow: var(--list-shadow);
   background-color: var(--list-background-color);
 
+  &--inset {
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+
+    .list__item {
+      &:hover {
+        background-color: transparent;
+        opacity: .7;
+      }
+    }
+  }
+
   &__item {
     text-decoration: none;
     display: flex;

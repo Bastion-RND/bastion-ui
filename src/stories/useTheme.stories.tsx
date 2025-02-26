@@ -4,7 +4,7 @@ import { BastButton } from '../../lib/entities/BastButton';
 import { useTheme as useThemeHook } from '../../lib/features/toggleTheme';
 
 const ExampleComponent = () => {
-  const toggleTheme = useThemeHook();
+  const { toggleTheme } = useThemeHook();
 
   return (
     <BastButton color="gray" fill="filled" expand onClick={toggleTheme}>
@@ -21,13 +21,14 @@ const meta = {
     docs: {
       source: {
         code: `
-const toggleTheme = useThemeHook();
+  const { toggleTheme, theme } = useTheme();
 
-return (
-  <BastButton color="gray" fill="filled" expand onClick={toggleTheme}>
-    Toggle theme
-  </BastButton>
-);`,
+  return (
+    <BastButton color="gray" fill="filled" expand onClick={toggleTheme}>
+      Toggle theme
+    </BastButton>
+  );
+)`,
       },
     },
   },

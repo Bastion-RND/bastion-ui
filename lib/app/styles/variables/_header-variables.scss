@@ -1,0 +1,16 @@
+header {
+    /** COLORS **/
+  --header-background-color: var(--brand-color-500);
+  --header-text-color: var(--white-color);
+
+  /** BORDERS **/
+  --header-border-radius: var(--radius-medium);
+
+  /** PADDINGS **/
+  --header-padding-vertical: 1.185em;
+  --header-padding-horizontal: 4em;
+}
+
+header[data-theme="dark"] {
+    --header-background-color: var(--brand-color-600);
+}

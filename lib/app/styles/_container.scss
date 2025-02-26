@@ -2,8 +2,8 @@
 
 .container {
   max-width: var(--container-width-xs);
-  height: 100%;
-  margin: auto;
+  margin: 0 auto;
+  width: 100%;
 
   @media (min-width: globals.$sm) {
     max-width: var(--container-width-sm);
