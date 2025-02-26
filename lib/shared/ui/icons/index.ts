@@ -1,6 +1,8 @@
 import {
   AlertCircleIcon,
   AlertIcon,
+  ArrowTopIcon,
+  BackIcon,
   BastIcon,
   BastLogoFullIcon,
   BatteryChargingEmptyIcon,
@@ -24,29 +26,38 @@ import {
   CloudIcon,
   ConnectIcon,
   CurrentIcon,
+  EcoIcon,
   EmailIcon,
+  FireIcon,
   FlashIcon,
   GlassesIcon,
   LocationIcon,
+  LockIcon,
   LogInIcon,
   LogOutIcon,
   MoonIcon,
   MoreVerticalIcon,
+  NextIcon,
   OptionsIcon,
   PersonIcon,
   PhoneIcon,
+  ProcessorIcon,
   RainIcon,
+  ReloadIcon,
+  RepeatIcon,
   ScanIcon,
   SettingsIcon,
   ShieldIcon,
   SkatLogoFullIcon,
   SnowIcon,
+  SocketIcon,
+  SoundIcon,
+  SoundOffIcon,
   SpinnerIcon,
   SunIcon,
   TimeIcon,
   WaterIcon,
-  WiFiIcon,
-} from '../../assets';
+  WiFiIcon} from '../../assets';
 import { TBastColor } from '../../lib';
 
 export const Icons = {
@@ -97,6 +108,18 @@ export const Icons = {
   BatteryChargingQuarter: BatteryChargingQuarterIcon,
   BatteryChargingFull: BatteryChargingFullIcon,
   BatteryChargingEmpty: BatteryChargingEmptyIcon,
+  Sound: SoundIcon,
+  Processor: ProcessorIcon,
+  Eco: EcoIcon,
+  Fire: FireIcon,
+  Lock: LockIcon,
+  ArrowTop: ArrowTopIcon,
+  Socket: SocketIcon,
+  SoundOff: SoundOffIcon,
+  Back: BackIcon,
+  Next: NextIcon,
+  Reload: ReloadIcon,
+  Repeat: RepeatIcon
 };
 
 export type TIcons = keyof typeof Icons;
