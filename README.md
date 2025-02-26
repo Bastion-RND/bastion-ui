@@ -1,5 +1,4 @@
 # bastion-ui
-___
 
 This component library is designed for use in building user interfaces for applications within the Bastion ecosystem.
 
@@ -7,6 +6,7 @@ This component library is designed for use in building user interfaces for appli
 
 - [Installation](#installation)
 - [Initialization](#initialization)
+- [Maintainer](#maintainer)
 - [Contributing](#contributing)
 - [License](#license)
 
