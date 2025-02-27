@@ -20,6 +20,7 @@ import { BastIcon } from '../lib/entities/BastIcon';
 import { BastList } from '../lib/entities/BastList';
 import { BastProgress } from '../lib/entities/BastProgress';
 import { BastSpinner } from '../lib/entities/BastSpinner';
+import { MoreVerticalIcon } from '../lib/shared/assets';
 import { Icons } from '../lib/shared/ui/icons';
 import { BastDialog } from '../lib/widgets/BastDialog';
 import { BastPopover } from '../lib/widgets/BastPopover';
@@ -309,8 +310,8 @@ const App: FC = () => {
                 </BastList>
               }
             >
-              <BastButton fill="filled" color="success">
-                Hover me
+              <BastButton iconOnly>
+                <MoreVerticalIcon />
               </BastButton>
             </BastPopover>
           </div>

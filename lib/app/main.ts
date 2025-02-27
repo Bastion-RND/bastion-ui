@@ -10,6 +10,7 @@ export { BastRadio } from '../entities/BastRadio';
 export { BastSpinner } from '../entities/BastSpinner';
 export { useTheme } from '../features/toggleTheme';
 export { useVisualImpairedMode } from '../features/toggleVisuallyImpairedMode';
+export type { TBastColor, TWithBastColor } from '../shared/lib/utilityTypes/color';
 export { Container } from '../shared/ui/container';
 export { Label } from '../shared/ui/label';
 export { ModalCard } from '../shared/ui/modalCard';
