@@ -29,8 +29,11 @@
   --radius-large: 2.25rem;
   --radius-full: 50%;
 
+  /** PADDING **/
+  --container-padding: 2rem;
+
   /** CONTAINER **/
-  --container-width-xs: calc(100% - calc(30px * 2));
+  --container-width-xs: calc(100% - calc(var(--container-padding) * 2));
   --container-width-sm: 540px;
   --container-width-md: 720px;
   --container-width-lg: 960px;

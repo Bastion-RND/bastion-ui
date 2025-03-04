@@ -11,6 +11,16 @@
   --modal-card-content-padding: 0.5rem;
   --modal-card-background: white;
 
+  /** SIZES **/
+  --modal-card-max-width-xs: 20rem;
+  --modal-card-max-width-sm: 24rem;
+  --modal-card-max-width-md: 28rem;
+  --modal-card-max-width-lg: 32rem;
+  --modal-card-max-width-xl: 36rem;
+  --modal-card-max-width-2xl: 40rem;
+  --modal-card-max-width-3xl: 48rem;
+  --modal-card-max-width-4xl: 56rem;
+
   @each $color in globals.$colors {
     --modal-card-background-color-first-circle-#{"" + $color}: var(--#{"" + $color}-color-25);
     --modal-card-background-color-second-circle-#{"" + $color}: var(--#{"" + $color}-color-50);

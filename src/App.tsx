@@ -4,7 +4,8 @@ import { ChangeEvent, FC, useState } from 'react';
 
 import {
   BastAccordion,
-  BastAccordionGroup, BastBatteryIndicator,
+  BastAccordionGroup,
+  BastBatteryIndicator,
   BastButton,
   BastDropdown,
   BastFooter,
@@ -20,6 +21,7 @@ import { BastIcon } from '../lib/entities/BastIcon';
 import { BastList } from '../lib/entities/BastList';
 import { BastProgress } from '../lib/entities/BastProgress';
 import { BastSpinner } from '../lib/entities/BastSpinner';
+import { MoreVerticalIcon } from '../lib/shared/assets';
 import { Icons } from '../lib/shared/ui/icons';
 import { BastDialog } from '../lib/widgets/BastDialog';
 import { BastPopover } from '../lib/widgets/BastPopover';
@@ -53,7 +55,11 @@ const App: FC = () => {
       <main>
         <Container>
           <BastBatteryIndicator isCharging percent={50} />
-          <BastModal isOpen={isModalOpen} onClose={() => setModalOpen((prevState) => !prevState)}>
+          <BastModal
+            size='md'
+            isOpen={isModalOpen}
+            onClose={() => setModalOpen((prevState) => !prevState)}
+          >
             <BastModal.Header>
               <BastModal.Icon color="brand">
                 <BastIcon name="Bast" />
@@ -117,6 +123,18 @@ const App: FC = () => {
               Confirm
             </BastButton>
             <BastButton fill="cleared" size="small">
+              Confirm
+            </BastButton>
+          </div>
+
+          <div style={gridStyles}>
+            <BastButton disabled size="small">
+              Confirm
+            </BastButton>
+            <BastButton disabled fill="outlined" size="small">
+              Confirm
+            </BastButton>
+            <BastButton disabled fill="cleared" size="small">
               Confirm
             </BastButton>
           </div>
@@ -309,8 +327,8 @@ const App: FC = () => {
                 </BastList>
               }
             >
-              <BastButton fill="filled" color="success">
-                Hover me
+              <BastButton iconOnly>
+                <MoreVerticalIcon />
               </BastButton>
             </BastPopover>
           </div>

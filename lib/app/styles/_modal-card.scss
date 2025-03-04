@@ -5,7 +5,54 @@
   border-radius: var(--modal-card-border-radius);
   background-color: var(--modal-card-background);
   box-shadow: var(--modal-card-shadow);
-  min-width: min(calc(100vw - calc(var(--modal-card-padding) * 2)), 400px);
+  width: 100%;
+  height: fit-content;
+
+  &--auto {
+    min-width: min(calc(100vw - calc(var(--modal-card-padding) * 2)), var(--modal-card-max-width-xs));
+    width: fit-content;
+  }
+
+  &--xs {
+    max-width: var(--modal-card-max-width-xs);
+  }
+
+  &--sm {
+    max-width: var(--modal-card-max-width-sm);
+  }
+
+  &--md {
+    max-width: var(--modal-card-max-width-md);
+  }
+
+  &--lg {
+    max-width: var(--modal-card-max-width-lg);
+  }
+
+  &--xl {
+    max-width: var(--modal-card-max-width-xl);
+  }
+
+  &--2xl {
+    max-width: var(--modal-card-max-width-2xl);
+  }
+
+  &--3xl {
+    max-width: var(--modal-card-max-width-3xl);
+  }
+
+  &--4xl {
+    max-width: var(--modal-card-max-width-4xl);
+  }
+
+  &--5xl {
+    max-width: var();
+  }
+
+  &--full {
+    height: calc(100% - calc(var(--container-padding) * 2));
+    @include mixins.container-width;
+  }
 
   &__title {
     color: var(--modal-card-title-color);
