@@ -123,6 +123,16 @@ const App: FC = () => {
           </div>
 
           <div style={gridStyles}>
+            <BastButton disabled size="small">Confirm</BastButton>
+            <BastButton disabled fill="outlined" size="small">
+              Confirm
+            </BastButton>
+            <BastButton disabled fill="cleared" size="small">
+              Confirm
+            </BastButton>
+          </div>
+
+          <div style={gridStyles}>
             <BastInputGroup>
               <BastInputGroup.Label>Debounced</BastInputGroup.Label>
               <BastInputGroup.Input

@@ -15,7 +15,8 @@
   width: fit-content;
 
   &:disabled {
-    cursor: default;
+    cursor: not-allowed;
+    opacity: .5;
   }
 
   &--small {
