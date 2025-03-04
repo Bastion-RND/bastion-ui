@@ -29,7 +29,7 @@ type TBastPopoverProps = PropsWithChildren<
   } & Pick<ComponentProps<'div'>, 'className' | 'style' | 'id'>
 >;
 
-const ANIMATION_DELAY = 300;
+const ANIMATION_DELAY = 150;
 
 const BastPopover: FC<TBastPopoverProps> = ({
   children,

@@ -86,3 +86,6 @@ export { default as TrashIcon } from './trash.svg?react';
 export { default as USBIcon } from './USB.svg?react';
 export { default as WaterIcon } from './water.svg?react';
 export { default as WiFiIcon } from './wifi.svg?react';
+export { default as BastIdFilledIcon } from './bastID-filled.svg?react';
+export { default as BastIdClearedIcon } from './bastID-cleared.svg?react';
+export { default as BastIdOutlinedIcon } from './bastID-outlined.svg?react';

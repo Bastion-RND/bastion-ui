@@ -86,6 +86,9 @@ import {
   USBIcon,
   WaterIcon,
   WiFiIcon,
+  BastIdFilledIcon,
+  BastIdOutlinedIcon,
+  BastIdClearedIcon,
 } from '../../assets';
 import { TBastColor } from '../../lib';
 
@@ -177,6 +180,9 @@ export const Icons = {
   Trash: TrashIcon,
   USB: USBIcon,
   SmallScreen: SmallScreenIcon,
+  BastIdFilled: BastIdFilledIcon,
+  BastIdOutlined: BastIdOutlinedIcon,
+  BastIdCleared: BastIdClearedIcon,
 };
 
 export type TIcons = keyof typeof Icons;
