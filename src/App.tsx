@@ -4,7 +4,8 @@ import { ChangeEvent, FC, useState } from 'react';
 
 import {
   BastAccordion,
-  BastAccordionGroup, BastBatteryIndicator,
+  BastAccordionGroup,
+  BastBatteryIndicator,
   BastButton,
   BastDropdown,
   BastFooter,
@@ -54,7 +55,11 @@ const App: FC = () => {
       <main>
         <Container>
           <BastBatteryIndicator isCharging percent={50} />
-          <BastModal isOpen={isModalOpen} onClose={() => setModalOpen((prevState) => !prevState)}>
+          <BastModal
+            size='full'
+            isOpen={isModalOpen}
+            onClose={() => setModalOpen((prevState) => !prevState)}
+          >
             <BastModal.Header>
               <BastModal.Icon color="brand">
                 <BastIcon name="Bast" />
@@ -123,7 +128,9 @@ const App: FC = () => {
           </div>
 
           <div style={gridStyles}>
-            <BastButton disabled size="small">Confirm</BastButton>
+            <BastButton disabled size="small">
+              Confirm
+            </BastButton>
             <BastButton disabled fill="outlined" size="small">
               Confirm
             </BastButton>
