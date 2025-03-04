@@ -29,7 +29,7 @@ type TBastPopoverProps = PropsWithChildren<
   } & Pick<ComponentProps<'div'>, 'className' | 'style' | 'id'>
 >;
 
-const ANIMATION_DELAY = 300;
+const ANIMATION_DELAY = 150;
 
 const BastPopover: FC<TBastPopoverProps> = ({
   children,
@@ -106,17 +106,18 @@ const BastPopover: FC<TBastPopoverProps> = ({
       >
         {children}
       </div>
-      <Portal>
-        <div
-          ref={contentWrapperRef}
-          className={clsx(['popover__content', isOpen && 'popover__content--open'])}
-          style={styles.popper}
-          hidden={!isOpenDebounced}
-          {...attributes.popper}
-        >
-          {content}
-        </div>
-      </Portal>
+      {isOpen && (
+        <Portal>
+          <div
+            ref={contentWrapperRef}
+            className={clsx(['popover__content', isOpenDebounced && 'popover__content--open'])}
+            style={styles.popper}
+            {...attributes.popper}
+          >
+            {content}
+          </div>
+        </Portal>
+      )}
     </div>
   );
 };

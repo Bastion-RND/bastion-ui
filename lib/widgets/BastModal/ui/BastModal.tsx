@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ComponentType, FC, MouseEvent, PropsWithChildren } from 'react';
+import { ComponentProps, ComponentType, FC, MouseEvent, PropsWithChildren } from 'react';
 
 import { Backdrop } from '../../../shared/ui/backdrop';
 import { TWithPortalArgs, withPortal } from '../../../shared/ui/hocs/withPortal';
@@ -12,13 +12,14 @@ type TBastModalProps = PropsWithChildren<{
   closeButton?: boolean;
   backdropDismiss?: boolean;
   onClose?: () => void;
-}>;
+}> & Pick<ComponentProps<typeof ModalCard>, 'size'>;
 
 const BastModalWithoutPortal: FC<TBastModalProps> = ({
   closeButton = true,
   backdropDismiss = true,
   isOpen,
   onClose,
+  size,
   children,
 }) => {
   const handleCloseModal = (e: MouseEvent<HTMLButtonElement>) => {
@@ -29,6 +30,7 @@ const BastModalWithoutPortal: FC<TBastModalProps> = ({
   return (
     <Backdrop show={isOpen} onDismiss={backdropDismiss ? onClose : undefined}>
       <ModalCard
+        size={size}
         onClick={(e) => e.stopPropagation()}
         className={clsx(['modal', isOpen && 'modal--active'])}
       >

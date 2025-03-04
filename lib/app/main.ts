@@ -14,6 +14,7 @@ export type { TBastColor, TWithBastColor } from '../shared/lib/utilityTypes/colo
 export { Container } from '../shared/ui/container';
 export { Label } from '../shared/ui/label';
 export { ModalCard } from '../shared/ui/modalCard';
+export { Portal } from '../shared/ui/portal';
 export { BastAccordionGroup } from '../widgets/BastAccordionGroup';
 export { BastBatteryIndicator } from '../widgets/BastBatteryIndicator';
 export { BastDialog } from '../widgets/BastDialog';

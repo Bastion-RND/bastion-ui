@@ -8,15 +8,19 @@ import { ModalCardIcon } from './ModalCardIcon';
 import { ModalCardTitle } from './ModalCardTitle';
 
 export type TModalCardStaticProps = {
-  Title: typeof ModalCardTitle,
-  Header: typeof ModalCardHeader,
-  Content: typeof ModalCardContent,
-  Footer: typeof ModalCardFooter,
-  Icon: typeof ModalCardIcon,
-}
+  Title: typeof ModalCardTitle;
+  Header: typeof ModalCardHeader;
+  Content: typeof ModalCardContent;
+  Footer: typeof ModalCardFooter;
+  Icon: typeof ModalCardIcon;
+};
 
-const ModalCard: FC<ComponentProps<'div'>> & TModalCardStaticProps = ({ className, ...props }) => (
-  <div className={`${clsx(['modal-card', className && className])}`} {...props} />
+type TModalCardProps = ComponentProps<'div'> & {
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | 'full' | 'auto';
+};
+
+const ModalCard: FC<TModalCardProps> & TModalCardStaticProps = ({ className, size = 'auto', ...props }) => (
+  <div className={`${clsx(['modal-card', className && className, size && `modal-card--${size}`])}`} {...props} />
 );
 
 ModalCard.Title = ModalCardTitle;
