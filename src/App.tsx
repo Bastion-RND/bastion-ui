@@ -56,7 +56,7 @@ const App: FC = () => {
         <Container>
           <BastBatteryIndicator isCharging percent={50} />
           <BastModal
-            size='full'
+            size='md'
             isOpen={isModalOpen}
             onClose={() => setModalOpen((prevState) => !prevState)}
           >

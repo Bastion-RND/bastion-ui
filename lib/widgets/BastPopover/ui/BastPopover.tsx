@@ -106,17 +106,18 @@ const BastPopover: FC<TBastPopoverProps> = ({
       >
         {children}
       </div>
-      <Portal>
-        <div
-          ref={contentWrapperRef}
-          className={clsx(['popover__content', isOpen && 'popover__content--open'])}
-          style={styles.popper}
-          hidden={!isOpenDebounced}
-          {...attributes.popper}
-        >
-          {content}
-        </div>
-      </Portal>
+      {isOpen && (
+        <Portal>
+          <div
+            ref={contentWrapperRef}
+            className={clsx(['popover__content', isOpenDebounced && 'popover__content--open'])}
+            style={styles.popper}
+            {...attributes.popper}
+          >
+            {content}
+          </div>
+        </Portal>
+      )}
     </div>
   );
 };
