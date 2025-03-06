@@ -2,9 +2,9 @@ import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { ComponentProps, useEffect, useState } from 'react';
 
-import { BastButton } from '../../lib/entities/BastButton';
-import { BastIcon } from '../../lib/entities/BastIcon';
-import { BastModal as BastModalComponent } from '../../lib/widgets/BastModal';
+import { BastButton } from '../../lib/entities/button';
+import { BastIcon } from '../../lib/entities/icon';
+import { BastModal as BastModalComponent } from '../../lib/widgets/modal';
 
 const ExampleComponent = ({
   isOpen: isOpenFromProps,

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { BastBatteryIndicator as BastBatteryIndicatorComponent } from '../../lib/widgets/BastBatteryIndicator';
+import { BastBatteryIndicator as BastBatteryIndicatorComponent } from '../../lib/widgets/batteryIndicator';
 
 const meta = {
   title: 'Business/BastBatteryIndicator',

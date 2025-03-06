@@ -5,6 +5,9 @@ import {
   ArrowTopIcon,
   BackIcon,
   BastIcon,
+  BastIdClearedIcon,
+  BastIdFilledIcon,
+  BastIdOutlinedIcon,
   BastLogoFullIcon,
   BatteryChargingEmptyIcon,
   BatteryChargingFullIcon,
@@ -86,9 +89,6 @@ import {
   USBIcon,
   WaterIcon,
   WiFiIcon,
-  BastIdFilledIcon,
-  BastIdOutlinedIcon,
-  BastIdClearedIcon,
 } from '../../assets';
 import { TBastColor } from '../../lib';
 

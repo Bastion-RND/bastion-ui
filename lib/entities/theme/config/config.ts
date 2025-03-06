@@ -1,4 +1,4 @@
-import { TValuesFromLiteral } from '../../../shared/lib/utilityTypes/literalFromValues';
+import { TValuesFromLiteral } from '../../../shared/lib/utilityTypes';
 
 export const LOCAL_STORAGE_THEME_KEY = 'theme';
 

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { BastInput } from '../../lib/entities/BastInput';
+import { BastInput } from '../../lib/entities/input';
 import { withLabel } from '../../lib/shared/ui/hocs';
 
 const ComponentWithLabel = withLabel(BastInput);

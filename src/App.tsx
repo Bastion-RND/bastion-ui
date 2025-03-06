@@ -17,16 +17,16 @@ import {
   useTheme,
   useVisualImpairedMode,
 } from '../lib/app/main';
-import { BastIcon } from '../lib/entities/BastIcon';
-import { BastList } from '../lib/entities/BastList';
-import { BastProgress } from '../lib/entities/BastProgress';
-import { BastSpinner } from '../lib/entities/BastSpinner';
+import { BastIcon } from '../lib/entities/icon';
+import { BastList } from '../lib/entities/list';
+import { BastProgress } from '../lib/entities/progress';
+import { BastSpinner } from '../lib/entities/spinner';
 import { MoreVerticalIcon } from '../lib/shared/assets';
 import { Icons } from '../lib/shared/ui/icons';
-import { BastDialog } from '../lib/widgets/BastDialog';
-import { BastPopover } from '../lib/widgets/BastPopover';
-import { BastTabsItem } from '../lib/widgets/BastTabs/ui/BastTabsItem';
-import { useToast } from '../lib/widgets/BastToast';
+import { BastDialog } from '../lib/widgets/dialog';
+import { BastPopover } from '../lib/widgets/popover';
+import { BastTabsItem } from '../lib/widgets/tabs/ui/BastTabsItem';
+import { useToast } from '../lib/widgets/toast';
 
 const gridStyles = {
   display: 'grid',

@@ -1,1 +1,1 @@
-export { ModalCard } from './ui/ModalCard';
+export * from './ModalCard';

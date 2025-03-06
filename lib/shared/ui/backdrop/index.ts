@@ -1,1 +1,1 @@
-export { Backdrop } from './ui/Backdrop';
+export { Backdrop } from './Backdrop';

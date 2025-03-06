@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { BastAccordion as BastAccordionComponent } from '../../lib/entities/BastAccordion';
+import { BastAccordion as BastAccordionComponent } from '../../lib/entities/accordion';
 
 const meta = {
   title: 'Business/BastAccordion',

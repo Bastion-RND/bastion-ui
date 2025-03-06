@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import { BastButton as BastButtonComponent } from '../../lib/entities/BastButton';
+import { BastButton as BastButtonComponent } from '../../lib/entities/button';
 import { Icons } from '../../lib/shared/ui/icons';
 
 const meta = {

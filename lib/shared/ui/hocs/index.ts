@@ -1,1 +1,2 @@
-export { withLabel } from './withLabel';
+export * from './withLabel';
+export * from './withPortal';

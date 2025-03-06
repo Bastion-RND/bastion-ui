@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { BastButton } from '../../lib/entities/BastButton';
-import { TToastItem, useToast as useToastHook } from '../../lib/widgets/BastToast';
+import { BastButton } from '../../lib/entities/button';
+import { TToastItem, useToast as useToastHook } from '../../lib/widgets/toast';
 
 const ExampleComponent = (props: TToastItem) => {
   const { createToast } = useToastHook();
@@ -25,12 +25,11 @@ const meta = {
 
 return (
   <BastButton
-    ...
     onClick={() =>
     createToast({
       color: 'success',
       autoClose: false,
-      text: 'Какое-то прикольное уведомление',
+      text: 'Какое-то прикольное уведомление'
     })}
   >
     Make toast
