@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { BastInputGroup as BastInputGroupComponent } from '../../lib/widgets/BastInputGroup';
+import { BastInputGroup as BastInputGroupComponent } from '../../lib/widgets/inputGroup';
 
 const meta = {
   title: 'Business/BastInputGroup',

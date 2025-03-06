@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { BastIcon as BastIconComponent } from '../../lib/entities/BastIcon';
+import { BastIcon as BastIconComponent } from '../../lib/entities/icon';
 
 const meta = {
   title: 'Business/BastIcon',

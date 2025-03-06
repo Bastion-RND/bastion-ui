@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import { BastToastWithoutPortal } from '../../lib/widgets/BastToast';
+import { BastToastWithoutPortal } from '../../lib/widgets/toast';
 
 const meta = {
   title: 'Business/BastToast',

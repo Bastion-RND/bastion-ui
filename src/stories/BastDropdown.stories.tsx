@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import { BastDropdown as BastDropdownComponent } from '../../lib/widgets/BastDropdown';
+import { BastDropdown as BastDropdownComponent } from '../../lib/widgets/dropdown';
 
 const meta = {
   title: 'Business/BastDropdown',

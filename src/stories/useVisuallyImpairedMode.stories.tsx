@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { BastButton } from '../../lib/entities/BastButton';
+import { BastButton } from '../../lib/entities/button';
 import { useVisualImpairedMode as useVisualImpairedModeHook } from '../../lib/features/toggleVisuallyImpairedMode';
 
 const ExampleComponent = () => {

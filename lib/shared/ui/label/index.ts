@@ -1,1 +1,2 @@
-export { Label } from './ui/Label';
+export * from './Label';
+export * from './Sublabel';

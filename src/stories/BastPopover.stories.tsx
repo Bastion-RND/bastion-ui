@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { BastButton } from '../../lib/entities/BastButton';
-import { BastList } from '../../lib/entities/BastList';
-import { BastPopover as BastPopoverComponent } from '../../lib/widgets/BastPopover';
+import { BastButton } from '../../lib/entities/button';
+import { BastList } from '../../lib/entities/list';
+import { BastPopover as BastPopoverComponent } from '../../lib/widgets/popover';
 
 const meta = {
   title: 'Business/BastPopover',

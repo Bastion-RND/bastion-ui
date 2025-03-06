@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import { BastCheck as BastCheckComponent } from '../../lib/entities/BastCheck';
+import { BastCheck as BastCheckComponent } from '../../lib/entities/check';
 
 const meta = {
   title: 'Business/BastCheck',

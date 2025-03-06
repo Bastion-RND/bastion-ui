@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import { BastInput as BastInputComponent } from '../../lib/entities/BastInput';
+import { BastInput as BastInputComponent } from '../../lib/entities/input';
 
 const meta = {
   title: 'Business/BastInput',
