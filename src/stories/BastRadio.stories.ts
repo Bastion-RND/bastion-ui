@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import { BastRadio as BastRadioComponent } from '../../lib/entities/BastRadio';
+import { BastRadio as BastRadioComponent } from '../../lib/entities/radio';
 
 const meta = {
   title: 'Business/BastRadio',

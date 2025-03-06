@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { BastCard as BastCardComponent } from '../../lib/entities/BastCard';
+import { BastCard as BastCardComponent } from '../../lib/entities/card';
 import src from './assets/cardImage.png';
 
 const meta = {

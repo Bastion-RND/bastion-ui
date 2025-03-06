@@ -2,7 +2,7 @@ import { createContext, useContext } from 'react';
 
 import { TTheme } from '../config/config';
 
-type TThemeContext = {
+export type TThemeContext = {
   theme: TTheme;
   toggleTheme: () => void;
 };

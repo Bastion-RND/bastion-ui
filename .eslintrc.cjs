@@ -11,6 +11,8 @@ module.exports = {
     'android/*',
     'dist/*',
     'vite.config.ts',
+    'steiger.config.js',
+    'src'
   ],
   parserOptions: {
     ecmaVersion: 2020,

@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { ComponentProps, useEffect, useState } from 'react';
 
-import { BastDialog as BastDialogComponent } from '../../lib/widgets/BastDialog';
+import { BastDialog as BastDialogComponent } from '../../lib/widgets/dialog';
 
 const ExampleComponent = ({
   isOpen: isOpenFromProps,

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { BastList as BastListComponent } from '../../lib/entities/BastList';
+import { BastList as BastListComponent } from '../../lib/entities/list';
 
 const meta = {
   title: 'Business/BastList',

@@ -2,14 +2,11 @@ import { FC, PropsWithChildren, useCallback, useMemo, useState } from 'react';
 
 import {
   BastToast,
+  ToastActionsContext,
   ToastValueContext,
   TToastActionsContextProps,
   TToastItem,
-} from '../../../widgets/BastToast';
-import {
-  ToastActionsContext,
-  TToastValueContextProps,
-} from '../../../widgets/BastToast/model/ToastValueContext';
+  TToastValueContextProps} from '../../../widgets/toast';
 
 const ToastProvider: FC<PropsWithChildren> = ({ children }) => {
   const [toasts, setToasts] = useState<Record<string, TToastItem>>({});

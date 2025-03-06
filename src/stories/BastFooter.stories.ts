@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { BastFooter as BastFooterComponent } from '../../lib/widgets/BastFooter';
+import { BastFooter as BastFooterComponent } from '../../lib/widgets/footer';
 
 const meta = {
   title: 'Business/BastFooter',
