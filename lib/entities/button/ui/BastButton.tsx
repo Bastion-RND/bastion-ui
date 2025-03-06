@@ -3,7 +3,7 @@ import { ComponentPropsWithRef, FC, PropsWithChildren } from 'react';
 
 import type { TBastColor } from '../../../shared/lib';
 
-interface IBastButtonProps
+export interface IBastButtonProps
   extends Omit<ComponentPropsWithRef<'button'>, 'type'>,
     PropsWithChildren {
   fill?: 'filled' | 'outlined' | 'cleared';

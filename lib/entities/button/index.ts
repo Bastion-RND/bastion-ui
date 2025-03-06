@@ -1,1 +1,1 @@
-export { BastButton } from './ui/BastButton';
+export * from './ui/BastButton';

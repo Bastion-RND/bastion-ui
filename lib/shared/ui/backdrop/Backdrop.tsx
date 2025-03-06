@@ -1,7 +1,9 @@
 import clsx from 'clsx';
 import { FC, PropsWithChildren } from 'react';
 
-const Backdrop: FC<PropsWithChildren<{ show?: boolean; onDismiss?: () => void }>> = ({
+type TBackdropProps = PropsWithChildren<{ show?: boolean; onDismiss?: () => void }>;
+
+const Backdrop: FC<TBackdropProps> = ({
   children,
   show,
   onDismiss,

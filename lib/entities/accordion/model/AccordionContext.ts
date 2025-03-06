@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-type TAccordionContext = {
+export type TAccordionContext = {
   multiple?: boolean;
   disabled?: boolean;
   openedAccordions: Set<string>;

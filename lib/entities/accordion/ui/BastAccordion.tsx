@@ -14,7 +14,7 @@ import { debounceFunction } from '../../../shared/lib';
 import { Icons } from '../../../shared/ui/icons';
 import { useAccordionContext } from '../model/AccordionContext';
 
-type TBastAccordionProps = PropsWithChildren<{
+export type TBastAccordionProps = PropsWithChildren<{
   id?: string;
   title: string;
   disabled?: boolean;
