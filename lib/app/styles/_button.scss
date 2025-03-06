@@ -14,6 +14,10 @@
   justify-content: center;
   width: fit-content;
 
+  svg {
+    color: currentColor;
+  }
+
   &:disabled {
     cursor: not-allowed;
     opacity: .5;
