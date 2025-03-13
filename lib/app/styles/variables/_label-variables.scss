@@ -2,7 +2,6 @@ label {
   /** TEXT COLORS **/
   --label-text-color: var(--gray-color-800);
   --lebel-text-color-disabled: var(--gray-color-300);
-  --lebel-wrapper-text-color-disabled: var(--gray-color-200);
 
   /** DIMENSIONS **/
   --label-padding: 0.125rem 0 0.125rem 0.75rem;
@@ -10,5 +9,6 @@ label {
 }
 
 :root {
+  --label-wrapper-text-color-disabled: var(--gray-color-200);
   --label-wrapper-gap: 0.375rem;
 }

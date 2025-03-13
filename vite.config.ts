@@ -19,7 +19,7 @@ export default defineConfig({
     tsconfigPaths(),
     dts({ exclude: ['**/*.stories.tsx'] }),
     viteStaticCopy({
-      targets: [{ src: 'lib/app/styles', dest: './' }],
+      targets: [{ src: 'lib/app/styles/_globals.scss', dest: './styles' }],
     }),
   ],
   build: {
