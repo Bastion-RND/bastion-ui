@@ -91,7 +91,7 @@ button, input[type="submit"] {
     --color-#{"" + $color}-filled-background-active: var(--#{"" + $color}-color-600);
     --color-#{"" + $color}-filled-text-active: var(--white-color);
     --color-#{"" + $color}-filled-border-active: transparent;
-    --color-#{"" + $color}-filled-outline-active: var(--#{"" + $color}-color-150);
+    --color-#{"" + $color}-filled-outline-active: var(--#{"" + $color}-color-200);
 
     --color-#{"" + $color}-filled-background-hover: var(--#{"" + $color}-color-500);
     --color-#{"" + $color}-filled-text-hover: var(--white-color);
@@ -101,7 +101,7 @@ button, input[type="submit"] {
     --color-#{"" + $color}-filled-background-focus: var(--#{"" + $color}-color-600);
     --color-#{"" + $color}-filled-text-focus: var(--white-color);
     --color-#{"" + $color}-filled-border-focus: transparent;
-    --color-#{"" + $color}-filled-outline-focus: var(--#{"" + $color}-color-150);
+    --color-#{"" + $color}-filled-outline-focus: var(--#{"" + $color}-color-200);
 
     /** OUTLINED **/
     --color-#{"" + $color}-outlined-background: var(--#{"" + $color}-color-50);
