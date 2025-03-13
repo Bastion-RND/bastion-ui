@@ -28,27 +28,53 @@ export const RightArrow = () => <svg
   </div>
   <div className="sb-section">
       <div className="sb-section-item">
-      <h4 className="sb-section-item-heading">Инициализация</h4>
-      <div data-radix-scroll-area-content="" style={{ minWidth: 'fit-content' }}>
+        <h4 className="sb-section-item-heading">Инициализация</h4>
+        <div data-radix-scroll-area-content="" style={{ minWidth: 'fit-content' }}>
           <p>Перед использованием UI-кита в проекте - оберните корневой элемент в провайдер и импортируйте корневой файл со стилями</p>
-           <pre style={{ backgroundColor: 'rgba(0, 0, 0, .85)', padding: '20px' }}>
-                        <div style={{ whiteSpace: 'pre' }}>
-                            <span>`import '@bs-solutions/bastion-ui/bastion-ui.scss';`</span>
-                            <br/>
-                            <br/>
-                            <span>`...`</span>
-                            <br/>
-                            <br/>
-                            <span>`<BastUiProvider>`</span>
-                            <br/>
-                            <span className="code-contrast">`    <App />`</span>
-                            <br/>
-                            <span>`</BastUiProvider>`</span>
-                        </div>
-                    </pre>
+            <pre style={{ backgroundColor: 'rgba(0, 0, 0, .85)', padding: '20px' }}>
+                <div style={{ whiteSpace: 'pre' }}>
+                    <span>`import '@bs-solutions/bastion-ui/bastion-ui.css';`</span>
+                    <br/>
+                    <br/>
+                    <span>`...`</span>
+                    <br/>
+                    <br/>
+                    <span>`<BastUiProvider>`</span>
+                    <br/>
+                    <span className="code-contrast">`    <App />`</span>
+                    <br/>
+                    <span>`</BastUiProvider>`</span>
+                </div>
+           </pre>
       </div>
    </div>
    </div>
+   <div className="sb-section">
+         <div className="sb-section-item">
+           <h4 className="sb-section-item-heading">Использование глобальных переменных</h4>
+           <div data-radix-scroll-area-content="" style={{ minWidth: 'fit-content' }}>
+             <p>Если вы используете <strong><i>sass</i></strong> в вашем проекте, то вы можете получить доступ к глобальным переменным библиотеки <strong><i>bastion-ui</i></strong>.</p>
+               <pre style={{ backgroundColor: 'rgba(0, 0, 0, .85)', padding: '20px' }}>
+                   <div style={{ whiteSpace: 'pre' }}>
+                       <span>`// <YOUR_STYLES_FILE>.scss`</span>
+                       <br/>
+                       <br/>
+                       <span>`@use "@bs-solutions/bastion-ui/dist/styles/_globals.scss" as bs-globals;`</span>
+                       <br/>
+                       <br/>
+                       <span>`...`</span>
+                       <br/>
+                       <br/>
+                       <span>
+                           `@media (width >= globals.$xl) {`
+                           `    margin-top: 0;`
+                           `}`
+                       </span>
+                   </div>
+              </pre>
+         </div>
+      </div>
+      </div>
     <div className="sb-section">
     <div className="sb-section-item">
       <h4 className="sb-section-item-heading">Макет и исходники</h4>

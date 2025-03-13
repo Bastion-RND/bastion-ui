@@ -24,7 +24,7 @@
     ".": {
       "import": "./dist/app/main.js"
     },
-    "./bastion-ui.scss": "./dist/styles/bastion-ui.scss",
+    "./bastion-ui.css": "./dist/styles/bastion-ui.css",
     "./dist/styles/_globals.scss": "./dist/styles/_globals.scss"
   },
   "module": "./dist/app/main.js",
@@ -35,7 +35,8 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "del-cli dist -f",
-    "build": "tsc -b && vite build",
+    "build:css": "sass ./lib/app/styles:./dist/styles --no-source-map",
+    "build": "tsc -b && vite build && npm run build:css",
     "lint:fsd": "npx steiger ./lib",
     "lint": "eslint .",
     "preview": "vite preview",

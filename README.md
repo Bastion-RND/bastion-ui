@@ -26,7 +26,7 @@ To use the project, follow these steps:
 - import the styles file at the root of your application.
 ```js
 // root file
-import '@bs-solutions/bastion-ui/bastion-ui.scss';
+import '@bs-solutions/bastion-ui/bastion-ui.css';
 ```
 - wrap the entire application in the `BastUiProvider`.
 ```js
@@ -34,6 +34,15 @@ import '@bs-solutions/bastion-ui/bastion-ui.scss';
 <BastUiProvider>
   <App />
 </BastUiProvider>
+```
+- if `sass` is installed in your project, use the global `bastion-ui` variables in your `.scss` or `.sass` files like in example bellow.
+```scss
+// @eslint-ignore
+@use '@bs-solutions/bastion-ui/dist/styles/_globals.scss' as bs-globals;
+
+@media (width >= bs-globals.$xl) {
+  margin-top: 0;
+}
 ```
 
 ## Maintainer
