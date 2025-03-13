@@ -36,8 +36,9 @@ import '@bs-solutions/bastion-ui/bastion-ui.css';
 </BastUiProvider>
 ```
 - if `sass` is installed in your project, use the global `bastion-ui` variables in your `.scss` or `.sass` files like in example bellow.
-```
-@use '@bs-solutions/bastion-ui/dist/styles/_globals.scss' as bs-globals;
+
+```scss
+@use "@bs-solutions/bastion-ui/dist/styles/_globals.scss" as bs-globals;
 
 @media (width >= bs-globals.$xl) {
   margin-top: 0;
