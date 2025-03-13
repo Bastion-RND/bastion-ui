@@ -23,6 +23,12 @@ type Story = StoryObj<typeof meta>;
 export const BastAccordion: Story = {
   args: {},
   argTypes: {
+    title: {
+      control: 'object',
+      table: {
+        type: { summary: 'ReactNode' },
+      },
+    },
     children: {
       control: 'object',
       table: {

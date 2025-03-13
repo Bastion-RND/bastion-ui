@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import {
   ChangeEvent,
   FC,
-  PropsWithChildren,
+  PropsWithChildren, ReactNode,
   useEffect,
   useId,
   useLayoutEffect,
@@ -16,7 +16,7 @@ import { useAccordionContext } from '../model/AccordionContext';
 
 export type TBastAccordionProps = PropsWithChildren<{
   id?: string;
-  title: string;
+  title: ReactNode;
   disabled?: boolean;
   expanded?: boolean;
   initialExpanded?: boolean;

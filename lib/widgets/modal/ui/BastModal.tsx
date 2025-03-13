@@ -9,13 +9,14 @@ import { BastModalCloseButton } from './BastModalCloseButton';
 
 type TBastModalProps = PropsWithChildren<{
   isOpen: boolean;
-  closeButton?: boolean;
+  hideCloseButton?: boolean;
   backdropDismiss?: boolean;
   onClose?: () => void;
-}> & Pick<ComponentProps<typeof ModalCard>, 'size'>;
+}> &
+  Pick<ComponentProps<typeof ModalCard>, 'size'>;
 
 const BastModalWithoutPortal: FC<TBastModalProps> = ({
-  closeButton = true,
+  hideCloseButton = false,
   backdropDismiss = true,
   isOpen,
   onClose,
@@ -34,7 +35,7 @@ const BastModalWithoutPortal: FC<TBastModalProps> = ({
         onClick={(e) => e.stopPropagation()}
         className={clsx(['modal', isOpen && 'modal--active'])}
       >
-        {closeButton && <BastModalCloseButton onClick={handleCloseModal} />}
+        {!hideCloseButton && <BastModalCloseButton onClick={handleCloseModal} />}
         {children}
       </ModalCard>
     </Backdrop>

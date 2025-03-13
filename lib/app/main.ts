@@ -10,6 +10,7 @@ export * from '../entities/radio';
 export * from '../entities/spinner';
 export * from '../features/toggleTheme';
 export * from '../features/toggleVisuallyImpairedMode';
+export * from '../shared/lib/utilityTypes';
 export * from '../shared/ui/container';
 export * from '../shared/ui/label';
 export * from '../shared/ui/modalCard';
