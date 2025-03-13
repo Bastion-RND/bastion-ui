@@ -26,7 +26,7 @@ To use the project, follow these steps:
 - import the styles file at the root of your application.
 ```js
 // root file
-import 'bastion-ui/bastion-ui.scss';
+import '@bs-solutions/bastion-ui/bastion-ui.scss';
 ```
 - wrap the entire application in the `BastUiProvider`.
 ```js
