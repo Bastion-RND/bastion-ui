@@ -37,7 +37,7 @@ const meta = {
     docs: {
       source: {
         code: `
-<BastModal isOpen={isModalOpen} onClose={() => {}}>
+<BastModal isOpen={false} onClose={() => {}}>
   <BastModal.Header>
     <BastModal.Icon color="brand"> // Set color of icon here
       <BastIcon name="Bast" />
@@ -62,6 +62,9 @@ const meta = {
   args: {
     isOpen: false,
     onClose: fn,
+    backdropDismiss: false,
+    size: '3xl',
+    hideCloseButton: false,
     children: (
       <>
         <BastModalComponent.Header>
@@ -88,5 +91,22 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 export const BastModal: Story = {
   args: {},
-  argTypes: {},
+  argTypes: {
+    size: {
+      control: 'select',
+      options: [
+        'xs',
+        'sm',
+        'md',
+        'lg',
+        'xl',
+        '2xl',
+        '3xl',
+        '4xl',
+        '5xl',
+        'full',
+        'auto'
+      ],
+    },
+  },
 };
