@@ -86,6 +86,7 @@ import {
   TimeIcon,
   TimerIcon,
   TrashIcon,
+  TwoChevronsIcon,
   USBIcon,
   WaterIcon,
   WiFiIcon,
@@ -183,6 +184,7 @@ export const Icons = {
   BastIdFilled: BastIdFilledIcon,
   BastIdOutlined: BastIdOutlinedIcon,
   BastIdCleared: BastIdClearedIcon,
+  TwoChevrons: TwoChevronsIcon,
 };
 
 export type TIcons = keyof typeof Icons;

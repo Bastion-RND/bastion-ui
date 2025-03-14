@@ -86,6 +86,7 @@ export { default as SunIcon } from './sun.svg?react';
 export { default as TimeIcon } from './time.svg?react';
 export { default as TimerIcon } from './timer.svg?react';
 export { default as TrashIcon } from './trash.svg?react';
+export { default as TwoChevronsIcon } from './twoChevrons.svg?react';
 export { default as USBIcon } from './USB.svg?react';
 export { default as WaterIcon } from './water.svg?react';
 export { default as WiFiIcon } from './wifi.svg?react';
