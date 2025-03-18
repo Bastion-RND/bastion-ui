@@ -9,7 +9,14 @@ const meta = {
     layout: 'fullscreen',
   },
   tags: ['autodocs', 'utility'],
-  args: { children: 'Any content', className: '', style: {}, id: '' },
+  args: {
+    children: 'Any content',
+    className: '',
+    style: {},
+    id: '',
+    isFloating: false,
+    color: 'brand',
+  },
 } satisfies Meta<typeof BastFooterComponent>;
 
 export default meta;

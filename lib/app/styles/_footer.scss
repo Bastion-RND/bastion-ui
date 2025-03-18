@@ -6,6 +6,16 @@
   padding: var(--footer-padding-vertical) 0;
   margin-top: auto;
 
+  &--gray {
+    background-color: var(--footer-gray-background-color);
+  }
+
+  &--floating {
+    --margin: var(--footer-floating-margin);
+    margin: var(--margin);
+    border-radius: var(--footer-border-radius);
+  }
+
   .container {
     display: flex;
     align-items: center;

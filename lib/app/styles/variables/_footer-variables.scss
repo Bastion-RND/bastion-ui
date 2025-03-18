@@ -1,6 +1,7 @@
 footer {
   /** COLORS **/
   --footer-background-color: var(--brand-color-500);
+  --footer-gray-background-color: var(--gray-color-500);
   --footer-text-color: var(--white-color);
 
   /** BORDERS **/
@@ -9,8 +10,10 @@ footer {
   /** PADDINGS **/
   --footer-padding-vertical: 1.185em;
   --footer-padding-horizontal: 4em;
+  --footer-floating-margin: 2rem;
 }
 
 footer[data-theme="dark"] {
   --footer-background-color: var(--brand-color-600);
+  --footer-gray-background-color: var(--gray-color-600);
 }
