@@ -9,12 +9,24 @@ const meta = {
     layout: 'fullscreen',
   },
   tags: ['autodocs', 'utility'],
-  args: { logo: 'bast', children: 'Any content', className: '', style: {}, id: '' },
+  args: {
+    logo: 'bast',
+    children: 'Any content',
+    className: '',
+    isFloating: false,
+    style: {},
+    id: '',
+  },
 } satisfies Meta<typeof BastHeaderComponent>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const BastHeader: Story = {
   args: {},
-  argTypes: {},
+  argTypes: {
+    logo: {
+      control: 'select',
+      options: ['bast', 'skat', undefined],
+    }
+  },
 };

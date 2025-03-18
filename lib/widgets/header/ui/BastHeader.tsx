@@ -12,7 +12,7 @@ const BastHeader: FC<
   }
 > = ({ logo, className, children, color = 'brand', isFloating, ...props }) => (
   <header
-    className={`${clsx(['header', isFloating && 'header--floating', color && 'header--gray', className && className])}`}
+    className={`${clsx(['header', isFloating && 'header--floating', color === 'gray' && 'header--gray', className && className])}`}
     {...props}
   >
     <Container>

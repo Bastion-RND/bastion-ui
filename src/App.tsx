@@ -12,7 +12,7 @@ const App: FC = () => {
      flexDirection: 'column',
      gap: '10px',
    }}>
-     <BastHeader isFloating color='gray'>
+     <BastHeader isFloating>
        <div>Text</div>
      </BastHeader>
      <BastButton iconOnly>
