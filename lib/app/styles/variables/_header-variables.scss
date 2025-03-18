@@ -1,6 +1,7 @@
 header {
-    /** COLORS **/
+  /** COLORS **/
   --header-background-color: var(--brand-color-500);
+  --header-gray-background-color: var(--gray-color-500);
   --header-text-color: var(--white-color);
 
   /** BORDERS **/
@@ -9,8 +10,10 @@ header {
   /** PADDINGS **/
   --header-padding-vertical: 1.185em;
   --header-padding-horizontal: 4em;
+  --header-floating-margin: 2rem;
 }
 
 header[data-theme="dark"] {
-    --header-background-color: var(--brand-color-600);
+  --header-background-color: var(--brand-color-600);
+  --header-gray-background-color: var(--gray-color-600);
 }

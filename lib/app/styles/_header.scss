@@ -11,6 +11,17 @@
   gap: 1em;
   z-index: 1;
 
+  &--gray {
+    background-color: var(--header-gray-background-color);
+  }
+
+  &--floating {
+    --margin: var(--header-floating-margin);
+    margin: var(--margin);
+    top: var(--margin);
+    border-radius: var(--header-border-radius);
+  }
+
   .container {
     display: flex;
     gap: 1em;
