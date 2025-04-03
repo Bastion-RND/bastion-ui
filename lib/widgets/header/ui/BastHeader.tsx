@@ -9,13 +9,14 @@ const BastHeader: FC<
     logo?: 'bast' | 'skat';
     isFloating?: boolean;
     color?: 'brand' | 'gray';
+    fluid?: boolean;
   }
-> = ({ logo, className, children, color = 'brand', isFloating, ...props }) => (
+> = ({ logo, className, children, color = 'brand', isFloating, fluid, ...props }) => (
   <header
     className={`${clsx(['header', isFloating && 'header--floating', color === 'gray' && 'header--gray', className && className])}`}
     {...props}
   >
-    <Container>
+    <Container fluid={fluid}>
       {logo && (
         <BastIcon
           className={`${clsx(['header__logo', `header__logo--${logo}`])}`}
