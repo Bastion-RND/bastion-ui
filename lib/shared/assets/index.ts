@@ -26,6 +26,8 @@ export { default as CellularIcon } from './cellular.svg?react';
 export { default as ChargeIcon } from './charge.svg?react';
 export { default as CheckIcon } from './check.svg?react';
 export { default as CheckCircleIcon } from './check-circle.svg?react';
+export { default as ChevronLeftIcon } from './chevron-left.svg?react';
+export { default as ChevronRightIcon } from './chevron-right.svg?react';
 export { default as ChevronUpIcon } from './chevron-up.svg?react';
 export { default as CircleIcon } from './circle.svg?react';
 export { default as CircleFilledIcon } from './circle-filled.svg?react';
