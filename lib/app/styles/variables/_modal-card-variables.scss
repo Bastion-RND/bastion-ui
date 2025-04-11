@@ -22,6 +22,7 @@
   --modal-card-max-width-4xl: 56rem;
 
   @each $color in globals.$colors {
+    // TODO: обработать white dark
     --modal-card-background-color-first-circle-#{"" + $color}: var(--#{"" + $color}-color-25);
     --modal-card-background-color-second-circle-#{"" + $color}: var(--#{"" + $color}-color-50);
     --modal-card-icon-color-#{"" + $color}: var(--#{"" + $color}-color-500);
@@ -34,6 +35,7 @@
   --modal-card-content-color: var(--gray-color-300);
 
   @each $color in globals.$colors {
+    // TODO: обработать white dark
     --modal-card-background-color-first-circle-#{"" + $color}: var(--#{"" + $color}-color-200);
     --modal-card-background-color-second-circle-#{"" + $color}: var(--#{"" + $color}-color-300);
     --modal-card-icon-color-#{"" + $color}: var(--#{"" + $color}-color-25);

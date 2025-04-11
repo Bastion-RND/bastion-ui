@@ -13,6 +13,7 @@
   --toast-card-text-color-default: var(--gray-color-600);
 
   @each $color in globals.$colors {
+    // TODO: обработать white dark
     --toast-text-color-#{"" + $color}: var(--#{"" + $color}-color-600);
     --toast-card-background-color-#{"" + $color}: var(--#{"" + $color}-color-25);
     --toast-card-border-color-#{"" + $color}: var(--#{"" + $color}-color-400);
@@ -23,6 +24,7 @@
   --toast-card-text-color-default: var(--gray-color-25);
 
   @each $color in globals.$colors {
+    // TODO: обработать white dark
     --toast-text-color-#{"" + $color}: var(--#{"" + $color}-color-25);
     --toast-card-background-color-#{"" + $color}: var(--#{"" + $color}-color-400);
     --toast-card-border-color-#{"" + $color}: var(--#{"" + $color}-color-600);
