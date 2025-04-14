@@ -1,7 +1,7 @@
 ul, li {
   /** BORDER **/
   --list-border-radius: var(--radius-small);
-  --list-border-color: var(--gray-color-200);
+  --list-border-color: var(--color-gray-200);
   --list-border-width: 2px;
 
   /** PADDING **/
@@ -10,7 +10,7 @@ ul, li {
   --list-item-gap: 0.5rem;
 
   /** COLOR **/
-  --list-background-color-hover: var(--gray-color-25);
+  --list-background-color-hover: var(--color-gray-25);
   --list-background-color: white;
 
   /** SHADOW **/
@@ -23,6 +23,6 @@ ul, li {
 :root[data-theme="dark"] ul,
 :root[data-theme="dark"] li {
   --list-border-color: var(--dropdown-border-color);
-  --list-background-color-hover: var(--gray-color-900);
-  --list-background-color: var(--gray-color-1000);
+  --list-background-color-hover: var(--color-gray-900);
+  --list-background-color: var(--color-gray-1000);
 }
