@@ -10,35 +10,35 @@
   --toast-card-wrapper-padding: 1rem 0 0 0;
   --toast-card-wrapper-gap: 1rem;
   --toast-card-icon-size: 1rem;
-  --toast-card-text-color-default: var(--gray-color-600);
+  --toast-card-text-color-default: var(--color-gray-600);
 
   @each $color in globals.$colors {
     @if $color == black {
-      --toast-text-color-#{"" + $color}: var(--white-color);
-      --toast-card-background-color-#{"" + $color}: var(--gray-color-1200);
-      --toast-card-border-color-#{"" + $color}: var(--gray-color-1200);
+      --toast-text-color-#{"" + $color}: var(--color-white);
+      --toast-card-background-color-#{"" + $color}: var(--color-gray-1200);
+      --toast-card-border-color-#{"" + $color}: var(--color-gray-1200);
     } @else if $color == white {
-      --toast-text-color-#{"" + $color}: var(--gray-color-1200);
-      --toast-card-background-color-#{"" + $color}: var(--gray-color-25);
-      --toast-card-border-color-#{"" + $color}: var(--gray-color-25);
+      --toast-text-color-#{"" + $color}: var(--color-gray-1200);
+      --toast-card-background-color-#{"" + $color}: var(--color-gray-25);
+      --toast-card-border-color-#{"" + $color}: var(--color-gray-25);
     } @else {
-      --toast-text-color-#{"" + $color}: var(--#{"" + $color}-color-600);
-      --toast-card-background-color-#{"" + $color}: var(--#{"" + $color}-color-25);
-      --toast-card-border-color-#{"" + $color}: var(--#{"" + $color}-color-400);
+      --toast-text-color-#{"" + $color}: var(--color-#{"" + $color}-600);
+      --toast-card-background-color-#{"" + $color}: var(--color-#{"" + $color}-25);
+      --toast-card-border-color-#{"" + $color}: var(--color-#{"" + $color}-400);
     }
   }
 }
 
 :root[data-theme="dark"] {
-  --toast-card-text-color-default: var(--gray-color-25);
+  --toast-card-text-color-default: var(--color-gray-25);
 
   @each $color in globals.$colors {
     @if $color == black {}
     @else if $color == white {}
     @else {
-      --toast-text-color-#{"" + $color}: var(--#{"" + $color}-color-25);
-      --toast-card-background-color-#{"" + $color}: var(--#{"" + $color}-color-400);
-      --toast-card-border-color-#{"" + $color}: var(--#{"" + $color}-color-600);
+      --toast-text-color-#{"" + $color}: var(--color-#{"" + $color}-25);
+      --toast-card-background-color-#{"" + $color}: var(--color-#{"" + $color}-400);
+      --toast-card-border-color-#{"" + $color}: var(--color-#{"" + $color}-600);
     }
   }
 }

@@ -4,15 +4,15 @@ input:not([type="submit"]):not([type="checkbox"]) {
 
   /** BORDER **/
   --input-border-radius: var(--radius-small);
-  --input-border-color: var(--brand-color-200);
+  --input-border-color: var(--color-brand-200);
   --input-border-width: 2px;
 
   /** SHADOW **/
-  --input-box-shadow: 0 0 5px 1px var(--brand-color-25);
+  --input-box-shadow: 0 0 5px 1px var(--color-brand-25);
 
-  --input-border-color-focus: var(--brand-color-500);
+  --input-border-color-focus: var(--color-brand-500);
 
-  --input-border-color-disabled: var(--gray-color-300);
+  --input-border-color-disabled: var(--color-gray-300);
 
   /** PADDINGS **/
   --input-horizontal-padding: .875rem;
@@ -20,15 +20,15 @@ input:not([type="submit"]):not([type="checkbox"]) {
 
   /** TEXT **/
   --input-default-font-size: large;
-  --input-text-color: var(--gray-color-300);
+  --input-text-color: var(--color-gray-300);
 
   --input-background-color: white;
 }
 
 :root[data-theme="dark"] input:not([type="submit"]):not([type="checkbox"]) {
-  --input-border-color: var(--brand-color-300);
-  --input-border-color-focus: var(--brand-color-600);
-  --input-border-color-disabled: var(--gray-color-400);
-  --input-text-color: var(--gray-color-400);
-  --input-background-color: var(--gray-color-700);
+  --input-border-color: var(--color-brand-300);
+  --input-border-color-focus: var(--color-brand-600);
+  --input-border-color-disabled: var(--color-gray-400);
+  --input-text-color: var(--color-gray-400);
+  --input-background-color: var(--color-gray-700);
 }
