@@ -94,3 +94,33 @@
     max-width: var(--container-width-xxl);
   }
 }
+
+@mixin h1 {
+  --font-size-min: 1.625rem;
+  --font-size-max: 2.5rem;
+  --font-size-prefer: 1.25rem + 1.04vw;
+}
+
+@mixin h2 {
+  --font-size-min: 1.25rem;
+  --font-size-max: 1.875rem;
+  --font-size-prefer: 0.982rem + 0.74vw;
+}
+
+@mixin h3 {
+  --font-size-min: 1rem;
+  --font-size-max: 1.5rem;
+  --font-size-prefer: 0.786rem + 0.6vw;
+}
+
+@mixin h4 {
+  --font-size-min: 0.875rem;
+  --font-size-max: 1.125rem;
+  --font-size-prefer: 0.768rem + 0.3vw;
+}
+
+@mixin h5 {
+  --font-size-min: 0.688rem;
+  --font-size-max: 0.875rem;
+  --font-size-prefer: 0.607rem + 0.22vw;
+}
