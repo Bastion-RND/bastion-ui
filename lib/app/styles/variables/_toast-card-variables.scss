@@ -13,9 +13,19 @@
   --toast-card-text-color-default: var(--gray-color-600);
 
   @each $color in globals.$colors {
-    --toast-text-color-#{"" + $color}: var(--#{"" + $color}-color-600);
-    --toast-card-background-color-#{"" + $color}: var(--#{"" + $color}-color-25);
-    --toast-card-border-color-#{"" + $color}: var(--#{"" + $color}-color-400);
+    @if $color == black {
+      --toast-text-color-#{"" + $color}: var(--white-color);
+      --toast-card-background-color-#{"" + $color}: var(--gray-color-1200);
+      --toast-card-border-color-#{"" + $color}: var(--gray-color-1200);
+    } @else if $color == white {
+      --toast-text-color-#{"" + $color}: var(--gray-color-1200);
+      --toast-card-background-color-#{"" + $color}: var(--gray-color-25);
+      --toast-card-border-color-#{"" + $color}: var(--gray-color-25);
+    } @else {
+      --toast-text-color-#{"" + $color}: var(--#{"" + $color}-color-600);
+      --toast-card-background-color-#{"" + $color}: var(--#{"" + $color}-color-25);
+      --toast-card-border-color-#{"" + $color}: var(--#{"" + $color}-color-400);
+    }
   }
 }
 
@@ -23,9 +33,13 @@
   --toast-card-text-color-default: var(--gray-color-25);
 
   @each $color in globals.$colors {
-    --toast-text-color-#{"" + $color}: var(--#{"" + $color}-color-25);
-    --toast-card-background-color-#{"" + $color}: var(--#{"" + $color}-color-400);
-    --toast-card-border-color-#{"" + $color}: var(--#{"" + $color}-color-600);
+    @if $color == black {}
+    @else if $color == white {}
+    @else {
+      --toast-text-color-#{"" + $color}: var(--#{"" + $color}-color-25);
+      --toast-card-background-color-#{"" + $color}: var(--#{"" + $color}-color-400);
+      --toast-card-border-color-#{"" + $color}: var(--#{"" + $color}-color-600);
+    }
   }
 }
 

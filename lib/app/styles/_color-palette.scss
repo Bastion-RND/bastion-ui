@@ -73,6 +73,9 @@
     /** WHITE **/
     --white-color: #FFFFFF;
     --background-color: var(--white-color);
+
+    /** BLACK **/
+    --black-color: #000000; // TODO: Уточнить
 }
 
 :root[data-theme="dark"] {

@@ -1,3 +1,3 @@
-export type TBastColor = 'brand' | 'gray' | 'success' | 'warning' | 'danger';
+export type TBastColor = 'brand' | 'gray' | 'success' | 'warning' | 'danger' | 'black' | 'white';
 
 export type TWithBastColor<Type = object> = Type & { color?: TBastColor };
