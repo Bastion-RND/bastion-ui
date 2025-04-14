@@ -189,7 +189,7 @@ export const Icons = {
 
 export type TIcons = keyof typeof Icons;
 
-export const BAST_ICONS_BY_COLOR: Record<TBastColor, TIcons> = {
+export const BAST_ICONS_BY_COLOR: Partial<Record<TBastColor, TIcons>> = {
   brand: 'Bast',
   gray: 'Bast',
   warning: 'Alert',
