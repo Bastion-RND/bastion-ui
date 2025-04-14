@@ -1,4 +1,3 @@
-@use "sass:map";
 @use "../globals" as globals;
 
 button, input[type="submit"] {
@@ -209,7 +208,9 @@ button, input[type="submit"] {
 :root[data-theme="dark"] button,
 :root[data-theme="dark"] input[type="submit"] {
   @each $color in globals.$colors {
-    @if $color != black {
+    @if $color == black {}
+    @else if $color == white {}
+    @else {
       /** FILLED **/
       --color-#{"" + $color}-filled-background: var(--#{"" + $color}-color-600);
       --color-#{"" + $color}-filled-text: var(--white-color);
