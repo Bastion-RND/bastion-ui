@@ -25,7 +25,7 @@ export const BastToast: Story = {
   argTypes: {
     color: {
       control: 'select',
-      options: ['brand', 'gray', 'success', 'warning', 'danger'],
+      options: ['brand', 'gray', 'success', 'warning', 'danger', 'white', 'black'],
       table: {
         type: { summary: 'brand | gray | success | warning | danger' },
       },
