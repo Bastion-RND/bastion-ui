@@ -1,5 +1,7 @@
 @use "mixins" as mixins;
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
 /**
  Расчеты значения clam расчитывались с помощью ресурса https://min-max-calculator.9elements.com/
  - min-viewport = 576px;
@@ -10,8 +12,10 @@
   @include mixins.fluid-text;
 }
 
-html {
+html, body {
   font-size: var(--font-size);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
 h1 {
@@ -42,4 +46,6 @@ q {
 
 h1, h2, h3, h4, h5, q, p, label {
   color: var(--text-color);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
 }
