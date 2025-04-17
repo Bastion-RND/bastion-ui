@@ -2,23 +2,23 @@ input[type="checkbox"] {
   /** BORDER **/
   --check-border-radius: var(--radius-x-small);
   --check-border-width: 2px;
-  --check-border-color: var(--gray-color-300);
-  --check-border-color-focus: var(--brand-color-300);
-  --check-border-color-checked: var(--brand-color-500);
-  --check-border-color-disabled: var(--gray-color-100);
+  --check-border-color: var(--color-gray-300);
+  --check-border-color-focus: var(--color-brand-300);
+  --check-border-color-checked: var(--color-brand-500);
+  --check-border-color-disabled: var(--color-gray-100);
   --radius-x-small: 0.375rem;
 
   /** BACKGROUND **/
   --check-background-color: transparent;
-  --check-background-color-focus: var(--brand-color-25);
-  --check-background-color-checked: var(--brand-color-25);
-  --check-background-color-disabled: var(--gray-color-50);
+  --check-background-color-focus: var(--color-brand-25);
+  --check-background-color-checked: var(--color-brand-25);
+  --check-background-color-disabled: var(--color-gray-50);
 
   /** OUTLINE **/
   --check-outline-width: 3px;
   --check-outline-color: transparent;
-  --check-outline-color-focus: var(--brand-color-100);
-  --check-outline-color-checked: var(--brand-color-100);
+  --check-outline-color-focus: var(--color-brand-100);
+  --check-outline-color-checked: var(--color-brand-100);
   --check-outline-color-disabled: transparent;
 
   /** DIMENSIONS **/
@@ -38,19 +38,19 @@ input[type="checkbox"] {
   --check-mark-transition: opacity 0.3s ease, transform 0.3s ease;
 
   /** TEXT **/
-  --check-disabled-text-color: var(--gray-color-200);
+  --check-disabled-text-color: var(--color-gray-200);
 }
 
 :root[data-theme="dark"] input[type='checkbox'] {
-  --check-background-color: var(--white-color);
-  --check-background-color-focus: var(--brand-color-50);
-  --check-background-color-checked: var(--brand-color-50);
-  --check-background-color-disabled: var(--gray-color-50);
+  --check-background-color: var(--color-white);
+  --check-background-color-focus: var(--color-brand-50);
+  --check-background-color-checked: var(--color-brand-50);
+  --check-background-color-disabled: var(--color-gray-50);
 
-  --check-border-color: var(--gray-color-400);
-  --check-border-color-focus: var(--brand-color-400);
-  --check-border-color-checked: var(--brand-color-600);
-  --check-border-color-disabled: var(--gray-color-200);
+  --check-border-color: var(--color-gray-400);
+  --check-border-color-focus: var(--color-brand-400);
+  --check-border-color-checked: var(--color-brand-600);
+  --check-border-color-disabled: var(--color-gray-200);
 
-  --check-disabled-text-color: var(--gray-color-300);
+  --check-disabled-text-color: var(--color-gray-300);
 }

@@ -1,8 +1,8 @@
 footer {
   /** COLORS **/
-  --footer-background-color: var(--brand-color-500);
-  --footer-gray-background-color: var(--gray-color-500);
-  --footer-text-color: var(--white-color);
+  --footer-background-color: var(--color-brand-500);
+  --footer-gray-background-color: var(--color-gray-500);
+  --footer-text-color: var(--color-white);
 
   /** BORDERS **/
   --footer-border-radius: var(--radius-medium);
@@ -14,6 +14,6 @@ footer {
 }
 
 footer[data-theme="dark"] {
-  --footer-background-color: var(--brand-color-600);
-  --footer-gray-background-color: var(--gray-color-600);
+  --footer-background-color: var(--color-brand-600);
+  --footer-gray-background-color: var(--color-gray-600);
 }

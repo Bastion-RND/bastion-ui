@@ -1,8 +1,8 @@
 header {
   /** COLORS **/
-  --header-background-color: var(--brand-color-500);
-  --header-gray-background-color: var(--gray-color-500);
-  --header-text-color: var(--white-color);
+  --header-background-color: var(--color-brand-500);
+  --header-gray-background-color: var(--color-gray-500);
+  --header-text-color: var(--color-white);
 
   /** BORDERS **/
   --header-border-radius: var(--radius-medium);
@@ -14,6 +14,6 @@ header {
 }
 
 header[data-theme="dark"] {
-  --header-background-color: var(--brand-color-600);
-  --header-gray-background-color: var(--gray-color-600);
+  --header-background-color: var(--color-brand-600);
+  --header-gray-background-color: var(--color-gray-600);
 }

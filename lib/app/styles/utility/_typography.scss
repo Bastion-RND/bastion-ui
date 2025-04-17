@@ -1,0 +1,43 @@
+@use "../mixins" as mixins;
+
+.h1, .fs-1 {
+  @include mixins.h1;
+}
+
+.h2, .fs-2 {
+  @include mixins.h2;
+}
+
+.h3, .fs-3 {
+  @include mixins.h3;
+}
+
+.h4, .fs-4 {
+  @include mixins.h4;
+}
+
+.h5, .fs-5 {
+  @include mixins.h5;
+}
+
+.fw {
+  &-normal {
+    font-weight: 400;
+  }
+  &-medium {
+    font-weight: 500;
+  }
+}
+
+
+.ta {
+  &-c {
+    text-align: center;
+  }
+  &-s {
+    text-align: left;
+  }
+  &-e {
+    text-align: right;
+  }
+}

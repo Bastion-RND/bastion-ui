@@ -28,7 +28,8 @@ const BastDialog: FC<TBastDialog> = ({
   onClose,
   color = 'gray',
 }) => {
-  const Icon = Icons[BAST_ICONS_BY_COLOR[color]];
+  const iconByColor = BAST_ICONS_BY_COLOR[color] ?? null;
+  const Icon = iconByColor !== null ? Icons[iconByColor] : null;
 
   return (
     <Backdrop show={isOpen}>
