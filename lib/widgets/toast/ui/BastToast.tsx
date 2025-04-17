@@ -26,7 +26,7 @@ const BastToastWithoutPortal: FC<TBastToastProps> = ({
   const [isVisible, setVisible] = useState<boolean>(true);
   const isVisibleDebounced = useDebounce(isVisible, TOAST_ANIMATION_DURATION);
 
-  const IconByColor = Icons[BAST_ICONS_BY_COLOR[color]];
+  const IconByColor = Icons[BAST_ICONS_BY_COLOR[color]] ?? null;
 
   const handleClose = () => {
     setVisible(false);
@@ -48,7 +48,7 @@ const BastToastWithoutPortal: FC<TBastToastProps> = ({
 
   return (
     <div className={`${clsx(['toast', `toast--${color}`, isVisible && 'toast--visible'])}`}>
-      <IconByColor />
+      {IconByColor !== null && <IconByColor />}
       <h5>{text}</h5>
       <BastToastCloseButton onClick={handleClose} />
     </div>

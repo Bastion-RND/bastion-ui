@@ -22,9 +22,21 @@
   --modal-card-max-width-4xl: 56rem;
 
   @each $color in globals.$colors {
-    --modal-card-background-color-first-circle-#{"" + $color}: var(--#{"" + $color}-color-25);
-    --modal-card-background-color-second-circle-#{"" + $color}: var(--#{"" + $color}-color-50);
-    --modal-card-icon-color-#{"" + $color}: var(--#{"" + $color}-color-500);
+    @if $color == black {
+      --modal-card-background-color-first-circle-#{"" + $color}: var(--gray-color-1000);
+      --modal-card-background-color-second-circle-#{"" + $color}: var(--gray-color-1200);
+      --modal-card-icon-color-#{"" + $color}: var(--white-color);
+    }
+    @else if $color == white {
+      --modal-card-background-color-first-circle-#{"" + $color}: var(--gray-color-25);
+      --modal-card-background-color-second-circle-#{"" + $color}: var(--gray-color-50);
+      --modal-card-icon-color-#{"" + $color}: var(--gray-color-1200);
+    }
+    @else {
+      --modal-card-background-color-first-circle-#{"" + $color}: var(--#{"" + $color}-color-25);
+      --modal-card-background-color-second-circle-#{"" + $color}: var(--#{"" + $color}-color-50);
+      --modal-card-icon-color-#{"" + $color}: var(--#{"" + $color}-color-500);
+    }
   }
 }
 
@@ -34,9 +46,13 @@
   --modal-card-content-color: var(--gray-color-300);
 
   @each $color in globals.$colors {
-    --modal-card-background-color-first-circle-#{"" + $color}: var(--#{"" + $color}-color-200);
-    --modal-card-background-color-second-circle-#{"" + $color}: var(--#{"" + $color}-color-300);
-    --modal-card-icon-color-#{"" + $color}: var(--#{"" + $color}-color-25);
+    @if $color == black {}
+    @else if $color == white {}
+    @else {
+      --modal-card-background-color-first-circle-#{"" + $color}: var(--#{"" + $color}-color-200);
+      --modal-card-background-color-second-circle-#{"" + $color}: var(--#{"" + $color}-color-300);
+      --modal-card-icon-color-#{"" + $color}: var(--#{"" + $color}-color-25);
+    }
   }
 }
 
