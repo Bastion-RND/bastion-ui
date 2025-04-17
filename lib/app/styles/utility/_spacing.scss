@@ -12,7 +12,6 @@ $space-directions: (l: left, r: right, t: top, b: bottom, x: horizontal, y: vert
   } @else {
     $space-index: $space-index - 1;
   }
-
   .m {
     &-#{$space-index} {
       margin: $space;

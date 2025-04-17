@@ -40,13 +40,13 @@
   &--icon-only {
     padding: var(--button-vertical-padding);
   }
+}
 
-  @each $color in globals.$colors {
-    &.bast-button--#{"" + $color} {
-      @each $fill in globals.$fills {
-        &.bast-button--#{$fill} {
-          @include mixins.button-states("" + $color, $fill);
-        }
+@each $color in globals.$colors {
+  .bast-button--#{"" + $color} {
+    @each $fill in globals.$fills {
+      &.bast-button--#{$fill} {
+        @include mixins.button-states("" + $color, $fill);
       }
     }
   }
