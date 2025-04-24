@@ -1,0 +1,76 @@
+.action-sheet-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  contain: strict;
+}
+
+.action-sheet-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.resize-handle {
+  height: 24px;
+  width: 100%;
+  cursor: row-resize;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  touch-action: none;
+  transform: translateZ(0);
+}
+
+.resize-handle::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 4px;
+  background: #ccc;
+  border-radius: 2px;
+  margin: 8px auto;
+}
+
+.action-sheet-content {
+  animation: 0.4s ease-in alternate slide-in;
+  position: relative;
+  border-radius: var(--modal-card-border-radius) var(--modal-card-border-radius) 0 0;
+  background-color: var(--modal-card-background);
+  padding: var(--modal-card-padding);
+  box-shadow: var(--modal-card-shadow);
+  overflow-y: hidden;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: height;
+}
+
+.action-sheet-content:not(.resizing) {
+  transition: height 0.3s cubic-bezier(0.33, 0.86, 0.5, 1);
+}
+
+.action-sheet-scrollable {
+  overflow-y: auto;
+  max-height: 100%;
+  padding-top: 24px;
+}
+
+
+@keyframes slide-in {
+  from {
+    translate: 0 150vw;
+  }
+
+  to {
+    translate: 0 0;
+  }
+}
