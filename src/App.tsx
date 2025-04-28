@@ -24,8 +24,7 @@ const App: FC = () => {
         <BastIcon name="MoreVertical" />
       </BastButton>
       <BastActionSheet
-        maxHeightPercent={0.9}
-        minHeightPercent={0.3}
+        maxHeightPercent={80}
         isOpen={isActionSheetOpen}
         onClose={() => setActionSheetOpen(false)}
       >

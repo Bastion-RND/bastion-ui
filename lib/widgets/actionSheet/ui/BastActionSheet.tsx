@@ -1,26 +1,32 @@
-import clsx from 'clsx';
-import { FC, PropsWithChildren, useCallback, useEffect, useRef, useState } from 'react';
+import {
+  ComponentProps,
+  FC,
+  PropsWithChildren,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 import { Backdrop } from '../../../shared/ui/backdrop';
 import { withPortal } from '../../../shared/ui/hocs';
 
-type TBastActionSheetProps = PropsWithChildren<{
-  isOpen: boolean;
-  onClose?: () => void;
-  backdropDismiss?: boolean;
-  minHeightPercent?: number;
-  maxHeightPercent?: number;
-  initialHeightPercent?: number;
-}>;
+type TBastActionSheetProps = ComponentProps<'div'> &
+  PropsWithChildren<{
+    isOpen: boolean;
+    onClose?: () => void;
+    backdropDismiss?: boolean;
+    maxHeightPercent?: number;
+    initialHeightPercent?: number;
+  }>;
 
 const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
   isOpen,
   onClose,
   children,
   backdropDismiss = true,
-  maxHeightPercent = 0.9,
-  minHeightPercent = 0.1,
-  initialHeightPercent = 50,
+  maxHeightPercent = 90,
+  initialHeightPercent,
 }) => {
   const [height, setHeight] = useState(`auto`);
   const [isResizing, setIsResizing] = useState(false);
@@ -31,21 +37,24 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
   useEffect(() => {
     if (isOpen && contentRef.current) {
       const contentHeight = contentRef.current.scrollHeight;
-      const maxHeight = window.innerHeight * 0.9;
+      const maxHeight = (window.innerHeight * maxHeightPercent) / 100;
       const initialHeight = Math.min(contentHeight, maxHeight);
-      console.log('initialHeight', initialHeight);
-      setStartHeight(initialHeight);
+      if (initialHeightPercent) {
+        setHeight(`${window.innerHeight * (initialHeightPercent / 100)}px`);
+      } else {
+        setHeight(`${initialHeight}px`);
+      }
     }
   }, [isOpen]);
 
   const handleMouseDown = useCallback(
     (e: any) => {
+      e.preventDefault();
       e.stopPropagation();
       setIsResizing(true);
-      const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
+      const clientY = e.clientY || e.touches[0].clientY;
       setStartY(clientY);
-      setStartHeight(contentRef.current?.offsetHeight || 0);
-      console.warn(contentRef.current?.offsetHeight || 0);
+      setStartHeight(parseInt(height, 10));
     },
     [height],
   );
@@ -54,30 +63,29 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
     (e: any) => {
       if (!isResizing || !contentRef.current) return;
 
-      const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
+      const clientY = e.clientY || e.touches?.[0]?.clientY;
       if (clientY === undefined) return;
 
       const deltaY = startY - clientY;
-      const newHeight = startHeight + deltaY;
-      const maxHeight = window.innerHeight * maxHeightPercent;
-      const minHeight = window.innerHeight * minHeightPercent;
-      console.warn('startHeight', startHeight);
+      if (Math.abs(deltaY) < 5) return;
+      const newHeightPx = startHeight + deltaY;
+      const newHeight = Math.min(
+        Math.max(newHeightPx, 0),
+        window.innerHeight * (maxHeightPercent / 100),
+      );
+      if (newHeight <= 0 && onClose) onClose();
 
-      const constrainedHeight = Math.min(Math.max(newHeight, minHeight), maxHeight);
-      console.warn('constrainedHeight', constrainedHeight);
-      contentRef.current.style.height = `${constrainedHeight}px`;
+      contentRef.current.style.height = `${newHeight}px`;
     },
     [isResizing, startY, startHeight],
   );
 
   const handleMouseUp = useCallback(() => {
-    setIsResizing(false);
     if (contentRef.current) {
-      const heightPx = contentRef.current.offsetHeight;
-      const heightVh = (heightPx / window.innerHeight) * 100;
-      contentRef.current.style.height = `${heightVh}vh`;
-      setHeight(`${heightVh}vh`);
+      const finalHeight = contentRef.current.style.height;
+      setHeight(finalHeight);
     }
+    setIsResizing(false);
   }, []);
 
   useEffect(() => {
@@ -96,15 +104,6 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
     };
   }, [isResizing, handleMouseMove, handleMouseUp]);
 
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose?.();
-    };
-
-    if (isOpen) document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
-  }, [isOpen, onClose]);
-
   if (!isOpen) return null;
 
   return (
@@ -113,7 +112,7 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
         tabIndex={0}
         role="grid"
         onKeyDown={(e) => e.stopPropagation()}
-        className={clsx(['action-sheet-container', isOpen && 'open'])}
+        className="action-sheet-container"
         onClick={(e) => e.stopPropagation()}
       >
         <div
@@ -123,11 +122,7 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
           onClick={onClose}
           onKeyDown={onClose}
         />
-        <div
-          className={`action-sheet-content${isResizing ? ' resizing' : ' '}`}
-          ref={contentRef}
-          style={{ height }}
-        >
+        <div className={`action-sheet-content${isResizing ? ' resizing' : ''}`}>
           <div
             tabIndex={0}
             role="grid"
@@ -135,7 +130,9 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
             onMouseDown={handleMouseDown}
             onTouchStart={handleMouseDown}
           />
-          <div className="action-sheet-scrollable">{children}</div>
+          <div ref={contentRef} style={{ height }} className="action-sheet-scrollable">
+            {children}
+          </div>
         </div>
       </div>
     </Backdrop>
