@@ -73,7 +73,7 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
         Math.max(newHeightPx, 0),
         window.innerHeight * (maxHeightPercent / 100),
       );
-      if (newHeight <= 0 && onClose) onClose();
+      if (((newHeight <= 150 && deltaY < -50) || newHeight <= 0) && onClose) onClose();
 
       contentRef.current.style.height = `${newHeight}px`;
     },
