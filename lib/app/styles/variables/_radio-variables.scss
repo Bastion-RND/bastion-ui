@@ -2,8 +2,8 @@ input[type="radio"] {
   /** BORDER **/
   --radio-border-radius: 50%;
   --radio-border-width: 2px;
-  --radio-border-color: var(--gray-color-300);
-  --radio-border-color-focused: var(--brand-color-300);
+  --radio-border-color: var(--color-gray-300);
+  --radio-border-color-focused: var(--color-brand-300);
 
   /** DIMENSIONS **/
   --radio-width: 1.25rem;
@@ -13,13 +13,13 @@ input[type="radio"] {
   /** OUTLINE **/
   --radio-outline-width: 3px;
   --radio-outline-color: transparent;
-  --radio-outline-color-focused: var(--brand-color-100);
+  --radio-outline-color-focused: var(--color-brand-100);
 
   /** MARK **/
   --radio-mark-width: 0.5rem;
   --radio-mark-height: var(--radio-mark-width);
-  --radio-mark-color: var(--brand-color-600);
-  --radio-mark-color-disabled: var(--gray-color-600);
+  --radio-mark-color: var(--color-brand-600);
+  --radio-mark-color-disabled: var(--color-gray-600);
 
   /** TRANSITIONS **/
   --radio-border-transition: border-color 0.3s ease;
@@ -27,24 +27,24 @@ input[type="radio"] {
   --radio-mark-transition: 0.15s transform ease-in-out;
 
   /** BACKGROUND **/
-  --radio-background-color: var(--white-color);
-  --radio-background-color-checked: var(--brand-color-25);
-  --radio-background-color-focused: var(--brand-color-25);
-  --radio-background-color-disabled: var(--gray-color-50);
+  --radio-background-color: var(--color-white);
+  --radio-background-color-checked: var(--color-brand-25);
+  --radio-background-color-focused: var(--color-brand-25);
+  --radio-background-color-disabled: var(--color-gray-50);
 }
 
 :root[data-theme="dark"] input[type="radio"] {
-  --radio-border-color: var(--gray-color-700);
+  --radio-border-color: var(--color-gray-700);
   --radio-outline-color: transparent;
-  --radio-mark-color: var(--brand-color-500);
-  --radio-background-color: var(--white-color);
+  --radio-mark-color: var(--color-brand-500);
+  --radio-background-color: var(--color-white);
 
-  --radio-background-color-checked: var(--brand-color-50);
+  --radio-background-color-checked: var(--color-brand-50);
 
-  --radio-border-color-focused: var(--brand-color-400);
-  --radio-outline-color-focused: var(--brand-color-50);
+  --radio-border-color-focused: var(--color-brand-400);
+  --radio-outline-color-focused: var(--color-brand-50);
   --radio-background-color-focused: var(--radio-background-color-checked);
 
-  --radio-mark-color-disabled: var(--gray-color-100);
-  --radio-background-color-disabled: var(--white-color);
+  --radio-mark-color-disabled: var(--color-gray-100);
+  --radio-background-color-disabled: var(--color-white);
 }

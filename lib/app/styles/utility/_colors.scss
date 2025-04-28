@@ -1,0 +1,17 @@
+@use '../globals' as globals;
+
+.c {
+  @each $color in globals.$colors {
+    &-#{"" + $color} {
+      color: var(--color-#{$color});
+    }
+  }
+}
+
+.bgc {
+  @each $color in globals.$colors {
+    &-#{"" + $color} {
+      background-color: var(--color-#{$color});
+    }
+  }
+}

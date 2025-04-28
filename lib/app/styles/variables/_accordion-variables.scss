@@ -1,15 +1,15 @@
 :root {
   /** COLORS **/
-  --accordion-text-color: var(--gray-color-800);
-  --accordion-color-disabled: var(--gray-color-300);
-  --accordion-icon-color: var(--brand-color-600);
+  --accordion-text-color: var(--color-gray-800);
+  --accordion-color-disabled: var(--color-gray-300);
+  --accordion-icon-color: var(--color-brand-600);
 
   /** PADDINGS **/
   --accordion-padding-horizontal: .875rem;
   --accordion-padding-vertical: .75rem;
 
   /** BORDERS **/
-  --accordion-border-color: var(--brand-color-200);
+  --accordion-border-color: var(--color-brand-200);
   --accordion-border-width: 2px;
   --accordion-border: var(--accordion-border-width) solid var(--accordion-border-color);
   --accordion-border-radius: .75rem;
@@ -21,8 +21,8 @@
 }
 
 :root[data-theme="dark"] {
-  --accordion-text-color: var(--gray-color-900);
-  --accordion-color-disabled: var(--gray-color-400);
-  --accordion-icon-color: var(--brand-color-700);
-  --accordion-border-color: var(--brand-color-300);
+  --accordion-text-color: var(--color-gray-900);
+  --accordion-color-disabled: var(--color-gray-400);
+  --accordion-icon-color: var(--color-brand-700);
+  --accordion-border-color: var(--color-brand-300);
 }

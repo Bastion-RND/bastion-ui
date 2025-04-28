@@ -1,0 +1,44 @@
+import { Meta } from '@storybook/blocks';
+
+import '../assets/mdxStyles.css';
+import './utilty-classes.css';
+
+import { Colors } from './Colors.tsx';
+import { Spacing } from './Spacing.tsx';
+import { Display } from './Display.tsx';
+import { Typography } from './Typography';
+
+<Meta title="Utility classes" />
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Utility classes
+
+    BastionUI предоставляет набор служебных классов CSS, которые можно использовать для любого элемента, чтобы изменить текст, размещение элемента или настроить отступы и поля.
+
+  </div>
+  <div className="sb-section">
+      <div className="sb-section-item">
+        <h2 className="sb-section-item-heading">Цвета (colors)</h2>
+        <Colors />
+      </div>
+  </div>
+  <div className="sb-section">
+    <div className="sb-section-item">
+      <h2 className="sb-section-item-heading">Отступы (spacing)</h2>
+      <Spacing />
+    </div>
+  </div>
+  <div className="sb-section">
+    <div className="sb-section-item">
+      <h2 className="sb-section-item-heading">Отображение (display)</h2>
+      <Display />
+    </div>
+  </div>
+  <div className="sb-section">
+    <div className="sb-section-item">
+      <h2 className="sb-section-item-heading">Типографика (typography)</h2>
+      <Typography />
+    </div>
+  </div>
+</div>
