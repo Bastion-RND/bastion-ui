@@ -20,10 +20,6 @@ code {
     gap: 20px;
 }
 
-p {
-    margin-left: 10px !important;
-}
-
 img {
     object-fit: cover;
 }

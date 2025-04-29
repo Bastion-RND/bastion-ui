@@ -22,22 +22,22 @@
 
 .fw {
   &-normal {
-    font-weight: 400;
+    font-weight: 400 !important;
   }
   &-medium {
-    font-weight: 500;
+    font-weight: 500 !important;
   }
 }
 
 
 .ta {
   &-c {
-    text-align: center;
+    text-align: center !important;
   }
   &-s {
-    text-align: left;
+    text-align: left !important;
   }
   &-e {
-    text-align: right;
+    text-align: right !important;
   }
 }

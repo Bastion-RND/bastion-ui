@@ -9,92 +9,41 @@ export const Colors: FC = () => {
 
   return (
     <>
+      <ul>
+        {Object.keys(COLORS).map((variant) => (
+          <li>
+            <pre>{variant}</pre>
+          </li>
+        ))}
+      </ul>
+      <h3 className="sb-section-item-heading">Фоновые цвета</h3>
       <div className="d-f ai-center">
-        <p>
-          В светлой теме: <code>--color-"variant" ={'>'} --color-"variant"-500</code>
-        </p>
+        {Object.keys(COLORS).map((variant) => (
+          <pre className={`p-1 c-white bgc-${variant}`}>{`bgc-${variant}`}</pre>
+        ))}
       </div>
-      <div className="d-f ai-center">
-        <p>
-          В темной теме: <code>--color-"variant" ={'>'} --color-"variant"-600</code>
-        </p>
+      <h3 className="sb-section-item-heading">Цвета текста</h3>
+      <div className="ai-center">
+        {Object.keys(COLORS).map((variant) => (
+          <pre className={`mb-1 c-${variant}`}>{`c-${variant}`}</pre>
+        ))}
       </div>
-      <div className="d-f ai-center">
-        <p>
-          Служебные классы текста: <code>c-"variant" ={'>'} color: --color-"variant"</code>
-        </p>
-      </div>
-      <div className="d-f ai-center">
-        <p>
-          Служебные классы фона:{' '}
-          <code>bgc-"variant" ={'>'} background-color: --color-"variant"</code>
-        </p>
-      </div>
+      <h3 className="sb-section-item-heading">CSS-переменные</h3>
       <div className="d-f x-scroll">
-        <div className="mr-3 flex-sh-0">
-          {Object.entries(COLORS.brand).map(([colorName, colorValue], key) => (
-            <div key={key} className="d-f ai-center">
-              <div
+        {Object.entries(COLORS).map(([variant, colors]) => (
+          <div className="mr-3 flex-sh-0" key={variant}>
+            {Object.entries(colors).map(([colorName, colorValue], key) => (
+              <button
+                key={key}
                 onClick={() => copyColor(colorValue)}
-                className="color-badge"
+                className={`d-f color-badge p-2${key < 5 ? ' c-white' : ''}`}
                 style={{ backgroundColor: colorValue }}
-              />
-              <p>{colorName}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mr-3 flex-sh-0">
-          {Object.entries(COLORS.warning).map(([colorName, colorValue], key) => (
-            <div key={key} className="d-f ai-center">
-              <div
-                onClick={() => copyColor(colorValue)}
-                className="color-badge"
-                style={{ backgroundColor: colorValue }}
-              />
-              <p>{colorName}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mr-3 flex-sh-0">
-          {Object.entries(COLORS.gray).map(([colorName, colorValue], key) => (
-            <div key={key} className="d-f ai-center">
-              <div
-                onClick={() => copyColor(colorValue)}
-                className="color-badge"
-                style={{ backgroundColor: colorValue }}
-              />
-              <p>{colorName}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mr-3 flex-sh-0">
-          {Object.entries(COLORS.danger).map(([colorName, colorValue], key) => (
-            <div key={key} className="d-f ai-center">
-              <div
-                onClick={() => copyColor(colorValue)}
-                className="color-badge"
-                style={{ backgroundColor: colorValue }}
-              />
-              <p>{colorName}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mr-3 flex-sh-0">
-          {Object.entries(COLORS.success).map(([colorName, colorValue], key) => (
-            <div key={key} className="d-f ai-center">
-              <div
-                onClick={() => copyColor(colorValue)}
-                className="color-badge"
-                style={{ backgroundColor: colorValue }}
-              />
-              <p>{colorName}</p>
-            </div>
-          ))}
-        </div>
+              >
+                {colorName}
+              </button>
+            ))}
+          </div>
+        ))}
       </div>
     </>
   );
