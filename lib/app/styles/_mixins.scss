@@ -68,7 +68,7 @@
   --font-size-min: 14px;
   --font-size-max: 1rem;
   --font-size-prefer: 0.643rem + 0.3vw;
-  font-size: clamp(var(--font-size-min), var(--font-size-prefer), var(--font-size-max));
+  font-size: clamp(var(--font-size-min), var(--font-size-prefer), var(--font-size-max)) !important;
 }
 
 @mixin container-width {
@@ -96,31 +96,31 @@
 }
 
 @mixin h1 {
-  --font-size-min: 1.625rem;
-  --font-size-max: 2.5rem;
-  --font-size-prefer: 1.25rem + 1.04vw;
+  --font-size-min: 1.625rem !important;
+  --font-size-max: 2.5rem !important;
+  --font-size-prefer: 1.25rem + 1.04vw !important;
 }
 
 @mixin h2 {
-  --font-size-min: 1.25rem;
-  --font-size-max: 1.875rem;
-  --font-size-prefer: 0.982rem + 0.74vw;
+  --font-size-min: 1.25rem !important;
+  --font-size-max: 1.875rem !important;
+  --font-size-prefer: 0.982rem + 0.74vw !important;
 }
 
 @mixin h3 {
-  --font-size-min: 1rem;
-  --font-size-max: 1.5rem;
-  --font-size-prefer: 0.786rem + 0.6vw;
+  --font-size-min: 1rem !important;
+  --font-size-max: 1.5rem !important;
+  --font-size-prefer: 0.786rem + 0.6vw !important;
 }
 
 @mixin h4 {
-  --font-size-min: 0.875rem;
-  --font-size-max: 1.125rem;
-  --font-size-prefer: 0.768rem + 0.3vw;
+  --font-size-min: 0.875rem !important;
+  --font-size-max: 1.125rem !important;
+  --font-size-prefer: 0.768rem + 0.3vw !important;
 }
 
 @mixin h5 {
-  --font-size-min: 0.688rem;
-  --font-size-max: 0.875rem;
-  --font-size-prefer: 0.607rem + 0.22vw;
+  --font-size-min: 0.688rem !important;
+  --font-size-max: 0.875rem !important;
+  --font-size-prefer: 0.607rem + 0.22vw !important;
 }

@@ -50,7 +50,7 @@ const BastToastWithoutPortal: FC<TBastToastProps> = ({
   return (
     <div className={`${clsx(['toast', `toast--${color}`, isVisible && 'toast--visible'])}`}>
       {Icon !== null && <Icon />}
-      <h4 className='toast__title'>{text}</h4>
+      <h5>{text}</h5>
       <BastToastCloseButton onClick={handleClose} />
     </div>
   );
