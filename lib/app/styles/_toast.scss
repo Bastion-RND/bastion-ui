@@ -8,6 +8,7 @@
   align-items: center;
   gap: var(--toast-card-content-gap);
   width: auto;
+  max-width: 100%;
   cursor: pointer;
   animation: var(--toast-card-hide-animation);
   opacity: 0;
