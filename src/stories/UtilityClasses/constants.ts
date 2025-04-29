@@ -105,45 +105,8 @@ export const DISPLAY_VALUES = [
   { ui: '.ac-stretch', css: 'align-content: stretch;' },
 ];
 
-export const TYPOGRAPHY_VALUES = [
-  {
-    ui: '.h1, .fs-1',
-    css:
-      '  --font-size-min: 1.625rem; ' +
-      '  --font-size-max: 2.5rem; ' +
-      '  --font-size-prefer: 1.25rem + 1.04vw; ',
-  },
-  {
-    ui: '.h2, .fs-2',
-    css:
-      '  --font-size-min: 1.25rem; ' +
-      '  --font-size-max: 1.875rem; ' +
-      '  --font-size-prefer: 0.982rem + 0.74vw;',
-  },
-  {
-    ui: '.h3, .fs-3',
-    css:
-      '  --font-size-min: 1rem; ' +
-      '  --font-size-max: 1.5rem; ' +
-      '  --font-size-prefer: 0.786rem + 0.6vw;',
-  },
-  {
-    ui: '.h4, .fs-4',
-    css:
-      '  --font-size-min: 0.875rem; ' +
-      '  --font-size-max: 1.125rem; ' +
-      '  --font-size-prefer: 0.768rem + 0.3vw;',
-  },
-  {
-    ui: '.h5, .fs-5',
-    css:
-      '  --font-size-min: 0.688rem; ' +
-      '  --font-size-max: 0.875rem; ' +
-      '  --font-size-prefer: 0.607rem + 0.22vw;',
-  },
-  { ui: '.fw-normal', css: 'font-weight: 400;' },
-  { ui: '.fw-medium', css: 'font-weight: 500;' },
-  { ui: '.ta-c', css: 'text-align: center;' },
-  { ui: '.ta-s', css: 'text-align: left;' },
-  { ui: '.ta-e', css: 'text-align: right;' },
-];
+export const TYPOGRAPHY_FONT_SIZES = [1, 2, 3, 4, 5];
+
+export const TYPOGRAPHY_FONT_WEIGHTS = ['normal', 'medium'];
+
+export const TYPOGRAPHY_FONT_ALIGN = ['c', 's', 'e'];

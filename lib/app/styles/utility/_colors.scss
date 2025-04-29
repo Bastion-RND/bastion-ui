@@ -3,7 +3,7 @@
 .c {
   @each $color in globals.$colors {
     &-#{"" + $color} {
-      color: var(--color-#{$color});
+      color: var(--color-#{$color}) !important;
     }
   }
 }
@@ -11,7 +11,7 @@
 .bgc {
   @each $color in globals.$colors {
     &-#{"" + $color} {
-      background-color: var(--color-#{$color});
+      background-color: var(--color-#{$color}) !important;
     }
   }
 }
