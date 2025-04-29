@@ -5,7 +5,7 @@ import { BastButton } from '../lib/entities/button';
 import { BastHeader } from '../lib/widgets/header';
 import { BastFooter } from '../lib/widgets/footer';
 import { BastActionSheet } from '../lib/widgets/actionSheet';
-import { BastInput } from '../lib/entities/input';
+import { BastInputGroup } from '../lib/widgets/inputGroup';
 
 const App: FC = () => {
   const [isActionSheetOpen, setActionSheetOpen] = useState(false);
@@ -28,7 +28,27 @@ const App: FC = () => {
         isOpen={isActionSheetOpen}
         onClose={() => setActionSheetOpen(false)}
       >
-        <BastInput />
+        <BastInputGroup>
+          <BastInputGroup.Label className="m-0" htmlFor="1">
+            Мобильный номер устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input
+            id="1"
+            inputMode="numeric"
+            maxLength={12}
+            placeholder="Номер телефона"
+            value='89885861192'
+          />
+          <BastInputGroup.Label className="m-0" htmlFor="2">
+            Имя устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input
+            maxLength={15}
+            id="2"
+            placeholder="Имя устройства"
+            value='Ilia'
+          />
+        </BastInputGroup>
       </BastActionSheet>
       <BastFooter isFloating color="gray">
         <div>Text</div>

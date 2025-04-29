@@ -28,7 +28,6 @@
   left: 0;
   z-index: 1;
   touch-action: none;
-  transform: translateZ(0);
 }
 
 .resize-handle::after {
@@ -49,28 +48,10 @@
   padding: var(--modal-card-padding);
   box-shadow: var(--modal-card-shadow);
   overflow-y: hidden;
-  transform: translateZ(0);
   backface-visibility: hidden;
   will-change: height;
 }
 
 .action-sheet-content:not(.resizing) {
   transition: height 0.3s cubic-bezier(0.33, 0.86, 0.5, 1);
-}
-
-.action-sheet-scrollable {
-  overflow-y: hidden;
-  max-height: 100%;
-  padding-top: 24px;
-}
-
-
-@keyframes slide-in {
-  from {
-    translate: 0 150vw;
-  }
-
-  to {
-    translate: 0 0;
-  }
 }
