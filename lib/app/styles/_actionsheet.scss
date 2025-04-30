@@ -1,3 +1,5 @@
+@use "mixins" as mixins;
+
 .action-sheet-container {
   position: fixed;
   top: 0;
@@ -7,7 +9,6 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  contain: strict;
 }
 
 .action-sheet-overlay {
@@ -41,17 +42,11 @@
 }
 
 .action-sheet-content {
-  animation: 0.4s ease-in alternate slide-in;
   position: relative;
   border-radius: var(--modal-card-border-radius) var(--modal-card-border-radius) 0 0;
   background-color: var(--modal-card-background);
   padding: var(--modal-card-padding);
   box-shadow: var(--modal-card-shadow);
-  overflow-y: hidden;
   backface-visibility: hidden;
   will-change: height;
-}
-
-.action-sheet-content:not(.resizing) {
-  transition: height 0.3s cubic-bezier(0.33, 0.86, 0.5, 1);
 }

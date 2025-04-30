@@ -21,89 +21,93 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
   maxHeightPercent = 90,
   initialHeightPercent,
 }) => {
-  const [contentHeight, setContentHeight] = useState('auto');
-  const contentRef = useRef<HTMLDivElement>(null);
+  const scrollableRef = useRef<HTMLDivElement>(null);
+  const [scrollableHeight, setScrollableHeight] = useState('auto');
+  const [initialContentHeight, setInitialContentHeight] = useState<number>(0);
   const dragControls = useDragControls();
   const maxHeightPx = (window.innerHeight * maxHeightPercent) / 100;
 
   useEffect(() => {
-    if (isOpen && contentRef.current) {
-      const contentScrollHeight = contentRef.current.scrollHeight;
+    if (isOpen && scrollableRef.current) {
+      const contentScrollHeight = scrollableRef.current.scrollHeight;
       const initialHeight = Math.min(contentScrollHeight, maxHeightPx);
 
       if (initialHeightPercent) {
-        setContentHeight(`${window.innerHeight * (initialHeightPercent / 100)}px`);
+        const height = `${window.innerHeight * (initialHeightPercent / 100)}px`;
+        setScrollableHeight(height);
+        setInitialContentHeight(parseInt(height, 10));
       } else {
-        setContentHeight(`${initialHeight}px`);
+        setScrollableHeight(`${initialHeight}px`);
+        setInitialContentHeight(initialHeight);
       }
     }
   }, [isOpen, maxHeightPx, initialHeightPercent]);
 
   const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-    const velocity = info.velocity.y;
     const offset = info.offset.y;
-    console.warn(info.offset.y);
-
-    if (offset > 100 && velocity > 500) {
+    const velocity = info.velocity.y;
+    const delta = info.delta.y;
+    if (offset >= initialContentHeight / 2 || (velocity > 20 && delta < 15)) {
       onClose?.();
     }
   };
 
   const calculateConstraints = () => {
-    if (!contentRef.current) return { top: 0, bottom: 0 };
+    if (!scrollableRef.current) return { top: 0, bottom: 0 };
 
-    const currentHeight = parseInt(contentHeight, 10) || 0;
+    const currentHeight = parseInt(scrollableHeight, 10) || 0;
     return {
       top: Math.min(maxHeightPx - currentHeight, 0),
       bottom: Math.max(maxHeightPx - currentHeight, 0),
     };
   };
 
-  if (!isOpen) return null;
-
   return (
-    <AnimatePresence>
-      <Backdrop show={isOpen} onDismiss={backdropDismiss ? onClose : undefined}>
-        <motion.div
-          tabIndex={0}
-          role="grid"
-          className="action-sheet-container"
-          initial={{ translateY: 100 }}
-          animate={{ translateY: 0 }}
-          dragElastic={{ top: 0, bottom: 0 }}
-          exit={{ opacity: 0 }}
-        >
+    <Backdrop show={isOpen} onDismiss={backdropDismiss ? onClose : undefined}>
+      <AnimatePresence mode="wait">
+        {isOpen && (
           <motion.div
-            className="action-sheet-content"
-            onClick={(e) => e.stopPropagation()}
-            drag="y"
-            dragControls={dragControls}
-            dragConstraints={calculateConstraints()}
-            dragElastic={{ top: 0, bottom: 0 }}
-            onDragEnd={handleDragEnd}
-            onDragCapture={() => console.log('onDragCapture')}
-            onDragStart={() => console.log('onDragStart')}
-            style={{
-              maxHeight: `1000px`,
-            }}
-            onPointerDown={(e) => dragControls.start(e)}
-            whileDrag={{ cursor: 'grabbing'}}
+            tabIndex={0}
+            role="grid"
+            className="action-sheet-container"
+            initial={{ translateY: 100 }}
+            animate={{ translateY: 0 }}
+            exit={{ translateY: 300 }}
           >
-            <motion.div tabIndex={0} role="grid" className="resize-handle" />
-
             <motion.div
-              ref={contentRef}
-              dragElastic={{ top: 0.2, bottom: 0 }}
-              style={{ height: contentHeight }}
-              className="action-sheet-scrollable"
-              layout
+              className="action-sheet-content"
+              transition={{ ease: 'easeIn', restDelta: 10 }}
+              onClick={(e) => e.stopPropagation()}
+              drag="y"
+              dragSnapToOrigin
+              dragDirectionLock
+              dragTransition={{
+                bounceStiffness: 800,
+                bounceDamping: 50,
+                restDelta: 1,
+              }}
+              dragElastic={0.2}
+              dragControls={dragControls}
+              dragConstraints={calculateConstraints()}
+              onDragEnd={handleDragEnd}
+              whileDrag={{ cursor: 'grabbing' }}
+              onPointerDown={(e) => dragControls.start(e)}
             >
-              {children}
+              <motion.div tabIndex={0} role="grid" className="resize-handle" />
+
+              <motion.div
+                ref={scrollableRef}
+                style={{ height: scrollableHeight }}
+                className="action-sheet-scrollable"
+                layout
+              >
+                {children}
+              </motion.div>
             </motion.div>
           </motion.div>
-        </motion.div>
-      </Backdrop>
-    </AnimatePresence>
+        )}
+      </AnimatePresence>
+    </Backdrop>
   );
 };
 

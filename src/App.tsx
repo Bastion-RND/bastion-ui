@@ -24,7 +24,7 @@ const App: FC = () => {
         <BastIcon name="MoreVertical" />
       </BastButton>
       <BastActionSheet
-        maxHeightPercent={80}
+        maxHeightPercent={90}
         isOpen={isActionSheetOpen}
         onClose={() => setActionSheetOpen(false)}
       >
@@ -37,17 +37,28 @@ const App: FC = () => {
             inputMode="numeric"
             maxLength={12}
             placeholder="Номер телефона"
-            value='89885861192'
+            value="89885861192"
           />
           <BastInputGroup.Label className="m-0" htmlFor="2">
             Имя устройства
           </BastInputGroup.Label>
+          <BastInputGroup.Input maxLength={15} id="2" placeholder="Имя устройства" value="Ilia" />
+        </BastInputGroup>
+        <BastInputGroup>
+          <BastInputGroup.Label className="m-0" htmlFor="1">
+            Мобильный номер устройства
+          </BastInputGroup.Label>
           <BastInputGroup.Input
-            maxLength={15}
-            id="2"
-            placeholder="Имя устройства"
-            value='Ilia'
+            id="1"
+            inputMode="numeric"
+            maxLength={12}
+            placeholder="Номер телефона"
+            value="89885861192"
           />
+          <BastInputGroup.Label className="m-0" htmlFor="2">
+            Имя устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input maxLength={15} id="2" placeholder="Имя устройства" value="Ilia" />
         </BastInputGroup>
       </BastActionSheet>
       <BastFooter isFloating color="gray">
