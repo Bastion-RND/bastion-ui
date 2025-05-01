@@ -3,7 +3,6 @@ import { FC, useState } from 'react';
 import { BastIcon } from '../lib/entities/icon';
 import { BastButton } from '../lib/entities/button';
 import { BastHeader } from '../lib/widgets/header';
-import { BastFooter } from '../lib/widgets/footer';
 import { BastActionSheet } from '../lib/widgets/actionSheet';
 import { BastInputGroup } from '../lib/widgets/inputGroup';
 
@@ -15,14 +14,16 @@ const App: FC = () => {
         display: 'flex',
         flexDirection: 'column',
         gap: '10px',
+        height: '100%',
       }}
     >
-      <BastHeader isFloating>
-        <div>Text</div>
+      <BastHeader>
+        <div className="d-f jc-center ai-center">
+          <BastIcon name="Bast" />
+          <p className="h3 m-0 ml-1">BastionUI</p>
+        </div>
       </BastHeader>
-      <BastButton onClick={() => setActionSheetOpen((state) => !state)}>
-        <BastIcon name="MoreVertical" />
-      </BastButton>
+      <BastButton onClick={() => setActionSheetOpen((state) => !state)}>ActionSheet</BastButton>
       <BastActionSheet
         maxHeightPercent={90}
         isOpen={isActionSheetOpen}
@@ -61,9 +62,6 @@ const App: FC = () => {
           <BastInputGroup.Input maxLength={15} id="2" placeholder="Имя устройства" value="Ilia" />
         </BastInputGroup>
       </BastActionSheet>
-      <BastFooter isFloating color="gray">
-        <div>Text</div>
-      </BastFooter>
     </div>
   );
 };
