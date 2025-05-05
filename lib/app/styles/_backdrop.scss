@@ -12,6 +12,7 @@
   left: 0;
   display: grid;
   justify-items: center;
+  overflow: hidden;
 
   &--active {
     opacity: 1;
