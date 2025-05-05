@@ -1,5 +1,7 @@
 @use "mixins" as mixins;
 
+// TODO: BEM
+
 .action-sheet-container {
   position: absolute;
   bottom: var(--keyboard-height);
@@ -40,5 +42,5 @@
 }
 
 .action-sheet-scrollable {
-  overflow-y: scroll;
+  overflow-y: auto;
 }

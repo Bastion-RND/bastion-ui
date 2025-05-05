@@ -25,7 +25,6 @@ const App: FC = () => {
       </BastHeader>
       <BastButton onClick={() => setActionSheetOpen((state) => !state)}>ActionSheet</BastButton>
       <BastActionSheet
-        maxHeightPercent={90}
         isOpen={isActionSheetOpen}
         onClose={() => setActionSheetOpen(false)}
       >
