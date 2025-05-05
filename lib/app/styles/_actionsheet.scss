@@ -1,23 +1,11 @@
 @use "mixins" as mixins;
 
 .action-sheet-container {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: absolute;
+  bottom: var(--keyboard-height);
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-}
-
-.action-sheet-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
 }
 
 .resize-handle {
@@ -38,15 +26,19 @@
   height: 4px;
   background: #ccc;
   border-radius: 2px;
-  margin: 8px auto;
+  margin: 10px auto;
 }
 
 .action-sheet-content {
   position: relative;
   border-radius: var(--modal-card-border-radius) var(--modal-card-border-radius) 0 0;
   background-color: var(--modal-card-background);
-  padding: var(--modal-card-padding);
+  padding: var(--modal-card-padding) var(--modal-card-padding) 0 var(--modal-card-padding);
   box-shadow: var(--modal-card-shadow);
   backface-visibility: hidden;
   will-change: height;
+}
+
+.action-sheet-scrollable {
+  overflow-y: scroll;
 }

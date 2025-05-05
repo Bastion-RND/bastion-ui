@@ -76,7 +76,6 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
           >
             <motion.div
               className="action-sheet-content"
-              transition={{ ease: 'easeIn', restDelta: 10 }}
               onClick={(e) => e.stopPropagation()}
               drag="y"
               dragSnapToOrigin
@@ -93,7 +92,7 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
               whileDrag={{ cursor: 'grabbing' }}
               onPointerDown={(e) => dragControls.start(e)}
             >
-              <motion.div tabIndex={0} role="grid" className="resize-handle" />
+              <div tabIndex={0} role="grid" className="resize-handle" />
 
               <motion.div
                 ref={scrollableRef}
@@ -101,7 +100,9 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
                 className="action-sheet-scrollable"
                 layout
               >
-                {children}
+                <div style={{paddingBottom: 'var(--modal-card-padding)'}}>
+                  {children}
+                </div>
               </motion.div>
             </motion.div>
           </motion.div>
