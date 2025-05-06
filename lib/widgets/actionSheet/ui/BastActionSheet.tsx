@@ -50,13 +50,13 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
           <motion.div
             tabIndex={0}
             role="grid"
-            className="action-sheet-container"
+            className="action-sheet"
             initial={{ translateY: 100 }}
             animate={{ translateY: 0 }}
             exit={{ translateY: 300 }}
           >
             <motion.div
-              className="action-sheet-content"
+              className="action-sheet__container"
               onClick={(e) => e.stopPropagation()}
               drag="y"
               dragSnapToOrigin
@@ -78,10 +78,10 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
               <motion.div
                 ref={scrollableRef}
                 style={{ maxHeight: HEIGHT_MAX_PX }}
-                className="action-sheet-scrollable"
+                className="content"
                 layout
               >
-                <div style={{ paddingBottom: 'var(--modal-card-padding)' }}>{children}</div>
+                <div className="content__wrapper">{children}</div>
               </motion.div>
             </motion.div>
           </motion.div>

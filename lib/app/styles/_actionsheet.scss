@@ -1,46 +1,47 @@
 @use "mixins" as mixins;
 
-// TODO: BEM
-
-.action-sheet-container {
+.action-sheet {
   position: absolute;
   bottom: var(--keyboard-height);
   width: 100%;
   display: flex;
   flex-direction: column;
-}
 
-.resize-handle {
-  height: 24px;
-  width: 100%;
-  cursor: row-resize;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  touch-action: none;
-}
+  &__container {
+    position: relative;
+    border-radius: var(--modal-card-border-radius) var(--modal-card-border-radius) 0 0;
+    background-color: var(--modal-card-background);
+    padding: var(--modal-card-padding) var(--modal-card-padding) 0 var(--modal-card-padding);
+    box-shadow: var(--modal-card-shadow);
+    backface-visibility: hidden;
+    will-change: height;
 
-.resize-handle::after {
-  content: '';
-  display: block;
-  width: 48px;
-  height: 4px;
-  background: #ccc;
-  border-radius: 2px;
-  margin: 10px auto;
-}
+    .resize-handle {
+      height: 24px;
+      width: 100%;
+      cursor: row-resize;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      touch-action: none;
+    }
 
-.action-sheet-content {
-  position: relative;
-  border-radius: var(--modal-card-border-radius) var(--modal-card-border-radius) 0 0;
-  background-color: var(--modal-card-background);
-  padding: var(--modal-card-padding) var(--modal-card-padding) 0 var(--modal-card-padding);
-  box-shadow: var(--modal-card-shadow);
-  backface-visibility: hidden;
-  will-change: height;
-}
+    .resize-handle::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 4px;
+      background: #ccc;
+      border-radius: 2px;
+      margin: 10px auto;
+    }
 
-.action-sheet-scrollable {
-  overflow-y: auto;
+    .content {
+      overflow-y: auto;
+      &__wrapper {
+        padding-bottom: var(--modal-card-padding);
+      }
+    }
+  }
 }
