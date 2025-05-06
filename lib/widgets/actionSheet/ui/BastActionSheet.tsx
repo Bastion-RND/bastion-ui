@@ -46,6 +46,7 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
   return (
     <Backdrop show={isOpen} onDismiss={backdropDismiss ? onClose : undefined}>
       <AnimatePresence mode="wait">
+        {isOpen && (
         <motion.div
           tabIndex={0}
           role="grid"
@@ -84,6 +85,7 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
             </motion.div>
           </motion.div>
         </motion.div>
+        )}
       </AnimatePresence>
     </Backdrop>
   );
