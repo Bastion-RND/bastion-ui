@@ -12,7 +12,6 @@ const meta = {
       source: {
         code: `
 <BastActionSheet
-  maxHeightPercent={80}
   isOpen={false}
   onClose={() => setIsOpen(false)}
 >
@@ -25,9 +24,7 @@ const meta = {
   tags: ['autodocs', 'business'],
   args: {
     children: <BastButton>Закрыть</BastButton>,
-    initialHeightPercent: 50,
     isOpen: false,
-    maxHeightPercent: 80,
   },
 } satisfies Meta<typeof BastActionSheetComponent>;
 
@@ -36,8 +33,6 @@ type Story = StoryObj<typeof meta>;
 
 export const BastActionSheet: Story = {
   args: {
-    maxHeightPercent: 90,
-    initialHeightPercent: 50,
     isOpen: false,
   },
 };
