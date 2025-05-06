@@ -47,44 +47,44 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
     <Backdrop show={isOpen} onDismiss={backdropDismiss ? onClose : undefined}>
       <AnimatePresence mode="wait">
         {isOpen && (
-        <motion.div
-          tabIndex={0}
-          role="grid"
-          className="action-sheet-container"
-          initial={{ translateY: 100 }}
-          animate={{ translateY: 0 }}
-          exit={{ translateY: 300 }}
-        >
           <motion.div
-            className="action-sheet-content"
-            onClick={(e) => e.stopPropagation()}
-            drag="y"
-            dragSnapToOrigin
-            dragDirectionLock
-            dragTransition={{
-              bounceStiffness: 800,
-              bounceDamping: 50,
-              restDelta: 1,
-            }}
-            dragElastic={{ bottom: 1, top: 0, left: 0, right: 0 }}
-            dragControls={dragControls}
-            dragConstraints={dragConstraints}
-            onDragEnd={handleDragEnd}
-            whileDrag={{ cursor: 'grabbing' }}
-            onPointerDown={(e) => dragControls.start(e)}
+            tabIndex={0}
+            role="grid"
+            className="action-sheet-container"
+            initial={{ translateY: 100 }}
+            animate={{ translateY: 0 }}
+            exit={{ translateY: 300 }}
           >
-            <div tabIndex={0} role="grid" className="resize-handle" />
-
             <motion.div
-              ref={scrollableRef}
-              style={{ maxHeight: HEIGHT_MAX_PX }}
-              className="action-sheet-scrollable"
-              layout
+              className="action-sheet-content"
+              onClick={(e) => e.stopPropagation()}
+              drag="y"
+              dragSnapToOrigin
+              dragDirectionLock
+              dragTransition={{
+                bounceStiffness: 800,
+                bounceDamping: 50,
+                restDelta: 1,
+              }}
+              dragElastic={{ bottom: 1, top: 0, left: 0, right: 0 }}
+              dragControls={dragControls}
+              dragConstraints={dragConstraints}
+              onDragEnd={handleDragEnd}
+              whileDrag={{ cursor: 'grabbing' }}
+              onPointerDown={(e) => dragControls.start(e)}
             >
-              <div style={{ paddingBottom: 'var(--modal-card-padding)' }}>{children}</div>
+              <div tabIndex={0} role="grid" className="resize-handle" />
+
+              <motion.div
+                ref={scrollableRef}
+                style={{ maxHeight: HEIGHT_MAX_PX }}
+                className="action-sheet-scrollable"
+                layout
+              >
+                <div style={{ paddingBottom: 'var(--modal-card-padding)' }}>{children}</div>
+              </motion.div>
             </motion.div>
           </motion.div>
-        </motion.div>
         )}
       </AnimatePresence>
     </Backdrop>
