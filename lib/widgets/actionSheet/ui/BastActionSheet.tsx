@@ -54,35 +54,31 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
             initial={{ translateY: 100 }}
             animate={{ translateY: 0 }}
             exit={{ translateY: 300 }}
+            onClick={(e) => e.stopPropagation()}
+            drag="y"
+            dragSnapToOrigin
+            dragDirectionLock
+            dragTransition={{
+              bounceStiffness: 800,
+              bounceDamping: 50,
+              restDelta: 1,
+            }}
+            dragElastic={{ bottom: 1, top: 0, left: 0, right: 0 }}
+            dragControls={dragControls}
+            dragConstraints={dragConstraints}
+            onDragEnd={handleDragEnd}
+            whileDrag={{ cursor: 'grabbing' }}
+            onPointerDown={(e) => dragControls.start(e)}
           >
-            <motion.div
-              className="action-sheet__container"
-              onClick={(e) => e.stopPropagation()}
-              drag="y"
-              dragSnapToOrigin
-              dragDirectionLock
-              dragTransition={{
-                bounceStiffness: 800,
-                bounceDamping: 50,
-                restDelta: 1,
-              }}
-              dragElastic={{ bottom: 1, top: 0, left: 0, right: 0 }}
-              dragControls={dragControls}
-              dragConstraints={dragConstraints}
-              onDragEnd={handleDragEnd}
-              whileDrag={{ cursor: 'grabbing' }}
-              onPointerDown={(e) => dragControls.start(e)}
-            >
-              <div tabIndex={0} role="grid" className="resize-handle" />
+            <div tabIndex={0} role="grid" className="action-sheet__resize-handle" />
 
-              <motion.div
-                ref={scrollableRef}
-                style={{ maxHeight: HEIGHT_MAX_PX }}
-                className="content"
-                layout
-              >
-                <div className="content__wrapper">{children}</div>
-              </motion.div>
+            <motion.div
+              ref={scrollableRef}
+              style={{ maxHeight: HEIGHT_MAX_PX }}
+              className="action-sheet__content"
+              layout
+            >
+              {children}
             </motion.div>
           </motion.div>
         )}

@@ -60,6 +60,134 @@ const App: FC = () => {
           </BastInputGroup.Label>
           <BastInputGroup.Input maxLength={15} id="2" placeholder="Имя устройства" value="Ilia" />
         </BastInputGroup>
+        <BastInputGroup>
+          <BastInputGroup.Label className="m-0" htmlFor="1">
+            Мобильный номер устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input
+            id="1"
+            inputMode="numeric"
+            maxLength={12}
+            placeholder="Номер телефона"
+            value="89885861192"
+          />
+          <BastInputGroup.Label className="m-0" htmlFor="2">
+            Имя устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input maxLength={15} id="2" placeholder="Имя устройства" value="Ilia" />
+        </BastInputGroup>
+        <BastInputGroup>
+          <BastInputGroup.Label className="m-0" htmlFor="1">
+            Мобильный номер устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input
+            id="1"
+            inputMode="numeric"
+            maxLength={12}
+            placeholder="Номер телефона"
+            value="89885861192"
+          />
+          <BastInputGroup.Label className="m-0" htmlFor="2">
+            Имя устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input maxLength={15} id="2" placeholder="Имя устройства" value="Ilia" />
+        </BastInputGroup>
+        <BastInputGroup>
+          <BastInputGroup.Label className="m-0" htmlFor="1">
+            Мобильный номер устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input
+            id="1"
+            inputMode="numeric"
+            maxLength={12}
+            placeholder="Номер телефона"
+            value="89885861192"
+          />
+          <BastInputGroup.Label className="m-0" htmlFor="2">
+            Имя устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input maxLength={15} id="2" placeholder="Имя устройства" value="Ilia" />
+        </BastInputGroup>
+        <BastInputGroup>
+          <BastInputGroup.Label className="m-0" htmlFor="1">
+            Мобильный номер устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input
+            id="1"
+            inputMode="numeric"
+            maxLength={12}
+            placeholder="Номер телефона"
+            value="89885861192"
+          />
+          <BastInputGroup.Label className="m-0" htmlFor="2">
+            Имя устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input maxLength={15} id="2" placeholder="Имя устройства" value="Ilia" />
+        </BastInputGroup>
+        <BastInputGroup>
+          <BastInputGroup.Label className="m-0" htmlFor="1">
+            Мобильный номер устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input
+            id="1"
+            inputMode="numeric"
+            maxLength={12}
+            placeholder="Номер телефона"
+            value="89885861192"
+          />
+          <BastInputGroup.Label className="m-0" htmlFor="2">
+            Имя устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input maxLength={15} id="2" placeholder="Имя устройства" value="Ilia" />
+        </BastInputGroup>
+        <BastInputGroup>
+          <BastInputGroup.Label className="m-0" htmlFor="1">
+            Мобильный номер устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input
+            id="1"
+            inputMode="numeric"
+            maxLength={12}
+            placeholder="Номер телефона"
+            value="89885861192"
+          />
+          <BastInputGroup.Label className="m-0" htmlFor="2">
+            Имя устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input maxLength={15} id="2" placeholder="Имя устройства" value="Ilia" />
+        </BastInputGroup>
+        <BastInputGroup>
+          <BastInputGroup.Label className="m-0" htmlFor="1">
+            Мобильный номер устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input
+            id="1"
+            inputMode="numeric"
+            maxLength={12}
+            placeholder="Номер телефона"
+            value="89885861192"
+          />
+          <BastInputGroup.Label className="m-0" htmlFor="2">
+            Имя устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input maxLength={15} id="2" placeholder="Имя устройства" value="Ilia" />
+        </BastInputGroup>
+        <BastInputGroup>
+          <BastInputGroup.Label className="m-0" htmlFor="1">
+            Мобильный номер устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input
+            id="1"
+            inputMode="numeric"
+            maxLength={12}
+            placeholder="Номер телефона"
+            value="89885861192"
+          />
+          <BastInputGroup.Label className="m-0" htmlFor="2">
+            Имя устройства
+          </BastInputGroup.Label>
+          <BastInputGroup.Input maxLength={15} id="2" placeholder="Имя устройства" value="Ilia" />
+        </BastInputGroup>
       </BastActionSheet>
     </div>
   );
