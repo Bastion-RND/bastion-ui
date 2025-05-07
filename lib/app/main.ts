@@ -16,6 +16,7 @@ export * from '../shared/ui/label';
 export * from '../shared/ui/modalCard';
 export * from '../shared/ui/portal';
 export * from '../widgets/accordionGroup';
+export * from '../widgets/actionSheet';
 export * from '../widgets/batteryIndicator';
 export * from '../widgets/dialog';
 export * from '../widgets/dropdown';
