@@ -1,10 +1,11 @@
+import clsx from 'clsx';
 import { AnimatePresence, motion, PanInfo, useDragControls } from 'motion/react';
 import { ComponentProps, FC, PropsWithChildren, useRef } from 'react';
 
 import { Backdrop } from '../../../shared/ui/backdrop';
 import { withPortal } from '../../../shared/ui/hocs';
 
-type TBastActionSheetProps = ComponentProps<'div'> &
+type TBastActionSheetProps = Pick<ComponentProps<'ul'>, 'className' | 'style' | 'children'> &
   PropsWithChildren<{
     isOpen: boolean;
     onClose?: () => void;
@@ -15,6 +16,7 @@ const HEIGHT_MAX_PERCENT = 90;
 const HEIGHT_MAX_PX = (window.innerHeight * HEIGHT_MAX_PERCENT) / 100;
 
 const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
+  className,
   isOpen,
   onClose,
   children,
@@ -52,6 +54,7 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
             role="grid"
             className="action-sheet"
             initial={{ translateY: 100 }}
+            transition={{duration: 0.2}}
             animate={{ translateY: 0 }}
             exit={{ translateY: 300 }}
             onClick={(e) => e.stopPropagation()}
@@ -75,7 +78,7 @@ const BastActionSheetComponent: FC<TBastActionSheetProps> = ({
             <motion.div
               ref={scrollableRef}
               style={{ maxHeight: HEIGHT_MAX_PX }}
-              className="action-sheet__content"
+              className={`${clsx(["action-sheet__content", className && className])}`}
               layout
             >
               {children}
