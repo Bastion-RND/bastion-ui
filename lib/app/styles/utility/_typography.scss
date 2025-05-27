@@ -20,6 +20,10 @@
   @include mixins.h5;
 }
 
+.h6, .fs-6 {
+  @include mixins.h6;
+}
+
 .fw {
   &-normal {
     font-weight: 400 !important;

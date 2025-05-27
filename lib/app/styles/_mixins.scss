@@ -60,17 +60,6 @@
   z-index: 2;
 }
 
-/**
-  Значения кастомных переменных справедливы для тега <p />.
-  Как расчитывать значения см. в файле "_typography.scss".
-*/
-@mixin fluid-text {
-  --font-size-min: 14px;
-  --font-size-max: 1rem;
-  --font-size-prefer: 0.643rem + 0.3vw;
-  font-size: clamp(var(--font-size-min), var(--font-size-prefer), var(--font-size-max)) !important;
-}
-
 @mixin container-width {
   width: 100%;
 
@@ -96,31 +85,25 @@
 }
 
 @mixin h1 {
-  --font-size-min: 1.625rem !important;
-  --font-size-max: 2.5rem !important;
-  --font-size-prefer: 1.25rem + 1.04vw !important;
+  --font-size-step: 5;
 }
 
 @mixin h2 {
-  --font-size-min: 1.25rem !important;
-  --font-size-max: 1.875rem !important;
-  --font-size-prefer: 0.982rem + 0.74vw !important;
+  --font-size-step: 4;
 }
 
 @mixin h3 {
-  --font-size-min: 1rem !important;
-  --font-size-max: 1.5rem !important;
-  --font-size-prefer: 0.786rem + 0.6vw !important;
+  --font-size-step: 3;
 }
 
 @mixin h4 {
-  --font-size-min: 0.875rem !important;
-  --font-size-max: 1.125rem !important;
-  --font-size-prefer: 0.768rem + 0.3vw !important;
+  --font-size-step: 2;
 }
 
 @mixin h5 {
-  --font-size-min: 0.688rem !important;
-  --font-size-max: 0.875rem !important;
-  --font-size-prefer: 0.607rem + 0.22vw !important;
+  --font-size-step: 1;
+}
+
+@mixin h6 {
+  --font-size-step: 0;
 }
