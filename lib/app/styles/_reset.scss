@@ -279,3 +279,22 @@ progress {
 [aria-disabled='true'] {
   cursor: default;
 }
+
+ol,
+ul {
+  padding-left: 1.25em;
+}
+
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 1.25em;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
+}
