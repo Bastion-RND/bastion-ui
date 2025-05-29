@@ -1,32 +1,41 @@
-@use "globals" as globals;
 @use "mixins" as mixins;
+@use "sass:map";
+@use 'color-palette' as color-palette;
 
 .bast-button {
-  border: none;
-  cursor: pointer;
+  --color-variant-rgb: var(--color-brand-rgb);
+  --color: var(--color-white);
+  --background-color: rgba(var(--color-variant-rgb), 1);
+  --border-width: 1px;
+  --border-color: var(--background-color);
+  --border-radius: var(--radius-small);
+  --outline-width: 3px;
+  --outline-color: rgba(var(--color-variant-rgb), 0);
+
+  color: var(--color);
+  background-color: var(--background-color);
+
+  border-width: var(--border-width);
+  border-color: var(--border-color);
+  border-style: solid;
+  border-radius: var(--border-radius);
+
+  outline-width: var(--outline-width);
+  outline-color: var(--outline-color);
+  outline-style: solid;
+
   padding: var(--button-vertical-padding) var(--button-horizontal-padding);
-  border-radius: (var(--button-border-radius));
-  outline: 3px solid transparent;
+
   font-weight: normal;
   transition: var(--button-transition);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
+  display: inline-block;
 
   svg {
     color: currentColor;
   }
 
-  &:disabled {
-    cursor: not-allowed;
-    opacity: .5;
-  }
-
   &--small {
-    --font-size-min: .5rem;
-    --font-size-max: .75rem;
-    --font-size-prefer: 0.393rem + 0.3vw;
+    --font-size: .5rem;
   }
 
   &--expand {
@@ -34,19 +43,125 @@
   }
 
   &--round {
-    border-radius: var(--radius-large);
+    --border-radius: var(--radius-large);
   }
 
   &--icon-only {
     padding: var(--button-vertical-padding);
   }
+
+  // colors variants
+
+  @each $color-name, $color in color-palette.$colors {
+    &--#{$color-name} {
+      --color-variant-rgb: var(--color-#{$color-name}-rgb);
+      --color-variant-rgb-light: var(--color-#{$color-name}-rgb-light);
+      --color-variant-rgb-dark: var(--color-#{$color-name}-rgb-dark);
+    }
+  }
+
+  &--white {
+    --color-variant-rgb: 255, 255, 255;
+    --color-variant-rgb-light: 255, 255, 255;
+    --color-variant-rgb-dark: 225, 225, 225;
+  }
+
+  &--black {
+    --color-variant-rgb: 0, 0, 0;
+    --color-variant-rgb-light: 25, 25, 25;
+    --color-variant-rgb-dark: 0, 0, 0;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .5;
+  }
+
+  &:hover {
+    --background-color: rgba(var(--color-variant-rgb-light), 1);
+  }
+
+  &:focus {
+    --outline-color: rgba(var(--color-variant-rgb-light), #{map.get(color-palette.$color-opacities, 60)});
+    --background-color: rgba(var(--color-variant-rgb-light), 1);
+    outline-width: var(--outline-width);
+  }
+
+  &:active {
+    --outline-color: rgba(var(--color-variant-rgb), #{map.get(color-palette.$color-opacities, 60)});
+  }
+
+  // fills variants
+
+  &--outlined {
+    --background-color: transparent;
+    --border-color: rgba(var(--color-variant-rgb), 1);
+    --color: var(--border-color);
+
+    &:hover {
+      --color: var(--color-white);
+      --background-color: rgba(var(--color-variant-rgb-light), 1);
+      --border-color: var(--background-color);
+    }
+
+    &:focus {
+      --color: var(--color-white);
+      --background-color: rgba(var(--color-variant-rgb-light), 1);
+      --outline-color: transparent;
+    }
+
+    &:active {
+      --color: var(--color-white);
+      --background-color: rgba(var(--color-variant-rgb-light), 1);
+      --outline-color: rgba(var(--color-variant-rgb-light), #{map.get(color-palette.$color-opacities, 60)});
+    }
+  }
+
+  &--cleared {
+    --background-color: transparent;
+    --border-color: rgba(var(--color-variant-rgb), 0);
+    --color: rgba(var(--color-variant-rgb), 1);
+
+    &:hover {
+      --background-color: transparent;
+      --border-color: rgba(var(--color-variant-rgb), 1);
+    }
+
+    &:focus {
+      --background-color: transparent;
+      --outline-color: rgba(var(--color-variant-rgb-light), #{map.get(color-palette.$color-opacities, 60)});
+      --color: rgba(var(--color-variant-rgb-light), 1);
+    }
+
+    &:active {
+      --background-color: transparent;
+      --outline-color: rgba(var(--color-variant-rgb), #{map.get(color-palette.$color-opacities, 60)});
+    }
+  }
+
+  &--filled.bast-button--white {
+    --color: var(--color-black);
+  }
 }
 
-@each $color in globals.$colors {
-  .bast-button--#{"" + $color} {
-    @each $fill in globals.$fills {
-      &.bast-button--#{$fill} {
-        @include mixins.button-states("" + $color, $fill);
+:root[data-theme="dark"] {
+  .bast-button {
+    &--white {
+      &.bast-button--outlined {
+        &:active,
+        &:hover,
+        &:focus {
+          --color: var(--color-black);
+        }
+      }
+    }
+    &--black {
+      &.bast-button--outlined {
+        &:active,
+        &:hover,
+        &:focus {
+          --color: var(--color-white);
+        }
       }
     }
   }

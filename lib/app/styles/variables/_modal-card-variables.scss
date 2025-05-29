@@ -9,7 +9,7 @@
   --modal-card-content-color: var(--color-gray-600);
   --modal-card-padding: 1.5rem;
   --modal-card-content-padding: 0.5rem;
-  --modal-card-background: white;
+  --modal-card-background: var(--color-white);
 
   /** SIZES **/
   --modal-card-max-width-xs: 20rem;
@@ -23,14 +23,14 @@
 
   @each $color in globals.$colors {
     @if $color == black {
-      --modal-card-background-color-first-circle-#{"" + $color}: var(--color-gray-1000);
-      --modal-card-background-color-second-circle-#{"" + $color}: var(--color-gray-1200);
+      --modal-card-background-color-first-circle-#{"" + $color}: var(--color-gray-900);
+      --modal-card-background-color-second-circle-#{"" + $color}: var(--color-gray-900);
       --modal-card-icon-color-#{"" + $color}: var(--color-white);
     }
     @else if $color == white {
       --modal-card-background-color-first-circle-#{"" + $color}: var(--color-gray-25);
       --modal-card-background-color-second-circle-#{"" + $color}: var(--color-gray-50);
-      --modal-card-icon-color-#{"" + $color}: var(--color-gray-1200);
+      --modal-card-icon-color-#{"" + $color}: var(--color-gray-900);
     }
     @else {
       --modal-card-background-color-first-circle-#{"" + $color}: var(--color-#{"" + $color}-25);
@@ -41,7 +41,7 @@
 }
 
 :root[data-theme="dark"] {
-  --modal-card-background: var(--color-brand-1000);
+  --modal-card-background: var(--color-brand-900);
   --modal-card-title-color: var(--color-brand-200);
   --modal-card-content-color: var(--color-gray-300);
 
