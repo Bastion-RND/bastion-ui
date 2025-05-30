@@ -24,45 +24,11 @@ const App: FC = () => {
         <div className="d-f jc-center ai-center">
           <BastIcon name="Bast" />
           <p className="h3 m-0 ml-1">BastionUI</p>
-          <BastButton onClick={toggleTheme} color="white" fill="cleared">
-            Theme: {theme}
-          </BastButton>
           <BastButton onClick={toggleTheme} color="white" fill="outlined">
-            Theme: {theme}
-          </BastButton>
-          <BastButton onClick={toggleTheme} color="white">
-            Theme: {theme}
-          </BastButton>
-          <BastButton onClick={toggleTheme} color="black" fill="cleared">
-            Theme: {theme}
-          </BastButton>
-          <BastButton onClick={toggleTheme} color="black" fill="outlined">
-            Theme: {theme}
-          </BastButton>
-          <BastButton onClick={toggleTheme} color="black">
             Theme: {theme}
           </BastButton>
         </div>
       </BastHeader>
-      <div>
-        <BastButton onClick={() => setActionSheetOpen((state) => !state)} color="warning">
-          filled
-        </BastButton>
-        <BastButton
-          onClick={() => setActionSheetOpen((state) => !state)}
-          fill="outlined"
-          color="warning"
-        >
-          outlined
-        </BastButton>
-        <BastButton
-          onClick={() => setActionSheetOpen((state) => !state)}
-          fill="cleared"
-          color="warning"
-        >
-          cleared
-        </BastButton>
-      </div>
       <div>
         <BastButton onClick={() => setActionSheetOpen((state) => !state)} color="brand">
           filled

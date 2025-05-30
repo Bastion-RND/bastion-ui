@@ -26,6 +26,7 @@
 
   padding: var(--button-vertical-padding) var(--button-horizontal-padding);
 
+  font-size: calc(var(--font-size-base) * var(--font-size-accessible-multiplier));
   font-weight: normal;
   transition: var(--button-transition);
   display: inline-block;
@@ -35,7 +36,7 @@
   }
 
   &--small {
-    --font-size: .5rem;
+    --font-size-accessible-multiplier: 0.5;
   }
 
   &--expand {
@@ -47,6 +48,9 @@
   }
 
   &--icon-only {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: var(--button-vertical-padding);
   }
 
