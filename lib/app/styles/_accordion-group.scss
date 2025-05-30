@@ -4,11 +4,9 @@
   flex-direction: column;
 
   &--disabled {
-    &.accordion-group {
-      .accordion {
-        &:has(input:disabled) {
-          border-color: var(--accordion-color-disabled);
-        }
+    .accordion {
+      &:has(input:disabled) {
+        border-color: var(--color-disabled);
       }
     }
   }
@@ -17,7 +15,7 @@
     border-radius: 0;
 
     &:has(input:disabled) {
-      border-color: var(--accordion-border-color);
+      border-color: var(--border-color);
     }
 
     &:not(:first-child) {
@@ -25,13 +23,13 @@
     }
 
     &:first-child {
-      border-top-left-radius: var(--accordion-border-radius);
-      border-top-right-radius: var(--accordion-border-radius);
+      border-top-left-radius: var(--border-radius);
+      border-top-right-radius: var(--border-radius);
     }
 
     &:last-child {
-      border-bottom-left-radius: var(--accordion-border-radius);
-      border-bottom-right-radius: var(--accordion-border-radius);
+      border-bottom-left-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
     }
   }
 }
