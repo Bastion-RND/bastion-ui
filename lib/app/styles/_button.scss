@@ -170,3 +170,26 @@
     }
   }
 }
+
+:root[data-theme="light"] {
+  .bast-button {
+    &--white {
+      &.bast-button--outlined {
+        &:active,
+        &:hover,
+        &:focus {
+          --color: var(--color-black);
+        }
+      }
+    }
+    &--black {
+      &.bast-button--outlined {
+        &:active,
+        &:hover,
+        &:focus {
+          --color: var(--color-white);
+        }
+      }
+    }
+  }
+}
