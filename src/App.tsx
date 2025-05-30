@@ -131,6 +131,9 @@ const App: FC = () => {
           <cite>Otello</cite>, by William
         </figcaption>
       </figure>
+      <BastActionSheet isOpen={false}>
+        <BastButton>Закрыть</BastButton>
+      </BastActionSheet>
       <BastActionSheet isOpen={isActionSheetOpen} onClose={() => setActionSheetOpen(false)}>
         <BastInputGroup>
           <BastInputGroup.Label className="m-0" htmlFor="1">
