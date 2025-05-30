@@ -1,7 +1,5 @@
 import { Meta } from '@storybook/blocks';
 
-import './assets/mdxStyles.css';
-
 <Meta title="Typography" />
 
 <div className="sb-container">
@@ -14,34 +12,48 @@ import './assets/mdxStyles.css';
   <div className="sb-section">
       <div className="sb-section-item">
         <h2 className="sb-section-item-heading">Заголовки</h2>
-        <p className="h1">h1 Заголовок</p>
-        <p className="h2">h2 Заголовок</p>
-        <p className="h3">h3 Заголовок</p>
-        <p className="h4">h4 Заголовок</p>
-        <p className="h5">h5 Заголовок</p>
-        <p className="h6">h6 Заголовок</p>
+        <h1 className="h1">h1 Заголовок</h1>
+        <h2 className="h2">h2 Заголовок</h2>
+        <h3 className="h3">h3 Заголовок</h3>
+        <h4 className="h4">h4 Заголовок</h4>
+        <h5 className="h5">h5 Заголовок</h5>
+        <h6 className="h6">h6 Заголовок</h6>
       </div>
   </div>
-  <div className="sb-section">
-      <div className="sb-section-item">
-          <h2 className="sb-section-item-heading">Списки</h2>
-          <ul>
-              <li>Элемент списка 1</li>
-              <li>Элемент списка 2</li>
-              <li>Элемент списка 3</li>
-          </ul>
-          <ol>
-              <li>Элемент списка 1</li>
-              <li>Элемент списка 2</li>
-              <li>Элемент списка 3</li>
-          </ol>
+    <div className="sb-section">
+        <div className="sb-section-item">
+          <h2 className="sb-section-item-heading">Абзацы</h2>
+          <p>Lorem ipsum dolor sit <b>amet</b>, consectetur <strong>adipisicing</strong> elit. A <i>accusamus</i> amet beatae blanditiis <em>consectetur</em> cupiditate dolor ducimus earum, enim esse et excepturi facere fuga fugiat fugit inventore ipsum laborum minima modi mollitia nam nemo nihil pariatur perspiciatis porro quasi quis quo repellat repellendus reprehenderit saepe sequi similique sit sunt suscipit ullam vitae? Autem culpa dolorum eos, inventore itaque nulla provident quis quisquam unde vel! Architecto blanditiis eius eveniet, exercitationem explicabo labore maiores, perferendis placeat quasi quia repellendus reprehenderit similique vel? Accusamus asperiores aspernatur blanditiis dolorum fuga hic impedit libero magni mollitia officiis, sint ullam.</p>
+          <p>Amet, nesciunt, qui? Accusamus at delectus explicabo iusto libero molestias repellat. Accusamus amet eaque impedit incidunt iste nemo numquam pariatur repellendus sunt voluptatum. Corporis, dolorum quam? Adipisci aliquid asperiores, aut commodi delectus dicta dignissimos excepturi exercitationem incidunt iusto maxime modi natus obcaecati, quam quasi quo quod recusandae, saepe sequi voluptatum. Dolorem earum nihil qui reiciendis suscipit.</p>
         </div>
     </div>
     <div className="sb-section">
         <div className="sb-section-item">
-          <h2 className="sb-section-item-heading">Абзацы</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus amet beatae blanditiis consectetur cupiditate dolor ducimus earum, enim esse et excepturi facere fuga fugiat fugit inventore ipsum laborum minima modi mollitia nam nemo nihil pariatur perspiciatis porro quasi quis quo repellat repellendus reprehenderit saepe sequi similique sit sunt suscipit ullam vitae? Autem culpa dolorum eos, inventore itaque nulla provident quis quisquam unde vel! Architecto blanditiis eius eveniet, exercitationem explicabo labore maiores, perferendis placeat quasi quia repellendus reprehenderit similique vel? Accusamus asperiores aspernatur blanditiis dolorum fuga hic impedit libero magni mollitia officiis, sint ullam.</p>
-          <p>Amet, nesciunt, qui? Accusamus at delectus explicabo iusto libero molestias repellat. Accusamus amet eaque impedit incidunt iste nemo numquam pariatur repellendus sunt voluptatum. Corporis, dolorum quam? Adipisci aliquid asperiores, aut commodi delectus dicta dignissimos excepturi exercitationem incidunt iusto maxime modi natus obcaecati, quam quasi quo quod recusandae, saepe sequi voluptatum. Dolorem earum nihil qui reiciendis suscipit.</p>
+          <h2 className="sb-section-item-heading">Цитаты</h2>
+          <figure>
+              <blockquote cite="http://google.com">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet beatae, deserunt
+                ex in ipsum molestiae natus nobis nostrum placeat porro sapiente ut voluptates? Ipsum.
+              </blockquote>
+              <figcaption>
+                <cite>Otello</cite>, by William
+              </figcaption>
+            </figure>
         </div>
-  </div>
+    </div>
+    <div className="sb-section">
+            <div className="sb-section-item">
+              <h2 className="sb-section-item-heading">Списки</h2>
+              <ul>
+                <li>Элемент неупорядоченного списка 1</li>
+                <li>Элемент неупорядоченного списка 2</li>
+                <li>Элемент неупорядоченного списка 3</li>
+              </ul>
+              <ol>
+                  <li>Элемент упорядоченного списка 1</li>
+                  <li>Элемент упорядоченного списка 2</li>
+                  <li>Элемент упорядоченного списка 3</li>
+                </ol>
+            </div>
+        </div>
 </div>
