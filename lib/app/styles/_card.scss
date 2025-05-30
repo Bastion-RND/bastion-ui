@@ -1,16 +1,25 @@
+@use 'color-palette' as color-palette;
+@use "sass:map";
+
 .card {
-  background-color: var(--card-background-color);
-  border-radius: var(--card-border-radius);
+  --background-color: var(--color-gray-100);
+  --color-title: --color-black;
+  --color-text: var(--color-brand-200);
+  --padding-vertical: 2.125rem;
+  --padding-horizontal: 1.875rem;
+
+  background-color: var(--background-color);
+  border-radius: 2.25rem;
   display: flex;
   flex-direction: column;
-  gap: var(--card-gap);
+  gap: 1rem;
   overflow: hidden;
-  box-shadow: var(--card-shadow);
+  box-shadow: 0 20px 24px -4px rgba(var(--color-gray-800-rgb), #{map.get(color-palette.$color-opacities-extended, 10)});
   max-height: min-content;
 
   &__title {
-    padding: 0 var(--card-padding-horizontal);
-    color: var(--card-title-color);
+    padding: 0 var(--padding-horizontal);
+    color: var(--color-title);
     text-transform: uppercase;
   }
 
@@ -21,7 +30,7 @@
   }
 
   &__image-wrapper {
-    aspect-ratio: var(--card-image-aspect-ratio);
+    aspect-ratio: 315 / 240;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,13 +43,21 @@
   &:not(:has(img)) {
     .card {
       &__title {
-        padding-top: var(--card-padding-vertical);
+        padding-top: var(--padding-vertical);
       }
     }
   }
 
   &__content {
-    padding: 0 var(--card-padding-horizontal) var(--card-padding-vertical) var(--card-padding-horizontal);
-    color: var(--card-text-color);
+    padding: 0 var(--padding-horizontal) var(--padding-vertical) var(--padding-horizontal);
+    color: var(--color-text);
+  }
+}
+
+:root[data-theme="dark"] {
+  .card {
+    --background-color: var(--color-gray-900);
+    --color-title: var(--color-gray-100);
+    --color-text: var(--color-brand-300);
   }
 }

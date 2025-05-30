@@ -6,6 +6,7 @@ import { BastHeader } from '../lib/widgets/header';
 import { BastActionSheet } from '../lib/widgets/actionSheet';
 import { BastInputGroup } from '../lib/widgets/inputGroup';
 import { useTheme } from '../lib/features/toggleTheme';
+import { BastCard } from '../lib/entities/card';
 
 const App: FC = () => {
   const [isActionSheetOpen, setActionSheetOpen] = useState(false);
@@ -100,6 +101,15 @@ const App: FC = () => {
       <BastActionSheet isOpen={false}>
         <BastButton>Закрыть</BastButton>
       </BastActionSheet>
+      <div className='m-5'>
+        <BastCard>
+          <BastCard.Image src="https://images.unsplash.com/photo-1591534180437-507029f6ee60" />
+          <BastCard.Title>
+            <h3>Монодатчики</h3>
+          </BastCard.Title>
+          <BastCard.Content>КРАСИВЫЕ</BastCard.Content>
+        </BastCard>
+      </div>
       <BastActionSheet isOpen={isActionSheetOpen} onClose={() => setActionSheetOpen(false)}>
         <BastInputGroup>
           <BastInputGroup.Label className="m-0" htmlFor="1">
