@@ -23,7 +23,7 @@ input[type="submit"] {
       --color-#{"" + $color}-filled-background-active: var(--color-gray-900);
       --color-#{"" + $color}-filled-text-active: var(--color-white);
       --color-#{"" + $color}-filled-border-active: transparent;
-      --color-#{"" + $color}-filled-outline-active: var(--color-gray-50);
+      --color-#{"" + $color}-filled-outline-active: var(--color-gray-100);
 
       --color-#{"" + $color}-filled-background-hover: var(--color-gray-900);
       --color-#{"" + $color}-filled-text-hover: var(--color-white);
@@ -33,26 +33,26 @@ input[type="submit"] {
       --color-#{"" + $color}-filled-background-focus: var(--color-gray-900);
       --color-#{"" + $color}-filled-text-focus: var(--color-white);
       --color-#{"" + $color}-filled-border-focus: transparent;
-      --color-#{"" + $color}-filled-outline-focus: var(--color-gray-50);
+      --color-#{"" + $color}-filled-outline-focus: var(--color-gray-100);
 
       /** OUTLINED **/
-      --color-#{"" + $color}-outlined-background: var(--color-gray-25);
+      --color-#{"" + $color}-outlined-background: var(--color-gray-100);
       --color-#{"" + $color}-outlined-text: var(--color-gray-900);
       --color-#{"" + $color}-outlined-border: var(--color-gray-900);
       --color-#{"" + $color}-outlined-outline: transparent;
 
       --color-#{"" + $color}-outlined-background-active: var(--color-gray-100);
-      --color-#{"" + $color}-outlined-text-active: var(--color-gray-25);
+      --color-#{"" + $color}-outlined-text-active: var(--color-gray-100);
       --color-#{"" + $color}-outlined-border-active: var(--color-gray-900);
-      --color-#{"" + $color}-outlined-outline-active: var(--color-gray-25);
+      --color-#{"" + $color}-outlined-outline-active: var(--color-gray-100);
 
-      --color-#{"" + $color}-outlined-background-hover: var(--color-gray-25);
+      --color-#{"" + $color}-outlined-background-hover: var(--color-gray-100);
       --color-#{"" + $color}-outlined-text-hover: var(--color-gray-900);
       --color-#{"" + $color}-outlined-border-hover: var(--color-gray-100);
       --color-#{"" + $color}-outlined-outline-hover: transparent;
 
       --color-#{"" + $color}-outlined-background-focus: var(--color-gray-100);
-      --color-#{"" + $color}-outlined-text-focus: var(--color-gray-25);
+      --color-#{"" + $color}-outlined-text-focus: var(--color-gray-100);
       --color-#{"" + $color}-outlined-border-focus: var(--color-gray-900);
       --color-#{"" + $color}-outlined-outline-focus: transparent;
 
@@ -69,7 +69,7 @@ input[type="submit"] {
 
       --color-#{"" + $color}-cleared-background-hover: transparent;
       --color-#{"" + $color}-cleared-text-hover: var(--color-gray-800);
-      --color-#{"" + $color}-cleared-border-hover: var(--color-gray-25);
+      --color-#{"" + $color}-cleared-border-hover: var(--color-gray-100);
       --color-#{"" + $color}-cleared-outline-hover: transparent;
 
       --color-#{"" + $color}-cleared-background-focus: transparent;
@@ -78,36 +78,36 @@ input[type="submit"] {
       --color-#{"" + $color}-cleared-outline-focus: var(--color-gray-200);
     } @else if $color == white {
       /** FILLED **/
-      --color-#{"" + $color}-filled-background: var(--color-gray-25);
+      --color-#{"" + $color}-filled-background: var(--color-gray-100);
       --color-#{"" + $color}-filled-text: var(--color-black);
       --color-#{"" + $color}-filled-border: transparent;
       --color-#{"" + $color}-filled-outline: transparent;
 
-      --color-#{"" + $color}-filled-background-active: var(--color-gray-25);
+      --color-#{"" + $color}-filled-background-active: var(--color-gray-100);
       --color-#{"" + $color}-filled-text-active: var(--color-black);
       --color-#{"" + $color}-filled-border-active: transparent;
       --color-#{"" + $color}-filled-outline-active: var(--color-gray-200);
 
-      --color-#{"" + $color}-filled-background-hover: var(--color-gray-50);
+      --color-#{"" + $color}-filled-background-hover: var(--color-gray-100);
       --color-#{"" + $color}-filled-text-hover: var(--color-black);
       --color-#{"" + $color}-filled-border-hover: transparent;
       --color-#{"" + $color}-filled-outline-hover: transparent;
 
-      --color-#{"" + $color}-filled-background-focus: var(--color-gray-25);
+      --color-#{"" + $color}-filled-background-focus: var(--color-gray-100);
       --color-#{"" + $color}-filled-text-focus: var(--color-black);
       --color-#{"" + $color}-filled-border-focus: transparent;
       --color-#{"" + $color}-filled-outline-focus: var(--color-gray-200);
 
       /** OUTLINED **/
       --color-#{"" + $color}-outlined-background: transparent;
-      --color-#{"" + $color}-outlined-text: var(--color-gray-25);
-      --color-#{"" + $color}-outlined-border: var(--color-gray-25);
+      --color-#{"" + $color}-outlined-text: var(--color-gray-100);
+      --color-#{"" + $color}-outlined-border: var(--color-gray-100);
       --color-#{"" + $color}-outlined-outline: transparent;
 
       --color-#{"" + $color}-outlined-background-active: transparent;
-      --color-#{"" + $color}-outlined-text-active: var(--color-gray-25);
+      --color-#{"" + $color}-outlined-text-active: var(--color-gray-100);
       --color-#{"" + $color}-outlined-border-active: var(--color-gray-200);
-      --color-#{"" + $color}-outlined-outline-active: var(--color-gray-50);
+      --color-#{"" + $color}-outlined-outline-active: var(--color-gray-100);
 
       --color-#{"" + $color}-outlined-background-hover: transparent;
       --color-#{"" + $color}-outlined-text-hover: var(--color-gray-500);
@@ -115,18 +115,18 @@ input[type="submit"] {
       --color-#{"" + $color}-outlined-outline-hover: transparent;
 
       --color-#{"" + $color}-outlined-background-focus: transparent;
-      --color-#{"" + $color}-outlined-text-focus: var(--color-gray-50);
+      --color-#{"" + $color}-outlined-text-focus: var(--color-gray-100);
       --color-#{"" + $color}-outlined-border-focus: var(--color-gray-500);
       --color-#{"" + $color}-outlined-outline-focus: transparent;
 
       /** CLEARED **/
       --color-#{"" + $color}-cleared-background: transparent;
-      --color-#{"" + $color}-cleared-text: var(--color-gray-25);
+      --color-#{"" + $color}-cleared-text: var(--color-gray-100);
       --color-#{"" + $color}-cleared-border: transparent;
       --color-#{"" + $color}-cleared-outline: transparent;
 
       --color-#{"" + $color}-cleared-background-active: transparent;
-      --color-#{"" + $color}-cleared-text-active: var(--color-gray-25);
+      --color-#{"" + $color}-cleared-text-active: var(--color-gray-100);
       --color-#{"" + $color}-cleared-border-active: transparent;
       --color-#{"" + $color}-cleared-outline-active: var(--color-gray-100);
 
@@ -162,23 +162,23 @@ input[type="submit"] {
       --color-#{"" + $color}-filled-outline-focus: var(--color-#{"" + $color}-50);
 
       /** OUTLINED **/
-      --color-#{"" + $color}-outlined-background: var(--color-#{"" + $color}-25);
+      --color-#{"" + $color}-outlined-background: var(--color-#{"" + $color}-100);
       --color-#{"" + $color}-outlined-text: var(--color-#{"" + $color}-600);
       --color-#{"" + $color}-outlined-border: var(--color-#{"" + $color}-400);
       --color-#{"" + $color}-outlined-outline: transparent;
 
       --color-#{"" + $color}-outlined-background-active: var(--color-#{"" + $color}-100);
-      --color-#{"" + $color}-outlined-text-active: var(--color-gray-25);
+      --color-#{"" + $color}-outlined-text-active: var(--color-gray-100);
       --color-#{"" + $color}-outlined-border-active: var(--color-#{"" + $color}-600);
-      --color-#{"" + $color}-outlined-outline-active: var(--color-#{"" + $color}-25);
+      --color-#{"" + $color}-outlined-outline-active: var(--color-#{"" + $color}-100);
 
-      --color-#{"" + $color}-outlined-background-hover: var(--color-#{"" + $color}-25);
+      --color-#{"" + $color}-outlined-background-hover: var(--color-#{"" + $color}-100);
       --color-#{"" + $color}-outlined-text-hover: var(--color-#{"" + $color}-600);
       --color-#{"" + $color}-outlined-border-hover: var(--color-#{"" + $color}-100);
       --color-#{"" + $color}-outlined-outline-hover: transparent;
 
       --color-#{"" + $color}-outlined-background-focus: var(--color-#{"" + $color}-100);
-      --color-#{"" + $color}-outlined-text-focus: var(--color-#{"" + $color}-25);
+      --color-#{"" + $color}-outlined-text-focus: var(--color-#{"" + $color}-100);
       --color-#{"" + $color}-outlined-border-focus: var(--color-#{"" + $color}-400);
       --color-#{"" + $color}-outlined-outline-focus: transparent;
 
@@ -195,7 +195,7 @@ input[type="submit"] {
 
       --color-#{"" + $color}-cleared-background-hover: transparent;
       --color-#{"" + $color}-cleared-text-hover: var(--color-#{"" + $color}-200);
-      --color-#{"" + $color}-cleared-border-hover: var(--color-#{"" + $color}-25);
+      --color-#{"" + $color}-cleared-border-hover: var(--color-#{"" + $color}-100);
       --color-#{"" + $color}-cleared-outline-hover: transparent;
 
       --color-#{"" + $color}-cleared-background-focus: transparent;
@@ -240,17 +240,17 @@ input[type="submit"] {
       --color-#{"" + $color}-outlined-outline: transparent;
 
       --color-#{"" + $color}-outlined-background-active: var(--color-#{"" + $color}-200);
-      --color-#{"" + $color}-outlined-text-active: var(--color-gray-50);
+      --color-#{"" + $color}-outlined-text-active: var(--color-gray-100);
       --color-#{"" + $color}-outlined-border-active: var(--color-#{"" + $color}-700);
-      --color-#{"" + $color}-outlined-outline-active: var(--color-#{"" + $color}-50);
+      --color-#{"" + $color}-outlined-outline-active: var(--color-#{"" + $color}-100);
 
-      --color-#{"" + $color}-outlined-background-hover: var(--color-#{"" + $color}-50);
+      --color-#{"" + $color}-outlined-background-hover: var(--color-#{"" + $color}-100);
       --color-#{"" + $color}-outlined-text-hover: var(--color-#{"" + $color}-700);
       --color-#{"" + $color}-outlined-border-hover: var(--color-#{"" + $color}-200);
       --color-#{"" + $color}-outlined-outline-hover: transparent;
 
       --color-#{"" + $color}-outlined-background-focus: var(--color-#{"" + $color}-200);
-      --color-#{"" + $color}-outlined-text-focus: var(--color-#{"" + $color}-50);
+      --color-#{"" + $color}-outlined-text-focus: var(--color-#{"" + $color}-100);
       --color-#{"" + $color}-outlined-border-focus: var(--color-#{"" + $color}-500);
       --color-#{"" + $color}-outlined-outline-focus: transparent;
 
@@ -267,7 +267,7 @@ input[type="submit"] {
 
       --color-#{"" + $color}-cleared-background-hover: transparent;
       --color-#{"" + $color}-cleared-text-hover: var(--color-#{"" + $color}-300);
-      --color-#{"" + $color}-cleared-border-hover: var(--color-#{"" + $color}-50);
+      --color-#{"" + $color}-cleared-border-hover: var(--color-#{"" + $color}-100);
       --color-#{"" + $color}-cleared-outline-hover: transparent;
 
       --color-#{"" + $color}-cleared-background-focus: transparent;

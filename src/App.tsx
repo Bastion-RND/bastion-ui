@@ -6,11 +6,15 @@ import { BastHeader } from '../lib/widgets/header';
 import { BastActionSheet } from '../lib/widgets/actionSheet';
 import { BastInputGroup } from '../lib/widgets/inputGroup';
 import { useTheme } from '../lib/features/toggleTheme';
-import { BastCard } from '../lib/entities/card';
+import { BastCheck } from '../lib/entities/check';
+import { BastModal } from '../lib/widgets/modal';
+import { BastPopover } from '../lib/widgets/popover';
+import { BastList, BastListItem } from '../lib/entities/list';
 
 const App: FC = () => {
   const [isActionSheetOpen, setActionSheetOpen] = useState(false);
   const { toggleTheme, theme } = useTheme();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div
@@ -73,9 +77,9 @@ const App: FC = () => {
         tempora voluptate! Aliquid atque consequuntur delectus dicta doloremque ea id officiis
         reprehenderit similique tempora! Fugiat impedit numquam sapiente. Aspernatur facere fugiat
         laborum quisquam, voluptas voluptate! Architecto assumenda aut autem commodi, consequatur
-        corporis cupiditate dolor doloremque eos facilis illo incidunt magni modi natus, nesciunt
-        nulla officia optio placeat quae qui recusandae rerum similique soluta, tenetur ut vel
-        veniam voluptate!
+        corporis cupiditate dolor <BastIcon name="ArrowTop" />
+        doloremque eos facilis illo incidunt magni modi natus, nesciunt nulla officia optio placeat
+        quae qui recusandae rerum similique soluta, tenetur ut vel veniam voluptate!
       </p>
       <p>
         Lorem ipsum dolor sit amet, <a href="http://google.com">consectetur</a> adipisicing elit.
@@ -89,6 +93,26 @@ const App: FC = () => {
         officia optio placeat quae qui recusandae rerum similique soluta, tenetur ut vel veniam
         voluptate!
       </p>
+      <BastPopover
+        content={
+          <BastList inset className='m-0'>
+            <BastListItem onClick={() => {}}>test</BastListItem>
+            <BastListItem>test</BastListItem>
+          </BastList>
+        }
+        placement="auto"
+        trigger="click"
+      >
+        <BastButton>trigger</BastButton>
+      </BastPopover>
+      <div className='bgc-danger p-3'>
+        <BastList>
+          <BastListItem onClick={() => {}}>test</BastListItem>
+          <BastListItem>test</BastListItem>
+          <BastListItem>test</BastListItem>
+          <BastListItem>test</BastListItem>
+        </BastList>
+      </div>
       <figure>
         <blockquote cite="http://google.com">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet beatae, deserunt
@@ -101,15 +125,25 @@ const App: FC = () => {
       <BastActionSheet isOpen={false}>
         <BastButton>Закрыть</BastButton>
       </BastActionSheet>
-      <div className='m-5'>
-        <BastCard>
-          <BastCard.Image src="https://images.unsplash.com/photo-1591534180437-507029f6ee60" />
-          <BastCard.Title>
-            <h3>Монодатчики</h3>
-          </BastCard.Title>
-          <BastCard.Content>КРАСИВЫЕ</BastCard.Content>
-        </BastCard>
-      </div>
+      <BastCheck checked label="Label" />
+      <BastButton onClick={() => setIsModalOpen(true)}>Open</BastButton>
+      <BastModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <BastModal.Header>
+          <BastModal.Icon color="brand">
+            <BastIcon name="Bast" />
+          </BastModal.Icon>
+          <BastModal.Title>Какой-то важный текст</BastModal.Title>
+        </BastModal.Header>
+        <BastModal.Content>
+          <div>Мы что-то важное хотим вам сказать</div>
+        </BastModal.Content>
+        <BastModal.Footer style={{ display: 'flex', gap: '.5em' }}>
+          <BastButton expand fill="outlined" color="gray">
+            Не согласен
+          </BastButton>
+          <BastButton expand>Согласен</BastButton>
+        </BastModal.Footer>
+      </BastModal>
       <BastActionSheet isOpen={isActionSheetOpen} onClose={() => setActionSheetOpen(false)}>
         <BastInputGroup>
           <BastInputGroup.Label className="m-0" htmlFor="1">

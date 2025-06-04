@@ -14,7 +14,7 @@
   --dropdown-text-color: var(--color-gray-700);
   --dropdown-border-color-focused: var(--color-brand-600);
   --dropdown-background-color: white;
-  --dropdown-box-shadow-color: var(--color-brand-25);
+  --dropdown-box-shadow-color: var(--color-brand-100);
 
   /** ANIMATION **/
   --dropdown-options-animation: growDown .35s ease-in-out forwards;
@@ -27,11 +27,11 @@
 }
 
 :root[data-theme="dark"] {
-  --dropdown-text-color: var(--color-gray-25);
+  --dropdown-text-color: var(--color-gray-100);
   --dropdown-border-color-focused: var(--color-brand-700);
   --dropdown-background-color: var(--color-gray-900);
   --dropdown-border-color: var(--color-brand-300);
-  --dropdown-box-shadow-color: var(--color-brand-50);
+  --dropdown-box-shadow-color: var(--color-brand-100);
 }
 
 @keyframes growDown {
