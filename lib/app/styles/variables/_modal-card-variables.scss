@@ -28,13 +28,13 @@
       --modal-card-icon-color-#{"" + $color}: var(--color-white);
     }
     @else if $color == white {
-      --modal-card-background-color-first-circle-#{"" + $color}: var(--color-gray-25);
-      --modal-card-background-color-second-circle-#{"" + $color}: var(--color-gray-50);
+      --modal-card-background-color-first-circle-#{"" + $color}: var(--color-gray-100);
+      --modal-card-background-color-second-circle-#{"" + $color}: var(--color-gray-100);
       --modal-card-icon-color-#{"" + $color}: var(--color-gray-900);
     }
     @else {
-      --modal-card-background-color-first-circle-#{"" + $color}: var(--color-#{"" + $color}-25);
-      --modal-card-background-color-second-circle-#{"" + $color}: var(--color-#{"" + $color}-50);
+      --modal-card-background-color-first-circle-#{"" + $color}: var(--color-#{"" + $color}-100);
+      --modal-card-background-color-second-circle-#{"" + $color}: var(--color-#{"" + $color}-100);
       --modal-card-icon-color-#{"" + $color}: var(--color-#{"" + $color}-500);
     }
   }
@@ -51,7 +51,7 @@
     @else {
       --modal-card-background-color-first-circle-#{"" + $color}: var(--color-#{"" + $color}-200);
       --modal-card-background-color-second-circle-#{"" + $color}: var(--color-#{"" + $color}-300);
-      --modal-card-icon-color-#{"" + $color}: var(--color-#{"" + $color}-25);
+      --modal-card-icon-color-#{"" + $color}: var(--color-#{"" + $color}-100);
     }
   }
 }

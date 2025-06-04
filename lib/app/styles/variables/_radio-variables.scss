@@ -28,9 +28,9 @@ input[type="radio"] {
 
   /** BACKGROUND **/
   --radio-background-color: var(--color-white);
-  --radio-background-color-checked: var(--color-brand-25);
-  --radio-background-color-focused: var(--color-brand-25);
-  --radio-background-color-disabled: var(--color-gray-50);
+  --radio-background-color-checked: var(--color-brand-100);
+  --radio-background-color-focused: var(--color-brand-100);
+  --radio-background-color-disabled: var(--color-gray-100);
 }
 
 :root[data-theme="dark"] input[type="radio"] {
@@ -39,10 +39,10 @@ input[type="radio"] {
   --radio-mark-color: var(--color-brand-500);
   --radio-background-color: var(--color-white);
 
-  --radio-background-color-checked: var(--color-brand-50);
+  --radio-background-color-checked: var(--color-brand-100);
 
   --radio-border-color-focused: var(--color-brand-400);
-  --radio-outline-color-focused: var(--color-brand-50);
+  --radio-outline-color-focused: var(--color-brand-100);
   --radio-background-color-focused: var(--radio-background-color-checked);
 
   --radio-mark-color-disabled: var(--color-gray-100);

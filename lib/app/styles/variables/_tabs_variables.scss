@@ -12,8 +12,8 @@ li {
 
 button {
   /** COLORS **/
-  --tabs-button-background-color: var(--color-brand-25);
-  --tabs-button-background-color-hover: var(--color-brand-50);
+  --tabs-button-background-color: var(--color-brand-100);
+  --tabs-button-background-color-hover: var(--color-brand-100);
   --tabs-button-background-color-active: var(--color-brand-100);
   --tabs-button-background-color-disabled: var(--color-gray-100);
 
@@ -29,8 +29,8 @@ button {
   --tabs-button-background-color-active: var(--color-brand-700);
   --tabs-button-background-color-disabled: var(--color-gray-800);
 
-  --tabs-button-text-color: var(--color-brand-25);
-  --tabs-button-text-color-hover: var(--color-brand-50);
+  --tabs-button-text-color: var(--color-brand-100);
+  --tabs-button-text-color-hover: var(--color-brand-100);
   --tabs-button-text-color-active: var(--color-brand-100);
   --tabs-button-text-color-disabled: var(--color-gray-900);
 }

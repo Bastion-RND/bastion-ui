@@ -10,9 +10,9 @@ input[type="checkbox"] {
 
   /** BACKGROUND **/
   --check-background-color: transparent;
-  --check-background-color-focus: var(--color-brand-25);
-  --check-background-color-checked: var(--color-brand-25);
-  --check-background-color-disabled: var(--color-gray-50);
+  --check-background-color-focus: var(--color-brand-100);
+  --check-background-color-checked: var(--color-brand-100);
+  --check-background-color-disabled: var(--color-gray-100);
 
   /** OUTLINE **/
   --check-outline-width: 3px;
@@ -43,9 +43,9 @@ input[type="checkbox"] {
 
 :root[data-theme="dark"] input[type='checkbox'] {
   --check-background-color: var(--color-white);
-  --check-background-color-focus: var(--color-brand-50);
-  --check-background-color-checked: var(--color-brand-50);
-  --check-background-color-disabled: var(--color-gray-50);
+  --check-background-color-focus: var(--color-brand-100);
+  --check-background-color-checked: var(--color-brand-100);
+  --check-background-color-disabled: var(--color-gray-100);
 
   --check-border-color: var(--color-gray-400);
   --check-border-color-focus: var(--color-brand-400);

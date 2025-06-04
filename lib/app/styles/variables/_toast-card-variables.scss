@@ -19,24 +19,24 @@
       --toast-card-border-color-#{"" + $color}: var(--color-gray-900);
     } @else if $color == white {
       --toast-text-color-#{"" + $color}: var(--color-gray-900);
-      --toast-card-background-color-#{"" + $color}: var(--color-gray-25);
-      --toast-card-border-color-#{"" + $color}: var(--color-gray-25);
+      --toast-card-background-color-#{"" + $color}: var(--color-gray-100);
+      --toast-card-border-color-#{"" + $color}: var(--color-gray-100);
     } @else {
       --toast-text-color-#{"" + $color}: var(--color-#{"" + $color}-600);
-      --toast-card-background-color-#{"" + $color}: var(--color-#{"" + $color}-25);
+      --toast-card-background-color-#{"" + $color}: var(--color-#{"" + $color}-100);
       --toast-card-border-color-#{"" + $color}: var(--color-#{"" + $color}-400);
     }
   }
 }
 
 :root[data-theme="dark"] {
-  --toast-card-text-color-default: var(--color-gray-25);
+  --toast-card-text-color-default: var(--color-gray-100);
 
   @each $color in globals.$colors {
     @if $color == black {}
     @else if $color == white {}
     @else {
-      --toast-text-color-#{"" + $color}: var(--color-#{"" + $color}-25);
+      --toast-text-color-#{"" + $color}: var(--color-#{"" + $color}-100);
       --toast-card-background-color-#{"" + $color}: var(--color-#{"" + $color}-400);
       --toast-card-border-color-#{"" + $color}: var(--color-#{"" + $color}-600);
     }
