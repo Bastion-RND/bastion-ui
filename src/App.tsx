@@ -10,6 +10,7 @@ import { BastCheck } from '../lib/entities/check';
 import { BastModal } from '../lib/widgets/modal';
 import { BastPopover } from '../lib/widgets/popover';
 import { BastList, BastListItem } from '../lib/entities/list';
+import { BastTabs } from '../lib/widgets/tabs';
 
 const App: FC = () => {
   const [isActionSheetOpen, setActionSheetOpen] = useState(false);
@@ -144,6 +145,12 @@ const App: FC = () => {
           <BastButton expand>Согласен</BastButton>
         </BastModal.Footer>
       </BastModal>
+      <BastTabs iconOnly borders="round-all">
+        <BastTabs.Item disabled> Default </BastTabs.Item>
+        <BastTabs.Item> Default </BastTabs.Item>
+        <BastTabs.Item> Default </BastTabs.Item>
+        <BastTabs.Item> Default </BastTabs.Item>
+      </BastTabs>
       <BastActionSheet isOpen={isActionSheetOpen} onClose={() => setActionSheetOpen(false)}>
         <BastInputGroup>
           <BastInputGroup.Label className="m-0" htmlFor="1">
