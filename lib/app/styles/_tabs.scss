@@ -25,6 +25,7 @@
 
   &__item {
     list-style-type: none;
+    flex-grow: 1;
   }
 
   &__button {
@@ -45,6 +46,7 @@
     outline: none;
     transition: var(--button-transition);
     font-weight: 500;
+    width: 100%;
 
     &:hover {
       --background-color: var(--color-brand-200);

@@ -145,7 +145,7 @@ const App: FC = () => {
           <BastButton expand>Согласен</BastButton>
         </BastModal.Footer>
       </BastModal>
-      <BastTabs iconOnly borders="round-all">
+      <BastTabs borders="round-top" style={{width: '100%'}}>
         <BastTabs.Item disabled> Default </BastTabs.Item>
         <BastTabs.Item> Default </BastTabs.Item>
         <BastTabs.Item> Default </BastTabs.Item>
