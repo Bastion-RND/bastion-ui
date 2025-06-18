@@ -16,6 +16,7 @@ const App: FC = () => {
   const [isActionSheetOpen, setActionSheetOpen] = useState(false);
   const { toggleTheme, theme } = useTheme();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [checked, setChecked] = useState(false);
 
   return (
     <div
@@ -123,10 +124,19 @@ const App: FC = () => {
           <cite>Otello</cite>, by William
         </figcaption>
       </figure>
+      <BastCheck
+        checked={checked}
+        label='Тест check'
+        onChange={({ target: { checked: newChecked } }) => { setChecked(newChecked); }}
+      />
+      <BastCheck
+        checked={true}
+        disabled
+        label='Тест check'
+      />
       <BastActionSheet isOpen={false}>
         <BastButton>Закрыть</BastButton>
       </BastActionSheet>
-      <BastCheck checked label="Label" />
       <BastButton onClick={() => setIsModalOpen(true)}>Open</BastButton>
       <BastModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <BastModal.Header>
