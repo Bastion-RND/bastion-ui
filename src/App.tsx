@@ -11,6 +11,7 @@ import { BastModal } from '../lib/widgets/modal';
 import { BastPopover } from '../lib/widgets/popover';
 import { BastList, BastListItem } from '../lib/entities/list';
 import { BastTabs } from '../lib/widgets/tabs';
+import { BastRadio } from '../lib/entities/radio';
 
 const App: FC = () => {
   const [isActionSheetOpen, setActionSheetOpen] = useState(false);
@@ -114,6 +115,29 @@ const App: FC = () => {
           <BastListItem>test</BastListItem>
           <BastListItem>test</BastListItem>
         </BastList>
+        <BastCheck
+          checked={false}
+          label='Тест check'
+        />
+        <BastCheck
+          checked={checked}
+          label='Тест check'
+          onChange={({ target: { checked: newChecked } }) => { setChecked(newChecked); }}
+        />
+        <BastCheck
+          checked={false}
+          disabled
+          label='Тест check'
+        />
+        <BastCheck
+          checked={true}
+          disabled
+          label='Тест check'
+        />
+        <BastRadio label='Тест 1' name='test' />
+        <BastRadio label='Тест 2' name='test' />
+        <BastRadio label='Тест 3' name='test' disabled />
+        <BastRadio label='Тест 4' disabled checked />
       </div>
       <figure>
         <blockquote cite="http://google.com">
@@ -124,16 +148,6 @@ const App: FC = () => {
           <cite>Otello</cite>, by William
         </figcaption>
       </figure>
-      <BastCheck
-        checked={checked}
-        label='Тест check'
-        onChange={({ target: { checked: newChecked } }) => { setChecked(newChecked); }}
-      />
-      <BastCheck
-        checked={true}
-        disabled
-        label='Тест check'
-      />
       <BastActionSheet isOpen={false}>
         <BastButton>Закрыть</BastButton>
       </BastActionSheet>
