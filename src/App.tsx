@@ -12,6 +12,7 @@ import { BastPopover } from '../lib/widgets/popover';
 import { BastList, BastListItem } from '../lib/entities/list';
 import { BastTabs } from '../lib/widgets/tabs';
 import { BastRadio } from '../lib/entities/radio';
+import { BastInput } from '../lib/entities/input';
 
 const App: FC = () => {
   const [isActionSheetOpen, setActionSheetOpen] = useState(false);
@@ -98,7 +99,7 @@ const App: FC = () => {
       </p>
       <BastPopover
         content={
-          <BastList inset className='m-0'>
+          <BastList inset className="m-0">
             <BastListItem onClick={() => {}}>test</BastListItem>
             <BastListItem>test</BastListItem>
           </BastList>
@@ -108,36 +109,42 @@ const App: FC = () => {
       >
         <BastButton>trigger</BastButton>
       </BastPopover>
-      <div className='bgc-danger p-3'>
+      <div className="bgc-danger p-3">
         <BastList>
           <BastListItem onClick={() => {}}>test</BastListItem>
           <BastListItem>test</BastListItem>
           <BastListItem>test</BastListItem>
           <BastListItem>test</BastListItem>
         </BastList>
-        <BastCheck
-          checked={false}
-          label='Тест check'
-        />
+        <BastCheck checked={false} label="Тест check" />
         <BastCheck
           checked={checked}
-          label='Тест check'
-          onChange={({ target: { checked: newChecked } }) => { setChecked(newChecked); }}
+          label="Тест check"
+          onChange={({ target: { checked: newChecked } }) => {
+            setChecked(newChecked);
+          }}
         />
-        <BastCheck
-          checked={false}
+        <BastCheck checked={false} disabled label="Тест check" />
+        <BastCheck checked={true} disabled label="Тест check" />
+        <BastRadio label="Тест 1" name="test" />
+        <BastRadio label="Тест 2" name="test" />
+        <BastRadio label="Тест 3" name="test" disabled />
+        <BastRadio label="Тест 4" disabled checked />
+        <BastInput
+          disabled={false}
+          value="test"
+          onClick={(e) => {
+            console.log(e);
+          }}
+        />
+        <BastInput
           disabled
-          label='Тест check'
+          value="disabled"
+          onClick={(e) => {
+            console.log(e);
+          }}
+          className='mt-2'
         />
-        <BastCheck
-          checked={true}
-          disabled
-          label='Тест check'
-        />
-        <BastRadio label='Тест 1' name='test' />
-        <BastRadio label='Тест 2' name='test' />
-        <BastRadio label='Тест 3' name='test' disabled />
-        <BastRadio label='Тест 4' disabled checked />
       </div>
       <figure>
         <blockquote cite="http://google.com">
@@ -169,7 +176,7 @@ const App: FC = () => {
           <BastButton expand>Согласен</BastButton>
         </BastModal.Footer>
       </BastModal>
-      <BastTabs borders="round-top" style={{width: '100%'}}>
+      <BastTabs borders="round-top" style={{ width: '100%' }}>
         <BastTabs.Item disabled> Default </BastTabs.Item>
         <BastTabs.Item> Default </BastTabs.Item>
         <BastTabs.Item> Default </BastTabs.Item>
