@@ -1,65 +1,60 @@
+@use "sass:map";
+@use "color-palette" as colors;
+
 .bast-input {
-  /** BORDER **/
   --border-color: var(--color-brand-200);
-  --input-border-width: 2px;
 
-  /** SHADOW **/
-  --input-box-shadow: 0 0 5px 1px var(--color-brand-100);
+  --color: var(--color-gray-300);
 
-  --input-border-color-disabled: var(--color-gray-300);
-
-  /** PADDINGS **/
-  --input-horizontal-padding: .875rem;
-  --input-vertical-padding: .625rem;
-
-  /** TEXT **/
-  --input-default-font-size: large;
-  --input-text-color: var(--color-gray-300);
-
-  --input-background-color: white;
-
-  --font-size-min: 1rem;
-  --font-size-max: 1rem;
-  --font-size-prefer: 1rem;
+  --background-color: white;
+  --outline-color: transparent;
 
   border: {
     radius: var(--radius-small);
     color: var(--border-color);
-    width: var(--input-border-width);
+    width: 2px;
     style: solid;
   }
 
-  padding: var(--input-vertical-padding) var(--input-horizontal-padding);
-  color: var(--input-text-color);
-  outline: none;
-  transition: border-color 0.3s ease, outline-color 0.3s ease;
-  background-color: var(--input-background-color);
+  padding: .625rem .875rem;
+  color: var(--color);
+  outline: {
+    style: solid;
+    width: 3px;
+    color: var(--outline-color);
+    offset: 0;
+  };
+  transition: 0.3s ease, outline-color 0.3s ease;
+  background-color: var(--background-color);
 
   &:focus + .bast-input-group__label,
   &:focus-visible {
+    outline-width: 3px;
+    --outline-color: rgba(var(--color-brand-100-rgb), #{map.get(colors.$color-opacities, 60)});
     --border-color: var(--color-brand-500);
-    box-shadow: var(--input-box-shadow);
   }
 
   &:disabled {
-    border-color: var(--input-border-color-disabled);
+    --border-color: var(--color-gray-300);
   }
 
   &::placeholder {
-    color: var(--input-text-color);
+    color: var(--color);
   }
 }
 
 :root[data-theme="dark"] {
   .bast-input {
     --border-color: var(--color-brand-300);
-    --input-border-color-disabled: var(--color-gray-400);
-    --input-text-color: var(--color-gray-400);
-    --input-background-color: var(--color-gray-700);
+    --color: var(--color-gray-500);
+    --background-color: rgba(var(--color-gray-700-rgb), #{map.get(colors.$color-opacities, 60)});
 
     &:focus + .bast-input-group__label,
     &:focus-visible {
       --border-color: var(--color-brand-600);
+    }
+    &:disabled {
+      --border-color: var(--color-gray-400);
     }
   }
 }

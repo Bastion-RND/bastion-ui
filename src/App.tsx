@@ -131,10 +131,11 @@ const App: FC = () => {
         <BastRadio label="Тест 3" name="test" disabled />
         <BastRadio label="Тест 4" disabled checked />
         <BastInput
+          placeholder='input'
           disabled={false}
           value="test"
-          onClick={(e) => {
-            console.log(e);
+          onChange={(e) => {
+            console.log(e.target.value);
           }}
         />
         <BastInput
