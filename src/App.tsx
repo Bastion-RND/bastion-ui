@@ -13,11 +13,13 @@ import { BastList, BastListItem } from '../lib/entities/list';
 import { BastTabs } from '../lib/widgets/tabs';
 import { BastRadio } from '../lib/entities/radio';
 import { BastInput } from '../lib/entities/input';
+import { BastDialog } from '../lib/widgets/dialog';
 
 const App: FC = () => {
   const [isActionSheetOpen, setActionSheetOpen] = useState(false);
   const { toggleTheme, theme } = useTheme();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [checked, setChecked] = useState(false);
 
   return (
@@ -177,6 +179,14 @@ const App: FC = () => {
           <BastButton expand>Согласен</BastButton>
         </BastModal.Footer>
       </BastModal>
+      <BastButton onClick={() => setIsDialogOpen(true)}>Open dialog</BastButton>
+      <BastDialog
+        isOpen={isDialogOpen}
+        color="gray"
+        title="Диалог обычный"
+        content="Важное сообщение и длинное сообщение..."
+        onClose={() => setIsDialogOpen(false)}
+      />;
       <BastTabs borders="round-top" style={{ width: '100%' }}>
         <BastTabs.Item disabled> Default </BastTabs.Item>
         <BastTabs.Item> Default </BastTabs.Item>

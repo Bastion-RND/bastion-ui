@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { ComponentProps, ComponentType, FC, MouseEvent, PropsWithChildren, useEffect } from 'react';
 
+import { modalOpen } from '../../../shared/lib/modalOpen';
 import { Backdrop } from '../../../shared/ui/backdrop';
 import { TWithPortalArgs, withPortal } from '../../../shared/ui/hocs';
 import type { TModalCardStaticProps } from '../../../shared/ui/modalCard';
@@ -29,15 +30,7 @@ const BastModalWithoutPortal: FC<TBastModalProps> = ({
   };
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.setProperty('--scroll-width',
-        `${window.innerWidth - document.documentElement.clientWidth}px`);
-      document.body.classList.add('modal-open');
-    }
-    else {
-      document.body.style.removeProperty('--scroll-width');
-      document.body.classList.remove('modal-open');
-    }
+    modalOpen(isOpen);
   },[isOpen])
 
   return (
