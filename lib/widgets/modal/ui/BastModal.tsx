@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ComponentProps, ComponentType, FC, MouseEvent, PropsWithChildren } from 'react';
+import { ComponentProps, ComponentType, FC, MouseEvent, PropsWithChildren, useEffect } from 'react';
 
 import { Backdrop } from '../../../shared/ui/backdrop';
 import { TWithPortalArgs, withPortal } from '../../../shared/ui/hocs';
@@ -27,6 +27,18 @@ const BastModalWithoutPortal: FC<TBastModalProps> = ({
     e.stopPropagation();
     onClose?.();
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.setProperty('--scroll-width',
+        `${window.innerWidth - document.documentElement.clientWidth}px`);
+      document.body.classList.add('modal-open');
+    }
+    else {
+      document.body.style.removeProperty('--scroll-width');
+      document.body.classList.remove('modal-open');
+    }
+  },[isOpen])
 
   return (
     <Backdrop show={isOpen} onDismiss={backdropDismiss ? onClose : undefined}>

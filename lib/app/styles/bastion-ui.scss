@@ -36,3 +36,11 @@
 html, body {
   background-color: var(--background-color);
 }
+
+body {
+  --scroll-width: 0;
+  &.modal-open {
+    padding-right: var(--scroll-width);
+    overflow: hidden;
+  }
+}
