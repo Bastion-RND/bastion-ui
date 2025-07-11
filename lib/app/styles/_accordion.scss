@@ -61,7 +61,7 @@
     height: var(--dropdown-svg-size);
     width: var(--dropdown-svg-size);
     min-width: var(--dropdown-svg-size);
-    margin-left: var(--dropdown-svg-gap);
+    margin-left: .5rem;
     transition: var(--dropdown-input-icon-animation);
     color: var(--icon-color);
   }

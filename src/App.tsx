@@ -14,6 +14,8 @@ import { BastTabs } from '../lib/widgets/tabs';
 import { BastRadio } from '../lib/entities/radio';
 import { BastInput } from '../lib/entities/input';
 import { BastDialog } from '../lib/widgets/dialog';
+import { BastDropdownOption } from '../lib/widgets/dropdown/ui/BastDropdownOption';
+import { BastDropdown } from '../lib/widgets/dropdown';
 
 const App: FC = () => {
   const [isActionSheetOpen, setActionSheetOpen] = useState(false);
@@ -106,19 +108,19 @@ const App: FC = () => {
             <BastListItem>test</BastListItem>
           </BastList>
         }
-        placement="auto"
+        placement="bottom"
         trigger="click"
       >
         <BastButton>trigger</BastButton>
       </BastPopover>
       <div className="bgc-danger p-3">
-        <BastList>
+        <BastList inset>
           <BastListItem onClick={() => {}}>test</BastListItem>
           <BastListItem>test</BastListItem>
           <BastListItem>test</BastListItem>
           <BastListItem>test</BastListItem>
         </BastList>
-        <BastCheck checked={false} label="Тест check" />
+        <BastCheck checked={false} label="Тест check" readOnly />
         <BastCheck
           checked={checked}
           label="Тест check"
@@ -148,6 +150,31 @@ const App: FC = () => {
           }}
           className='mt-2'
         />
+        <div className="p-5">
+          <BastDropdown
+            label='Label'
+            onChange={(e) => { console.log(e); }}
+            placeholder="Ничего не выбрано"
+          >
+            <>
+              <BastDropdownOption value="0">
+                Значение 1
+              </BastDropdownOption>
+              <BastDropdownOption value="1">
+                Значение 2
+              </BastDropdownOption>
+              <BastDropdownOption value="2">
+                Значение 3
+              </BastDropdownOption>
+              <BastDropdownOption>
+                1
+              </BastDropdownOption>
+              <BastDropdownOption >
+                1
+              </BastDropdownOption>
+            </>
+          </BastDropdown>
+        </div>
       </div>
       <figure>
         <blockquote cite="http://google.com">
@@ -186,7 +213,7 @@ const App: FC = () => {
         title="Диалог обычный"
         content="Важное сообщение и длинное сообщение..."
         onClose={() => setIsDialogOpen(false)}
-      />;
+      />
       <BastTabs borders="round-top" style={{ width: '100%' }}>
         <BastTabs.Item disabled> Default </BastTabs.Item>
         <BastTabs.Item> Default </BastTabs.Item>
