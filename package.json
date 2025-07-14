@@ -33,7 +33,7 @@
     "**/*.scss"
   ],
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "prebuild": "del-cli dist -f",
     "build:css": "sass ./lib/app/styles:./dist/styles --no-source-map",
     "build": "tsc -b && vite build && npm run build:css",

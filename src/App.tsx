@@ -11,11 +11,18 @@ import { BastModal } from '../lib/widgets/modal';
 import { BastPopover } from '../lib/widgets/popover';
 import { BastList, BastListItem } from '../lib/entities/list';
 import { BastTabs } from '../lib/widgets/tabs';
+import { BastRadio } from '../lib/entities/radio';
+import { BastInput } from '../lib/entities/input';
+import { BastDialog } from '../lib/widgets/dialog';
+import { BastDropdownOption } from '../lib/widgets/dropdown/ui/BastDropdownOption';
+import { BastDropdown } from '../lib/widgets/dropdown';
 
 const App: FC = () => {
   const [isActionSheetOpen, setActionSheetOpen] = useState(false);
   const { toggleTheme, theme } = useTheme();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [checked, setChecked] = useState(false);
 
   return (
     <div
@@ -96,23 +103,78 @@ const App: FC = () => {
       </p>
       <BastPopover
         content={
-          <BastList inset className='m-0'>
+          <BastList inset className="m-0">
             <BastListItem onClick={() => {}}>test</BastListItem>
             <BastListItem>test</BastListItem>
           </BastList>
         }
-        placement="auto"
+        placement="bottom"
         trigger="click"
       >
         <BastButton>trigger</BastButton>
       </BastPopover>
-      <div className='bgc-danger p-3'>
-        <BastList>
+      <div className="bgc-danger p-3">
+        <BastList inset>
           <BastListItem onClick={() => {}}>test</BastListItem>
           <BastListItem>test</BastListItem>
           <BastListItem>test</BastListItem>
           <BastListItem>test</BastListItem>
         </BastList>
+        <BastCheck checked={false} label="Тест check" readOnly />
+        <BastCheck
+          checked={checked}
+          label="Тест check"
+          onChange={({ target: { checked: newChecked } }) => {
+            setChecked(newChecked);
+          }}
+        />
+        <BastCheck checked={false} disabled label="Тест check" />
+        <BastCheck checked={true} disabled label="Тест check" />
+        <BastRadio label="Тест 1" name="test" />
+        <BastRadio label="Тест 2" name="test" />
+        <BastRadio label="Тест 3" name="test" disabled />
+        <BastRadio label="Тест 4" disabled checked />
+        <BastInput
+          placeholder='input'
+          disabled={false}
+          value="test"
+          onChange={(e) => {
+            console.log(e.target.value);
+          }}
+        />
+        <BastInput
+          disabled
+          value="disabled"
+          onClick={(e) => {
+            console.log(e);
+          }}
+          className='mt-2'
+        />
+        <div className="p-5">
+          <BastDropdown
+            label='Label'
+            onChange={(e) => { console.log(e); }}
+            placeholder="Ничего не выбрано"
+          >
+            <>
+              <BastDropdownOption value="0">
+                Значение 1
+              </BastDropdownOption>
+              <BastDropdownOption value="1">
+                Значение 2
+              </BastDropdownOption>
+              <BastDropdownOption value="2">
+                Значение 3
+              </BastDropdownOption>
+              <BastDropdownOption>
+                1
+              </BastDropdownOption>
+              <BastDropdownOption >
+                1
+              </BastDropdownOption>
+            </>
+          </BastDropdown>
+        </div>
       </div>
       <figure>
         <blockquote cite="http://google.com">
@@ -126,7 +188,6 @@ const App: FC = () => {
       <BastActionSheet isOpen={false}>
         <BastButton>Закрыть</BastButton>
       </BastActionSheet>
-      <BastCheck checked label="Label" />
       <BastButton onClick={() => setIsModalOpen(true)}>Open</BastButton>
       <BastModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <BastModal.Header>
@@ -145,7 +206,15 @@ const App: FC = () => {
           <BastButton expand>Согласен</BastButton>
         </BastModal.Footer>
       </BastModal>
-      <BastTabs borders="round-top" style={{width: '100%'}}>
+      <BastButton onClick={() => setIsDialogOpen(true)}>Open dialog</BastButton>
+      <BastDialog
+        isOpen={isDialogOpen}
+        color="gray"
+        title="Диалог обычный"
+        content="Важное сообщение и длинное сообщение..."
+        onClose={() => setIsDialogOpen(false)}
+      />
+      <BastTabs borders="round-top" style={{ width: '100%' }}>
         <BastTabs.Item disabled> Default </BastTabs.Item>
         <BastTabs.Item> Default </BastTabs.Item>
         <BastTabs.Item> Default </BastTabs.Item>

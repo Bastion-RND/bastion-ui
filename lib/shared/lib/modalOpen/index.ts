@@ -1,0 +1,1 @@
+export { modalOpen } from './modalOpen'

@@ -1,7 +1,8 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 
 import { BastButton } from '../../../entities/button';
 import { TWithBastColor } from '../../../shared/lib';
+import { modalOpen } from '../../../shared/lib/modalOpen';
 import { Backdrop } from '../../../shared/ui/backdrop';
 import { withPortal } from '../../../shared/ui/hocs';
 import { BAST_ICONS_BY_COLOR, Icons } from '../../../shared/ui/icons';
@@ -30,6 +31,10 @@ const BastDialog: FC<TBastDialog> = ({
 }) => {
   const iconByColor = BAST_ICONS_BY_COLOR[color] ?? null;
   const Icon = iconByColor !== null ? Icons[iconByColor] : null;
+
+  useEffect(() => {
+    modalOpen(isOpen);
+  },[isOpen])
 
   return (
     <Backdrop show={isOpen}>
