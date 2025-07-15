@@ -1,6 +1,10 @@
 {
   "name": "@bs-solutions/bastion-ui",
+  "version": "1.3.11",
   "description": "React components library",
+  "homepage": "https://github.com/Bastion-RND/bastion-ui#readme",
+  "type": "module",
+  "license": "MIT",
   "keywords": [
     "ui-kit",
     "bastion",
@@ -8,9 +12,6 @@
     "components",
     "react"
   ],
-  "author": "VladSolyony <solyonyvlad@gmail.com>",
-  "version": "1.3.11",
-  "type": "module",
   "files": [
     "dist"
   ],
@@ -18,20 +19,27 @@
     "type": "git",
     "url": "git+https://github.com/Bastion-RND/bastion-ui.git"
   },
-  "license": "MIT",
   "style": "dist/styles/bastion-ui.scss",
   "exports": {
     ".": {
       "import": "./dist/app/main.js"
     },
     "./bastion-ui.css": "./dist/styles/bastion-ui.css",
-    "./dist/styles/_globals.scss": "./dist/styles/_globals.scss"
+    "./sass/bastion-ui.scss": "./lib/app/styles/bastion-ui.scss",
+    "./sass/color-palette.scss": "./lib/app/styles/_color-palette.scss"
   },
   "module": "./dist/app/main.js",
   "types": "./dist/app/main.d.ts",
   "sideEffects": [
     "**/*.scss"
   ],
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "bugs": {
+    "url": "https://github.com/Bastion-RND/bastion-ui/issues"
+  },
   "scripts": {
     "dev": "vite --host",
     "prebuild": "del-cli dist -f",
@@ -91,14 +99,6 @@
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
   },
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
-  "bugs": {
-    "url": "https://github.com/Bastion-RND/bastion-ui/issues"
-  },
-  "homepage": "https://github.com/Bastion-RND/bastion-ui#readme",
   "dependencies": {
     "motion": "^12.9.2",
     "react-popper": "^2.3.0"
