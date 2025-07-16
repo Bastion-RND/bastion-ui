@@ -46,7 +46,6 @@ body {
   --color-rgb: var(--color-black-rgb);
 
   line-height: 1.5;
-  margin-bottom: 1.5rem;
 }
 
 :root[data-theme="dark"] {
@@ -74,6 +73,11 @@ blockquote:before {
   top: 0;
   left: 0;
   z-index: -1;
+}
+
+p {
+  margin-block-end: 1em;
+  margin-bottom: 1em;
 }
 
 [data-theme="dark"] {
