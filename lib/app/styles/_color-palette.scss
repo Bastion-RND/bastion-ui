@@ -1,11 +1,12 @@
 @use 'sass:color';
 @use "sass:map";
+@use 'sass:math';
 
-@function get-rgb($color) {
-  $red: color.red($color);
-  $green: color.green($color);
-  $blue: color.blue($color);
-  @return $red, $green, $blue;
+@function get-rgb-channels-from-hex($color) {
+  $red: color.channel($color, "red", $space: rgb);
+  $green: color.channel($color, "green", $space: rgb);
+  $blue: color.channel($color, "blue", $space: rgb);
+  @return math.round($red), math.round($green), math.round($blue);
 }
 
 $color-opacities: (
@@ -79,7 +80,7 @@ $color-palette: ();
   --color-opacity: 1;
   @each $color-family, $colors in $color-palette {
     @each $color-name, $color in $colors {
-      --color-#{$color-family}-#{$color-name}-rgb: #{get-rgb($color)};
+      --color-#{$color-family}-#{$color-name}-rgb: #{get-rgb-channels-from-hex($color)};
     }
 
     @each $color-name, $color in $colors {
