@@ -12,7 +12,7 @@ const RADIUS_SIZES = {
 
 export type RadiusSizes = (typeof RADIUS_SIZES)[keyof typeof RADIUS_SIZES];
 
-type BaseProps = {
+export type BaseProps = {
   className?: string;
   gapType?: GapSizes;
   noShadow?: boolean;
@@ -24,7 +24,7 @@ export type TBastCardButtonProps = BaseProps & {
   onClick: () => void,
 };
 
-type TBastCardDivProps = BaseProps & {
+export type TBastCardDivProps = BaseProps & {
   button?: false,
   onClick?: never,
 }

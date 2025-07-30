@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { FC, PropsWithChildren } from 'react';
 
-import { TBastCardBaseProps } from '../config/types';
+import { TBastCardBaseProps } from '../config';
 import { BastCardContent } from './BastCardContent';
 import { BastCardImage } from './BastCardImage';
 import { BastCardTitle } from './BastCardTitle';
