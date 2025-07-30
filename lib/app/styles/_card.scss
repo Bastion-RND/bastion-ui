@@ -60,9 +60,11 @@
     &:has(:not(img)) {
       padding: var(--padding-vertical) var(--padding-horizontal) 0 var(--padding-horizontal);
     }
-
-    &:last-child {
+    &:last-child:not(:only-child) {
       padding: 0 var(--padding-horizontal) var(--padding-vertical) var(--padding-horizontal);
+    }
+    &:last-child:only-child {
+      padding: var(--padding-vertical) var(--padding-horizontal) var(--padding-vertical) var(--padding-horizontal);
     }
   }
 

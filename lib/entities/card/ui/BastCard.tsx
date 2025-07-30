@@ -26,7 +26,7 @@ const BastCard: FC<TBastCardProps> & TBastCardStaticProps = ({
   const styleClasses = clsx([
     className,
     'card',
-    !button && 'ta-s',
+    button && 'ta-s',
     noShadow && 'card--no-shadow',
     gapType && `card--gap-${gapType}`,
     radiusType && `card--radius-${radiusType}`,
