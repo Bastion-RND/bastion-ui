@@ -4,23 +4,64 @@
 .card {
   --background-color: var(--color-gray-100);
   --color-title: --color-black;
-  --color-text: var(--color-brand-200);
   --padding-vertical: 2.125rem;
   --padding-horizontal: 1.875rem;
+  --border-radius: 2.25rem;
+  --box-shadow: 0 20px 24px -4px rgba(var(--color-gray-800-rgb), #{map.get(color-palette.$color-opacities-extended, 10)});
 
+  width: 100%;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
   background-color: var(--background-color);
-  border-radius: 2.25rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   overflow: hidden;
-  box-shadow: 0 20px 24px -4px rgba(var(--color-gray-800-rgb), #{map.get(color-palette.$color-opacities-extended, 10)});
   max-height: min-content;
 
+  &--gap {
+    &-small {
+      --padding-vertical: 1.275rem;
+      --padding-horizontal: 0.975rem;
+    }
+    &-large {
+      --padding-vertical: 2.5rem;
+      --padding-horizontal: 2.25rem;
+    }
+  }
+
+  &--radius {
+    &-small {
+      --border-radius: 1.2rem;
+    }
+    &-large {
+      --border-radius: 2.75rem;
+    }
+  }
+
+  &--no-shadow {
+    --box-shadow: none;
+  }
+
   &__title {
-    padding: 0 var(--padding-horizontal);
     color: var(--color-title);
     text-transform: uppercase;
+  }
+
+  &__content {
+    --color-rgb: var(--color-brand-200-rgb);
+    color: rgba(var(--color-rgb), var(--color-opacity));
+  }
+
+  & > * {
+    padding: var(--padding-vertical) var(--padding-horizontal) 0 var(--padding-horizontal);
+
+    &:last-child {
+      padding-bottom: var(--padding-vertical);
+    }
+
+    &.card__image-wrapper {
+      padding: 0;
+    }
   }
 
   &__image {
@@ -48,16 +89,12 @@
     }
   }
 
-  &__content {
-    padding: 0 var(--padding-horizontal) var(--padding-vertical) var(--padding-horizontal);
-    color: var(--color-text);
-  }
 }
 
 :root[data-theme="dark"] {
   .card {
     --background-color: var(--color-gray-900);
     --color-title: var(--color-gray-100);
-    --color-text: var(--color-brand-300);
+    --color-rgb: var(--color-brand-300-rgb);
   }
 }

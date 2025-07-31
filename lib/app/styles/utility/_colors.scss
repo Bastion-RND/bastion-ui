@@ -5,12 +5,9 @@
   @each $color in globals.$colors {
     &-#{"" + $color} {
       --color-rgb: var(--color-#{$color}-rgb);
+      color: rgba(var(--color-rgb), var(--color-opacity));
     }
   }
-}
-
-* {
-  color: rgba(var(--color-rgb), var(--color-opacity));
 }
 
 .bgc {

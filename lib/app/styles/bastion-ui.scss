@@ -33,7 +33,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
-html, body {
+html,
+body {
+  --color: rgba(var(--color-rgb), var(--color-opacity));
+  color: var(--color);
   background-color: var(--background-color);
 }
 

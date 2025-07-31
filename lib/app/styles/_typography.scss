@@ -42,6 +42,10 @@ q {
   --font-size: 1rem;
 }
 
+body * {
+  font-size: calc(var(--font-size) + (var(--font-size-max) - var(--font-size)) / 5 * var(--font-size-step));
+}
+
 body {
   --color-rgb: var(--color-black-rgb);
 
