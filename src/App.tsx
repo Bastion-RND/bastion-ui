@@ -232,7 +232,7 @@ const App: FC = () => {
             <h4 className="support-list__title m-0">Техническая поддержка</h4>
           </BastCard.Title>
           <BastCard.Content>
-            <h4 className='m-0'>lol</h4>
+            <p className='m-0'>lol</p>
           </BastCard.Content>
         </BastCard>
       </Container>

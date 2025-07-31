@@ -32,13 +32,13 @@ const BastCard: FC<TBastCardProps> & TBastCardStaticProps = ({
     radiusType && `card--radius-${radiusType}`,
   ]);
 
-  if (button)
-    return (
-      <button type="button" onClick={onClick} className={styleClasses}>
-        {children}
-      </button>
-    );
-  return <div className={styleClasses}>{children}</div>;
+  return button ? (
+    <button type="button" onClick={onClick} className={styleClasses}>
+      {children}
+    </button>
+  ) : (
+    <div className={styleClasses}>{children}</div>
+  );
 };
 
 BastCard.Title = BastCardTitle;
