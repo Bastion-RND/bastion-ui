@@ -18,6 +18,7 @@ import { BastDropdownOption } from '../lib/widgets/dropdown/ui/BastDropdownOptio
 import { BastDropdown } from '../lib/widgets/dropdown';
 import { BastCard } from '../lib/entities/card';
 import { Container } from '../lib/shared/ui/container';
+import { BastGrid } from '../lib/entities/grid';
 
 const App: FC = () => {
   const [isActionSheetOpen, setActionSheetOpen] = useState(false);
@@ -235,6 +236,17 @@ const App: FC = () => {
             <p className='m-0'>lol</p>
           </BastCard.Content>
         </BastCard>
+        <BastGrid className='jc-between'>
+          <BastGrid.Column size={{md: 12, lg: 'auto', xxl: 'grow'}}>
+            kjdhfsdfsd sdfsdfsdfsdf sdfsd fsd kjdhfsdfsd sdfsdfsdfsdf sdfsd fsd kjdhfsdfsd sdfsdfsdfsdf sdfsd fsd  sdfsdfsdfsdf sdfsd fsd
+          </BastGrid.Column>
+          <BastGrid.Column size={{default: "auto"}}>
+            kjdhfsdf sdfsdfsdf s
+          </BastGrid.Column>
+          <BastGrid.Column>
+            kjdhf sfsd fdsf sdfsdfsdfsdf s
+          </BastGrid.Column>
+        </BastGrid>
       </Container>
       <BastTabs className='m-0' borders="round-top" style={{ width: '100%' }}>
         <BastTabs.Item disabled> Default </BastTabs.Item>
