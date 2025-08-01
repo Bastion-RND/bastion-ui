@@ -1,0 +1,33 @@
+@use 'sass:list';
+@use "utility/spacing" as spacing;
+@use 'globals' as globals;
+
+.grid {
+  gap: var(--space);
+  display: flex;
+  flex-flow: wrap;
+
+  @each $space in spacing.$spaces {
+    $space-index: list.index(spacing.$spaces, $space);
+
+    @if $space != auto {
+      $space-index: $space-index - 1;
+      @debug $space-index;
+
+      &--space {
+        &-#{$space-index} {
+          --space: #{$space};
+        }
+      }
+    }
+  }
+
+  &__column {
+    // TODO: Доделать
+    @each $breakpoint_name, $breakpoint_value in globals.$breakpoints {
+      &--#{$breakpoint_name} {
+        display: #{$breakpoint_value};
+      }
+    }
+  }
+}
