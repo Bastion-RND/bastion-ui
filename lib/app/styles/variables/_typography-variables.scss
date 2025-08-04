@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../globals" as globals;
 
 :root {
@@ -18,7 +19,7 @@ html {
     --font-size-accessible-multiplier: 1.25;
   }
 
-  @media (min-width: globals.$lg) {
+  @media (min-width: map.get(globals.$breakpoints, lg)) {
     --font-size-base: 16px;
     --font-size-max: calc(var(--font-size) * 2.5);
   }

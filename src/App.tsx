@@ -36,18 +36,22 @@ const App: FC = () => {
         height: '100%',
       }}
     >
-      <BastHeader fluid className='p-1'>
+      <BastHeader fluid className="p-1">
         <div className="d-f jc-center ai-center">
           <BastIcon name="Bast" />
           <p className="h3 m-0 ml-1">BastionUI</p>
         </div>
-          <BastButton onClick={toggleTheme} color="white" fill="outlined">
-            {theme}
-          </BastButton>
+        <BastButton onClick={toggleTheme} color="white" fill="outlined">
+          {theme}
+        </BastButton>
       </BastHeader>
       <Container>
         <div>
-          <BastButton className='mr-1' onClick={() => setActionSheetOpen((state) => !state)} color="brand">
+          <BastButton
+            className="mr-1"
+            onClick={() => setActionSheetOpen((state) => !state)}
+            color="brand"
+          >
             filled
           </BastButton>
           <BastButton
@@ -83,27 +87,27 @@ const App: FC = () => {
         </ol>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. <strong>Aliquam</strong>{' '}
-          blanditiis <b>numquam</b> porro <i>repudiandae</i> voluptatem <em>voluptatum</em>. Cum earum
-          eos expedita facilis fugit hic ipsa odio omnis quos repellat? Amet commodi debitis delectus
-          eligendi fugiat incidunt necessitatibus odit sunt! Aliquid delectus magni maiores sit
-          tempora voluptate! Aliquid atque consequuntur delectus dicta doloremque ea id officiis
+          blanditiis <b>numquam</b> porro <i>repudiandae</i> voluptatem <em>voluptatum</em>. Cum
+          earum eos expedita facilis fugit hic ipsa odio omnis quos repellat? Amet commodi debitis
+          delectus eligendi fugiat incidunt necessitatibus odit sunt! Aliquid delectus magni maiores
+          sit tempora voluptate! Aliquid atque consequuntur delectus dicta doloremque ea id officiis
           reprehenderit similique tempora! Fugiat impedit numquam sapiente. Aspernatur facere fugiat
           laborum quisquam, voluptas voluptate! Architecto assumenda aut autem commodi, consequatur
           corporis cupiditate dolor <BastIcon name="ArrowTop" />
-          doloremque eos facilis illo incidunt magni modi natus, nesciunt nulla officia optio placeat
-          quae qui recusandae rerum similique soluta, tenetur ut vel veniam voluptate!
+          doloremque eos facilis illo incidunt magni modi natus, nesciunt nulla officia optio
+          placeat quae qui recusandae rerum similique soluta, tenetur ut vel veniam voluptate!
         </p>
         <p>
           Lorem ipsum dolor sit amet, <a href="http://google.com">consectetur</a> adipisicing elit.
           Aliquam blanditiis numquam porro repudiandae voluptatem voluptatum. Cum earum eos expedita
           facilis fugit hic ipsa odio omnis quos repellat? Amet commodi debitis delectus eligendi
           fugiat incidunt necessitatibus odit sunt! Aliquid delectus magni maiores sit tempora
-          voluptate! Aliquid atque consequuntur delectus dicta doloremque ea id officiis reprehenderit
-          similique tempora! Fugiat impedit numquam sapiente. Aspernatur facere fugiat laborum
-          quisquam, voluptas voluptate! Architecto assumenda aut autem commodi, consequatur corporis
-          cupiditate dolor doloremque eos facilis illo incidunt magni modi natus, nesciunt nulla
-          officia optio placeat quae qui recusandae rerum similique soluta, tenetur ut vel veniam
-          voluptate!
+          voluptate! Aliquid atque consequuntur delectus dicta doloremque ea id officiis
+          reprehenderit similique tempora! Fugiat impedit numquam sapiente. Aspernatur facere fugiat
+          laborum quisquam, voluptas voluptate! Architecto assumenda aut autem commodi, consequatur
+          corporis cupiditate dolor doloremque eos facilis illo incidunt magni modi natus, nesciunt
+          nulla officia optio placeat quae qui recusandae rerum similique soluta, tenetur ut vel
+          veniam voluptate!
         </p>
         <BastPopover
           content={
@@ -172,7 +176,7 @@ const App: FC = () => {
             </BastDropdown>
           </div>
         </div>
-        <figure className='mb-1'>
+        <figure className="mb-1">
           <blockquote cite="http://google.com">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet beatae, deserunt
             ex in ipsum molestiae natus nobis nostrum placeat porro sapiente ut voluptates? Ipsum.
@@ -184,7 +188,9 @@ const App: FC = () => {
         <BastActionSheet isOpen={false}>
           <BastButton>Закрыть</BastButton>
         </BastActionSheet>
-        <BastButton className='mr-1' onClick={() => setIsModalOpen(true)}>Открыть ActionSheet</BastButton>
+        <BastButton className="mr-1" onClick={() => setIsModalOpen(true)}>
+          Открыть ActionSheet
+        </BastButton>
         <BastModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
           <BastModal.Header>
             <BastModal.Icon color="brand">
@@ -228,27 +234,38 @@ const App: FC = () => {
             <BastInputGroup.Input maxLength={15} id="2" placeholder="Имя устройства" value="Ilia" />
           </BastInputGroup>
         </BastActionSheet>
-        <BastCard noShadow radiusType='small' gapType='small' className="mb-1 mt-1">
+        <BastCard noShadow radiusType="small" gapType="small" className="mb-1 mt-1">
           <BastCard.Title>
             <h4 className="support-list__title m-0">Техническая поддержка</h4>
           </BastCard.Title>
           <BastCard.Content>
-            <p className='m-0'>lol</p>
+            <p className="m-0">lol</p>
           </BastCard.Content>
         </BastCard>
-        <BastGrid className='jc-between'>
-          <BastGrid.Column size={{md: 12, lg: 'auto', xxl: 'grow'}}>
-            kjdhfsdfsd sdfsdfsdfsdf sdfsd fsd kjdhfsdfsd sdfsdfsdfsdf sdfsd fsd kjdhfsdfsd sdfsdfsdfsdf sdfsd fsd  sdfsdfsdfsdf sdfsd fsd
+        <BastGrid className="jc-between">
+          <BastGrid.Column
+            size={{ default: 12, sm: 6, lg: 'auto', xxl: 'grow' }}
+            className="bgc-warning"
+          >
+            Колонка 1
           </BastGrid.Column>
-          <BastGrid.Column size={{default: "auto"}}>
-            kjdhfsdf sdfsdfsdf s
+          <BastGrid.Column
+            size={{ default: 12, sm: 6, lg: 'auto', xxl: 'grow' }}
+            className="bgc-brand"
+          >
+            Колонка 2
           </BastGrid.Column>
-          <BastGrid.Column>
-            kjdhf sfsd fdsf sdfsdfsdfsdf s
+          <BastGrid.Column size={{ default: 'auto' }} className="bgc-danger">
+            Колонка 3
           </BastGrid.Column>
+          <BastGrid.Column className='bgc-gray'>Колонка 4</BastGrid.Column>
+          <BastGrid.Column size={{ default: 'auto' }} className="bgc-success">
+            Колонка 5
+          </BastGrid.Column>
+          <BastGrid.Column className="bgc-white c-black">Колонка 6</BastGrid.Column>
         </BastGrid>
       </Container>
-      <BastTabs className='m-0' borders="round-top" style={{ width: '100%' }}>
+      <BastTabs className="m-0" borders="round-top" style={{ width: '100%' }}>
         <BastTabs.Item disabled> Default </BastTabs.Item>
         <BastTabs.Item> Default </BastTabs.Item>
         <BastTabs.Item> Default </BastTabs.Item>
