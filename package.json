@@ -100,7 +100,7 @@
     "react-dom": ">=18.0.0"
   },
   "dependencies": {
-    "motion": "^12.9.2",
+    "motion": "^12.23.12",
     "react-popper": "^2.3.0"
   }
 }
