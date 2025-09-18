@@ -3,7 +3,6 @@
 
 .card {
   --background-color: var(--color-gray-100);
-  --color-title: --color-black;
   --padding-vertical: 2.125rem;
   --padding-horizontal: 1.875rem;
   --border-radius: 2.25rem;
@@ -43,13 +42,7 @@
   }
 
   &__title {
-    color: var(--color-title);
     text-transform: uppercase;
-  }
-
-  &__content {
-    --color-rgb: var(--color-brand-200-rgb);
-    color: rgba(var(--color-rgb), var(--color-opacity));
   }
 
   & > * {
@@ -94,7 +87,5 @@
 :root[data-theme="dark"] {
   .card {
     --background-color: var(--color-gray-900);
-    --color-title: var(--color-gray-100);
-    --color-rgb: var(--color-brand-300-rgb);
   }
 }
