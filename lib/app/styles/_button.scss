@@ -1,34 +1,39 @@
 @use "mixins" as mixins;
 @use "sass:map";
 @use 'color-palette' as color-palette;
+@use "./globals" as globals;
 
 .bast-button {
   --color-variant-rgb: var(--color-brand-rgb);
   --color: var(--color-white);
   --background-color: rgba(var(--color-variant-rgb), 1);
-  --border-width: 1px;
   --border-color: var(--background-color);
   --border-radius: var(--radius-small);
   --outline-width: 3px;
   --outline-color: rgba(var(--color-variant-rgb), 0);
+  --padding: 0.625rem;
 
   color: var(--color);
   background-color: var(--background-color);
 
-  border-width: var(--border-width);
-  border-color: var(--border-color);
-  border-style: solid;
-  border-radius: var(--border-radius);
+  border: {
+    width: 1px;
+    color: var(--border-color);
+    style: solid;
+    radius: var(--border-radius);
+  }
 
-  outline-width: var(--outline-width);
-  outline-color: var(--outline-color);
-  outline-style: solid;
+  outline: {
+    width: var(--outline-width);
+    color: var(--outline-color);
+    style: solid;
+  };
 
-  padding: var(--button-vertical-padding) var(--button-horizontal-padding);
+  padding: var(--padding) calc(var(--padding) * 1.75);
 
   font-size: calc(var(--font-size-base) * var(--font-size-accessible-multiplier));
   font-weight: normal;
-  transition: var(--button-transition);
+  transition: background-color 0.3s ease, outline-color 0.3s ease, color 0.3s ease;
   display: inline-block;
 
   svg {
@@ -36,7 +41,12 @@
   }
 
   &--small {
-    --font-size-accessible-multiplier: 0.5;
+    --font-size-accessible-multiplier: 0.85;
+    --padding: 0.3rem;
+  }
+
+  &--large {
+    --font-size-accessible-multiplier: 1.3;
   }
 
   &--expand {
@@ -51,7 +61,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--button-vertical-padding);
+    padding: var(--padding);
   }
 
   // colors variants
@@ -159,6 +169,7 @@
         }
       }
     }
+
     &--black {
       &.bast-button--outlined {
         &:active,
@@ -182,6 +193,7 @@
         }
       }
     }
+
     &--black {
       &.bast-button--outlined {
         &:active,
@@ -190,6 +202,274 @@
           --color: var(--color-white);
         }
       }
+    }
+  }
+}
+
+button,
+input[type="submit"] {
+  /** COLORS **/
+  @each $color in globals.$colors {
+    @if $color == black {
+      --color-#{"" + $color}-filled-background: var(--color-gray-900);
+      --color-#{"" + $color}-filled-text: var(--color-white);
+      --color-#{"" + $color}-filled-border: transparent;
+      --color-#{"" + $color}-filled-outline: transparent;
+
+      --color-#{"" + $color}-filled-background-active: var(--color-gray-900);
+      --color-#{"" + $color}-filled-text-active: var(--color-white);
+      --color-#{"" + $color}-filled-border-active: transparent;
+      --color-#{"" + $color}-filled-outline-active: var(--color-gray-100);
+
+      --color-#{"" + $color}-filled-background-hover: var(--color-gray-900);
+      --color-#{"" + $color}-filled-text-hover: var(--color-white);
+      --color-#{"" + $color}-filled-border-hover: transparent;
+      --color-#{"" + $color}-filled-outline-hover: transparent;
+
+      --color-#{"" + $color}-filled-background-focus: var(--color-gray-900);
+      --color-#{"" + $color}-filled-text-focus: var(--color-white);
+      --color-#{"" + $color}-filled-border-focus: transparent;
+      --color-#{"" + $color}-filled-outline-focus: var(--color-gray-100);
+
+      /** OUTLINED **/
+      --color-#{"" + $color}-outlined-background: var(--color-gray-100);
+      --color-#{"" + $color}-outlined-text: var(--color-gray-900);
+      --color-#{"" + $color}-outlined-border: var(--color-gray-900);
+      --color-#{"" + $color}-outlined-outline: transparent;
+
+      --color-#{"" + $color}-outlined-background-active: var(--color-gray-100);
+      --color-#{"" + $color}-outlined-text-active: var(--color-gray-100);
+      --color-#{"" + $color}-outlined-border-active: var(--color-gray-900);
+      --color-#{"" + $color}-outlined-outline-active: var(--color-gray-100);
+
+      --color-#{"" + $color}-outlined-background-hover: var(--color-gray-100);
+      --color-#{"" + $color}-outlined-text-hover: var(--color-gray-900);
+      --color-#{"" + $color}-outlined-border-hover: var(--color-gray-100);
+      --color-#{"" + $color}-outlined-outline-hover: transparent;
+
+      --color-#{"" + $color}-outlined-background-focus: var(--color-gray-100);
+      --color-#{"" + $color}-outlined-text-focus: var(--color-gray-100);
+      --color-#{"" + $color}-outlined-border-focus: var(--color-gray-900);
+      --color-#{"" + $color}-outlined-outline-focus: transparent;
+
+      /** CLEARED **/
+      --color-#{"" + $color}-cleared-background: transparent;
+      --color-#{"" + $color}-cleared-text: var(--color-gray-900);
+      --color-#{"" + $color}-cleared-border: transparent;
+      --color-#{"" + $color}-cleared-outline: transparent;
+
+      --color-#{"" + $color}-cleared-background-active: transparent;
+      --color-#{"" + $color}-cleared-text-active: var(--color-gray-900);
+      --color-#{"" + $color}-cleared-border-active: transparent;
+      --color-#{"" + $color}-cleared-outline-active: var(--color-gray-900);
+
+      --color-#{"" + $color}-cleared-background-hover: transparent;
+      --color-#{"" + $color}-cleared-text-hover: var(--color-gray-800);
+      --color-#{"" + $color}-cleared-border-hover: var(--color-gray-100);
+      --color-#{"" + $color}-cleared-outline-hover: transparent;
+
+      --color-#{"" + $color}-cleared-background-focus: transparent;
+      --color-#{"" + $color}-cleared-text-focus: var(--color-gray-900);
+      --color-#{"" + $color}-cleared-border-focus: transparent;
+      --color-#{"" + $color}-cleared-outline-focus: var(--color-gray-200);
+    } @else if $color == white {
+      /** FILLED **/
+      --color-#{"" + $color}-filled-background: var(--color-gray-100);
+      --color-#{"" + $color}-filled-text: var(--color-black);
+      --color-#{"" + $color}-filled-border: transparent;
+      --color-#{"" + $color}-filled-outline: transparent;
+
+      --color-#{"" + $color}-filled-background-active: var(--color-gray-100);
+      --color-#{"" + $color}-filled-text-active: var(--color-black);
+      --color-#{"" + $color}-filled-border-active: transparent;
+      --color-#{"" + $color}-filled-outline-active: var(--color-gray-200);
+
+      --color-#{"" + $color}-filled-background-hover: var(--color-gray-100);
+      --color-#{"" + $color}-filled-text-hover: var(--color-black);
+      --color-#{"" + $color}-filled-border-hover: transparent;
+      --color-#{"" + $color}-filled-outline-hover: transparent;
+
+      --color-#{"" + $color}-filled-background-focus: var(--color-gray-100);
+      --color-#{"" + $color}-filled-text-focus: var(--color-black);
+      --color-#{"" + $color}-filled-border-focus: transparent;
+      --color-#{"" + $color}-filled-outline-focus: var(--color-gray-200);
+
+      /** OUTLINED **/
+      --color-#{"" + $color}-outlined-background: transparent;
+      --color-#{"" + $color}-outlined-text: var(--color-gray-100);
+      --color-#{"" + $color}-outlined-border: var(--color-gray-100);
+      --color-#{"" + $color}-outlined-outline: transparent;
+
+      --color-#{"" + $color}-outlined-background-active: transparent;
+      --color-#{"" + $color}-outlined-text-active: var(--color-gray-100);
+      --color-#{"" + $color}-outlined-border-active: var(--color-gray-200);
+      --color-#{"" + $color}-outlined-outline-active: var(--color-gray-100);
+
+      --color-#{"" + $color}-outlined-background-hover: transparent;
+      --color-#{"" + $color}-outlined-text-hover: var(--color-gray-500);
+      --color-#{"" + $color}-outlined-border-hover: var(--color-gray-200);
+      --color-#{"" + $color}-outlined-outline-hover: transparent;
+
+      --color-#{"" + $color}-outlined-background-focus: transparent;
+      --color-#{"" + $color}-outlined-text-focus: var(--color-gray-100);
+      --color-#{"" + $color}-outlined-border-focus: var(--color-gray-500);
+      --color-#{"" + $color}-outlined-outline-focus: transparent;
+
+      /** CLEARED **/
+      --color-#{"" + $color}-cleared-background: transparent;
+      --color-#{"" + $color}-cleared-text: var(--color-gray-100);
+      --color-#{"" + $color}-cleared-border: transparent;
+      --color-#{"" + $color}-cleared-outline: transparent;
+
+      --color-#{"" + $color}-cleared-background-active: transparent;
+      --color-#{"" + $color}-cleared-text-active: var(--color-gray-100);
+      --color-#{"" + $color}-cleared-border-active: transparent;
+      --color-#{"" + $color}-cleared-outline-active: var(--color-gray-100);
+
+      --color-#{"" + $color}-cleared-background-hover: transparent;
+      --color-#{"" + $color}-cleared-text-hover: var(--color-gray-100);
+      --color-#{"" + $color}-cleared-border-hover: var(--color-gray-200);
+      --color-#{"" + $color}-cleared-outline-hover: transparent;
+
+      --color-#{"" + $color}-cleared-background-focus: transparent;
+      --color-#{"" + $color}-cleared-text-focus: var(--color-gray-500);
+      --color-#{"" + $color}-cleared-border-focus: transparent;
+      --color-#{"" + $color}-cleared-outline-focus: var(--color-gray-100);
+    } @else {
+      /** FILLED **/
+      --color-#{"" + $color}-filled-background: var(--color-#{"" + $color}-500);
+      --color-#{"" + $color}-filled-text: var(--color-white);
+      --color-#{"" + $color}-filled-border: transparent;
+      --color-#{"" + $color}-filled-outline: transparent;
+
+      --color-#{"" + $color}-filled-background-active: var(--color-#{"" + $color}-500);
+      --color-#{"" + $color}-filled-text-active: var(--color-white);
+      --color-#{"" + $color}-filled-border-active: transparent;
+      --color-#{"" + $color}-filled-outline-active: var(--color-#{"" + $color}-50);
+
+      --color-#{"" + $color}-filled-background-hover: var(--color-#{"" + $color}-400);
+      --color-#{"" + $color}-filled-text-hover: var(--color-white);
+      --color-#{"" + $color}-filled-border-hover: transparent;
+      --color-#{"" + $color}-filled-outline-hover: transparent;
+
+      --color-#{"" + $color}-filled-background-focus: var(--color-#{"" + $color}-500);
+      --color-#{"" + $color}-filled-text-focus: var(--color-white);
+      --color-#{"" + $color}-filled-border-focus: transparent;
+      --color-#{"" + $color}-filled-outline-focus: var(--color-#{"" + $color}-50);
+
+      /** OUTLINED **/
+      --color-#{"" + $color}-outlined-background: var(--color-#{"" + $color}-100);
+      --color-#{"" + $color}-outlined-text: var(--color-#{"" + $color}-600);
+      --color-#{"" + $color}-outlined-border: var(--color-#{"" + $color}-400);
+      --color-#{"" + $color}-outlined-outline: transparent;
+
+      --color-#{"" + $color}-outlined-background-active: var(--color-#{"" + $color}-100);
+      --color-#{"" + $color}-outlined-text-active: var(--color-gray-100);
+      --color-#{"" + $color}-outlined-border-active: var(--color-#{"" + $color}-600);
+      --color-#{"" + $color}-outlined-outline-active: var(--color-#{"" + $color}-100);
+
+      --color-#{"" + $color}-outlined-background-hover: var(--color-#{"" + $color}-100);
+      --color-#{"" + $color}-outlined-text-hover: var(--color-#{"" + $color}-600);
+      --color-#{"" + $color}-outlined-border-hover: var(--color-#{"" + $color}-100);
+      --color-#{"" + $color}-outlined-outline-hover: transparent;
+
+      --color-#{"" + $color}-outlined-background-focus: var(--color-#{"" + $color}-100);
+      --color-#{"" + $color}-outlined-text-focus: var(--color-#{"" + $color}-100);
+      --color-#{"" + $color}-outlined-border-focus: var(--color-#{"" + $color}-400);
+      --color-#{"" + $color}-outlined-outline-focus: transparent;
+
+      /** CLEARED **/
+      --color-#{"" + $color}-cleared-background: transparent;
+      --color-#{"" + $color}-cleared-text: var(--color-#{"" + $color}-500);
+      --color-#{"" + $color}-cleared-border: transparent;
+      --color-#{"" + $color}-cleared-outline: transparent;
+
+      --color-#{"" + $color}-cleared-background-active: transparent;
+      --color-#{"" + $color}-cleared-text-active: var(--color-#{"" + $color}-400);
+      --color-#{"" + $color}-cleared-border-active: transparent;
+      --color-#{"" + $color}-cleared-outline-active: var(--color-#{"" + $color}-500);
+
+      --color-#{"" + $color}-cleared-background-hover: transparent;
+      --color-#{"" + $color}-cleared-text-hover: var(--color-#{"" + $color}-200);
+      --color-#{"" + $color}-cleared-border-hover: var(--color-#{"" + $color}-100);
+      --color-#{"" + $color}-cleared-outline-hover: transparent;
+
+      --color-#{"" + $color}-cleared-background-focus: transparent;
+      --color-#{"" + $color}-cleared-text-focus: var(--color-#{"" + $color}-400);
+      --color-#{"" + $color}-cleared-border-focus: transparent;
+      --color-#{"" + $color}-cleared-outline-focus: var(--color-#{"" + $color}-200);
+    }
+  }
+}
+
+:root[data-theme="dark"] button,
+:root[data-theme="dark"] input[type="submit"] {
+  @each $color in globals.$colors {
+    @if $color == black {}
+    @else if $color == white {}
+    @else {
+      /** FILLED **/
+      --color-#{"" + $color}-filled-background: var(--color-#{"" + $color}-600);
+      --color-#{"" + $color}-filled-text: var(--color-white);
+      --color-#{"" + $color}-filled-border: transparent;
+      --color-#{"" + $color}-filled-outline: transparent;
+
+      --color-#{"" + $color}-filled-background-active: var(--color-#{"" + $color}-600);
+      --color-#{"" + $color}-filled-text-active: var(--color-white);
+      --color-#{"" + $color}-filled-border-active: transparent;
+      --color-#{"" + $color}-filled-outline-active: var(--color-#{"" + $color}-200);
+
+      --color-#{"" + $color}-filled-background-hover: var(--color-#{"" + $color}-500);
+      --color-#{"" + $color}-filled-text-hover: var(--color-white);
+      --color-#{"" + $color}-filled-border-hover: transparent;
+      --color-#{"" + $color}-filled-outline-hover: transparent;
+
+      --color-#{"" + $color}-filled-background-focus: var(--color-#{"" + $color}-600);
+      --color-#{"" + $color}-filled-text-focus: var(--color-white);
+      --color-#{"" + $color}-filled-border-focus: transparent;
+      --color-#{"" + $color}-filled-outline-focus: var(--color-#{"" + $color}-200);
+
+      /** OUTLINED **/
+      --color-#{"" + $color}-outlined-background: var(--color-#{"" + $color}-50);
+      --color-#{"" + $color}-outlined-text: var(--color-#{"" + $color}-700);
+      --color-#{"" + $color}-outlined-border: var(--color-#{"" + $color}-500);
+      --color-#{"" + $color}-outlined-outline: transparent;
+
+      --color-#{"" + $color}-outlined-background-active: var(--color-#{"" + $color}-200);
+      --color-#{"" + $color}-outlined-text-active: var(--color-gray-100);
+      --color-#{"" + $color}-outlined-border-active: var(--color-#{"" + $color}-700);
+      --color-#{"" + $color}-outlined-outline-active: var(--color-#{"" + $color}-100);
+
+      --color-#{"" + $color}-outlined-background-hover: var(--color-#{"" + $color}-100);
+      --color-#{"" + $color}-outlined-text-hover: var(--color-#{"" + $color}-700);
+      --color-#{"" + $color}-outlined-border-hover: var(--color-#{"" + $color}-200);
+      --color-#{"" + $color}-outlined-outline-hover: transparent;
+
+      --color-#{"" + $color}-outlined-background-focus: var(--color-#{"" + $color}-200);
+      --color-#{"" + $color}-outlined-text-focus: var(--color-#{"" + $color}-100);
+      --color-#{"" + $color}-outlined-border-focus: var(--color-#{"" + $color}-500);
+      --color-#{"" + $color}-outlined-outline-focus: transparent;
+
+      /** CLEARED **/
+      --color-#{"" + $color}-cleared-background: transparent;
+      --color-#{"" + $color}-cleared-text: var(--color-#{"" + $color}-600);
+      --color-#{"" + $color}-cleared-border: transparent;
+      --color-#{"" + $color}-cleared-outline: transparent;
+
+      --color-#{"" + $color}-cleared-background-active: transparent;
+      --color-#{"" + $color}-cleared-text-active: var(--color-#{"" + $color}-500);
+      --color-#{"" + $color}-cleared-border-active: transparent;
+      --color-#{"" + $color}-cleared-outline-active: var(--color-#{"" + $color}-600);
+
+      --color-#{"" + $color}-cleared-background-hover: transparent;
+      --color-#{"" + $color}-cleared-text-hover: var(--color-#{"" + $color}-300);
+      --color-#{"" + $color}-cleared-border-hover: var(--color-#{"" + $color}-100);
+      --color-#{"" + $color}-cleared-outline-hover: transparent;
+
+      --color-#{"" + $color}-cleared-background-focus: transparent;
+      --color-#{"" + $color}-cleared-text-focus: var(--color-#{"" + $color}-500);
+      --color-#{"" + $color}-cleared-border-focus: transparent;
+      --color-#{"" + $color}-cleared-outline-focus: var(--color-#{"" + $color}-300);
     }
   }
 }

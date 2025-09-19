@@ -29,7 +29,7 @@ export const BastButton: FC<IBastButtonProps> = ({
 }) => (
   <button
     type={type === 'button' ? 'button' : 'submit'}
-    className={`${clsx(['bast-button', size === 'small' && 'bast-button--small', `bast-button--${color}`, `bast-button--${fill}`, expand && `bast-button--expand`, shape && `bast-button--${shape}`, iconOnly && 'bast-button--icon-only', className && className])}`}
+    className={`${clsx(['bast-button', size !== 'regular' && `bast-button--${size}`, `bast-button--${color}`, `bast-button--${fill}`, expand && `bast-button--expand`, shape && `bast-button--${shape}`, iconOnly && 'bast-button--icon-only', className && className])}`}
     {...props}
   />
 );
