@@ -9,6 +9,7 @@ export * from '../entities/list';
 export * from '../entities/progress';
 export * from '../entities/radio';
 export * from '../entities/spinner';
+export * from '../entities/switch';
 export * from '../features/toggleTheme';
 export * from '../features/toggleVisuallyImpairedMode';
 export * from '../shared/lib/utilityTypes';
