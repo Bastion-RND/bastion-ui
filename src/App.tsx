@@ -27,6 +27,7 @@ const App: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [checked, setChecked] = useState(false);
+  const [switchChecked, setSwitchChecked] = useState(false);
 
   return (
     <div
@@ -48,12 +49,16 @@ const App: FC = () => {
       </BastHeader>
       <Container>
         <div>
-          <BastSwitch
-            className="mb-1"
-            checked
-            color="brand"
-            onChange={(e) => console.warn(e.target.value)}
-          />
+          <BastGrid space={1} className="mb-1">
+            <BastGrid.Column size={{ default: 'auto' }}>Выкл.</BastGrid.Column>
+            <BastGrid.Column size={{ default: 'auto' }}>
+              <BastSwitch
+                checked={switchChecked}
+                onChange={({ target: { checked } }) => {setSwitchChecked(checked);}}
+              />
+            </BastGrid.Column>
+            <BastGrid.Column size={{ default: 'auto' }}>Вкл.</BastGrid.Column>
+          </BastGrid>
           <BastButton
             className="mr-1"
             onClick={() => setActionSheetOpen((state) => !state)}
