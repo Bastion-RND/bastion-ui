@@ -19,6 +19,7 @@ import { BastDropdown } from '../lib/widgets/dropdown';
 import { BastCard } from '../lib/entities/card';
 import { Container } from '../lib/shared/ui/container';
 import { BastGrid } from '../lib/entities/grid';
+import { BastSwitch } from '../lib/entities/switch';
 
 const App: FC = () => {
   const [isActionSheetOpen, setActionSheetOpen] = useState(false);
@@ -26,6 +27,7 @@ const App: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [checked, setChecked] = useState(false);
+  const [switchChecked, setSwitchChecked] = useState(false);
 
   return (
     <div
@@ -47,6 +49,16 @@ const App: FC = () => {
       </BastHeader>
       <Container>
         <div>
+          <BastGrid space={1} className="mb-1">
+            <BastGrid.Column size={{ default: 'auto' }}>Выкл.</BastGrid.Column>
+            <BastGrid.Column size={{ default: 'auto' }}>
+              <BastSwitch
+                checked={switchChecked}
+                onChange={({ target: { checked } }) => {setSwitchChecked(checked);}}
+              />
+            </BastGrid.Column>
+            <BastGrid.Column size={{ default: 'auto' }}>Вкл.</BastGrid.Column>
+          </BastGrid>
           <BastButton
             className="mr-1"
             onClick={() => setActionSheetOpen((state) => !state)}
@@ -258,7 +270,7 @@ const App: FC = () => {
           <BastGrid.Column size={{ default: 'auto' }} className="bgc-danger">
             Колонка 3
           </BastGrid.Column>
-          <BastGrid.Column className='bgc-gray'>Колонка 4</BastGrid.Column>
+          <BastGrid.Column className="bgc-gray">Колонка 4</BastGrid.Column>
           <BastGrid.Column size={{ default: 'auto' }} className="bgc-success">
             Колонка 5
           </BastGrid.Column>

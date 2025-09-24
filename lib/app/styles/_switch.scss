@@ -1,0 +1,75 @@
+@use 'color-palette' as color-palette;
+
+.bast-switch,
+input[type='checkbox'].bast-switch {
+  --border-color: var(--color-gray-300);
+  --color-variant-rgb: var(--color-brand-rgb);
+  --background-color: var(--color-gray);
+  --outline-color: var(--color-gray);
+  --outline-width: 0;
+  --cursor: pointer;
+
+  background-color: var(--background-color);
+  appearance: none;
+  cursor: var(--cursor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 1.5rem;
+  min-width: 1.25rem;
+  min-height: 1.25rem;
+
+  border: {
+    width: 2px;
+    style: solid;
+    color: var(--border-color);
+    radius: 0.8rem;
+  }
+
+  outline: var(--outline-color) var(--outline-width) solid;
+
+  &::before {
+    --tranform: translateX(calc(-1 * (1.5rem - 0.75rem)));
+
+    content: "";
+    width: 0.9rem;
+    height: 0.9rem;
+    background-color: var(--color-white);
+    border-radius: 50%;
+    transition: 0.3s;
+    transform: var(--tranform);
+  }
+
+  &:disabled {
+    --cursor: not-allowed;
+
+    opacity: 0.5;
+  }
+
+  &:checked {
+    --border-color: rgb(var(--color-variant-rgb-light));
+    --background-color: rgb(var(--color-variant-rgb));
+
+    &::before {
+      --tranform: translateX(calc(1.5rem - 0.75rem));
+    }
+
+    &:focus-visible {
+      --outline-color: rgba(var(--color-variant-rgb), 0.6);
+    }
+  }
+
+  &:focus-visible {
+    --outline-color: var(--color-gray);
+    --outline-width: 3px;
+  }
+
+  @each $color-name, $color in color-palette.$colors {
+    &--#{$color-name} {
+      --color-variant-rgb: var(--color-#{$color-name}-rgb);
+      --color-variant-rgb-light: var(--color-#{$color-name}-rgb-light);
+      --color-variant-rgb-dark: var(--color-#{$color-name}-rgb-dark);
+    }
+  }
+}
