@@ -6,10 +6,12 @@ input[type='checkbox'].bast-switch {
   --color-variant-rgb: var(--color-brand-rgb);
   --background-color: var(--color-gray);
   --outline-color: var(--color-gray);
+  --outline-width: 0;
+  --cursor: pointer;
 
   background-color: var(--background-color);
   appearance: none;
-  cursor: pointer;
+  cursor: var(--cursor);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,10 +27,11 @@ input[type='checkbox'].bast-switch {
     radius: 0.8rem;
   }
 
-  outline: var(--outline-color) 0 solid;
+  outline: var(--outline-color) var(--outline-width) solid;
 
   &::before {
     --tranform: translateX(calc(-1 * (1.5rem - 0.75rem)));
+
     content: "";
     width: 0.9rem;
     height: 0.9rem;
@@ -39,7 +42,8 @@ input[type='checkbox'].bast-switch {
   }
 
   &:disabled {
-    cursor: not-allowed;
+    --cursor: not-allowed;
+
     opacity: 0.5;
   }
 
@@ -49,7 +53,6 @@ input[type='checkbox'].bast-switch {
 
     &::before {
       --tranform: translateX(calc(1.5rem - 0.75rem));
-      transform: var(--tranform);
     }
 
     &:focus-visible {
@@ -59,7 +62,7 @@ input[type='checkbox'].bast-switch {
 
   &:focus-visible {
     --outline-color: var(--color-gray);
-    outline-width: 3px;
+    --outline-width: 3px;
   }
 
   @each $color-name, $color in color-palette.$colors {
