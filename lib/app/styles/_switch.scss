@@ -4,12 +4,10 @@
 input[type='checkbox'].bast-switch {
   --border-color: var(--color-gray-300);
   --color-variant-rgb: var(--color-brand-rgb);
-  --color: var(--color-white);
-  --background-color: rgba(var(--color-variant-rgb), 1);
-  --outline-color: rgba(var(--color-variant-rgb), 0);
+  --background-color: var(--color-gray);
+  --outline-color: var(--color-gray);
 
-  color: var(--color);
-  background-color: var(--color-gray);
+  background-color: var(--background-color);
   appearance: none;
   cursor: pointer;
   display: flex;
@@ -19,7 +17,6 @@ input[type='checkbox'].bast-switch {
   height: 1.5rem;
   min-width: 1.25rem;
   min-height: 1.25rem;
-  transition: background-color 0.3s ease, border-color 0.3s ease, outline-color 0.3s ease;
 
   border: {
     width: 2px;
@@ -28,20 +25,17 @@ input[type='checkbox'].bast-switch {
     radius: 0.8rem;
   }
 
-  outline: {
-    color: var(--color-gray);
-    width: 0;
-    style: solid;
-  };
+  outline: var(--outline-color) 0 solid;
 
   &::before {
+    --tranform: translateX(calc(-1 * (1.5rem - 0.75rem)));
     content: "";
     width: 0.9rem;
     height: 0.9rem;
     background-color: var(--color-white);
     border-radius: 50%;
     transition: 0.3s;
-    transform: translateX(calc(-1 * (1.5rem - 0.75rem)));
+    transform: var(--tranform);
   }
 
   &:disabled {
@@ -50,26 +44,22 @@ input[type='checkbox'].bast-switch {
   }
 
   &:checked {
-    --border-color: var(--color-variant-rgb-light);
-
-    background-color: var(--background-color);
-    border-color: rgb(var(--border-color));
-
-    &:not(:focus) {
-      outline-color: var(--border-color);
-    }
+    --border-color: rgb(var(--color-variant-rgb-light));
+    --background-color: rgb(var(--color-variant-rgb));
 
     &::before {
-      transform: translateX(calc(1.5rem - 0.75rem));
+      --tranform: translateX(calc(1.5rem - 0.75rem));
+      transform: var(--tranform);
+    }
+
+    &:focus-visible {
+      --outline-color: rgba(var(--color-variant-rgb), 0.6);
     }
   }
 
   &:focus-visible {
-    --outline-color: rgba(var(--color-variant-rgb), 1);
-    outline: {
-      color: rgba((var(--border-color)), 0.6);
-      width: 3px;
-    };
+    --outline-color: var(--color-gray);
+    outline-width: 3px;
   }
 
   @each $color-name, $color in color-palette.$colors {
