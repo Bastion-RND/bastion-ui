@@ -26,6 +26,10 @@ const BastInput = forwardRef<HTMLInputElement, IBastControl>(
 
     useEffect(() => () => debouncedChangeHandler.clear(), [debouncedChangeHandler]);
 
+    useEffect(() => {
+      setInternalValue(value?.toString() ?? '');
+    }, [value]);
+
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       setInternalValue(e.target.value);
       debouncedChangeHandler(e);
