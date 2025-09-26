@@ -33,4 +33,28 @@
   &__label:has(+ .bast-input:focus), &__label:has(+ .bast-input:focus-visible) {
     color: var(--input-group-text-color-focus);
   }
+
+  &__label:has(+ .bast-input--valid:focus), &__label:has(+ .bast-input--valid:focus-visible) {
+    color: var(--color-success-600);
+  }
+
+  &__label:has(+ .bast-input--valid) {
+    color: var(--color-success-400);
+  }
+
+  &__label:has(+ .bast-input--valid:disabled) {
+    color: var(--color-success-300);
+  }
+
+  &__label:has(+ .bast-input--invalid:focus), &__label:has(+ .bast-input--invalid:focus-visible) {
+    color: var(--color-danger-600);
+  }
+
+  &__label:has(+ .bast-input--invalid:disabled) {
+    color: var(--color-danger-300);
+  }
+
+  &__label:has(+ .bast-input--invalid) {
+    color: var(--color-danger-400);
+  }
 }
