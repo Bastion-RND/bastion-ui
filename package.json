@@ -26,7 +26,8 @@
     },
     "./bastion-ui.css": "./dist/styles/bastion-ui.css",
     "./sass/bastion-ui.scss": "./lib/app/styles/bastion-ui.scss",
-    "./sass/color-palette.scss": "./lib/app/styles/_color-palette.scss"
+    "./sass/color-palette.scss": "./lib/app/styles/_color-palette.scss",
+    "./sass/globals.scss": "./lib/app/styles/_globals.scss"
   },
   "module": "./dist/app/main.js",
   "types": "./dist/app/main.d.ts",
