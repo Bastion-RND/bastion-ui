@@ -138,6 +138,8 @@
     display: none;
     transform-origin: top center;
     animation: growDown .35s ease-in-out forwards;
+    overflow: hidden;
+    margin: 0;
   }
 
   &__checkbox {
