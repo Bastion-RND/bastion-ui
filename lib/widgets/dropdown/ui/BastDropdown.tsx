@@ -89,13 +89,11 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
           <Icons.ChevronUp className="dropdown__input-icon" />
         </div>
       </label>
-      <div className='dropdown__list'>
-        <BastList>
-          <DropdownContext.Provider value={contextProviderValue}>
-            {children}
-          </DropdownContext.Provider>
-        </BastList>
-      </div>
+      <BastList className='dropdown__list'>
+        <DropdownContext.Provider value={contextProviderValue}>
+          {children}
+        </DropdownContext.Provider>
+      </BastList>
     </div>
   );
 };
