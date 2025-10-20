@@ -163,13 +163,17 @@ const App: FC = () => {
             }}
           />
           <BastInput
-            disabled
+            isValid
             value="disabled"
             onClick={(e) => {
               console.log(e);
             }}
-            className="mt-2"
+            className="mt-2 ml-2"
           />
+          <BastInputGroup>
+            <BastInputGroup.Label htmlFor="2">Label</BastInputGroup.Label>
+            <BastInputGroup.Input isValid={true} id="2" placeholder="Злодей" />
+          </BastInputGroup>
           <div className="p-5">
             <BastDropdown
               label="Label"

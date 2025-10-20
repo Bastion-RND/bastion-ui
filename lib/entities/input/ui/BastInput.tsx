@@ -13,14 +13,15 @@ import { debounceFunction } from '../../../shared/lib';
 export interface IBastControl extends ComponentPropsWithRef<'input'> {
   disabled?: boolean;
   debounce?: number;
+  isValid?: boolean;
 }
 
 const BastInput = forwardRef<HTMLInputElement, IBastControl>(
-  ({ className, value, onChange, debounce = 0, ...props }, ref) => {
+  ({ className, value, onInput, debounce = 0, isValid, ...props }, ref) => {
     const [internalValue, setInternalValue] = useState<string>(value?.toString() ?? '');
 
     const debouncedChangeHandler = useCallback(
-      debounceFunction((e: ChangeEvent<HTMLInputElement>) => onChange?.(e), debounce),
+      debounceFunction((e: ChangeEvent<HTMLInputElement>) => onInput?.(e), debounce),
       [debounce],
     );
 
@@ -35,11 +36,18 @@ const BastInput = forwardRef<HTMLInputElement, IBastControl>(
       debouncedChangeHandler(e);
     };
 
+    const cls = clsx([
+      'bast-input',
+      className && className,
+      isValid === true && 'bast-input--valid',
+      isValid === false && 'bast-input--invalid'
+    ]);
+
     return (
       <input
         value={internalValue}
         ref={ref}
-        className={`bast-input${clsx([className && ` ${className}`])}`}
+        className={cls}
         {...props}
         onChange={handleChange}
       />
