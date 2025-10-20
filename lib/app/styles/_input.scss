@@ -3,12 +3,13 @@
 
 .bast-input {
   --border-color: var(--color-brand-200);
-
   --color: var(--color-gray-300);
 
   --background-color: white;
   --outline-color: transparent;
+  --cursor: auto;
 
+  cursor: var(--cursor);
   border: {
     radius: var(--radius-small);
     color: var(--border-color);
@@ -27,34 +28,57 @@
   transition: 0.3s ease, outline-color 0.3s ease;
   background-color: var(--background-color);
 
-  &:focus + .bast-input-group__label,
-  &:focus-visible {
-    outline-width: 3px;
-    --outline-color: rgba(var(--color-brand-100-rgb), #{map.get(colors.$color-opacities, 60)});
-    --border-color: var(--color-brand-500);
-  }
-
   &:disabled {
     --border-color: var(--color-gray-300);
+    --color: var(--color-gray-300);
+    --cursor: not-allowed;
+  }
+
+  &:focus,
+  &:focus-visible {
+    --outline-color: rgba(var(--color-brand-rgb), 0.6);
+
+    outline-width: 3px;
   }
 
   &::placeholder {
     color: var(--color);
   }
+
+  &--valid {
+    --border-color: var(--color-success);
+    --color: rgba(var(--color-success-rgb), 0.6);
+
+    &:focus,
+    &:focus-visible {
+      --outline-color: rgba(var(--color-success-rgb), 0.6);
+    }
+
+    &:disabled {
+      --border-color: var(--color-success-300);
+      --color: var(--color-success-300);
+    }
+  }
+
+  &--invalid {
+    --border-color: var(--color-danger);
+    --color: rgba(var(--color-danger-rgb), 0.6);
+
+    &:focus,
+    &:focus-visible {
+      --outline-color: rgba(var(--color-danger-rgb), 0.6);
+
+    }
+
+    &:disabled {
+      --border-color: var(--color-danger-300);
+      --color: var(--color-danger-300);
+    }
+  }
 }
 
 :root[data-theme="dark"] {
   .bast-input {
-    --border-color: var(--color-brand-300);
-    --color: var(--color-gray-500);
-    --background-color: rgba(var(--color-gray-700-rgb), #{map.get(colors.$color-opacities, 60)});
-
-    &:focus + .bast-input-group__label,
-    &:focus-visible {
-      --border-color: var(--color-brand-600);
-    }
-    &:disabled {
-      --border-color: var(--color-gray-400);
-    }
+    --background-color: rgba(var(--color-gray-700-rgb), #{map.get(colors.$color-opacities, 40)});
   }
 }
