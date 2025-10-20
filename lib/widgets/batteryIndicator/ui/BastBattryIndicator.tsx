@@ -1,27 +1,48 @@
-import { FC } from 'react';
+import { FC, ReactElement } from 'react';
 
-import { BastIcon } from '../../../entities/icon';
-import { TIcons } from '../../../shared/ui/icons';
-
-const BastBatteryIndicator: FC<{ percent: number; isCharging?: boolean }> = ({
-  percent,
-  isCharging = false,
-}) => {
-  let name: TIcons;
+const BastBatteryIndicator: FC<{
+  percent: number;
+  isCharging?: boolean;
+  icons: {
+    BatteryChargingFull: ReactElement<SVGSVGElement, 'svg'>;
+    BatteryFull: ReactElement<SVGSVGElement, 'svg'>;
+    BatteryChargingThreeQuarters: ReactElement<SVGSVGElement, 'svg'>;
+    BatteryThreeQuarters: ReactElement<SVGSVGElement, 'svg'>;
+    BatteryChargingHalf: ReactElement<SVGSVGElement, 'svg'>;
+    BatteryHalf: ReactElement<SVGSVGElement, 'svg'>;
+    BatteryChargingQuarter: ReactElement<SVGSVGElement, 'svg'>;
+    BatteryQuarter: ReactElement<SVGSVGElement, 'svg'>;
+    BatteryChargingEmpty: ReactElement<SVGSVGElement, 'svg'>;
+    BatteryEmpty: ReactElement<SVGSVGElement, 'svg'>;
+  };
+}> = ({ percent, isCharging = false, icons }) => {
+  let icon: ReactElement<SVGSVGElement, 'svg'>;
+  const {
+    BatteryFull,
+    BatteryChargingFull,
+    BatteryChargingEmpty,
+    BatteryChargingHalf,
+    BatteryChargingQuarter,
+    BatteryThreeQuarters,
+    BatteryEmpty,
+    BatteryHalf,
+    BatteryQuarter,
+    BatteryChargingThreeQuarters,
+  } = icons;
 
   if (percent >= 80) {
-    name = isCharging ? 'BatteryChargingFull' : 'BatteryFull';
+    icon = isCharging ? BatteryChargingFull : BatteryFull;
   } else if (percent >= 60) {
-    name = isCharging ? 'BatteryChargingThreeQuarters' : 'BatteryThreeQuarters';
+    icon = isCharging ? BatteryChargingThreeQuarters : BatteryThreeQuarters;
   } else if (percent >= 40) {
-    name = isCharging ? 'BatteryChargingHalf' : 'BatteryHalf';
+    icon = isCharging ? BatteryChargingHalf : BatteryHalf;
   } else if (percent >= 20) {
-    name = isCharging ? 'BatteryChargingQuarter' : 'BatteryQuarter';
+    icon = isCharging ? BatteryChargingQuarter : BatteryQuarter;
   } else {
-    name = isCharging ? 'BatteryChargingEmpty' : 'BatteryEmpty';
+    icon = isCharging ? BatteryChargingEmpty : BatteryEmpty;
   }
 
-  return <BastIcon name={name} />;
+  return icon;
 };
 
 export { BastBatteryIndicator };

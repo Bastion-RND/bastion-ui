@@ -33,7 +33,7 @@
     }
     @else {
       --modal-card-background-color-first-circle-#{"" + $color}: var(--color-#{"" + $color}-100);
-      --modal-card-background-color-second-circle-#{"" + $color}: var(--color-#{"" + $color}-100);
+      --modal-card-background-color-second-circle-#{"" + $color}: var(--color-#{"" + $color}-200);
       --modal-card-icon-color-#{"" + $color}: var(--color-#{"" + $color}-500);
     }
   }

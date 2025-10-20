@@ -34,13 +34,15 @@
     align-items: center;
   }
 
-  svg.icon.header__logo {
+  &__logo {
     --height: 2em;
     --width: 8.375em;
-    height: var(--height);
-    min-width: var(--height);
-    display: inline-block;
-    color: var(--color-white);
+    svg {
+      height: var(--height);
+      min-width: var(--height);
+      display: inline-block;
+      color: var(--color-white);
+    }
 
     &--bast {
       min-width: var(--width);
