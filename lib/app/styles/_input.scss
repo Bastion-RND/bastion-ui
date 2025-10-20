@@ -28,16 +28,6 @@
   transition: 0.3s ease, outline-color 0.3s ease;
   background-color: var(--background-color);
 
-  &--valid {
-    --border-color: var(--color-success);
-    --color: rgba(var(--color-success-rgb), 0.6);
-  }
-
-  &--invalid {
-    --border-color: var(--color-danger);
-    --color: rgba(var(--color-danger-rgb), 0.6);
-  }
-
   &:disabled {
     --border-color: var(--color-gray-300);
     --color: var(--color-gray-300);
@@ -46,33 +36,44 @@
 
   &:focus,
   &:focus-visible {
-    outline-width: 3px;
     --outline-color: rgba(var(--color-brand-rgb), 0.6);
-  }
 
-  &--valid:focus,
-  &--valid:focus-visible {
-    --outline-color: rgba(var(--color-success-rgb), 0.6);
-  }
-
-  &--invalid:focus,
-  &--invalid:focus-visible {
-    --outline-color: rgba(var(--color-danger-rgb), 0.6);
-
-  }
-
-  &--valid:disabled {
-    --border-color: var(--color-success-300);
-    --color: var(--color-success-300);
-  }
-
-  &--invalid:disabled {
-    --border-color: var(--color-danger-300);
-    --color: var(--color-danger-300);
+    outline-width: 3px;
   }
 
   &::placeholder {
     color: var(--color);
+  }
+
+  &--valid {
+    --border-color: var(--color-success);
+    --color: rgba(var(--color-success-rgb), 0.6);
+
+    &:focus,
+    &:focus-visible {
+      --outline-color: rgba(var(--color-success-rgb), 0.6);
+    }
+
+    &:disabled {
+      --border-color: var(--color-success-300);
+      --color: var(--color-success-300);
+    }
+  }
+
+  &--invalid {
+    --border-color: var(--color-danger);
+    --color: rgba(var(--color-danger-rgb), 0.6);
+
+    &:focus,
+    &:focus-visible {
+      --outline-color: rgba(var(--color-danger-rgb), 0.6);
+
+    }
+
+    &:disabled {
+      --border-color: var(--color-danger-300);
+      --color: var(--color-danger-300);
+    }
   }
 }
 

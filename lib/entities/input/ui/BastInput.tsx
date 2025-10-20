@@ -36,11 +36,18 @@ const BastInput = forwardRef<HTMLInputElement, IBastControl>(
       debouncedChangeHandler(e);
     };
 
+    const cls = clsx([
+      'bast-input',
+      className && className,
+      isValid === true && 'bast-input--valid',
+      isValid === false && 'bast-input--invalid'
+    ]);
+
     return (
       <input
         value={internalValue}
         ref={ref}
-        className={`bast-input${clsx([className && ` ${className}`, isValid && ' bast-input--valid', isValid === false && ' bast-input--invalid'])}`}
+        className={cls}
         {...props}
         onChange={handleChange}
       />
