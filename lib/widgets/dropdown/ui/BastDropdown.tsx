@@ -98,11 +98,7 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
         />
         <div className="dropdown__input">
           <span className="dropdown__input-text">{contextValue?.text || placeholder}</span>
-          <span className="dropdown__input-icon">
-            {dropdownIcon.type === 'svg'
-              ? dropdownIcon
-              : (console.error('dropdownIcon должен быть <svg>'), null)}
-          </span>
+          <span className="dropdown__input-icon">{dropdownIcon}</span>
         </div>
       </label>
       <BastList className="dropdown__list">

@@ -102,11 +102,7 @@ const BastAccordion: FC<TBastAccordionProps> = ({
     <div className={clsx(['accordion', className && className])}>
       <label htmlFor={id} className="accordion__title">
         {title}
-        <span className="accordion__icon">
-          {expandIcon.type === 'svg'
-            ? expandIcon
-            : (console.error('expandIcon должен быть <svg>'), null)}
-        </span>
+        <span className="accordion__icon">{expandIcon}</span>
         <input
           className="accordion__input"
           id={id}

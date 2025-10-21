@@ -39,7 +39,7 @@ const App: FC = () => {
         height: '100%',
       }}
     >
-      <BastHeader logo='skat' fluid className="p-1">
+      <BastHeader fluid className="p-1">
         <div className="d-f jc-center ai-center">
           <p className="h3 m-0 ml-1">BastionUI</p>
         </div>
