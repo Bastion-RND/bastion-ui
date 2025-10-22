@@ -10,7 +10,6 @@ const meta = {
   },
   tags: ['autodocs', 'utility'],
   args: {
-    logo: 'bast',
     children: 'Any content',
     className: '',
     isFloating: false,
