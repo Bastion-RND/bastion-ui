@@ -3,7 +3,6 @@ export * from '../entities/button';
 export * from '../entities/card';
 export * from '../entities/check';
 export * from '../entities/grid';
-export * from '../entities/icon';
 export * from '../entities/input';
 export * from '../entities/list';
 export * from '../entities/progress';
