@@ -5,7 +5,7 @@ import { Container } from '../../../shared/ui/container';
 
 const BastHeader: FC<
   Pick<ComponentProps<'header'>, 'style' | 'className' | 'children' | 'id'> & {
-    logo?: ReactElement<SVGSVGElement, 'svg'>;
+    logo?: ReactElement;
     isFloating?: boolean;
     color?: 'brand' | 'gray';
     fluid?: boolean;
@@ -16,7 +16,7 @@ const BastHeader: FC<
     {...props}
   >
     <Container fluid={fluid}>
-      <span>{logo}</span>
+      {logo && <span>{logo}</span>}
       <div className="header__content">{children}</div>
     </Container>
   </header>

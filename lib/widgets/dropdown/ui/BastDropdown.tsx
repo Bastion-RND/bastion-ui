@@ -25,7 +25,7 @@ type TBastDropdown = PropsWithChildren<{
   placeholder?: string;
   label?: string;
   value?: TDropdownValue;
-  dropdownIcon?: ReactElement<SVGSVGElement, 'svg'>;
+  dropdownIcon?: ReactElement;
   onChange?: (value: TDropdownValue) => void;
 }> &
   Omit<ComponentProps<'input'>, 'onChange' | 'value'>;
@@ -98,7 +98,7 @@ const BastDropdown: FC<TBastDropdown> & TBastDropdownWithStaticProps = ({
         />
         <div className="dropdown__input">
           <span className="dropdown__input-text">{contextValue?.text || placeholder}</span>
-          <span className="dropdown__input-icon">{dropdownIcon}</span>
+          {dropdownIcon && <span className="dropdown__input-icon">{dropdownIcon}</span>}
         </div>
       </label>
       <BastList className="dropdown__list">

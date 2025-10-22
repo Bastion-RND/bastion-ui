@@ -7,7 +7,7 @@ import { TDropdownValue, useDropdownContext } from '../model/DropdownContext';
 type TBastDropdownOption = {
   value?: TDropdownValue;
   children?: string | null;
-  dropdownOptionIcon?: ReactElement<SVGSVGElement, 'svg'>;
+  dropdownOptionIcon?: ReactElement;
 } & Omit<ComponentProps<typeof BastListItem>, 'children'>;
 
 const BastDropdownOption: FC<TBastDropdownOption> = ({
@@ -50,7 +50,7 @@ const BastDropdownOption: FC<TBastDropdownOption> = ({
       <span
         className={`${clsx(['dropdown__item__icon', isSelected && 'dropdown__item__icon--visible'])}`}
       >
-        {dropdownOptionIcon}
+        {dropdownOptionIcon && <span>{dropdownOptionIcon}</span>}
       </span>
     </BastListItem>
   );

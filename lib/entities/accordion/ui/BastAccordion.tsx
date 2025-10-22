@@ -23,7 +23,7 @@ export type TBastAccordionProps = PropsWithChildren<{
   initialExpanded?: boolean;
   className?: string;
   onChange?: (value: boolean) => void;
-  expandIcon?: ReactElement<SVGSVGElement, 'svg'>;
+  expandIcon?: ReactElement;
 }>;
 
 const ACCORDION_CONTENT_RESIZE_DELAY = 100;
@@ -102,7 +102,7 @@ const BastAccordion: FC<TBastAccordionProps> = ({
     <div className={clsx(['accordion', className && className])}>
       <label htmlFor={id} className="accordion__title">
         {title}
-        <span className="accordion__icon">{expandIcon}</span>
+        {expandIcon && <span className="accordion__icon">{expandIcon}</span>}
         <input
           className="accordion__input"
           id={id}

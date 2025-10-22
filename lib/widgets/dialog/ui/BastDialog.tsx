@@ -18,7 +18,7 @@ type TBastDialog = TWithBastColor<{
   onClose?: () => void;
 }>;
 
-const BAST_ICONS_BY_COLOR: Partial<Record<TBastColor, ReactElement<SVGSVGElement, 'svg'>>> = {
+const BAST_ICONS_BY_COLOR: Partial<Record<TBastColor, ReactElement>> = {
   brand: (
     <svg
       height="1em"
