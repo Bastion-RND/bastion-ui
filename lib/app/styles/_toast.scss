@@ -59,7 +59,7 @@
   }
 
   &__wrapper {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 50%;
     width: min(calc(100% - (1.5rem * 2)), 496px);

@@ -21,6 +21,7 @@ import { BastGrid } from '../lib/entities/grid';
 import { BastSwitch } from '../lib/entities/switch';
 import { BastAccordion } from '../lib/entities/accordion';
 import { BastSpinner } from '../lib/entities/spinner';
+import { useToast } from '../lib/widgets/toast';
 
 const App: FC = () => {
   const [isActionSheetOpen, setActionSheetOpen] = useState(false);
@@ -29,6 +30,7 @@ const App: FC = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [checked, setChecked] = useState(false);
   const [switchChecked, setSwitchChecked] = useState(false);
+  const {createToast} = useToast();
 
   return (
     <div
@@ -70,7 +72,7 @@ const App: FC = () => {
           <BastSpinner />
           <BastButton
             className="mr-1"
-            onClick={() => setActionSheetOpen((state) => !state)}
+            onClick={() => createToast({text: '1212', color: 'black', autoClose: false})}
             color="brand"
           >
             filled
@@ -130,6 +132,11 @@ const App: FC = () => {
           nulla officia optio placeat quae qui recusandae rerum similique soluta, tenetur ut vel
           veniam voluptate!
         </p>
+        <BastList inset hoverable>
+          <BastList.Item>Тест 1</BastList.Item>
+          <BastList.Item>Тест 2</BastList.Item>
+          <BastList.Item>Тест 3</BastList.Item>
+        </BastList>
         <BastPopover
           content={
             <BastList inset className="m-0">
@@ -149,7 +156,7 @@ const App: FC = () => {
             <BastListItem>test</BastListItem>
             <BastListItem>test</BastListItem>
           </BastList>
-          <BastCheck checked={false} label="Тест check" readOnly />
+          <BastCheck checked={false} label="Тест check" readOnly subLabel='test' />
           <BastCheck
             checked={checked}
             label="Тест check"
