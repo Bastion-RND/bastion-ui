@@ -15,7 +15,7 @@ const BastHeader: FC<
     className={`${clsx(['header', isFloating && 'header--floating', color === 'gray' && 'header--gray', className && className])}`}
     {...props}
   >
-    <Container fluid={fluid}>
+    <Container fluid={fluid} className='header__container'>
       {logo && <span>{logo}</span>}
       <div className="header__content">{children}</div>
     </Container>

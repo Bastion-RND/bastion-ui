@@ -1,26 +1,47 @@
 .progress {
-  height: var(--progress-bar-height);
+  --background-color: var(--color-gray-100);
+  --border-radius: .5rem;
+
+  height: .5rem;
   width: 100%;
-  background-color: var(--progress-bar-background-color);
-  border-radius: var(--progress-radius);
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
 
   &__wrapper {
     display: flex;
     width: 100%;
     align-items: center;
-    gap: var(--progress-bar-gap);
+    gap: .75rem;
   }
 
   &__label {
-    color: var(--progress-bar-text-color);
-    font-weight: var(--progress-bar-font-weight);
+    --color: var(--color-brand-100);
+
+    color: var(--color);
+    font-weight: 600;
   }
 
   &__filler {
-    background-color: var(--progress-bar-filler-color);
-    height: var(--progress-bar-filler-height);
+    --background-color: var(--color-brand-500);
+
+    background-color: var(--background-color);
+    height: 100%;
     width: 0;
-    border-radius: var(--progress-filler-radius);
-    transition: var(--progress-bar-fill-animation);
+    border-radius: var(--border-radius);
+    transition: width 1s ease-in-out;
+  }
+}
+
+:root[data-theme="dark"] {
+  .progress {
+    --background-color: var(--color-brand-900);
+
+    &__label {
+      --color: var(--color-brand-300);
+    }
+
+    &__filler {
+      --background-color: var(--color-brand-300);
+    }
   }
 }
