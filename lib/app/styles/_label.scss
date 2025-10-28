@@ -1,41 +1,26 @@
 .label {
-  --text-color: var(--label-text-color);
-  padding: var(--label-padding);
+  --text-color: var(--color-gray-800);
+
+  padding: 0.125rem 0 0.125rem 0.75rem;
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
   user-select: none;
   cursor: pointer;
   text-align: left;
+  font-weight: 500;
 
   &--disabled {
-    --text-color: var(--lebel-text-color-disabled);
+    --text-color: var(--color-gray-300);
     cursor: default;
   }
 
-  .sublabel {
+  &__sublabel {
     font-weight: normal;
-    padding-top: var(--label-sublabel-padding);
+    padding: 0.125rem 0 0 0;
 
     &--disabled {
       cursor: default
-    }
-  }
-}
-
-.label-wrapper {
-  display: flex;
-
-  &--disabled {
-    --text-color: var(--label-wrapper-text-color-disabled);
-  }
-
-  &--top {
-    flex-direction: column-reverse;
-    gap: var(--label-wrapper-gap);
-
-    .label {
-      padding-left: 0;
     }
   }
 }

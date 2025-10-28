@@ -1,21 +1,38 @@
 @use "mixins" as mixins;
 
 .dialog {
-  width: min(calc(100% - calc(var(--modal-card-padding) * 2)), var(--dialog-card-width));
-  animation: var(--dialog-card-animation);
+  --background-color: var(--color-white);
+
+  width: min(calc(100% - (1.5rem * 2)), 400px);
+  animation: dialog-card-animation 0.3s ease;
   align-self: start;
-  margin-top: var(--dialog-card-margin-top);
-  background-color: var(--dialog-card-background-color);
+  margin-top: 2rem;
+  background-color: var(--background-color);
 
   &__header {
     text-align: start;
     align-items: start;
-    gap: var(--dialog-header-gap);
+    gap: 1.25rem;
     padding-bottom: 0;
   }
 
   &__content {
     text-align: start;
     align-items: start;
+  }
+}
+
+:root[data-theme="dark"] {
+  .dialog {
+    --background-color: var(--color-gray-900);
+  }
+}
+
+@keyframes dialog-card-animation {
+  0% {
+    transform: translateY(-20%);
+  }
+  100% {
+    transform: translateY(0);
   }
 }

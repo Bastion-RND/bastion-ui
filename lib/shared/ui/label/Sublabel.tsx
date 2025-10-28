@@ -5,17 +5,13 @@ interface ISublabelProps extends ComponentProps<'p'> {
   disabled?: boolean;
 }
 
-export const Sublabel: FC<ISublabelProps> = ({
-  children,
-  className,
-  disabled,
-  ...props
-}) => (
+export const Sublabel: FC<ISublabelProps> = ({ children, className, disabled, ...props }) => (
   <p
-    className={`sublabel ${clsx({
-      [`${className}`]: className,
-      'sublabel--disabled': disabled,
-    })}`}
+    className={clsx({
+      label__sublabel: true,
+      [String(className)]: className,
+      'label__sublabel--disabled': disabled,
+    })}
     {...props}
   >
     {children}

@@ -1,67 +1,124 @@
 @use "globals" as globals;
 
 .toast {
-  color: var(--toast-card-text-color-default);
-  border-radius: var(--toast-card-radius);
-  padding: var(--toast-card-padding);
+  --color: var(--color-gray-600);
+  --background-color: var(--color-brand-100);
+  --border-color: var(--color-brand-400);
+
+  color: var(--color);
+  background-color: var(--background-color);
+  padding: 1rem 1.5rem 1rem 1rem;
   display: flex;
   align-items: center;
-  gap: var(--toast-card-content-gap);
+  gap: .75rem;
   width: auto;
   max-width: 100%;
   cursor: pointer;
-  animation: var(--toast-card-hide-animation);
+  animation: toast-card-hide-animation .5s ease-in-out;
   opacity: 0;
+  border: {
+    width: 1px;
+    style: solid;
+    color: var(--border-color);
+    radius: var(--radius-medium);
+  }
+
+  &--visible {
+    opacity: 1;
+    animation: toast-card-show-animation .2s ease;
+  }
+
+  @each $color in globals.$colors {
+    &--#{"" + $color} {
+      @if $color == black {
+        --color: var(--color-white);
+        --background-color: var(--color-gray-900);
+        --border-color: var(--color-gray-900);
+      } @else if $color == white {
+        --color: var(--color-gray-900);
+        --background-color: var(--color-gray-100);
+        --border-color: var(--color-gray-100);
+      } @else {
+        --color: var(--color-#{"" + $color}-600);
+        --background-color: var(--color-#{"" + $color}-100);
+        --border-color: var(--color-#{"" + $color}-400);
+      }
+    }
+  }
+
+  svg {
+    --icon-size: 1rem;
+
+    height: var(--icon-size);
+    width: var(--icon-size);
+    min-width: var(--icon-size);
+  }
 
   &__title {
     margin: 0;
   }
 
-  &--visible {
-    opacity: 1;
-    animation: var(--toast-card-animation);
+  &__wrapper {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: min(calc(100% - (1.5rem * 2)), 496px);
+    padding: 1rem 0 0 0;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 9999;
   }
 
-  svg {
-    height: var(--toast-card-icon-size);
-    width: var(--toast-card-icon-size);
-    min-width: var(--toast-card-icon-size);
+  &__close-button {
+    --color: inherit;
+
+    margin-left: auto;
+    padding: 0;
+    border: none;
+    outline: none;
   }
+}
 
-  @each $color in globals.$colors {
-    &--#{"" + $color} {
-      --toast-text-color: var(--toast-text-color-#{"" + $color});
-      background-color: var(--toast-card-background-color-#{"" + $color});
-      border: 1px solid var(--toast-card-border-color-#{"" + $color});
-      color: var(--toast-text-color);
-
-      h5 {
-        color: var(--toast-text-color);
-      }
-
-      .bast-button.toast__close-button {
-        margin-left: auto;
-        padding: 0;
-        border: none;
-        outline: none;
-
-        svg {
-          color: var(--toast-text-color);
+:root[data-theme="dark"] {
+  .toast {
+    @each $color in globals.$colors {
+      &--#{"" + $color} {
+        @if $color == black {}
+        @else if $color == white {}
+        @else {
+          --color: var(--color-#{"" + $color}-100);
+          --background-color: var(--color-#{"" + $color}-400);
+          --border-color: var(--color-#{"" + $color}-600);
         }
       }
     }
   }
+}
 
-  &__wrapper {
-    position: absolute;
-    top: 0;
-    padding: var(--toast-card-wrapper-padding);
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(calc(100% - calc(var(--modal-card-padding) * 2)), var(--toast-card-width));
-    display: flex;
-    flex-direction: column;
-    gap: var(--toast-card-wrapper-gap);
-    z-index: 9999;
+@keyframes toast-card-show-animation {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  75% {
+    transform: translateY(.25rem);
+    opacity: .75;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toast-card-hide-animation {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(50%);
   }
 }
