@@ -1,14 +1,16 @@
 import { FC, PropsWithChildren, useCallback, useMemo, useState } from 'react';
 
 import {
-  BastToast,
+  BastToasts,
   ToastActionsContext,
   ToastValueContext,
   TToastActionsContextProps,
   TToastItem,
-  TToastValueContextProps} from '../../../widgets/toast';
+  TToastsProps,
+  TToastValueContextProps,
+} from '../../../widgets/toast';
 
-const ToastProvider: FC<PropsWithChildren> = ({ children }) => {
+const ToastProvider: FC<PropsWithChildren<TToastsProps>> = ({ children, ...props }) => {
   const [toasts, setToasts] = useState<Record<string, TToastItem>>({});
 
   const createToast = useCallback((args: TToastItem) => {
@@ -47,7 +49,7 @@ const ToastProvider: FC<PropsWithChildren> = ({ children }) => {
     <ToastActionsContext.Provider value={toastActions}>
       <ToastValueContext.Provider value={toastsValue}>
         {children}
-        <BastToast />
+        <BastToasts {...props} />
       </ToastValueContext.Provider>
     </ToastActionsContext.Provider>
   );

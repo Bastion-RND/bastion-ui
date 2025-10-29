@@ -7,7 +7,7 @@ import { VisuallyImpairedModeProvider } from '../visuallyImpairedMode/VisuallyIm
 const RootProvider: FC<PropsWithChildren> = ({ children }) => (
   <ThemeProvider>
     <VisuallyImpairedModeProvider>
-      <ToastProvider>{children}</ToastProvider>
+      <ToastProvider paddingRem={2} gapRem={1.5} position='bottom-right'>{children}</ToastProvider>
     </VisuallyImpairedModeProvider>
   </ThemeProvider>
 );

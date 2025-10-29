@@ -3,6 +3,7 @@ import { FC, ReactElement, useEffect, useState } from 'react';
 
 import { TBastColor, useDebounce } from '../../../shared/lib';
 import { withPortal } from '../../../shared/ui/hocs';
+import { TToastsProps } from '../config/types';
 import { TToastItem, useToastActionsContext, useToastValueContext } from '../model/ToastValueContext';
 import { BastToastCloseButton } from './BastToastCloseButton';
 
@@ -114,12 +115,18 @@ const BastToastWithoutPortal: FC<TBastToastProps> = ({
   );
 };
 
-const BastToasts: FC = () => {
+const BastToastList: FC<TToastsProps> = ({ position = 'top', paddingRem, gapRem }) => {
   const { toasts } = useToastValueContext();
   const { removeToast } = useToastActionsContext();
 
+  const cls = clsx(['toast__wrapper', position && `toast__wrapper--${position}`]);
+
+  const dataAttributes: Record<string, string | number> = {}
+  if (paddingRem) dataAttributes['data-padding-rem'] = paddingRem;
+  if (gapRem) dataAttributes['data-gap-rem'] = gapRem;
+
   return (
-    <div className="toast__wrapper">
+    <div className={cls} {...dataAttributes}>
       {Object.entries(toasts).map(([key, { color, text, duration, autoClose }]) => (
         <BastToastWithoutPortal
           duration={duration}
@@ -134,6 +141,6 @@ const BastToasts: FC = () => {
   );
 };
 
-const BastToast = withPortal(BastToasts);
+const BastToasts = withPortal(BastToastList);
 
-export { BastToast, BastToastWithoutPortal };
+export { BastToasts, BastToastWithoutPortal };
