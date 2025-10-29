@@ -1,25 +1,46 @@
-import { FC } from 'react';
+import { ComponentProps, FC } from 'react';
 
-const spinnerIcon = (
+type TBastSpinnerProps = Pick<ComponentProps<'svg'>, 'width' | 'height' | 'color'>;
+
+const BastSpinner: FC<TBastSpinnerProps> = (props) => (
   <svg
-    className="spinner__icon"
     height="1em"
-    width="auto"
+    viewBox="0 0 72 72"
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 77 60"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    className="spinner"
+    aria-hidden="true"
     fill="currentColor"
+    {...props}
   >
-    <path d="M1.235 46.519a33.146 33.146 0 0 0-.446 13.287c.14-1.376.374-2.74.7-4.084A30.856 30.856 0 0 1 34.046 32.17l2.638-10.975A33.244 33.244 0 0 0 1.252 46.519" />
-    <path d="m33.096 12.896 20.366 18.678-26.727 7.104-3.145 12.86s31.044-8.227 49.628-13.167c1.337-.356 2.597-.69 3.782-1.007L36.268 0l-3.172 12.918" />
-  </svg>
-);
+    <use className="spinner__runner" xlinkHref="#spinner-item" href="#spinner-item">
+      <animateMotion dur="3s" repeatCount="indefinite" rotate="auto" calcMode="linear" begin="0s">
+        <mpath xlinkHref="#spinner-track" href="#spinner-track" />
+      </animateMotion>
+    </use>
 
-const BastSpinner: FC = () => (
-  <div className="spinner">
-    {spinnerIcon}
-    {spinnerIcon}
-    {spinnerIcon}
-  </div>
+    <use
+      className="spinner__runner"
+      xlinkHref="#spinner-item"
+      href="#spinner-item"
+      style={{ animationDelay: '-0.9s' }}
+    >
+      <animateMotion dur="3s" repeatCount="indefinite" rotate="auto" calcMode="linear" begin="-1s">
+        <mpath xlinkHref="#spinner-track" href="#spinner-track" />
+      </animateMotion>
+    </use>
+
+    <use
+      className="spinner__runner"
+      xlinkHref="#spinner-item"
+      href="#spinner-item"
+      style={{ animationDelay: '-1.8s' }}
+    >
+      <animateMotion dur="3s" repeatCount="indefinite" rotate="auto" calcMode="linear" begin="-2s">
+        <mpath xlinkHref="#spinner-track" href="#spinner-track" />
+      </animateMotion>
+    </use>
+  </svg>
 );
 
 export { BastSpinner };

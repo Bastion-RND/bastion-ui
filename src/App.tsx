@@ -69,7 +69,7 @@ const App: FC = () => {
               Any content
             </div>
           </BastAccordion>
-          <BastSpinner />
+          <BastSpinner height='4em' color='pink' />
           <BastButton
             className="mr-1"
             onClick={() => createToast({text: '1212', color: 'black', autoClose: false})}
@@ -77,6 +77,7 @@ const App: FC = () => {
           >
             filled
           </BastButton>
+          <BastSpinner height='2.5em' />
           <BastButton
             onClick={() => setActionSheetOpen((state) => !state)}
             fill="outlined"

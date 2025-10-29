@@ -1,58 +1,13 @@
 .spinner {
-  --container-size: 4rem;
-  --animation-delay: .5s;
-
-  position: relative;
-  height: var(--container-size);
-  width: var(--container-size);
-
-  &__icon {
-    --color: var(--color-brand-500);
-
-    color: var(--color);
-    position: absolute;
-    width: 2.375rem;
-    height: 1.875rem;
-    top: 50%;
-    left: 50%;
+  &__runner {
+    transform-box: fill-box;
     transform-origin: center;
-    opacity: 0;
-    animation: fade-in 0.5s ease-in forwards, orbit 1.5s linear infinite;
-
-    &:nth-child(2) {
-      animation-delay: var(--animation-delay);
-    }
-
-    &:nth-child(3) {
-      animation-delay: calc(2 * var(--animation-delay));
-    }
+    animation: scaleAnim 2.7s linear infinite;
   }
 }
 
-:root[data-theme="dark"] {
-  .spinner {
-    &__icon {
-      --color: var(--color-brand-300);
-    }
-  }
-}
-
-@keyframes orbit {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg) translate(1.5rem, 0) rotate(95deg) scale(0.33);
-  }
-  25%{
-    transform: translate(-50%, -50%) rotate(90deg) translate(1.5rem, 0) rotate(95deg) scale(0.66);
-  }
-  50% {
-    transform: translate(-50%, -50%) rotate(180deg) translate(1.5rem, 0) rotate(95deg) scale(1.5);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg) translate(1.5rem, 0) rotate(95deg) scale(0.33);
-  }
-}
-
-@keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+@keyframes scaleAnim {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.5); }
+  100% { transform: scale(1); }
 }
