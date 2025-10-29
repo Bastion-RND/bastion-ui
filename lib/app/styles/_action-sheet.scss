@@ -1,20 +1,22 @@
 @use "mixins" as mixins;
 
 .action-sheet {
+  --background-color: var(--color-white);
+
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: auto;
-  background-color: var(--modal-card-background);
-  border-radius: var(--modal-card-border-radius) var(--modal-card-border-radius) 0 0;
-  box-shadow: var(--modal-card-shadow);
+  background-color: var(--background-color);
+  border-radius: 1.625rem 1.625rem 0 0;
+  box-shadow: 0 20px 24px -4px rgba(127, 139, 151, 0.1), 0 8px 8px -4px rgba(127, 139, 151, 0.1);
   backface-visibility: hidden;
   will-change: height;
 
   &__content {
     overflow-y: auto;
-    padding: 0 var(--modal-card-padding) var(--modal-card-padding) var(--modal-card-padding);
+    padding: 0 1.5rem 1.5rem 1.5rem;
   }
 
   &__resize-handle {
@@ -33,5 +35,11 @@
       border-radius: 2px;
       margin: 0 auto;
     }
+  }
+}
+
+:root[data-theme="dark"] {
+  .action-sheet {
+    --background-color: var(--color-brand-900);
   }
 }

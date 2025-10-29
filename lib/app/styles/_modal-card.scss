@@ -2,51 +2,56 @@
 @use "mixins" as mixins;
 
 .modal-card {
-  border-radius: var(--modal-card-border-radius);
-  background-color: var(--modal-card-background);
-  box-shadow: var(--modal-card-shadow);
+  --background-color: var(--color-white);
+  --max-width: none;
+  --max-width--min: 20rem;
+
+  border-radius: 1.625rem;
+  background-color: var(--background-color);
+  box-shadow: 0 20px 24px -4px rgba(127, 139, 151, 0.1), 0 8px 8px -4px rgba(127, 139, 151, 0.1);
   width: 100%;
   height: fit-content;
+  max-width: var(--max-width);
 
   &--auto {
-    min-width: min(calc(100vw - calc(var(--modal-card-padding) * 2)), var(--modal-card-max-width-xs));
+    min-width: min(calc(100vw - (1.5rem * 2)), var(--max-width--min));
     width: fit-content;
   }
 
   &--xs {
-    max-width: var(--modal-card-max-width-xs);
+    --max-width: var(--max-width--min);
   }
 
   &--sm {
-    max-width: var(--modal-card-max-width-sm);
+    --max-width: 24rem;
   }
 
   &--md {
-    max-width: var(--modal-card-max-width-md);
+    --max-width: 28rem;
   }
 
   &--lg {
-    max-width: var(--modal-card-max-width-lg);
+    --max-width: 32rem;
   }
 
   &--xl {
-    max-width: var(--modal-card-max-width-xl);
+    --max-width: 36rem;
   }
 
   &--2xl {
-    max-width: var(--modal-card-max-width-2xl);
+    --max-width: 40rem;
   }
 
   &--3xl {
-    max-width: var(--modal-card-max-width-3xl);
+    --max-width: 48rem;
   }
 
   &--4xl {
-    max-width: var(--modal-card-max-width-4xl);
+    --max-width: 56rem;
   }
 
   &--5xl {
-    max-width: var();
+    --max-width: 64rem;
   }
 
   &--full {
@@ -55,11 +60,13 @@
   }
 
   &__title {
-    color: var(--modal-card-title-color);
+    --color: var(--color-gray-800);
+
+    color: var(--color-);
   }
 
   &__header {
-    padding: var(--modal-card-padding);
+    padding: 1.5rem;
     text-align: center;
     display: flex;
     gap: 2rem;
@@ -74,47 +81,90 @@
   }
 
   &__content {
-    padding: var(--modal-card-padding);
-    color: var(--modal-card-content-color);
+    --color: var(--color-gray-600);
+
+    padding: 1.5rem;
+    color: var(--color);
     font-weight: 400;
   }
 
   &__icon {
+    --background-color: transparent;
+    --background-color--before: transparent;
+    --color--svg: transparent;
+
     border-radius: 50%;
-    padding: var(--modal-card-padding);
+    padding: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    background-color: var(--background-color);
 
     &::before {
       @include mixins.translate-center;
+
       content: '';
       border-radius: var(--radius-full);
       position: absolute;
-      width: calc(100% - var(--modal-card-padding));
-      height: calc(100% - var(--modal-card-padding));
+      width: calc(100% - 1.5rem);
+      height: calc(100% - 1.5rem);
+      background-color: var(--background-color--before);
     }
 
     svg {
       z-index: 2;
       height: 1.5rem;
       width: 1.5rem;
+      color: var(--color--svg);
     }
 
     @each $color in globals.$colors {
       &--#{"" + $color} {
-        background-color: var(--modal-card-background-color-first-circle-#{"" + $color});
-
-        &::before {
-          background-color: var(--modal-card-background-color-second-circle-#{"" + $color});
+        @if $color == black {
+          --background-color: var(--color-gray-800);
+          --background-color--before: var(--color-gray-900);
+          --color--svg: var(--color-white);
         }
-
-        svg {
-          color: var(--modal-card-icon-color-#{"" + $color});
+        @else if $color == white {
+          --background-color: var(--color-gray-100);
+          --background-color--before: var(--color-gray-200);
+          --color--svg: var(--color-gray-900);
+        }
+        @else {
+          --background-color: var(--color-#{"" + $color}-100);
+          --background-color--before: var(--color-#{"" + $color}-200);
+          --color--svg: var(--color-#{"" + $color}-500);
         }
       }
     }
   }
 }
 
+:root[data-theme="dark"] {
+  .modal-card {
+    --background-color: var(--color-brand-900);
+
+    &__title {
+      --color: var(--color-brand-200);
+    }
+
+    &__content {
+      --color: var(--color-gray-300);
+    }
+
+    &__icon {
+      @each $color in globals.$colors {
+        &--#{"" + $color} {
+          @if $color == black {}
+          @else if $color == white {}
+          @else {
+            --background-color: var(--color-#{"" + $color}-200);
+            --background-color--before: var(--color-#{"" + $color}-300);
+            --color--svg: var(--color-#{"" + $color}-100);
+          }
+        }
+      }
+    }
+  }
+}

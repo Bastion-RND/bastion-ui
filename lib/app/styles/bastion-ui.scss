@@ -1,7 +1,7 @@
+@use "variables";
 @use "reset";
 @use "color-palette";
 @use "button";
-@use "variables/variables";
 @use 'input-group';
 @use "checkbox";
 @use 'switch';
@@ -29,7 +29,7 @@
 @use "header";
 @use "icon";
 @use "utility";
-@use 'actionsheet';
+@use 'action-sheet';
 @use 'grid';
 
 // TODO Переделать на локальные шрифты 400/500
@@ -45,6 +45,7 @@ body {
 
 body {
   --scroll-width: 0;
+
   &.modal-open {
     padding-right: var(--scroll-width);
     overflow: hidden;
