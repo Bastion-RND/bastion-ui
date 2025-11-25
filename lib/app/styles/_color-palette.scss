@@ -40,8 +40,10 @@ $gray--dark: 0 !default;
 $danger--dark: 0 !default;
 $success--dark: 0 !default;
 
+$color-white: #fff !default;
+$color-black: #000 !default;
 $background-color: var(--color-white) !default;
-$background-color-dark: var(--color-brand-900) !default;
+$background-color--dark: var(--color-brand-900) !default;
 
 $colors: (
         'brand': $brand,
@@ -92,6 +94,18 @@ $color-palette: ();
 
 :root {
   --color-opacity: 1;
+
+  /** WHITE **/
+  --color-white: #{$color-white};
+  --color-white-rgb: #{get-rgb-channels-from-hex($color-white)};
+
+  /** BLACK **/
+  --color-black: #{$color-black};
+  --color-black-rgb: #{get-rgb-channels-from-hex($color-black)};
+
+  /** BACKGROUND **/
+  --background-color: #{$background-color};
+
   @each $color-family, $colors in $color-palette {
     @each $color-name, $color in $colors {
       --color-#{$color-family}-#{$color-name}-rgb: #{get-rgb-channels-from-hex($color)};
@@ -105,19 +119,6 @@ $color-palette: ();
     --color-#{$color-family}-rgb-light: var(--color-#{$color-family}-#{$color-palette-name-base - 100}-rgb);
     --color-#{$color-family}-rgb-dark: var(--color-#{$color-family}-#{$color-palette-name-base + 100}-rgb);
   }
-}
-
-:root {
-  /** WHITE **/
-  --color-white: #FFFFFF;
-  --color-white-rgb: 255, 255, 255;
-
-  /** BLACK **/
-  --color-black: #000000;
-  --color-black-rgb: 0, 0, 0;
-
-  /** BACKGROUND **/
-  --background-color: #{$background-color};
 }
 
 $color-palette--dark: ();
@@ -143,7 +144,7 @@ $color-palette--dark: ();
 
 :root[data-theme="dark"] {
   /** BACKGROUND **/
-  --background-color: #{$background-color-dark};
+  --background-color: #{$background-color--dark};
 
   @each $color-family, $colors in $color-palette--dark {
     @each $color-name, $color in $colors {
