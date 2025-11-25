@@ -1,12 +1,17 @@
 @use 'color-palette' as color-palette;
-@use "sass:map";
+@use 'functions' as functions;
+@use 'sass:map';
+
+$card-bg-light: functions.get-background-light("200");
+$card-bg-dark: functions.get-background-dark("900");
 
 .card {
-  --background-color: var(--color-gray-100);
+  --background-color: #{$card-bg-light};
   --padding-vertical: 2.125rem;
   --padding-horizontal: 1.875rem;
   --border-radius: 2.25rem;
-  --box-shadow: 0 20px 24px -4px rgba(var(--color-gray-800-rgb), #{map.get(color-palette.$color-opacities-extended, 10)});
+  --box-shadow: 0 20px 24px -4px
+    rgba(var(--color-gray-800-rgb), #{map.get(color-palette.$color-opacities-extended, 10)});
 
   width: 100%;
   box-shadow: var(--box-shadow);
@@ -80,11 +85,10 @@
       }
     }
   }
-
 }
 
-:root[data-theme="dark"] {
+:root[data-theme='dark'] {
   .card {
-    --background-color: var(--color-gray-900);
+    --background-color: #{$card-bg-dark};
   }
 }

@@ -45,7 +45,7 @@ const App: FC = () => {
         <div className="d-f jc-center ai-center">
           <p className="h3 m-0 ml-1">BastionUI</p>
         </div>
-        <BastButton onClick={toggleTheme} color="white" fill="outlined">
+        <BastButton onClick={toggleTheme} color="black" fill="outlined">
           {theme}
         </BastButton>
       </BastHeader>
@@ -73,7 +73,7 @@ const App: FC = () => {
           <BastButton
             className="mr-1"
             onClick={() => createToast({text: '1212', color: 'black', autoClose: false})}
-            color="brand"
+            color="danger"
           >
             filled
           </BastButton>
@@ -81,7 +81,7 @@ const App: FC = () => {
           <BastButton
             onClick={() => setActionSheetOpen((state) => !state)}
             fill="outlined"
-            color="brand"
+            color="warning"
           >
             outlined
           </BastButton>
@@ -244,7 +244,7 @@ const App: FC = () => {
             <BastButton expand>Согласен</BastButton>
           </BastModal.Footer>
         </BastModal>
-        <BastButton onClick={() => setIsDialogOpen(true)}>Открыть Dialog</BastButton>
+        <BastButton color='danger' onClick={() => setIsDialogOpen(true)}>Открыть Dialog</BastButton>
         <BastDialog
           isOpen={isDialogOpen}
           color="danger"

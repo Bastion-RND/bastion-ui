@@ -1,10 +1,16 @@
+@use 'color-palette' as color-palette;
 @use 'sass:string';
+@use 'sass:math';
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:color';
 
 @function str-replace($string, $search, $replace: '') {
   $index: string.index($string, $search);
 
   @if $index {
-    @return string.slice($string, 1, $index - 1) + $replace + str-replace(string.slice($string, $index + string.length($search)), $search, $replace);
+    @return string.slice($string, 1, $index - 1) + $replace +
+      str-replace(string.slice($string, $index + string.length($search)), $search, $replace);
   }
 
   @return $string;
@@ -12,4 +18,52 @@
 
 @function encode-color($color) {
   @return str-replace($color, '#', '%23');
+}
+
+@function brightness($color) {
+  @return math.div(
+      (color.channel($color, 'red', $space: rgb) * 0.299) +
+        (color.channel($color, 'green', $space: rgb) * 0.587) +
+        (color.channel($color, 'blue', $space: rgb) * 0.114),
+      255
+    ) *
+    100%;
+}
+
+@function contrast-color($color) {
+  @if brightness($color) > 50% {
+    @return var(--color-black);
+  } @else {
+    @return var(--color-white);
+  }
+}
+
+@function get-background-light($lightness) {
+  @if color-palette.$background-gray-light and color-palette.$background-gray-light != 0 {
+    @return color-palette.$background-gray-light;
+  } @else {
+    @return map.get(map.get(color-palette.$color-palette, 'gray'), $lightness);
+  }
+}
+
+@function get-background-dark($lightness) {
+  $custom-color: color-palette.$background-gray-dark;
+  @if $custom-color != 0 and meta.type-of($custom-color) == 'color' {
+    $lightness-to-percent: (
+      '100': 10%,
+      '200': 20%,
+      '300': 30%,
+      '400': 40%,
+      '500': 5%,
+      '600': 60%,
+      '700': 70%,
+      '800': 80%,
+      '900': 90%
+    );
+    
+    $mix-percent: map.get($lightness-to-percent, $lightness, 50%);
+    @return color.mix(black, $custom-color, $mix-percent);
+  } @else {
+    @return map.get(map.get(color-palette.$color-palette, 'gray'), $lightness);
+  }
 }
