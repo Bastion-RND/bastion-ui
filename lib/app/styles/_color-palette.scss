@@ -68,7 +68,7 @@ $colors--dark: (
 );
 
 $color-palette-name-base: 500;
-$color-palette-name-base-dark-default: "500";
+$color-palette-name-base-dark-default: 500;
 
 $color-palette-mix-percents: (
         100: 80%,
@@ -131,7 +131,7 @@ $color-palette--dark: ();
 @each $color-name, $color in $colors--dark {
   $color--local: $color;
   @if $color == 0 {
-    $color--local: map.get(map.get($color-palette, $color-name), $color-palette-name-base-dark-default);
+    $color--local: map.get(map.get($color-palette, $color-name), #{$color-palette-name-base-dark-default});
   }
   @each $color-palette-name, $color-palette-percent in $color-palette-mix-percents {
     @if $color-palette-name == $color-palette-name-base {
