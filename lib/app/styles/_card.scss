@@ -2,11 +2,8 @@
 @use 'functions' as functions;
 @use 'sass:map';
 
-$card-bg-light: functions.get-background-light("200");
-$card-bg-dark: functions.get-background-dark("900");
-
 .card {
-  --background-color: #{$card-bg-light};
+  --background-color: #{color-palette.$background-box};
   --padding-vertical: 2.125rem;
   --padding-horizontal: 1.875rem;
   --border-radius: 2.25rem;
@@ -89,6 +86,6 @@ $card-bg-dark: functions.get-background-dark("900");
 
 :root[data-theme='dark'] {
   .card {
-    --background-color: #{$card-bg-dark};
+    --background-color: #{color-palette.$background-box--dark};
   }
 }

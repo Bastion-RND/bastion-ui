@@ -48,8 +48,8 @@ $background-color: var(--color-white) !default;
 $background-color--dark: var(--color-brand-900) !default;
 
 // background variables for card/list/modal/actionsheet
-$background-gray-light: 0 !default;
-$background-gray-dark: 0 !default;
+$background-box: 0 !default;
+$background-box--dark: 0 !default;
 
 $colors: (
         'brand': $brand,
@@ -172,10 +172,10 @@ $color-palette--dark: ();
   }
 }
 
-@if $background-gray-light == 0 {
-  $background-gray-light: map.get($color-palette, 'gray', '100');
+@if $background-box == 0 {
+  $background-box: map.get($color-palette, 'gray', '500');
 }
 
-@if $background-gray-dark == 0 {
-  $background-gray-dark: map.get($color-palette--dark, 'gray', '900');
+@if $background-box--dark == 0 {
+  $background-box--dark: map.get($color-palette--dark, 'gray', '900');
 }

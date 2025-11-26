@@ -1,4 +1,5 @@
 @use "mixins" as mixins;
+@use 'color-palette' as color-palette;
 
 .action-sheet {
   --background-color: var(--color-white);
@@ -40,6 +41,6 @@
 
 :root[data-theme="dark"] {
   .action-sheet {
-    --background-color: var(--color-brand-900);
+    --background-color: #{color-palette.$background-color--dark};
   }
 }

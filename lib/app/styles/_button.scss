@@ -172,7 +172,7 @@
   &--filled {
     @each $color-name, $color-value in color-palette.$colors {
       &.bast-button--#{$color-name} {
-        --color: functions.contrast-color($color-value);
+        --color: #{functions.get-contrast-text-color($color-value)};
       }
     }
 
@@ -189,14 +189,14 @@
   &--cleared {
     &.bast-button--white {
       color: var(--color-white);
-      &:hover {
+      &:hover, &:active, &:focus {
         color: var(--color-black);
       }
     }
 
     &.bast-button--black {
       color: var(--color-black);
-      &:hover {
+      &:hover, &:active, &:focus {
         color: var(--color-white);
       }
     }

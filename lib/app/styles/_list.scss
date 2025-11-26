@@ -3,15 +3,13 @@
 @use 'sass:color';
 @use 'sass:map';
 
-
-$list-bg-light: functions.get-background-light("100");
-$list-bg-dark: functions.get-background-dark("900");
-$list-border-light: functions.get-background-light("200");
-$list-border-dark: functions.get-background-dark("200");
-$list-bg-hover-dark: functions.get-background-dark("800");
+$list-bg-hover-dark: functions.get-mixed-color-by-palette-name(
+  color-palette.$background-box--dark,
+  800
+);
 
 .list {
-  --border-color: #{$list-border-light};
+  --border-color: var(--color-gray-200);
   --background-color-item: var(--color-white);
 
   list-style: none;
@@ -31,7 +29,7 @@ $list-bg-hover-dark: functions.get-background-dark("800");
   overflow: hidden;
 
   &--hoverable {
-    --background-color-item--hover: #{$list-bg-light};
+    --background-color-item--hover: #{color-palette.$background-box};
     --opacity-item--hover: 1;
 
     .list__item {
@@ -69,8 +67,8 @@ $list-bg-hover-dark: functions.get-background-dark("800");
 
 :root[data-theme='dark'] {
   .list {
-    --border-color: #{$list-border-dark};
-    --background-color-item: #{$list-bg-dark};
+    --border-color: var(--color-gray-200);
+    --background-color-item: #{color-palette.$background-box--dark};
 
     &--hoverable {
       --background-color-item--hover: #{$list-bg-hover-dark};

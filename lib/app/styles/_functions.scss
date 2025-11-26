@@ -20,7 +20,7 @@
   @return str-replace($color, '#', '%23');
 }
 
-@function brightness($color) {
+@function get-brightness-percent($color) {
   @return math.div(
       (color.channel($color, 'red', $space: rgb) * 0.299) +
         (color.channel($color, 'green', $space: rgb) * 0.587) +
@@ -30,34 +30,31 @@
     100%;
 }
 
-@function contrast-color($color) {
-  @if brightness($color) > 50% {
+@function is_brightness_light($color) {
+  @return get-brightness-percent($color) > 50%;
+}
+
+@function get-contrast-text-color($color) {
+  @if is_brightness_light($color) {
     @return var(--color-black);
   } @else {
     @return var(--color-white);
   }
 }
 
-@function get-background-light($lightness) {
-  @if color-palette.$background-gray-light and color-palette.$background-gray-light != 0 {
-    @return color-palette.$background-gray-light;
-  } @else {
-    @return map.get(map.get(color-palette.$color-palette, 'gray'), $lightness);
+@function get-mixed-color-by-palette-name($color, $color-palette-name) {
+  @if ($color-palette-name == 500) {
+    @return $color;
   }
-}
 
-@function get-background-dark($lightness) {
-    $lightness-to-percent: (
-      '100': 10%,
-      '200': 20%,
-      '300': 30%,
-      '400': 40%,
-      '500': 50%,
-      '600': 60%,
-      '700': 70%,
-      '800': 80%,
-      '900': 90%
-    );
+  $mix-color: white;
+  @if ($color-palette-name > 500) {
+    $mix-color: black;
+  }
 
-    @return color.mix(color-palette.$background-gray-dark, black, map.get($lightness-to-percent, $lightness));
+  @return color.mix(
+    $color,
+    $mix-color,
+    map.get(color-palette.$color-palette-mix-percents, $color-palette-name)
+  );
 }
