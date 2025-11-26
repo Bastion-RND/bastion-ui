@@ -47,23 +47,17 @@
 }
 
 @function get-background-dark($lightness) {
-  $custom-color: color-palette.$background-gray-dark;
-  @if $custom-color != 0 and meta.type-of($custom-color) == 'color' {
     $lightness-to-percent: (
       '100': 10%,
       '200': 20%,
       '300': 30%,
       '400': 40%,
-      '500': 5%,
+      '500': 50%,
       '600': 60%,
       '700': 70%,
       '800': 80%,
       '900': 90%
     );
-    
-    $mix-percent: map.get($lightness-to-percent, $lightness, 50%);
-    @return color.mix(black, $custom-color, $mix-percent);
-  } @else {
-    @return map.get(map.get(color-palette.$color-palette, 'gray'), $lightness);
-  }
+
+    @return color.mix(color-palette.$background-gray-dark, black, map.get($lightness-to-percent, $lightness));
 }

@@ -68,7 +68,7 @@ $colors--dark: (
 );
 
 $color-palette-name-base: 500;
-$color-palette-name-base-dark-default: 500;
+$color-palette-name-base-dark-default: 300;
 
 $color-palette-mix-percents: (
         100: 80%,
@@ -127,22 +127,27 @@ $color-palette: ();
   }
 }
 
-$color-palette--dark: ();
 @each $color-name, $color in $colors--dark {
   $color--local: $color;
   @if $color == 0 {
     $color--local: map.get(map.get($color-palette, $color-name), #{$color-palette-name-base-dark-default});
   }
+
+  $colors--dark: map.set($colors--dark, $color-name, $color--local);
+}
+
+$color-palette--dark: ();
+@each $color-name, $color in $colors--dark {
   @each $color-palette-name, $color-palette-percent in $color-palette-mix-percents {
     @if $color-palette-name == $color-palette-name-base {
-      $color-palette--dark: map.set($color-palette--dark, $color-name, #{$color-palette-name}, $color--local);
+      $color-palette--dark: map.set($color-palette--dark, $color-name, #{$color-palette-name}, $color);
     } @else {
       $color-palette-mix-color: white;
       @if $color-palette-name > $color-palette-name-base {
         $color-palette-mix-color: black;
       }
 
-      $color-new: color.mix($color-palette-mix-color, $color--local, $color-palette-percent);
+      $color-new: color.mix($color-palette-mix-color, $color, $color-palette-percent);
       $color-palette--dark: map.set($color-palette--dark, $color-name, #{$color-palette-name}, $color-new);
     }
   }
@@ -165,4 +170,12 @@ $color-palette--dark: ();
     --color-#{$color-family}-rgb-light: var(--color-#{$color-family}-#{$color-palette-name-base - 100}-rgb);
     --color-#{$color-family}-rgb-dark: var(--color-#{$color-family}-#{$color-palette-name-base + 100}-rgb);
   }
+}
+
+@if $background-gray-light == 0 {
+  $background-gray-light: map.get($color-palette, 'gray', '100');
+}
+
+@if $background-gray-dark == 0 {
+  $background-gray-dark: map.get($color-palette--dark, 'gray', '900');
 }
