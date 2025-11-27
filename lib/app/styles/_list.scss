@@ -4,7 +4,7 @@
 @use 'sass:map';
 
 $list-bg-hover-dark: functions.get-mixed-color-by-palette-name(
-  color-palette.$background-box--dark,
+  color-palette.$background-color-box--dark,
   800
 );
 
@@ -29,7 +29,7 @@ $list-bg-hover-dark: functions.get-mixed-color-by-palette-name(
   overflow: hidden;
 
   &--hoverable {
-    --background-color-item--hover: #{color-palette.$background-box};
+    --background-color-item--hover: var(--background-color-box);
     --opacity-item--hover: 1;
 
     .list__item {
@@ -68,7 +68,7 @@ $list-bg-hover-dark: functions.get-mixed-color-by-palette-name(
 :root[data-theme='dark'] {
   .list {
     --border-color: var(--color-gray-200);
-    --background-color-item: #{color-palette.$background-box--dark};
+    --background-color-item: var(--background-color-box);
 
     &--hoverable {
       --background-color-item--hover: #{$list-bg-hover-dark};

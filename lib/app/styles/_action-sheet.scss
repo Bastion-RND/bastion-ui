@@ -2,7 +2,7 @@
 @use 'color-palette' as color-palette;
 
 .action-sheet {
-  --background-color: var(--color-white);
+--background-color: var(--background-color-box);
 
   position: absolute;
   bottom: 0;
@@ -36,11 +36,5 @@
       border-radius: 2px;
       margin: 0 auto;
     }
-  }
-}
-
-:root[data-theme="dark"] {
-  .action-sheet {
-    --background-color: #{color-palette.$background-color--dark};
   }
 }

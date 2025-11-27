@@ -24,5 +24,4 @@ dist
 *.sw?
 
 *storybook.log
-.continue/rules/new-rule-1.md
-.continue/rules/new-rule.md
+.continue/*

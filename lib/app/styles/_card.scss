@@ -3,7 +3,7 @@
 @use 'sass:map';
 
 .card {
-  --background-color: #{color-palette.$background-box};
+  --background-color: var(--background-color-box);
   --padding-vertical: 2.125rem;
   --padding-horizontal: 1.875rem;
   --border-radius: 2.25rem;
@@ -81,11 +81,5 @@
         padding-top: var(--padding-vertical);
       }
     }
-  }
-}
-
-:root[data-theme='dark'] {
-  .card {
-    --background-color: #{color-palette.$background-box--dark};
   }
 }
