@@ -2,13 +2,13 @@
 @use 'color-palette' as color-palette;
 
 .dialog {
-  --background-color: var(--color-white);
+  --background-color-dialog: var(--background-color);
 
   width: min(calc(100% - (1.5rem * 2)), 400px);
   animation: dialog-card-animation 0.3s ease;
   align-self: start;
   margin-top: 2rem;
-  background-color: var(--background-color);
+  background-color: var(--background-color-dialog);
 
   &__header {
     text-align: start;
@@ -20,12 +20,6 @@
   &__content {
     text-align: start;
     align-items: start;
-  }
-}
-
-:root[data-theme="dark"] {
-  .dialog {
-    --background-color: #{color-palette.$background-color--dark};
   }
 }
 

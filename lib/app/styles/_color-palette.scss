@@ -98,6 +98,10 @@ $color-palette: ();
   }
 }
 
+@if $background-color-box == 0 {
+  $background-color-box: map.get($color-palette, 'gray', '500');
+}
+
 :root {
   --color-opacity: 1;
 
@@ -155,6 +159,10 @@ $color-palette--dark: ();
   }
 }
 
+@if $background-color-box--dark == 0 {
+  $background-color-box--dark: map.get($color-palette--dark, 'gray', '900');
+}
+
 :root[data-theme="dark"] {
   /** BACKGROUND **/
   --background-color: #{$background-color--dark};
@@ -176,10 +184,3 @@ $color-palette--dark: ();
   }
 }
 
-@if $background-color-box == 0 {
-  $background-color-box: map.get($color-palette, 'gray', '500');
-}
-
-@if $background-color-box--dark == 0 {
-  $background-color-box--dark: map.get($color-palette--dark, 'gray', '900');
-}

@@ -1,17 +1,19 @@
-@use "mixins" as mixins;
+@use 'mixins' as mixins;
 @use 'color-palette' as color-palette;
 
 .action-sheet {
---background-color: var(--background-color-box);
+  --background-color-action-sheet: var(--background-color);
 
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: auto;
-  background-color: var(--background-color);
+  background-color: var(--background-color-action-sheet);
   border-radius: 1.625rem 1.625rem 0 0;
-  box-shadow: 0 20px 24px -4px rgba(127, 139, 151, 0.1), 0 8px 8px -4px rgba(127, 139, 151, 0.1);
+  box-shadow:
+    0 20px 24px -4px rgba(127, 139, 151, 0.1),
+    0 8px 8px -4px rgba(127, 139, 151, 0.1);
   backface-visibility: hidden;
   will-change: height;
 
