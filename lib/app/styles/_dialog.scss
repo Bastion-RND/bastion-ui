@@ -2,13 +2,11 @@
 @use 'color-palette' as color-palette;
 
 .dialog {
-  --background-color-dialog: var(--background-color);
-
   width: min(calc(100% - (1.5rem * 2)), 400px);
   animation: dialog-card-animation 0.3s ease;
   align-self: start;
   margin-top: 2rem;
-  background-color: var(--background-color-dialog);
+  background-color: var(--background-color);
 
   &__header {
     text-align: start;

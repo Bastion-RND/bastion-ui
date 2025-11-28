@@ -34,10 +34,11 @@
 
   font-size: calc(var(--font-size-base) * var(--font-size-accessible-multiplier));
   font-weight: normal;
-  transition:
-    background-color 0.3s ease,
-    outline-color 0.3s ease,
-    color 0.3s ease;
+  transition: {
+    property: background-color, outline-color, color;
+    duration: 0.3s;
+    timing-function: ease-in-out;
+  };
   display: inline-block;
 
   svg {
@@ -101,8 +102,8 @@
 
   &:focus {
     --outline-color: rgba(
-      var(--color-variant-rgb-light),
-      #{map.get(color-palette.$color-opacities, 60)}
+                    var(--color-variant-rgb-light),
+                    #{map.get(color-palette.$color-opacities, 60)}
     );
     --background-color: rgba(var(--color-variant-rgb-light), 1);
     outline-width: var(--outline-width);
@@ -135,8 +136,8 @@
       --color: var(--color-white);
       --background-color: rgba(var(--color-variant-rgb-light), 1);
       --outline-color: rgba(
-        var(--color-variant-rgb-light),
-        #{map.get(color-palette.$color-opacities, 60)}
+                      var(--color-variant-rgb-light),
+                      #{map.get(color-palette.$color-opacities, 60)}
       );
     }
   }
@@ -154,8 +155,8 @@
     &:focus {
       --background-color: transparent;
       --outline-color: rgba(
-        var(--color-variant-rgb-light),
-        #{map.get(color-palette.$color-opacities, 60)}
+                      var(--color-variant-rgb-light),
+                      #{map.get(color-palette.$color-opacities, 60)}
       );
       --color: rgba(var(--color-variant-rgb-light), 1);
     }
@@ -163,8 +164,8 @@
     &:active {
       --background-color: transparent;
       --outline-color: rgba(
-        var(--color-variant-rgb),
-        #{map.get(color-palette.$color-opacities, 60)}
+                      var(--color-variant-rgb),
+                      #{map.get(color-palette.$color-opacities, 60)}
       );
     }
   }
@@ -189,6 +190,7 @@
   &--cleared {
     &.bast-button--white {
       color: var(--color-white);
+
       &:hover, &:active, &:focus {
         color: var(--color-black);
       }
@@ -196,6 +198,7 @@
 
     &.bast-button--black {
       color: var(--color-black);
+
       &:hover, &:active, &:focus {
         color: var(--color-white);
       }

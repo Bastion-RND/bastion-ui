@@ -3,12 +3,11 @@
 @use "mixins" as mixins;
 
 .modal-card {
-  --background-color-modal: var(--background-color);
   --max-width: none;
   --max-width--min: 20rem;
 
   border-radius: 1.625rem;
-  background-color: var(--background-color-modal);
+  background-color: var(--background-color);
   box-shadow: 0 20px 24px -4px rgba(127, 139, 151, 0.1), 0 8px 8px -4px rgba(127, 139, 151, 0.1);
   width: 100%;
   height: fit-content;

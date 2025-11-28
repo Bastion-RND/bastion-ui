@@ -3,7 +3,6 @@
 @use 'sass:map';
 
 .card {
-  --background-color: var(--background-color-box);
   --padding-vertical: 2.125rem;
   --padding-horizontal: 1.875rem;
   --border-radius: 2.25rem;
@@ -13,7 +12,7 @@
   width: 100%;
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius);
-  background-color: var(--background-color);
+  background-color: var(--background-color-box);
   display: flex;
   flex-direction: column;
   overflow: hidden;
