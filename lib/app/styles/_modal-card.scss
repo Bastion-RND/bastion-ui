@@ -1,8 +1,8 @@
+@use 'color-palette' as color-palette;
 @use "globals" as globals;
 @use "mixins" as mixins;
 
 .modal-card {
-  --background-color: var(--color-white);
   --max-width: none;
   --max-width--min: 20rem;
 
@@ -143,8 +143,6 @@
 
 :root[data-theme="dark"] {
   .modal-card {
-    --background-color: var(--color-brand-900);
-
     &__title {
       --color: var(--color-brand-200);
     }

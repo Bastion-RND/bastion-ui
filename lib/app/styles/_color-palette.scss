@@ -1,63 +1,85 @@
 @use 'sass:color';
-@use "sass:map";
+@use 'sass:map';
 @use 'sass:math';
 
 @function get-rgb-channels-from-hex($color) {
-  $red: color.channel($color, "red", $space: rgb);
-  $green: color.channel($color, "green", $space: rgb);
-  $blue: color.channel($color, "blue", $space: rgb);
+  $red: color.channel($color, 'red', $space: rgb);
+  $green: color.channel($color, 'green', $space: rgb);
+  $blue: color.channel($color, 'blue', $space: rgb);
   @return math.round($red), math.round($green), math.round($blue);
 }
 
 $color-opacities: (
-        20: 0.2,
-        40: 0.4,
-        60: 0.6,
-        80: 0.8,
+  20: 0.2,
+  40: 0.4,
+  60: 0.6,
+  80: 0.8,
 );
 
 $color-opacities-extended: (
-        10: 0.1,
-        20: 0.2,
-        30: 0.3,
-        40: 0.4,
-        50: 0.5,
-        60: 0.6,
-        70: 0.7,
-        80: 0.8,
-        90: 0.9,
+  10: 0.1,
+  20: 0.2,
+  30: 0.3,
+  40: 0.4,
+  50: 0.5,
+  60: 0.6,
+  70: 0.7,
+  80: 0.8,
+  90: 0.9,
 );
 
-$brand: #0071CC !default;
-$warning: #FFBB43 !default;
-$gray: #ADBECC !default;
-$danger: #F15874 !default;
-$success: #2FD38F !default;
+$color-brand: #0071cc !default;
+$color-warning: #ffbb43 !default;
+$color-gray: #adbecc !default;
+$color-danger: #f15874 !default;
+$color-success: #2fd38f !default;
 
+$color-brand--dark: 0 !default;
+$color-warning--dark: 0 !default;
+$color-gray--dark: 0 !default;
+$color-danger--dark: 0 !default;
+$color-success--dark: 0 !default;
+
+$color-white: #fff !default;
+$color-black: #000 !default;
+
+// background variables
 $background-color: var(--color-white) !default;
-$background-color-dark: var(--color-brand-900) !default;
+$background-color--dark: var(--color-brand-900) !default;
+
+// background variables for card/list/modal/actionsheet
+$background-color-box: 0 !default;
+$background-color-box--dark: 0 !default;
 
 $colors: (
-        'brand': $brand,
-        'warning': $warning,
-        'gray': $gray,
-        'danger': $danger,
-        'success': $success
+  'brand': $color-brand,
+  'warning': $color-warning,
+  'gray': $color-gray,
+  'danger': $color-danger,
+  'success': $color-success,
+);
+
+$colors--dark: (
+  'brand': $color-brand--dark,
+  'warning': $color-warning--dark,
+  'gray': $color-gray--dark,
+  'danger': $color-danger--dark,
+  'success': $color-success--dark,
 );
 
 $color-palette-name-base: 500;
-$color-palette-name-base-dark: $color-palette-name-base + 100;
+$color-palette-name-base-dark-default: 300;
 
 $color-palette-mix-percents: (
-        100: 80%,
-        200: 60%,
-        300: 40%,
-        400: 20%,
-        500: 0%,
-        600: 20%,
-        700: 40%,
-        800: 60%,
-        900: 80%,
+  100: 80%,
+  200: 60%,
+  300: 40%,
+  400: 20%,
+  500: 0%,
+  600: 20%,
+  700: 40%,
+  800: 60%,
+  900: 80%,
 );
 
 $color-palette: ();
@@ -70,50 +92,125 @@ $color-palette: ();
       @if $color-palette-name > $color-palette-name-base {
         $color-palette-mix-color: black;
       }
-      $color-new: color.mix($color-palette-mix-color, map.get($colors, $color-name), $color-palette-percent);
+      $color-new: color.mix(
+        $color-palette-mix-color,
+        map.get($colors, $color-name),
+        $color-palette-percent
+      );
       $color-palette: map.set($color-palette, $color-name, #{$color-palette-name}, $color-new);
     }
   }
 }
 
+@if $background-color-box == 0 {
+  $background-color-box: map.get($color-palette, 'gray', '500');
+}
+
+@each $color-name, $color in $colors--dark {
+  $color--local: $color;
+  @if $color == 0 {
+    $color--local: map.get(
+      map.get($color-palette, $color-name),
+      #{$color-palette-name-base-dark-default}
+    );
+  }
+
+  $colors--dark: map.set($colors--dark, $color-name, $color--local);
+}
+
+$color-palette--dark: ();
+@each $color-name, $color in $colors--dark {
+  @each $color-palette-name, $color-palette-percent in $color-palette-mix-percents {
+    @if $color-palette-name == $color-palette-name-base {
+      $color-palette--dark: map.set(
+        $color-palette--dark,
+        $color-name,
+        #{$color-palette-name},
+        $color
+      );
+    } @else {
+      $color-palette-mix-color: white;
+      @if $color-palette-name > $color-palette-name-base {
+        $color-palette-mix-color: black;
+      }
+
+      $color-new: color.mix($color-palette-mix-color, $color, $color-palette-percent);
+      $color-palette--dark: map.set(
+        $color-palette--dark,
+        $color-name,
+        #{$color-palette-name},
+        $color-new
+      );
+    }
+  }
+}
+
+@if $background-color-box--dark == 0 {
+  $background-color-box--dark: map.get($color-palette--dark, 'gray', '900');
+}
+
 :root {
   --color-opacity: 1;
+
+  /** WHITE **/
+  --color-white: #{$color-white};
+  --color-white-rgb: #{get-rgb-channels-from-hex($color-white)};
+
+  /** BLACK **/
+  --color-black: #{$color-black};
+  --color-black-rgb: #{get-rgb-channels-from-hex($color-black)};
+
+  /** BACKGROUND **/
+  --background-color: #{$background-color};
+
+  --background-color-box: #{$background-color-box};
+
   @each $color-family, $colors in $color-palette {
     @each $color-name, $color in $colors {
       --color-#{$color-family}-#{$color-name}-rgb: #{get-rgb-channels-from-hex($color)};
     }
 
     @each $color-name, $color in $colors {
-      --color-#{$color-family}-#{$color-name}: rgba(var(--color-#{$color-family}-#{$color-name}-rgb), var(--color-opacity));
+      --color-#{$color-family}-#{$color-name}: rgba(
+        var(--color-#{$color-family}-#{$color-name}-rgb),
+        var(--color-opacity)
+      );
     }
     --color-#{$color-family}: var(--color-#{$color-family}-#{$color-palette-name-base});
     --color-#{$color-family}-rgb: var(--color-#{$color-family}-#{$color-palette-name-base}-rgb);
-    --color-#{$color-family}-rgb-light: var(--color-#{$color-family}-#{$color-palette-name-base - 100}-rgb);
-    --color-#{$color-family}-rgb-dark: var(--color-#{$color-family}-#{$color-palette-name-base + 100}-rgb);
+    --color-#{$color-family}-rgb-light: var(
+      --color-#{$color-family}-#{$color-palette-name-base - 100}-rgb
+    );
+    --color-#{$color-family}-rgb-dark: var(
+      --color-#{$color-family}-#{$color-palette-name-base + 100}-rgb
+    );
   }
 }
 
-:root {
-  /** WHITE **/
-  --color-white: #FFFFFF;
-  --color-white-rgb: 255, 255, 255;
-
-  /** BLACK **/
-  --color-black: #000000;
-  --color-black-rgb: 0, 0, 0;
-
+:root[data-theme='dark'] {
   /** BACKGROUND **/
-  --background-color: #{$background-color};
-}
+  --background-color: #{$background-color--dark};
 
-:root[data-theme="dark"] {
-  /** BACKGROUND **/
-  --background-color: #{$background-color-dark};
+  --background-color-box: #{$background-color-box--dark};
 
-  @each $color-family, $colors in $color-palette {
-    --color-#{$color-family}: var(--color-#{$color-family}-#{$color-palette-name-base-dark});
-    --color-#{$color-family}-rgb: var(--color-#{$color-family}-#{$color-palette-name-base-dark}-rgb);
-    --color-#{$color-family}-rgb-light: var(--color-#{$color-family}-#{$color-palette-name-base-dark - 100}-rgb);
-    --color-#{$color-family}-rgb-dark: var(--color-#{$color-family}-#{$color-palette-name-base-dark + 100}-rgb);
+  @each $color-family, $colors in $color-palette--dark {
+    @each $color-name, $color in $colors {
+      --color-#{$color-family}-#{$color-name}-rgb: #{get-rgb-channels-from-hex($color)};
+    }
+
+    @each $color-name, $color in $colors {
+      --color-#{$color-family}-#{$color-name}: rgba(
+        var(--color-#{$color-family}-#{$color-name}-rgb),
+        var(--color-opacity)
+      );
+    }
+    --color-#{$color-family}: var(--color-#{$color-family}-#{$color-palette-name-base});
+    --color-#{$color-family}-rgb: var(--color-#{$color-family}-#{$color-palette-name-base}-rgb);
+    --color-#{$color-family}-rgb-light: var(
+      --color-#{$color-family}-#{$color-palette-name-base - 100}-rgb
+    );
+    --color-#{$color-family}-rgb-dark: var(
+      --color-#{$color-family}-#{$color-palette-name-base + 100}-rgb
+    );
   }
 }

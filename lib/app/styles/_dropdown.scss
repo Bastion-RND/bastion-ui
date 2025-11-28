@@ -3,12 +3,11 @@
 
 .dropdown {
   --border-color: var(--color-brand-200);
-  --background-color: white;
+  --background-color: var(--color-white);
   --color: var(--color-gray-700);
 
   position: relative;
   height: fit-content;
-  z-index: 100;
 
   &__label {
     --gap: 0.375rem;
@@ -150,7 +149,7 @@
 :root[data-theme="dark"] {
   .dropdown {
     --color: var(--color-gray-100);
-    --background-color: rgba(var(--color-gray-700-rgb), 0.6);;
+    --background-color: rgba(var(--color-gray-700-rgb), 0.6);
     --border-color: var(--color-brand-300);
 
     &:has(input:focus),

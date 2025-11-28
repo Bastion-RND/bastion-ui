@@ -1,15 +1,45 @@
-@use "sass:map";
-@use "mixins" as mixins;
-@use "color-palette" as colors;
-@use "globals" as globals;
+@use 'sass:map';
+@use 'mixins' as mixins;
+@use 'color-palette' as colors;
+@use 'globals' as globals;
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+$font-family: 0 !default;
+$font-weight: 400 !default;
+$font-weight--heading: 500 !default;
+
+@if ($font-family == 0) {
+  $font-weight: 400;
+  $font-weight--heading: 500;
+  $font-family: 'Roboto', sans-serif;
+  @font-face {
+    font-family: $font-family;
+    src:
+      url('/fonts/roboto/roboto-regular.ttf') format('ttf'),
+      url('/fonts/roboto/roboto-regular.woff2') format('woff2');
+    font-weight: $font-weight;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: $font-family;
+    src:
+      url('/fonts/roboto/roboto-medium.ttf') format('ttf'),
+      url('/fonts/roboto/roboto-medium.woff2') format('woff2');
+    font-weight: $font-weight--heading;
+    font-style: normal;
+    font-display: swap;
+  }
+}
 
 :root {
+  --font-family: #{$font-family};
+  --font-weight: #{$font-weight};
+  --font-weight--heading: #{$font-weight--heading};
   --text-color: black;
 }
 
-:root[data-theme="dark"] {
+:root[data-theme='dark'] {
   --text-color: var(--color-brand-25);
 }
 
@@ -19,7 +49,7 @@ html {
   --font-size-max: calc(var(--font-size) * 2);
   --font-size: calc(var(--font-size-base) * var(--font-size-accessible-multiplier));
 
-  &[data-accessible="true"] {
+  &[data-accessible='true'] {
     --font-size-accessible-multiplier: 1.25;
   }
 
@@ -29,19 +59,27 @@ html {
   }
 }
 
-html, body {
+html,
+body {
   font-size: var(--font-size);
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   --font-size-step: 0;
 
-  font-weight: 500;
+  font-weight: var(--font-weight--heading);
   margin-top: 0;
-  margin-bottom: .5em;
-  font-size: calc(var(--font-size) + (var(--font-size-max) - var(--font-size)) / 5 * var(--font-size-step));
+  margin-bottom: 0.5em;
+  font-size: calc(
+    var(--font-size) + (var(--font-size-max) - var(--font-size)) / 5 * var(--font-size-step)
+  );
 }
 
 h1 {
@@ -69,7 +107,9 @@ q {
 }
 
 body * {
-  font-size: calc(var(--font-size) + (var(--font-size-max) - var(--font-size)) / 5 * var(--font-size-step));
+  font-size: calc(
+    var(--font-size) + (var(--font-size-max) - var(--font-size)) / 5 * var(--font-size-step)
+  );
 }
 
 body {
@@ -78,7 +118,7 @@ body {
   line-height: 1.5;
 }
 
-:root[data-theme="dark"] {
+:root[data-theme='dark'] {
   body {
     --color-rgb: var(--color-white-rgb);
   }
@@ -97,7 +137,7 @@ blockquote {
 }
 
 blockquote:before {
-  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='auto' height='2em' viewBox='0 0 76 57' fill='rgb(#{colors.get-rgb-channels-from-hex(colors.$brand)})'%3E%3Cpath d='M0 30.354v-3.846L19.88 0h22.227L23.194 28.5 42.107 57H19.88zm35.273 0v-3.846L55.153 0H76L57.017 28.5 76 57H55.154z'/%3E%3C/svg%3E");
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='auto' height='2em' viewBox='0 0 76 57' fill='rgb(#{colors.get-rgb-channels-from-hex(colors.$color-brand)})'%3E%3Cpath d='M0 30.354v-3.846L19.88 0h22.227L23.194 28.5 42.107 57H19.88zm35.273 0v-3.846L55.153 0H76L57.017 28.5 76 57H55.154z'/%3E%3C/svg%3E");
   position: absolute;
   display: block;
   top: 0;
@@ -110,8 +150,8 @@ p {
   margin-bottom: 1em;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   blockquote:before {
-    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='auto' height='2em' viewBox='0 0 76 57' fill='rgb(#{colors.get-rgb-channels-from-hex(colors.$brand)})'%3E%3Cpath d='M0 30.354v-3.846L19.88 0h22.227L23.194 28.5 42.107 57H19.88zm35.273 0v-3.846L55.153 0H76L57.017 28.5 76 57H55.154z'/%3E%3C/svg%3E");
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='auto' height='2em' viewBox='0 0 76 57' fill='rgb(#{colors.get-rgb-channels-from-hex(colors.$color-brand)})'%3E%3Cpath d='M0 30.354v-3.846L19.88 0h22.227L23.194 28.5 42.107 57H19.88zm35.273 0v-3.846L55.153 0H76L57.017 28.5 76 57H55.154z'/%3E%3C/svg%3E");
   }
 }

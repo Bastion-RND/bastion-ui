@@ -27,14 +27,9 @@
 @use "popover";
 @use "footer";
 @use "header";
-@use "icon";
 @use "utility";
 @use 'action-sheet';
 @use 'grid';
-
-// TODO Переделать на локальные шрифты 400/500
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 html,
 body {

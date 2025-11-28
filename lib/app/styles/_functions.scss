@@ -1,10 +1,16 @@
+@use 'color-palette' as color-palette;
 @use 'sass:string';
+@use 'sass:math';
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:color';
 
 @function str-replace($string, $search, $replace: '') {
   $index: string.index($string, $search);
 
   @if $index {
-    @return string.slice($string, 1, $index - 1) + $replace + str-replace(string.slice($string, $index + string.length($search)), $search, $replace);
+    @return string.slice($string, 1, $index - 1) + $replace +
+      str-replace(string.slice($string, $index + string.length($search)), $search, $replace);
   }
 
   @return $string;
@@ -12,4 +18,43 @@
 
 @function encode-color($color) {
   @return str-replace($color, '#', '%23');
+}
+
+@function get-brightness-percent($color) {
+  @return math.div(
+      (color.channel($color, 'red', $space: rgb) * 0.299) +
+        (color.channel($color, 'green', $space: rgb) * 0.587) +
+        (color.channel($color, 'blue', $space: rgb) * 0.114),
+      255
+    ) *
+    100%;
+}
+
+@function is_brightness_light($color) {
+  @return get-brightness-percent($color) > 50%;
+}
+
+@function get-contrast-text-color($color) {
+  @if is_brightness_light($color) {
+    @return var(--color-black);
+  } @else {
+    @return var(--color-white);
+  }
+}
+
+@function get-mixed-color-by-palette-name($color, $color-palette-name) {
+  @if ($color-palette-name == 500) {
+    @return $color;
+  }
+
+  $mix-color: white;
+  @if ($color-palette-name > 500) {
+    $mix-color: black;
+  }
+
+  @return color.mix(
+    $color,
+    $mix-color,
+    map.get(color-palette.$color-palette-mix-percents, $color-palette-name)
+  );
 }

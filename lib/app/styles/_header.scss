@@ -1,5 +1,5 @@
 .header {
-  --background-color: var(--color-brand-500);
+  --background-color: var(--color-brand);
   --border-radius: var(--radius-medium);
 
   position: sticky;
@@ -15,7 +15,7 @@
   z-index: 1;
 
   &--gray {
-    --background-color: var(--color-gray-500);
+    --background-color: var(--color-gray);
   }
 
   &--floating {
@@ -36,15 +36,5 @@
     width: 100%;
     display: flex;
     align-items: center;
-  }
-}
-
-:root[data-theme="dark"] {
-  .header {
-    --background-color: var(--color-brand-600);
-
-    &--gray {
-      --background-color: var(--color-gray-600);
-    }
   }
 }

@@ -30,7 +30,7 @@ const App: FC = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [checked, setChecked] = useState(false);
   const [switchChecked, setSwitchChecked] = useState(false);
-  const {createToast} = useToast();
+  const { createToast } = useToast();
 
   return (
     <div
@@ -42,12 +42,16 @@ const App: FC = () => {
       }}
     >
       <BastHeader fluid className="p-1">
-        <div className="d-f jc-center ai-center">
+        <div className="d-f jc-between ai-center" style={{ flex: 1 }}>
           <p className="h3 m-0 ml-1">BastionUI</p>
+          <BastButton
+            onClick={toggleTheme}
+            color={theme === 'dark' ? 'white' : 'black'}
+            fill="outlined"
+          >
+            {theme}
+          </BastButton>
         </div>
-        <BastButton onClick={toggleTheme} color="white" fill="outlined">
-          {theme}
-        </BastButton>
       </BastHeader>
       <Container>
         <div>
@@ -56,32 +60,29 @@ const App: FC = () => {
             <BastGrid.Column size={{ default: 'auto' }}>
               <BastSwitch
                 checked={switchChecked}
-                onChange={({ target: { checked } }) => {setSwitchChecked(checked);}}
+                onChange={({ target: { checked } }) => {
+                  setSwitchChecked(checked);
+                }}
               />
             </BastGrid.Column>
             <BastGrid.Column size={{ default: 'auto' }}>Вкл.</BastGrid.Column>
           </BastGrid>
-          <BastAccordion
-            expanded
-            title="Accordion"
-          >
-            <div>
-              Any content
-            </div>
+          <BastAccordion expanded title="Accordion">
+            <div>Any content</div>
           </BastAccordion>
-          <BastSpinner height='4em' color='pink' />
+          <BastSpinner height="4em" color="pink" />
           <BastButton
             className="mr-1"
-            onClick={() => createToast({text: '1212', color: 'black', autoClose: false})}
-            color="brand"
+            onClick={() => createToast({ text: '1212', color: 'black', autoClose: false })}
+            color="danger"
           >
             filled
           </BastButton>
-          <BastSpinner height='2.5em' />
+          <BastSpinner height="2.5em" />
           <BastButton
             onClick={() => setActionSheetOpen((state) => !state)}
             fill="outlined"
-            color="brand"
+            color="warning"
           >
             outlined
           </BastButton>
@@ -117,9 +118,9 @@ const App: FC = () => {
           sit tempora voluptate! Aliquid atque consequuntur delectus dicta doloremque ea id officiis
           reprehenderit similique tempora! Fugiat impedit numquam sapiente. Aspernatur facere fugiat
           laborum quisquam, voluptas voluptate! Architecto assumenda aut autem commodi, consequatur
-          corporis cupiditate dolor
-          doloremque eos facilis illo incidunt magni modi natus, nesciunt nulla officia optio
-          placeat quae qui recusandae rerum similique soluta, tenetur ut vel veniam voluptate!
+          corporis cupiditate dolor doloremque eos facilis illo incidunt magni modi natus, nesciunt
+          nulla officia optio placeat quae qui recusandae rerum similique soluta, tenetur ut vel
+          veniam voluptate!
         </p>
         <p>
           Lorem ipsum dolor sit amet, <a href="http://google.com">consectetur</a> adipisicing elit.
@@ -157,7 +158,7 @@ const App: FC = () => {
             <BastListItem>test</BastListItem>
             <BastListItem>test</BastListItem>
           </BastList>
-          <BastCheck checked={false} label="Тест check" readOnly subLabel='test' />
+          <BastCheck checked={false} label="Тест check" readOnly subLabel="test" />
           <BastCheck
             checked={checked}
             label="Тест check"
@@ -227,9 +228,14 @@ const App: FC = () => {
         <BastModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
           <BastModal.Header>
             <BastModal.Icon color="brand">
-              <svg height="1em" width="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 105 105" fill="currentColor">
-                <path
-                  d="M64.72 24.398c.35 1.222.7 2.575 1.05 3.972 4.33 16.283 11.065 41.645 13.165 49.547.306 1.09-.7 2.095-1.837 1.833-3.106-.742-8.31-2.052-11.022-2.707-2.493-9.298-4.942-18.596-7.435-27.981-6.56 7.159-13.078 14.23-19.595 21.346-3.673-.917-7.347-1.79-11.021-2.706-1.137-.262-1.531-1.66-.744-2.532 12.465-13.62 24.887-27.109 37.44-40.772Zm0-7.64a7.67 7.67 0 0 0-5.642 2.489l-10.76 11.742-28.472 30.907c-1.837 2.008-2.45 4.802-1.706 7.377.787 2.576 2.887 4.584 5.511 5.195l11.547 2.837 1.968.48a8.792 8.792 0 0 0 1.837.219 7.67 7.67 0 0 0 5.642-2.488L54.792 64.47v.131l3.849 14.406a7.572 7.572 0 0 0 5.554 5.456l13.471 3.318c.613.175 1.225.218 1.881.218a7.55 7.55 0 0 0 5.423-2.27c3.106-3.099 2.58-5.15.525-12.746L81.952 59.67l-8.878-33.308-1.05-3.972a7.572 7.572 0 0 0-5.554-5.457 8.792 8.792 0 0 0-1.837-.218l.087.044Z"/>
+              <svg
+                height="1em"
+                width="auto"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 105 105"
+                fill="currentColor"
+              >
+                <path d="M64.72 24.398c.35 1.222.7 2.575 1.05 3.972 4.33 16.283 11.065 41.645 13.165 49.547.306 1.09-.7 2.095-1.837 1.833-3.106-.742-8.31-2.052-11.022-2.707-2.493-9.298-4.942-18.596-7.435-27.981-6.56 7.159-13.078 14.23-19.595 21.346-3.673-.917-7.347-1.79-11.021-2.706-1.137-.262-1.531-1.66-.744-2.532 12.465-13.62 24.887-27.109 37.44-40.772Zm0-7.64a7.67 7.67 0 0 0-5.642 2.489l-10.76 11.742-28.472 30.907c-1.837 2.008-2.45 4.802-1.706 7.377.787 2.576 2.887 4.584 5.511 5.195l11.547 2.837 1.968.48a8.792 8.792 0 0 0 1.837.219 7.67 7.67 0 0 0 5.642-2.488L54.792 64.47v.131l3.849 14.406a7.572 7.572 0 0 0 5.554 5.456l13.471 3.318c.613.175 1.225.218 1.881.218a7.55 7.55 0 0 0 5.423-2.27c3.106-3.099 2.58-5.15.525-12.746L81.952 59.67l-8.878-33.308-1.05-3.972a7.572 7.572 0 0 0-5.554-5.457 8.792 8.792 0 0 0-1.837-.218l.087.044Z" />
               </svg>
             </BastModal.Icon>
           </BastModal.Header>
@@ -244,7 +250,9 @@ const App: FC = () => {
             <BastButton expand>Согласен</BastButton>
           </BastModal.Footer>
         </BastModal>
-        <BastButton onClick={() => setIsDialogOpen(true)}>Открыть Dialog</BastButton>
+        <BastButton color="danger" onClick={() => setIsDialogOpen(true)}>
+          Открыть Dialog
+        </BastButton>
         <BastDialog
           isOpen={isDialogOpen}
           color="danger"
