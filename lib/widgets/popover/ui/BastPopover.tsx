@@ -2,11 +2,12 @@ import clsx from 'clsx';
 import { ComponentProps, FC, PropsWithChildren, ReactNode, useRef, useState } from 'react';
 import { usePopper } from 'react-popper';
 
-import { useDebounce , useOutsideClick } from '../../../shared/lib';
+import { useDebounce, useOutsideClick } from '../../../shared/lib';
 import { Portal } from '../../../shared/ui/portal';
 
 type TBastPopoverProps = PropsWithChildren<
   {
+    transparent?: boolean;
     trigger?: 'click' | 'hover';
     content: ReactNode;
     placement?:
@@ -38,6 +39,7 @@ const BastPopover: FC<TBastPopoverProps> = ({
   className,
   style,
   id,
+  transparent = false,
 }) => {
   const [isOpen, setOpen] = useState<boolean>(false);
   const isOpenDebounced = useDebounce(isOpen, ANIMATION_DELAY);
@@ -109,7 +111,11 @@ const BastPopover: FC<TBastPopoverProps> = ({
         <Portal>
           <div
             ref={contentWrapperRef}
-            className={clsx(['popover__content', isOpenDebounced && 'popover__content--open'])}
+            className={clsx([
+              'popover__content',
+              isOpenDebounced && 'popover__content--open',
+              transparent && 'popover__content--transparent',
+            ])}
             style={styles.popper}
             {...attributes.popper}
           >

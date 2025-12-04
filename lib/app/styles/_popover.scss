@@ -4,14 +4,15 @@
   position: relative;
 
   &__content {
-    --background-color: var(--color-gray-100);
+    --background-color-popover: var(--color-gray-100);
     --border-color: var(--color-gray-200);
 
     position: absolute;
     z-index: 101;
-    background-color: var(--background-color);
+    background-color: var(--background-color-popover);
     border-radius: var(--radius-small);
     border-color: var(--border-color);
+    overflow: hidden;
     border-width: 1px;
     border-style: solid;
     opacity: 0;
@@ -23,16 +24,12 @@
       opacity: 1;
       transform: translateY(0);
       pointer-events: auto;
-      animation: popover-animation .3s ease;;
+      animation: popover-animation 0.3s ease;
     }
-  }
-}
 
-:root[data-theme="dark"] {
-  .popover {
-    &__content {
-      --background-color: var(--color-gray-900);
-      --border-color: var(--color-gray-800);
+    &--transparent {
+      --background-color-popover: transparent;
+      --border-color: transparent;
     }
   }
 }
