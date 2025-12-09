@@ -47,6 +47,8 @@
     transition: var(--button-transition);
     font-weight: 500;
     width: 100%;
+    height: 100%;
+    line-height: 1;
 
     &:hover {
       --background-color: var(--color-brand-200);
