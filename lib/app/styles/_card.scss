@@ -16,6 +16,17 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  color: var(--color-text);
+
+  &--button {
+    text-align: start;
+    transition: 0.25s ease-in-out;
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--color-brand);
+    }
+  }
 
   &--gap {
     &-small {
