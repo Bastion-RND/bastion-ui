@@ -1,12 +1,12 @@
 .header {
-  --background-color-header: var(--color-brand);
+  --background-color: var(--color-brand);
   --border-radius: var(--radius-medium);
 
   position: sticky;
   top: 0;
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
-  background-color: var(--background-color-header);
+  background-color: var(--background-color);
   color: var(--color-white);
   padding: 1.185em 0;
   display: flex;
@@ -15,7 +15,7 @@
   z-index: 1;
 
   &--gray {
-    --background-color-header: var(--color-gray);
+    --background-color: var(--color-gray);
   }
 
   &--floating {
