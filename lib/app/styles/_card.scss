@@ -18,8 +18,9 @@
   overflow: hidden;
   color: var(--color-text);
 
-  &--button {
+  &[type="button"], &--link {
     text-align: start;
+    text-decoration: none;
     transition: 0.25s ease-in-out;
     &:hover,
     &:focus,

@@ -20,25 +20,33 @@ const BastCard: FC<TBastCardProps> & TBastCardStaticProps = ({
   gapType,
   radiusType,
   noShadow = false,
-  button = false,
   onClick,
+  to,
 }) => {
   const styleClasses = clsx([
     className,
     'card',
-    button && 'card--button',
     noShadow && 'card--no-shadow',
     gapType && `card--gap-${gapType}`,
+    to && 'card--link',
     radiusType && `card--radius-${radiusType}`,
   ]);
 
-  return button ? (
-    <button type="button" onClick={onClick} className={styleClasses}>
-      {children}
-    </button>
-  ) : (
-    <div className={styleClasses}>{children}</div>
-  );
+  if (onClick !== undefined && to === undefined)
+    return (
+      <button type="button" onClick={onClick} className={styleClasses}>
+        {children}
+      </button>
+    );
+
+  if (to !== undefined && onClick === undefined)
+    return (
+      <a href={to} className={styleClasses}>
+        {children}
+      </a>
+    );
+
+  return <div className={styleClasses}>{children}</div>;
 };
 
 BastCard.Title = BastCardTitle;

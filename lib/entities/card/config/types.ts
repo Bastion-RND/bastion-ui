@@ -20,13 +20,18 @@ export type BaseProps = {
 }
 
 export type TBastCardButtonProps = BaseProps & {
-  button: true,
+  to?: never,
   onClick: () => void,
 };
 
-export type TBastCardDivProps = BaseProps & {
-  button?: false,
-  onClick?: never,
-}
+export type TBastCardLinkProps = BaseProps & {
+  to: string;
+  onClick?: never;
+};
 
-export type TBastCardBaseProps = TBastCardButtonProps | TBastCardDivProps;
+export type TBastCardDivProps = BaseProps & {
+  to?: never;
+  onClick?: never;
+};
+
+export type TBastCardBaseProps = TBastCardButtonProps | TBastCardLinkProps | TBastCardDivProps;
