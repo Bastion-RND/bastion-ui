@@ -12,26 +12,19 @@ const RADIUS_SIZES = {
 
 export type RadiusSizes = (typeof RADIUS_SIZES)[keyof typeof RADIUS_SIZES];
 
-export type BaseProps = {
+export type TBastCardBaseProps = {
   className?: string;
   gapType?: GapSizes;
   noShadow?: boolean;
   radiusType?: RadiusSizes;
-}
+};
 
-export type TBastCardButtonProps = BaseProps & {
-  to?: never,
+type TBastCardButtonProps = TBastCardBaseProps & {
   onClick: () => void,
 };
 
-export type TBastCardLinkProps = BaseProps & {
-  to: string;
+type TBastCardDivProps = TBastCardBaseProps & {
   onClick?: never;
 };
 
-export type TBastCardDivProps = BaseProps & {
-  to?: never;
-  onClick?: never;
-};
-
-export type TBastCardBaseProps = TBastCardButtonProps | TBastCardLinkProps | TBastCardDivProps;
+export type TBastCardProps = TBastCardButtonProps | TBastCardDivProps;

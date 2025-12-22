@@ -1,5 +1,4 @@
 @use 'color-palette' as color-palette;
-@use 'functions' as functions;
 @use 'sass:map';
 
 .card {
@@ -18,10 +17,11 @@
   overflow: hidden;
   color: var(--color-text);
 
-  &[type="button"], &--link {
+  &[type="button"] {
     text-align: start;
     text-decoration: none;
-    transition: 0.25s ease-in-out;
+    transition: 0.25s color ease-in-out;
+
     &:hover,
     &:focus,
     &:active {
