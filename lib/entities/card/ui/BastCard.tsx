@@ -1,12 +1,10 @@
 import clsx from 'clsx';
 import { FC, PropsWithChildren } from 'react';
 
-import { TBastCardBaseProps } from '../config';
+import { TBastCardProps } from '../config';
 import { BastCardContent } from './BastCardContent';
 import { BastCardImage } from './BastCardImage';
 import { BastCardTitle } from './BastCardTitle';
-
-type TBastCardProps = TBastCardBaseProps & PropsWithChildren;
 
 type TBastCardStaticProps = {
   Title: typeof BastCardTitle;
@@ -14,30 +12,21 @@ type TBastCardStaticProps = {
   Content: typeof BastCardContent;
 };
 
-const BastCard: FC<TBastCardProps> & TBastCardStaticProps = ({
-  children,
-  className,
-  gapType,
-  radiusType,
-  noShadow = false,
-  button = false,
-  onClick,
-}) => {
+type TBastCard = FC<PropsWithChildren<TBastCardProps>> & TBastCardStaticProps;
+
+const BastCard: TBastCard = ({ className, gapType, radiusType, noShadow = false, ...props }) => {
   const styleClasses = clsx([
-    className,
     'card',
-    button && 'ta-s',
     noShadow && 'card--no-shadow',
     gapType && `card--gap-${gapType}`,
     radiusType && `card--radius-${radiusType}`,
+    className,
   ]);
 
-  return button ? (
-    <button type="button" onClick={onClick} className={styleClasses}>
-      {children}
-    </button>
+  return props.onClick === undefined ? (
+    <div className={styleClasses} {...props} />
   ) : (
-    <div className={styleClasses}>{children}</div>
+    <button type="button" className={styleClasses} {...props} />
   );
 };
 
