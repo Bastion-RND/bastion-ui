@@ -12,6 +12,8 @@
   width: 100%;
   height: fit-content;
   max-width: var(--max-width);
+  max-height: 100dvh;
+  overflow-y: hidden;
 
   &--auto {
     min-width: min(calc(100vw - (1.5rem * 2)), var(--max-width--min));
@@ -86,6 +88,7 @@
     padding: 1.5rem;
     color: var(--color);
     font-weight: 400;
+    overflow-y: auto;
   }
 
   &__icon {
