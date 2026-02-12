@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ComponentProps, FC } from 'react';
+import { ComponentProps, forwardRef } from 'react';
 
 import { TBastGridColumnBaseProps, TGridColumnName, TGridColumnSize } from '../config';
 
@@ -13,9 +13,12 @@ const getColumnClassesFromSize = (
     return result;
   }, []);
 
-const BastGridColumn: FC<TBastGridColumnProps> = ({ size, className, ...props }) => {
-  const cn: string[] = size !== undefined ? ['grid__column', ...getColumnClassesFromSize(size)] : ['grid__column'];
-  return <div className={`${clsx([...cn, className && className])}`} {...props} />;
-};
+const BastGridColumn = forwardRef<HTMLDivElement, TBastGridColumnProps>(
+  ({ size, className, ...props }, ref) => {
+    const cn: string[] =
+      size !== undefined ? ['grid__column', ...getColumnClassesFromSize(size)] : ['grid__column'];
+    return <div className={`${clsx([...cn, className && className])}`} {...props} ref={ref} />;
+  },
+);
 
 export { BastGridColumn };
