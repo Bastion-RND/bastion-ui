@@ -20,9 +20,16 @@ const BastInput = forwardRef<HTMLInputElement, IBastControl>(
   ({ className, value, onInput, debounce = 0, isValid, ...props }, ref) => {
     const [internalValue, setInternalValue] = useState<string>(value?.toString() ?? '');
 
+    const emitInput = useCallback(
+      (target: HTMLInputElement) => {
+        onInput?.({ target, currentTarget: target } as ChangeEvent<HTMLInputElement>);
+      },
+      [onInput],
+    );
+
     const debouncedChangeHandler = useCallback(
-      debounceFunction((e: ChangeEvent<HTMLInputElement>) => onInput?.(e), debounce),
-      [debounce],
+      debounceFunction((target: HTMLInputElement) => emitInput(target), debounce),
+      [debounce, emitInput],
     );
 
     useEffect(() => () => debouncedChangeHandler.clear(), [debouncedChangeHandler]);
@@ -32,8 +39,15 @@ const BastInput = forwardRef<HTMLInputElement, IBastControl>(
     }, [value]);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-      setInternalValue(e.target.value);
-      debouncedChangeHandler(e);
+      const target = e.currentTarget;
+
+      setInternalValue(target.value);
+
+      if (debounce > 0) {
+        debouncedChangeHandler(target);
+      } else {
+        emitInput(target);
+      }
     };
 
     const cls = clsx([
