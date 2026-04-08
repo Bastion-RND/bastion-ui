@@ -28,6 +28,7 @@
     "./sass/bastion-ui.scss": "./lib/app/styles/bastion-ui.scss",
     "./sass/color-palette.scss": "./lib/app/styles/_color-palette.scss",
     "./sass/typography.scss": "./lib/app/styles/_typography.scss",
+    "./sass/card.scss": "./lib/app/styles/_card.scss",
     "./sass/globals.scss": "./lib/app/styles/_globals.scss"
   },
   "module": "./dist/app/main.js",

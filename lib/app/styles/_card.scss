@@ -1,10 +1,14 @@
 @use 'color-palette' as color-palette;
 @use 'sass:map';
 
+$padding-vertical-rem: 2 !default;
+$padding-horizontal-rem: 2 !default;
+$border-radius-rem: 2.25 !default;
+
 .card {
-  --padding-vertical: 2.125rem;
-  --padding-horizontal: 1.875rem;
-  --border-radius: 2.25rem;
+  --padding-vertical: #{$padding-vertical-rem}rem;
+  --padding-horizontal: #{$padding-horizontal-rem}rem;
+  --border-radius: #{$border-radius-rem}rem;
   --box-shadow: 0 20px 24px -4px
     rgba(var(--color-gray-800-rgb), #{map.get(color-palette.$color-opacities-extended, 10)});
 
@@ -30,21 +34,21 @@
 
   &--gap {
     &-small {
-      --padding-vertical: 1.275rem;
-      --padding-horizontal: 0.975rem;
+      --padding-vertical: #{$padding-vertical-rem * 0.5}rem;
+      --padding-horizontal: #{$padding-horizontal-rem * 0.5}rem;
     }
     &-large {
-      --padding-vertical: 2.5rem;
-      --padding-horizontal: 2.25rem;
+      --padding-vertical: #{$padding-vertical-rem * 1.2}rem;
+      --padding-horizontal: #{$padding-horizontal-rem * 1.2}rem;
     }
   }
 
   &--radius {
     &-small {
-      --border-radius: 1.2rem;
+      --border-radius: #{$border-radius-rem * 0.5}rem;
     }
     &-large {
-      --border-radius: 2.75rem;
+      --border-radius: #{$border-radius-rem * 1.2}rem;
     }
   }
 
