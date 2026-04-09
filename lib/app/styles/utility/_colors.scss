@@ -27,3 +27,25 @@
     }
   }
 }
+
+.c {
+  &-text {
+    color: rgba(var(--color-black-rgb), var(--color-opacity)) !important;
+  }
+
+  &-text-secondary {
+    color: rgba(var(--color-black-secondary-rgb), var(--color-opacity)) !important;
+  }
+}
+
+:root[data-theme='dark'] {
+  .c {
+    &-text {
+      color: rgba(var(--color-white-rgb), var(--color-opacity)) !important;
+    }
+
+    &-text-secondary {
+      color: rgba(var(--color-white-secondary-rgb), var(--color-opacity)) !important;
+    }
+  }
+}

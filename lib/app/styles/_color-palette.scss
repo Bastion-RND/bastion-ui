@@ -9,6 +9,12 @@
   @return math.round($red), math.round($green), math.round($blue);
 }
 
+@function adjust-hex-lightness($color, $percent) {
+  $current-lightness: lightness($color);
+  $adjustment: $current-lightness * $percent / 100%;
+  @return change-color($color, $lightness: $current-lightness + $adjustment);
+}
+
 $color-opacities: (
   20: 0.2,
   40: 0.4,
@@ -42,6 +48,11 @@ $color-success--dark: 0 !default;
 
 $color-white: #fff !default;
 $color-black: #000 !default;
+
+$color-secondary-lightness-difference: 20%;
+
+$color-white--secondary: adjust-hex-lightness($color-white, $color-secondary-lightness-difference * -1);
+$color-black--secondary: adjust-hex-lightness($color-black, $color-secondary-lightness-difference);
 
 // background variables
 $background-color: var(--color-white) !default;
@@ -159,6 +170,12 @@ $color-palette--dark: ();
   /** BLACK **/
   --color-black: #{$color-black};
   --color-black-rgb: #{get-rgb-channels-from-hex($color-black)};
+
+  --color-white-secondary: #{$color-white--secondary};
+  --color-white-secondary-rgb: #{get-rgb-channels-from-hex($color-white--secondary)};
+
+  --color-black-secondary: #{$color-black--secondary};
+  --color-black-secondary-rgb: #{get-rgb-channels-from-hex($color-black--secondary)};
 
   /** BACKGROUND **/
   --background-color: #{$background-color};
