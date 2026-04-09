@@ -10,9 +10,9 @@
 }
 
 @function adjust-hex-lightness($color, $percent) {
-  $current-lightness: lightness($color);
-  $adjustment: $current-lightness * $percent / 100%;
-  @return change-color($color, $lightness: $current-lightness + $adjustment);
+  $current-lightness: color.channel($color, "lightness", $space: hsl);
+  $adjustment: math.div($current-lightness * $percent, 100%);
+  @return color.change($color, $lightness: $current-lightness + $adjustment);
 }
 
 $color-opacities: (
