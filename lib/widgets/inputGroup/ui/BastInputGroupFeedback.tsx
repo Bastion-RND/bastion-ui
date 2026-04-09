@@ -10,14 +10,16 @@ export const BastInputGroupFeedback: FC<IBastInputGroupFeedback> = ({
   className,
   feedbackType = 'info',
   ...props
-}) => (
-  <p
-    className={`bast-input-group__feedback ${clsx({
-      [`${className}`]: className,
-      [`feedback--${feedbackType}`]: feedbackType,
-    })}`}
-    {...props}
-  >
-    {children}
-  </p>
-);
+}) => {
+  const cls = clsx([
+    'bast-input-group__feedback',
+    feedbackType && `bast-input-group__feedback--${feedbackType}`,
+    className && className,
+  ]);
+
+  return (
+    <p className={cls} {...props}>
+      {children}
+    </p>
+  );
+};

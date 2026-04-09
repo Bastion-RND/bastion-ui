@@ -1,6 +1,10 @@
 {
   "name": "@bs-solutions/bastion-ui",
+  "version": "1.3.11",
   "description": "React components library",
+  "homepage": "https://github.com/Bastion-RND/bastion-ui#readme",
+  "type": "module",
+  "license": "MIT",
   "keywords": [
     "ui-kit",
     "bastion",
@@ -8,9 +12,6 @@
     "components",
     "react"
   ],
-  "author": "VladSolyony <solyonyvlad@gmail.com>",
-  "version": "1.3.11",
-  "type": "module",
   "files": [
     "dist"
   ],
@@ -18,22 +19,32 @@
     "type": "git",
     "url": "git+https://github.com/Bastion-RND/bastion-ui.git"
   },
-  "license": "MIT",
   "style": "dist/styles/bastion-ui.scss",
   "exports": {
     ".": {
       "import": "./dist/app/main.js"
     },
     "./bastion-ui.css": "./dist/styles/bastion-ui.css",
-    "./dist/styles/_globals.scss": "./dist/styles/_globals.scss"
+    "./sass/bastion-ui.scss": "./lib/app/styles/bastion-ui.scss",
+    "./sass/color-palette.scss": "./lib/app/styles/_color-palette.scss",
+    "./sass/typography.scss": "./lib/app/styles/_typography.scss",
+    "./sass/card.scss": "./lib/app/styles/_card.scss",
+    "./sass/globals.scss": "./lib/app/styles/_globals.scss"
   },
   "module": "./dist/app/main.js",
   "types": "./dist/app/main.d.ts",
   "sideEffects": [
     "**/*.scss"
   ],
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "bugs": {
+    "url": "https://github.com/Bastion-RND/bastion-ui/issues"
+  },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "prebuild": "del-cli dist -f",
     "build:css": "sass ./lib/app/styles:./dist/styles --no-source-map",
     "build": "tsc -b && vite build && npm run build:css",
@@ -91,15 +102,8 @@
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
   },
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
-  "bugs": {
-    "url": "https://github.com/Bastion-RND/bastion-ui/issues"
-  },
-  "homepage": "https://github.com/Bastion-RND/bastion-ui#readme",
   "dependencies": {
+    "motion": "^12.23.12",
     "react-popper": "^2.3.0"
   }
 }

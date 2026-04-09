@@ -33,7 +33,7 @@ const BastTabs: TBastTabs = ({
       currentTab: activeTab,
       setCurrentTab,
     }),
-    [disabled, currentTab],
+    [disabled, currentTab, activeTab],
   );
 
   return (

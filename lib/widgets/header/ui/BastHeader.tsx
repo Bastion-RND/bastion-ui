@@ -1,27 +1,22 @@
 import clsx from 'clsx';
-import { ComponentProps, FC } from 'react';
+import { ComponentProps, FC, ReactElement } from 'react';
 
-import { BastIcon } from '../../../entities/icon';
 import { Container } from '../../../shared/ui/container';
 
 const BastHeader: FC<
   Pick<ComponentProps<'header'>, 'style' | 'className' | 'children' | 'id'> & {
-    logo?: 'bast' | 'skat';
+    logo?: ReactElement;
     isFloating?: boolean;
     color?: 'brand' | 'gray';
+    fluid?: boolean;
   }
-> = ({ logo, className, children, color = 'brand', isFloating, ...props }) => (
+> = ({ logo, className, children, color = 'brand', isFloating, fluid, ...props }) => (
   <header
     className={`${clsx(['header', isFloating && 'header--floating', color === 'gray' && 'header--gray', className && className])}`}
     {...props}
   >
-    <Container>
-      {logo && (
-        <BastIcon
-          className={`${clsx(['header__logo', `header__logo--${logo}`])}`}
-          name={logo === 'skat' ? 'SkatLogoFull' : 'BastLogoFull'}
-        />
-      )}
+    <Container fluid={fluid} className='header__container'>
+      {logo && <span>{logo}</span>}
       <div className="header__content">{children}</div>
     </Container>
   </header>

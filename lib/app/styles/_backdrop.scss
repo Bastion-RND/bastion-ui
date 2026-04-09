@@ -3,19 +3,38 @@
 .backdrop {
   @include mixins.backdrop;
   opacity: 0;
-  animation: var(--backdrop-hide-animation);
+  animation: backdrop-hide-animation .3s ease-in-out forwards;
   pointer-events: none;
-  position: absolute;
+  position: fixed;
   width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
   display: grid;
   justify-items: center;
+  overflow: hidden;
 
   &--active {
     opacity: 1;
     pointer-events: visible;
-    animation: var(--backdrop-show-animation);
+    animation: backdrop-show-animation .3s ease-in-out forwards;
+  }
+}
+
+@keyframes backdrop-show-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes backdrop-hide-animation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }

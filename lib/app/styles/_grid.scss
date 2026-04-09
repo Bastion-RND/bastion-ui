@@ -1,0 +1,80 @@
+@use 'sass:list';
+@use "utility/spacing" as spacing;
+@use 'globals' as globals;
+
+.grid {
+  gap: var(--space);
+  display: flex;
+  flex-flow: wrap;
+
+  @each $space in spacing.$spaces {
+    $space-index: list.index(spacing.$spaces, $space);
+
+    @if $space != auto {
+      $space-index: $space-index - 1;
+
+      &--space {
+        &-#{$space-index} {
+          --space: #{$space};
+        }
+      }
+    }
+  }
+
+  &__column {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0;
+    width: 100%;
+    max-width: 100%;
+
+    &--size {
+      &-default {
+        @each $column_size in globals.$column_sizes {
+          &-#{$column_size} {
+            @if $column_size == 'grow' {
+            } @else if $column_size == 'auto' {
+              flex-grow: 0;
+              flex-shrink: 0;
+              flex-basis: auto;
+              width: auto;
+            } @else {
+              flex-grow: 0;
+              flex-shrink: 0;
+              flex-basis: auto;
+              width: calc((100% * #{$column_size} / 12) - (12 - #{$column_size}) * (var(--space) / 12));
+            }
+          }
+        }
+      }
+
+      @each $breakpoint_name, $breakpoint_value in globals.$breakpoints {
+        &-#{$breakpoint_name} {
+          @media (min-width: $breakpoint_value) {
+            @each $column_size in globals.$column_sizes {
+              &-#{$column_size} {
+                @if $column_size == 'grow' {
+                  flex-grow: 1;
+                  flex-shrink: 0;
+                  flex-basis: 0;
+                  width: 100%;
+                  max-width: 100%;
+                } @else if $column_size == 'auto' {
+                  flex-grow: 0;
+                  flex-shrink: 0;
+                  flex-basis: auto;
+                  width: auto;
+                } @else {
+                  flex-grow: 0;
+                  flex-shrink: 0;
+                  flex-basis: auto;
+                  width: calc((100% * #{$column_size} / 12) - (12 - #{$column_size}) * (var(--space) / 12));
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

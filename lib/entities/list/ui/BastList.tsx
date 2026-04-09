@@ -16,13 +16,14 @@ type TBastListStaticProps = {
 type TBastListProps = {
   className?: string;
   inset?: boolean;
+  hoverable?: boolean;
 };
 
 const BastList = forwardRef<HTMLUListElement, PropsWithChildren<TBastListProps>>(
-  ({ className, inset, ...props }, ref) => (
+  ({ className, inset, hoverable, ...props }, ref) => (
     <ul
       ref={ref}
-      className={`${clsx(['list', inset && 'list--inset', className && className])}`}
+      className={`${clsx(['list', inset && 'list--inset', hoverable && 'list--hoverable', className && className])}`}
       {...props}
     />
   ),

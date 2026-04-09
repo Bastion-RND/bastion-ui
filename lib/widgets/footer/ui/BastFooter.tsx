@@ -13,7 +13,7 @@ const BastFooter: FC<
     className={`${clsx(['footer', isFloating && 'footer--floating', color === 'gray' && 'footer--gray', className && className])}`}
     {...props}
   >
-    <Container>{children}</Container>
+    <Container className='footer__container'>{children}</Container>
   </footer>
 );
 

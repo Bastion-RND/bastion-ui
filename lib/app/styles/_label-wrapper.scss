@@ -1,0 +1,16 @@
+.label-wrapper {
+  display: flex;
+
+  &--disabled {
+    --text-color: var(--color-gray-200);
+  }
+
+  &--top {
+    flex-direction: column-reverse;
+    gap: 0.375rem;
+
+    .label {
+      padding-left: 0;
+    }
+  }
+}

@@ -9,8 +9,7 @@ const Backdrop: FC<TBackdropProps> = ({
   onDismiss,
 }) => (
   <div
-    tabIndex={0}
-    role="button"
+    role="presentation"
     onClick={onDismiss}
     className={`${clsx(['backdrop', show && 'backdrop--active'])}`}
     onKeyDown={(e) => {

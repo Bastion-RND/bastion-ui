@@ -1,3 +1,4 @@
+export * from './config/types';
 export { useToast } from './lib/useToast';
 export * from './model/ToastValueContext';
-export { BastToast, BastToastWithoutPortal } from './ui/BastToast';
+export { BastToasts, BastToastWithoutPortal } from './ui/BastToasts';

@@ -1,0 +1,11 @@
+.color-badge {
+    min-width: 30px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+td {
+    font-weight: 600;
+}

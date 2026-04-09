@@ -1,6 +1,7 @@
 import clsx from 'clsx';
-import { ComponentProps, ComponentType, FC, MouseEvent, PropsWithChildren } from 'react';
+import { ComponentProps, ComponentType, FC, MouseEvent, PropsWithChildren, useEffect } from 'react';
 
+import { modalOpen } from '../../../shared/lib/modalOpen';
 import { Backdrop } from '../../../shared/ui/backdrop';
 import { TWithPortalArgs, withPortal } from '../../../shared/ui/hocs';
 import type { TModalCardStaticProps } from '../../../shared/ui/modalCard';
@@ -27,6 +28,10 @@ const BastModalWithoutPortal: FC<TBastModalProps> = ({
     e.stopPropagation();
     onClose?.();
   };
+
+  useEffect(() => {
+    modalOpen(isOpen);
+  },[isOpen])
 
   return (
     <Backdrop show={isOpen} onDismiss={backdropDismiss ? onClose : undefined}>

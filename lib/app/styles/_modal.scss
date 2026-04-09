@@ -1,3 +1,5 @@
+@use "globals" as globals;
+
 .modal {
   position: relative;
   display: flex;
@@ -5,7 +7,7 @@
   align-self: center;
 
   &--active {
-    animation: var(--modal-card-animation);
+    animation: modal-card-animation 0.4s ease;
   }
 
   &__close-button {
@@ -14,7 +16,16 @@
     right: 1.5rem;
 
     svg {
-      color: var(--brand-color-600);
+      color: var(--color-brand-600);
     }
+  }
+}
+
+@keyframes modal-card-animation {
+  0% {
+    transform: translateY(20%);
+  }
+  100% {
+    transform: translateY(0);
   }
 }

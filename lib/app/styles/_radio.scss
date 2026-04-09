@@ -1,55 +1,102 @@
+@use "sass:map";
 @use "mixins" as mixins;
+@use "color-palette" as colors;
 
-.bast-radio {
-  -webkit-appearance: none;
+.bast-radio,
+input[type="radio"].bast-radio {
+  --border-color: var(--color-gray-300);
+  --outline-color: transparent;
+  --background-color: transparent;
+
   appearance: none;
-  font: inherit;
-  display: grid;
-  place-content: center;
+  -webkit-appearance: none;
+  cursor: pointer;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
   outline: {
     style: solid;
-    width: var(--radio-outline-width);
-    color: var(--radio-outline-color);
+    width: 3px;
+    color: var(--outline-color);
+    offset: 0;
   };
-  width: var(--radio-width);
-  min-width: var(--radio-width);
-  height: var(--radio-height);
-  min-height: var(--radio-height);
-  border: var(--radio-border-width) solid var(--radio-border-color);
-  border-radius: var(--radio-border-radius);
-  transition: var(--radio-outline-transition), var(--radio-border-transition);
-  background-color: var(--radio-background-color);
+  border: {
+    radius: 50%;
+    color: var(--border-color);
+    width: 2px;
+    style: solid;
+  }
+  width: 1.25rem;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  min-height: 1.25rem;
+  transition: outline-color 0.3s ease, border-color 0.3s ease;
+  background-color: var(--background-color);
+
+  &::before {
+    --background-color: var(--color-brand-600);
+
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: inherit;
+    transform: scale(0);
+    transition: 0.15s transform ease-in-out;
+    background-color: var(--background-color);
+  }
+
+  &:focus,
+  &:focus-visible {
+    --outline-color: rgba(var(--color-brand-100-rgb), #{map.get(colors.$color-opacities, 60)});
+    --border-color: var(--color-brand-300);
+  }
 
   &:checked {
-    background-color: var(--radio-background-color-checked);
+    --border-color: var(--color-brand-500);
+    &::before {
+      transform: scale(1);
+    }
   }
 
   &:disabled {
-    background-color: var(--radio-background-color-disabled);
+    --border-color: var(--color-gray);
+    --background-color: rgba(var(--color-gray-100-rgb), #{map.get(colors.$color-opacities, 40)});
+    cursor: default;
+    &::before {
+      --background-color: var(--color-gray);
+    }
   }
+}
 
-  &::before {
-    content: "";
-    width: var(--radio-mark-width);
-    height: var(--radio-mark-height);
-    border-radius: var(--radio-border-radius);
-    transform: scale(0);
-    transition: var(--radio-mark-transition);
-    background-color: var(--radio-mark-color);
-  }
+:root[data-theme="dark"] {
+  .bast-radio,
+  input[type="radio"].bast-radio {
+    --border-color: var(--color-gray-700);
 
-  &:disabled::before {
-    background-color: var(--radio-mark-color-disabled);
-  }
+    &::before {
+      --background-color: var(--color-brand-600);
+    }
 
-  &:checked::before {
-    transform: scale(1);
-  }
+    &:checked,
+    &:focus,
+    &:focus-visible {
+      --border-color: var(--color-brand-600);
+    }
 
-  &:focus, &:focus-visible {
-    background-color: var(--radio-background-color-focused);
-    border-color: var(--radio-border-color-focused);
-    outline-color: var(--radio-outline-color-focused);
-    outline-offset: 0;
+    &:disabled {
+      --border-color: var(--color-gray);
+      --background-color: rgba(var(--color-gray-200-rgb), #{map.get(colors.$color-opacities, 40)});
+
+      &::before {
+        --background-color: var(--color-gray);
+      }
+
+      &:checked,
+      &:focus,
+      &:focus-visible {
+        --border-color: var(--color-gray);
+      }
+    }
   }
 }

@@ -1,61 +1,99 @@
 .tabs {
+  --border-radius: 1rem;
+
   display: flex;
   width: fit-content;
   overflow: hidden;
+  padding: 0;
 
   &--round-all {
-    border-radius: var(--tabs-border-radius);
+    border-radius: var(--border-radius);
   }
 
   &--round-top {
-    border-radius: var(--tabs-border-radius) var(--tabs-border-radius) 0 0;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
   }
 
   &--round-bottom {
-    border-radius: 0 0 var(--tabs-border-radius) var(--tabs-border-radius);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
   }
 
   &--icon-only {
-    border-radius: var(--tabs-icon-only-radius);
+    --border-radius: 2.25rem;
+    border-radius: var(--border-radius);
   }
 
   &__item {
     list-style-type: none;
-
-    .tabs__button {
-      border-radius: 0;
-      outline: none;
-      transition: var(--button-transition);
-
-      &:hover {
-        color: var(--tabs-button-text-color-hover);
-        background-color: var(--tabs-button-background-color-hover);
-      }
-
-      &:active, &:focus-visible, &--selected {
-        color: var(--tabs-button-text-color-active);
-        background-color: var(--tabs-button-background-color-active);
-      }
-    }
+    flex-grow: 1;
   }
 
   &__button {
-    color: var(--tabs-button-text-color);
-    background-color: var(--tabs-button-background-color);
+    --background-color: var(--color-brand-100);
+    --color: var(--color-brand-500);
+    --padding-vertical: 1.125rem;
+    --padding-horizontal: 1rem;
+
+    color: var(--color);
+    background-color: var(--background-color);
     border: none;
-    padding: var(--tabs-item-vertical-padding) var(--tabs-item-horizontal-padding);
+    padding: var(--padding-vertical) var(--padding-horizontal);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    border-radius: 0;
+    outline: none;
+    transition: var(--button-transition);
+    font-weight: 500;
+    width: 100%;
+    height: 100%;
+    line-height: 1;
 
-  }
+    &:hover {
+      --background-color: var(--color-brand-200);
+      --color: var(--color-brand-500);
+    }
 
-  button:disabled.tabs__button {
-    &, &:hover {
+    &:active,
+    &:focus-visible,
+    &--selected {
+      --background-color: var(--color-brand-300);
+      --color: var(--color-white);
+    }
+
+    &[disabled] {
+      --background-color: var(--color-gray-100);
+      --color: var(--color-gray-700);
       cursor: default;
-      background-color: var(--tabs-button-background-color-disabled);
-      color: var(--tabs-button-text-color-disabled);
+    }
+  }
+}
+
+
+:root[data-theme="dark"] {
+  .tabs {
+    &__button {
+      --background-color: var(--color-brand-500);
+      --color: var(--color-white);
+
+      &:hover {
+        --background-color: var(--color-brand-600);
+        --color: var(--color-brand-100);
+      }
+
+      &:active,
+      &:focus-visible,
+      &--selected {
+        --background-color: var(--color-brand-700);
+        --color: var(--color-brand-200);
+      }
+
+      &[disabled] {
+        --background-color: var(--color-gray-600);
+        --color: var(--color-gray-700);
+        cursor: default;
+      }
     }
   }
 }
