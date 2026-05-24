@@ -1,58 +1,63 @@
-# bastion-ui
+# @bs-solutions/bastion-ui-v2
 
-This component library is designed for use in building user interfaces for applications within the Bastion ecosystem.
+Cross-platform UI библиотека на базе [shadcn/ui](https://ui.shadcn.com/) (web) и [react-native-reusables](https://github.com/mrzachnugent/react-native-reusables) (native).
 
-## Documentation
-
-- [Installation](#installation)
-- [Initialization](#initialization)
-- [Maintainer](#maintainer)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Installation
-
-To install, run the following command:
+## Установка
 
 ```sh
-npm i @bs-solutions/bastion-ui
+npm install @bs-solutions/bastion-ui-v2
 ```
 
+### React Native / Expo
 
-## Initialization
+Дополнительно установить нативные примитивы:
 
-To use the project, follow these steps:
-
-- import the styles file at the root of your application.
-```js
-// root file
-import '@bs-solutions/bastion-ui/bastion-ui.css';
+```sh
+npm install @rn-primitives/accordion @rn-primitives/checkbox @rn-primitives/dialog @rn-primitives/dropdown-menu @rn-primitives/label @rn-primitives/popover @rn-primitives/progress @rn-primitives/radio-group @rn-primitives/select @rn-primitives/separator @rn-primitives/slot @rn-primitives/switch @rn-primitives/tabs
 ```
-- wrap the entire application in the `BastUiProvider`.
-```js
-// root file
-<BastUiProvider>
+
+## Подключение стилей
+
+### Web
+
+В корневом CSS файле:
+
+```css
+@import '@bs-solutions/bastion-ui-v2/globals.css';
+```
+
+### React Native
+
+Обернуть корневой компонент:
+
+```tsx
+import { lightTheme, darkTheme } from '@bs-solutions/bastion-ui-v2';
+import { useColorScheme } from 'react-native';
+
+const colorScheme = useColorScheme();
+
+<View style={colorScheme === 'dark' ? darkTheme : lightTheme}>
   <App />
-</BastUiProvider>
-```
-- if `sass` is installed in your project, use the global `bastion-ui` variables in your `.scss` or `.sass` files like in example bellow.
-
-```scss
-@use "@bs-solutions/bastion-ui/dist/styles/_globals.scss" as bs-globals;
-
-@media (width >= bs-globals.$xl) {
-  margin-top: 0;
-}
+</View>
 ```
 
-## Maintainer
+## Подключение Tailwind
 
-[@VladSolyony](https://github.com/VladSolyony)
+```ts
+// tailwind.config.ts
+import bastionPreset from '@bs-solutions/bastion-ui-v2/tailwind-preset';
 
-## Contributing
+export default {
+  presets: [bastionPreset],
+  content: [
+    './src/**/*.{ts,tsx}',
+    './node_modules/@bs-solutions/bastion-ui-v2/src/**/*.{ts,tsx}',
+  ],
+};
+```
 
-Please contribute! [Look at the issues](https://github.com/Bastion-RND/bastion-ui/issues).
+## Использование
 
-## License
-
-MIT © 2025
+```tsx
+import { Button, Text, Input } from '@bs-solutions/bastion-ui-v2';
+```

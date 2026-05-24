@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "declarationMap": false,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "noEmitOnError": false,
+    "jsx": "react-native"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

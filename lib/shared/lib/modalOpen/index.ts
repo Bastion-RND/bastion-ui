@@ -1,1 +1,0 @@
-export { modalOpen } from './modalOpen'

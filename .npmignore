@@ -1,0 +1,10 @@
+node_modules/
+scripts/
+*.test.tsx
+*.test.ts
+*.spec.tsx
+*.spec.ts
+tsconfig*.json
+tailwind.config.ts
+components.json
+.gitignore

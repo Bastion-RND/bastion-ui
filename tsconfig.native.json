@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react-native",
+    "lib": ["ES2020"],
+    "types": []
+  },
+  "include": [
+    "src/**/*.native.tsx",
+    "src/**/*.native.ts",
+    "src/lib/cn.native.ts",
+    "src/styles/globals.native.ts"
+  ]
+}
