@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Depth 2)",
+      "Bash(Select-Object -First 50)",
+      "Bash(xargs grep -l \"box-shadow\\\\|text-shadow\\\\|border-radius\")",
+      "Bash(xargs grep -l \"color\\\\|token\\\\|theme\")"
+    ]
+  }
+}
